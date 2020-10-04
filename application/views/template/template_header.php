@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <link rel="icon" href="<?php echo base_url('assets/')?>img/favicon.png" type="image/png" />
-    <title>Edustage Education</title>
+    <title>Arsi Atma</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/bootstrap.css" />
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/flaticon.css" />
@@ -38,8 +38,7 @@
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <a class="navbar-brand logo_h" href="index.html"
-              ><img src="<?php echo base_url('assets/')?>img/logo.png" alt=""
-            /></a>
+              ><h2>Arsitektur Atma Jaya</h2></a>
             <button
               class="navbar-toggler"
               type="button"
@@ -59,11 +58,11 @@
             >
               <ul class="nav navbar-nav menu_nav ml-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home</a>
+                  <a class="nav-link" href="<?php echo site_url('Home')?>">HOME</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true"
-                    aria-expanded="false">HIMA &nbsp;<i class="fas fa-caret-down " style="color:white;"></i></a>
+                    aria-expanded="false">HIMA &nbsp;</a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Deskripsi</a></li>
                     <li><a class="dropdown-item" href="#">Informasi</a></li>
@@ -98,7 +97,7 @@
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    >Universitas</a
+                    >UNIVERSITAS</a
                   >
                   <ul class="dropdown-menu">
                     <li class="nav-item">
@@ -119,7 +118,7 @@
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    >Fakultas</a
+                    >FAKULTAS</a
                   >
                   <ul class="dropdown-menu">
                     <li class="nav-item">
@@ -154,13 +153,13 @@
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Portofolio</a>
+                  <a class="nav-link" href="contact.html">UMUM</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Portofolio</a>
+                  <a class="nav-link" href="contact.html">PORTOFOLIO</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Login</a>
+                  <a class="nav-link" href="contact.html">LOGIN</a>
                 </li>
                 
               </ul>
@@ -170,4 +169,3 @@
       </div>
     </header>
 
-   
