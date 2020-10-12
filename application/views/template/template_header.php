@@ -5,13 +5,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <link rel="icon" href="<?php echo base_url('assets/')?>img/favicon.png" type="image/png" />
-    <title>Edustage Education</title>
+    <title>Arsi Atma</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/bootstrap.css" />
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/flaticon.css" />
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/themify-icons.css" />
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>vendors/owl-carousel/owl.carousel.min.css" />
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>vendors/nice-select/css/nice-select.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
     <!-- main css -->
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/style.css" />
 </head>
@@ -35,8 +38,7 @@
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <a class="navbar-brand logo_h" href="index.html"
-              ><img src="<?php echo base_url('assets/')?>img/logo.png" alt=""
-            /></a>
+              ><h2>Arsitektur Atma Jaya</h2></a>
             <button
               class="navbar-toggler"
               type="button"
@@ -56,29 +58,57 @@
             >
               <ul class="nav navbar-nav menu_nav ml-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home</a>
+                  <a class="nav-link" href="<?php echo site_url('Home')?>">HOME</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about-us.html">About</a>
-                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false">HIMA &nbsp;</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Deskripsi</a></li>
+                    <li><a class="dropdown-item" href="#">Informasi</a></li>
+                    <li><a class="dropdown-item" href="#">Organisasi &nbsp;<i class="fas fa-caret-down" style="color:black;"></i></a>
+                      <ul class="submenu dropdown-menu">
+                          <li><a class="dropdown-item" href="">PH+CP</a></li>
+                          <li><a class="dropdown-item" href="">BIRO <i class="fas fa-caret-down"></i></a>
+                            <ul class="submenu dropdown-menu">
+                              <li><a class="dropdown-item" href="">BIRO 1</a></li>
+                              <li><a class="dropdown-item" href="">BIRO 2</a></li>
+                              <li><a class="dropdown-item" href="">BIRO 3</a></li>
+                              <li><a class="dropdown-item" href="">BIRO 4</a></li>
+                              <li><a class="dropdown-item" href="">BIRO 5</a></li>
+                              <li><a class="dropdown-item" href="">BIRO 6</a></li>
+                              <li><a class="dropdown-item" href="">BIRO 7</a></li>
+                              <li><a class="dropdown-item" href="">BIRO 9</a></li>
+                              <li><a class="dropdown-item" href="">BIRO 10</a></li>
+                              <li><a class="dropdown-item" href="">BIRO 11</a></li>
+                              <li><a class="dropdown-item" href="">BIRO 12</a></li>
+                            </ul>
+                          </li>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+              </li>
                 <li class="nav-item submenu dropdown">
-                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"role="button"aria-expanded="false"aria-haspopup="true">
-                    HIMA</a>
-                    <ul class="dropdown-menu">
-                        <li class="nav-item">
-                           <a href="" class="nav-link dropdown-toggle">Biro</a>
-                           <ul>
-                               
-                           </ul>                 
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="course-details.html">
-                            Course Details</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="elements.html">Elements</a>
-                        </li>
-                    </ul>
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    >UNIVERSITAS</a
+                  >
+                  <ul class="dropdown-menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="single-blog.html"
+                        >Blog Details</a
+                      >
+                    </li>
+                  </ul>
                 </li>
                 <li class="nav-item submenu dropdown">
                   <a
@@ -88,7 +118,28 @@
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    >Blog</a
+                    >FAKULTAS</a
+                  >
+                  <ul class="dropdown-menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="single-blog.html"
+                        >Blog Details</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item submenu dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    >PAMIY</a
                   >
                   <ul class="dropdown-menu">
                     <li class="nav-item">
@@ -102,13 +153,15 @@
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact</a>
+                  <a class="nav-link" href="contact.html">UMUM</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link search" id="search">
-                    <i class="ti-search"></i>
-                  </a>
+                  <a class="nav-link" href="contact.html">PORTOFOLIO</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">LOGIN</a>
+                </li>
+                
               </ul>
             </div>
           </div>
@@ -116,4 +169,3 @@
       </div>
     </header>
 
-   

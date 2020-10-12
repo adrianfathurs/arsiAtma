@@ -14,7 +14,7 @@
     }
     ?>
 
-<!-- Syntac Load CSS Content -->
+<!-- Syntac Load content Content -->
 <?php
     if(isset($content))
     {
@@ -22,7 +22,9 @@
     }
     ?>
 
-<!-- Syntac Load CSS Footer -->
+
+
+<!-- Syntac Load  Footer -->
 <?php
     if(isset($footer))
     {
