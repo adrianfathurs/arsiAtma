@@ -5,104 +5,59 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Login Page</title>
-   <!--Made with love by Mutiullah Samim -->
-   
-	<!--Bootsrap 4 CDN-->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
-    <!--Fontawesome CDN-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
-	<!--Custom styles-->
-	<link rel="stylesheet" type="text/css" href="styles.css">
+<head>
+	<title>My Awesome Login Page</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 </head>
+<!--Coded with love by Mutiullah Samim-->
 <body>
-<div class="container">
-	<div class="d-flex justify-content-center h-100">
-		<div class="card">
-			<div class="card-header">
-				<h3>Sign In</h3>
-				<div class="d-flex justify-content-end social_icon">
-					<span><i class="fab fa-facebook-square"></i></span>
-					<span><i class="fab fa-google-plus-square"></i></span>
-					<span><i class="fab fa-twitter-square"></i></span>
-				</div>
-			</div>
-			<div class="card-body">
-				<form>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="username">
-						
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<input type="password" class="form-control" placeholder="password">
-					</div>
-					<div class="row align-items-center remember">
-						<input type="checkbox">Remember Me
-					</div>
-					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn">
-					</div>
-				</form>
-			</div>
-			<div class="card-footer">
-				<div class="d-flex justify-content-center links">
-                    Don't have an account?<li data-toggle="modal" data-target="#mydaftar"><a href="#">Daftar</a></li>
-				</div>
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
 				<div class="d-flex justify-content-center">
-					<a href="#">Forgot your password?</a>
+					<div class="brand_logo_container">
+						<img src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-png-transparent.png" class="brand_logo" alt="Logo">
+					</div>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+					<form>
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="text" name="" class="form-control input_user" value="" placeholder="username">
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" name="" class="form-control input_pass" value="" placeholder="password">
+						</div>
+						<div class="form-group">
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" id="customControlInline">
+								<label class="custom-control-label" for="customControlInline">Remember me</label>
+							</div>
+						</div>
+							<div class="d-flex justify-content-center mt-3 login_container">
+				 	<button type="button" name="button" class="btn login_btn">Login</button>
+				   </div>
+					</form>
+				</div>
+		
+				<div class="mt-4">
+					<div class="d-flex justify-content-center links">
+						Don't have an account? <a href="#" class="ml-2">Sign Up</a>
+					</div>
+					<div class="d-flex justify-content-center links">
+						<a href="#">Forgot your password?</a>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-
-<!-- Modal daftar -->
-<div id="mydaftar" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Pendaftaran Sekolah</h4>
-      </div>
-      <div class="modal-body">
-        <form>
- 		  <div class="form-group">
-		    <label for="exampleInputEmail1">Fullname</label>
-		    <input type="text" class="form-control" id="Fullname" placeholder="Fullname">
-		  </div>
-		  <div class="form-group">
-		    <label for="exampleInputEmail1">Username</label>
-		    <input type="text" class="form-control" id="username" placeholder="Username">
-		  </div>
-		  <div class="form-group">
-		    <label for="exampleInputEmail1">Email address</label>
-		    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-		  </div>
-		  <div class="form-group">
-		    <label for="exampleInputPassword1">Password</label>
-		    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-		  </div>
-		</form>
-      </div>
-      <div class="modal-footer">
-      	<button type="button" class="btn btn-success" data-dismiss="modal">Daftar</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end modal daftar -->
-
 </body>
 </html>
