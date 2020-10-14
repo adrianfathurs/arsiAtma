@@ -60,7 +60,33 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="<?php echo site_url('Home')?>">HOME</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item submenu dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    >HIMA</a
+                  >
+                  <ul class="dropdown-menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="blog.html">TENTANG HIMA</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="single-blog.html"
+                        >ORGANISASI</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="single-blog.html"
+                        >INFORMASI</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+               <!--  <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true"
                     aria-expanded="false">HIMA &nbsp;</a>
                   <ul class="dropdown-menu">
@@ -88,7 +114,7 @@
                       </ul>
                     </li>
                   </ul>
-              </li>
+              </li> -->
                 <li class="nav-item submenu dropdown">
                   <a
                     href="#"
