@@ -1720,7 +1720,13 @@ button:focus {
 
 .blog_right_sidebar {
 	background: #f1f9ff;
-	padding: 30px;
+	padding: 10px;
+}
+
+aside iframe#instagram-embed-0 {
+	min-height: 150px;
+	max-height: 352px;
+	max-width: 300px;
 }
 
 @media (max-width: 991px) {

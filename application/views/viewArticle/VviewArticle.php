@@ -9,19 +9,18 @@
                                 <img class="img-fluid" src="<?php echo base_url('assets/')?>img/blog/feature-img1.jpg" alt="">
                             </div>
                         </div>
+
                         <div class="col-lg-3  col-md-3">
                             <div class="blog_info text-right">
-                                <div class="post_tag">
+                                <!-- <div class="post_tag">
                                     <a href="#">Food,</a>
                                     <a class="active" href="#">Technology,</a>
                                     <a href="#">Politics,</a>
                                     <a href="#">Lifestyle</a>
-                                </div>
+                                </div> -->
                                 <ul class="blog_meta list">
                                     <li><a href="#">Mark wiens<i class="ti-user"></i></a></li>
                                     <li><a href="#">12 Dec, 2017<i class="ti-calendar"></i></a></li>
-                                    <li><a href="#">1.2M Views<i class="ti-eye"></i></a></li>
-                                    <li><a href="#">06 Comments<i class="ti-comment"></i></a></li>
                                 </ul>
                                 <ul class="social-links">
                                     <li><a href="#"><i class="ti-facebook"></i></a></li>
@@ -30,7 +29,7 @@
                                     <li><a href="#"><i class="ti-linkedin"></i></a></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> 
                         <div class="col-lg-9 col-md-9 blog_details">
                             <h2>Astronomy Binoculars A Great Alternative</h2>
                             <p class="excert">
@@ -61,12 +60,12 @@
                                 actually sit through a self-imposed MCSE training.
                             </div>
                             <div class="row">
-                                <div class="col-6">
+                                <!-- <div class="col-6">
                                     <img class="img-fluid" src="<?php echo base_url('assets/')?>img/blog/post-img1.jpg" alt="">
                                 </div>
                                 <div class="col-6">
                                     <img class="img-fluid" src="<?php echo base_url('assets/')?>img/blog/post-img2.jpg" alt="">
-                                </div>
+                                </div>  -->
                                 <div class="col-lg-12 mt-25">
                                     <p>
                                         MCSE boot camps have its supporters and its detractors. Some people do not
@@ -116,7 +115,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="comments-area">
+                    <!-- <div class="comments-area">
                         <h4>05 Comments</h4>
                         <div class="comment-list">
                             <div class="single-comment justify-content-between d-flex">
@@ -213,8 +212,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="comment-form">
+                    </div> -->
+        <!--BISA DIPAKAI UNTUK SARAN DAN MASUKAN  -->
+                    <!-- <div class="comment-form">
                         <h4>Leave a Reply</h4>
                         <form>
                             <div class="form-group form-inline">
@@ -237,7 +237,7 @@
                             </div>
                             <a href="#" class="primary-btn">Post Comment</a>
                         </form>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- Syntac Load asidebar Content -->
                 <?php
