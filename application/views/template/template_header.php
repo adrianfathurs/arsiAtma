@@ -73,7 +73,7 @@
                   >
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="blog.html">TENTANG HIMA</a>
+                      <a class="nav-link" href="<?php echo base_url('')?>hima/">TENTANG HIMA</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="single-blog.html"
