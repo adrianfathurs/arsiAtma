@@ -10,7 +10,7 @@
               <li><a href="#">Marketing Service</a></li>
             </ul>
           </div>
-          <div class="col-lg-2 col-md-6 single-footer-widget">
+          <div class="col-lg-4 col-md-6 single-footer-widget">
             <h4>Quick Links</h4>
             <ul>
               <li><a href="#">Jobs</a></li>
@@ -19,15 +19,7 @@
               <li><a href="#">Terms of Service</a></li>
             </ul>
           </div>
-          <div class="col-lg-2 col-md-6 single-footer-widget">
-            <h4>Features</h4>
-            <ul>
-              <li><a href="#">Jobs</a></li>
-              <li><a href="#">Brand Assets</a></li>
-              <li><a href="#">Investor Relations</a></li>
-              <li><a href="#">Terms of Service</a></li>
-            </ul>
-          </div>
+          
           <div class="col-lg-2 col-md-6 single-footer-widget">
             <h4>Resources</h4>
             <ul>
@@ -38,7 +30,14 @@
             </ul>
           </div>
           <div class="col-lg-4 col-md-6 single-footer-widget">
-            <h4>Newsletter</h4>
+            <h4>HIMPUNAN ARSITEK ATMA JAYA</h4>
+            <ul>
+              <li><a href="https://goo.gl/maps/8yMrp47petHuxA6v6" target="_blank"><p><b>Alamat </b>: Jl. Babarsari No.44, Janti, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281</p></a></li>
+              <li><a href="#">Research</a></li>
+              <li><a href="#">Experts</a></li>
+              <li><a href="#">Agencies</a></li>
+            </ul>
+            
             <p>You can trust us. we only send promo offers,</p>
             <div class="form-wrap" id="mc_embed_signup">
               <form
