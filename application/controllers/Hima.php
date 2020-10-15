@@ -12,7 +12,7 @@ class Hima extends CI_Controller
         $data['header']="template/template_header.php";
         $data['css']="hima/vhima_css.php";
         $data['content']="home/vhomePage.php";
-        
+        $data['asidebar']="viewArticle/VviewAsidebar.php";
         $data['footer']="template/template_footer.php";
         $data['content']="hima/vhima.php";        
 
