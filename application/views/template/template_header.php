@@ -183,7 +183,7 @@
                   <a class="nav-link" href="contact.html">UMUM</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">PORTOFOLIO</a>
+                  <a class="nav-link" href="<?php echo site_url('Portofolio')?>">PORTOFOLIO</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" data-toggle="modal" data-target="#myModal" href="#">LOGIN</a>
