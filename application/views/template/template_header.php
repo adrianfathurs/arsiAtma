@@ -186,8 +186,26 @@
                   <a class="nav-link" href="<?php echo site_url('Portofolio')?>">PORTOFOLIO</a>
                 </li>
                 <li class="nav-item">
+                <?php if(empty($id)){ ?>
                   <a class="nav-link" data-toggle="modal" data-target="#myModal" href="#">LOGIN</a>
-                  
+                <?php } else { ?>
+                  <li class="nav-item submenu dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    ><?php echo $username ?></a
+                  >
+                  <ul class="dropdown-menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="<?php echo site_url('Reg/logout')?>">LogOut</a>
+                    </li>                  
+                  </ul>
+                </li>
+                <?php } ?>
                 </li>
                 
               </ul>
