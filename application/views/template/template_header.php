@@ -81,7 +81,7 @@
                       >
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="single-blog.html"
+                      <a class="nav-link" href="<?php echo site_url('Portofolio')?>"
                         >INFORMASI</a
                       >
                     </li>
@@ -189,8 +189,25 @@
                   <a class="nav-link" href="<?php echo site_url('Saran')?>">Saran/Masukan</a>
                 </li>
                 <li class="nav-item">
+                <?php if(empty($id)) { ?>
                   <a class="nav-link" data-toggle="modal" data-target="#myModal" href="#">LOGIN</a>
-                  
+                <?php } else { ?>
+                  <li class="nav-item submenu dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    ><?php echo $username ?></a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="<?php echo site_url('Reg/logout')?>">LogOut</a>
+                    </li>                  
+                  </ul>
+                </li>
+                <?php } ?>
                 </li>
                 
               </ul>
@@ -208,51 +225,52 @@
                   <div class="modal-content ">
                   <div class="modal-body">
                     
-                      <div class="">
-                        <div class="d-flex justify-content-center h-100">
-                          <div class="user_card">
-                            <div class="d-flex justify-content-center">
-                              <div class="brand_logo_container">
-                                <img src="<?php echo base_url('assets/')?>img/logo.jpg" class="brand_logo" alt="Logo">
-                              </div>
-                            </div>
-                            <div class="d-flex justify-content-center form_container">
-                              <form>
-                                <div class="input-group mb-3">
-                                  <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                  </div>
-                                  <input type="text" name="" class="form-control input_user" value="" placeholder="username">
-                                </div>
-                                <div class="input-group mb-2">
-                                  <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                  </div>
-                                  <input type="password" name="" class="form-control input_pass" value="" placeholder="password">
-                                </div>
-                                <div class="form-group">
-                                  <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                    <label class="custom-control-label" for="customControlInline">Remember me</label>
-                                  </div>
-                                </div>
-                                  <div class="d-flex justify-content-center mt-3 login_container">
-                              <button type="button" name="button" class="btn login_btn">Login</button>
-                              </div>
-                              </form>
-                            </div>
-                        
-                            <div class="mt-4">
-                              <div class="d-flex justify-content-center links">
-                                Don't have an account? <a href="<?php echo base_url('')?>Reg/" class="ml-2">Sign Up</a>
-                              </div>
-                              <div class="d-flex justify-content-center links">
-                                <a href="<?php echo base_url('')?>Reg/forgot/">Forgot your password?</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+  <div class="">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+					<div class="brand_logo_container">
+						<img src="<?php echo base_url('assets/')?>img/logo.jpg" class="brand_logo" alt="Logo">
+					</div>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+        <form action="<?php echo site_url('Reg/auth')?>" method="post">
+          <div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="text" name="username" class="form-control input_user" value="" placeholder="username">
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" name="pass" class="form-control input_pass" value="" placeholder="password">
+						</div>
+						<div class="form-group">
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" id="customControlInline">
+								<label class="custom-control-label" for="customControlInline">Remember me</label>
+							</div>
+						</div>
+							<div class="d-flex justify-content-center mt-3 login_container">
+				 	  <button type="submit" name="button" class="btn login_btn">Login</button>
+            <input type="text" hidden id="submit" name="submit" value="submit">
+				   </div>
+					</form>
+				</div>
+		
+				<div class="mt-4">
+					<div class="d-flex justify-content-center links">
+						Don't have an account? <a href="<?php echo base_url('')?>Reg/" class="ml-2">Sign Up</a>
+					</div>
+					<div class="d-flex justify-content-center links">
+						<a href="<?php echo base_url('')?>Reg/forgot/">Forgot your password?</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
                      </form>
                 </div>
               </div>

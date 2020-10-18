@@ -23,54 +23,75 @@
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">
-					<form>
+				<form action="<?php echo site_url('Reg/insert')?>" method="post">
 						<?php if($data != "forgot"){ ?>
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="" class="form-control input_user" value="" placeholder="username">
+							<input type="text" name="nama" class="form-control input_user" value="" placeholder="Nama Lengkap">
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="far fa-envelope"></i></span>
+							</div>
+							<input type="text" name="email" class="form-control input_user" value="" placeholder="email">
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-university"></i></span>
+							</div>
+							<input type="text" name="instansi" class="form-control input_user" value="" placeholder="instansi">
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-phone"></i></span>
+							</div>
+							<input type="text" name="telp" class="form-control input_user" value="" placeholder="no. telp">
 						</div>
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="" class="form-control input_user" value="" placeholder="username">
-						</div>
-						<div class="input-group mb-3">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
-							</div>
-							<input type="text" name="" class="form-control input_user" value="" placeholder="username">
+							<input type="text" name="username" class="form-control input_user" value="" placeholder="username">
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" name="" class="form-control input_pass" value="" placeholder="password">
+							<input type="password" name="pass" class="form-control input_pass" value="" placeholder="password">
 						</div>
+						
 						<?php } else { ?>
+							<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="far fa-envelope"></i></span>
+							</div>
+							<input type="text" name="email" class="form-control input_user" value="" placeholder="email">
+						</div>
 							<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="" class="form-control input_user" value="" placeholder="username">
+							<input type="text" name="username" class="form-control input_user" value="" placeholder="username">
 						</div>
-						<div class="input-group mb-3">
+						<div class="input-group mb-2">
 							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="text" name="" class="form-control input_user" value="" placeholder="username">
+							<input type="password" name="pass" class="form-control input_pass" value="" placeholder="password yang baru">
 						</div>
 						<?php }; ?>
 						<div class="d-flex justify-content-center mt-3 login_container">
-					<?php if($data != "forgot"){ ?>
-				 	<button type="button" name="daftar" class="btn login_btn">Daftar</button>
-					<?php } else { ?>
-					<button type="button" name="ganti_pass" class="btn login_btn">Ganti Password</button>
-					<?php }; ?>
-				   </div>
-					</form>
+							<?php if($data != "forgot"){ ?>
+							<button type="submit" name="daftar" class="btn login_btn">Daftar</button>
+							<input type="text" hidden id="submit" name="submit" value="submit">
+							<?php } else { ?>
+							<button type="submit" name="ganti_pass" class="btn login_btn">Ganti Password</button>
+							<input type="text" hidden id="forgot" name="forgot" value="submit">
+							<?php }; ?>
+				   		</div>
+				  	</form>
 				</div>
 		
 				
