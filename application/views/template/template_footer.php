@@ -104,5 +104,12 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
     <script src="<?php echo base_url('assets/')?>js/gmaps.min.js"></script>
     <script src="<?php echo base_url('assets/')?>js/theme.js"></script>
+    <!-- Syntac Load  Footer -->
+    <?php
+      if(isset($js))
+      {
+        $this->load->view($js);
+      }
+    ?>
   </body>
 </html>
