@@ -4,7 +4,18 @@
               crossorigin="anonymous"></script>
               
 <script type="text/javascript">
+    
     $(document).ready(function(){
+      
+      function reload(data)
+    {
+        var name = null;
+        var email = null;
+        var no_telp = null;
+        var message = null;
+       $("#announce").html(data);
+    };
+      
        $("#btnSubmitSaran").click(function(){
             var postForm = {
                 'name' : document.getElementById('name').value,
@@ -19,7 +30,7 @@
                 data:postForm,
 
                 success:function(data){
-                    console.log(data);
+                    reload(data);
                 }
             });
        });

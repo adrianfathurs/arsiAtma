@@ -44,7 +44,8 @@
             </div>
           </div>
           <div class="col-lg-9">
-            <form
+          <div id="announce"></div>  
+          <form
               class="row contact_form"
             >
               <div class="col-md-6">

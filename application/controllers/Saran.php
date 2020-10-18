@@ -19,6 +19,7 @@ class Saran extends CI_Controller
     }
 
     public function submitSaran(){
+        
         $name   = $this->input->post('name');
         $email  = $this->input->post('email');
         $no_telp= $this->input->post('no_telp');
@@ -31,7 +32,8 @@ class Saran extends CI_Controller
             'isi_saran'=>$message
         ];
 
-        $this->Msaran->submit($data);
+        $this->Msaran->submit($data); 
+        echo "<h1>DATA TELAH DIREKAM<h1>";
         
 
     }
