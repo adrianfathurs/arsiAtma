@@ -39,7 +39,7 @@
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <a class="navbar-brand logo_h" href="index.html"
-              ><h2>Arsitektur Atma Jaya</h2></a>
+              ><h2>HIMARSI</h2></a>
             <button
               class="navbar-toggler"
               type="button"
@@ -186,7 +186,10 @@
                   <a class="nav-link" href="<?php echo site_url('Portofolio')?>">PORTOFOLIO</a>
                 </li>
                 <li class="nav-item">
-                <?php if(empty($id)){ ?>
+                  <a class="nav-link" href="<?php echo site_url('Saran')?>">Saran/Masukan</a>
+                </li>
+                <li class="nav-item">
+                <?php if(empty($id)) { ?>
                   <a class="nav-link" data-toggle="modal" data-target="#myModal" href="#">LOGIN</a>
                 <?php } else { ?>
                   <li class="nav-item submenu dropdown">
@@ -197,8 +200,7 @@
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    ><?php echo $username ?></a
-                  >
+                    ><?php echo $username ?></a>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
                       <a class="nav-link" href="<?php echo site_url('Reg/logout')?>">LogOut</a>
@@ -219,9 +221,7 @@
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog modal-sm" role="document">
                 
-                  <div class="modal-header">
-                    
-                  </div>
+                  <div class="modal-header"></div>
                   <div class="modal-content ">
                   <div class="modal-body">
                     
