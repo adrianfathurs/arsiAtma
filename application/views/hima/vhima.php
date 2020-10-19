@@ -13,17 +13,14 @@ if (isset($css)) {
                 <div class="col-lg-8 ">
                     <div class="col-lg-12">
                     
-                        <div class="feature-img">
-                            <img class="img-fluid" src="<?php echo base_url('assets/')?>img/blog/feature-img1.jpg" alt="">
-                        </div>
+                                <div class="feature-img" ><center>
+                                <img class="img-fluid" src="<?php echo base_url('assets/')?>img/tentanghima.jpg" style=" max-width: 100%; max-height: 450px;"> </center>
+                                </div> <br>
                     </div>
                         <div class="container" id="main-wrapper">
                             <h2 class="text-black">TENTANG HIMPUNAN MAHASISWA ARSITEKTUR ATMA JAYA YOGYAKARTA</h2>
                             
-                            <hr>
-                            <br>
-                                <center><h2 class="text-black"><b><span>-- </span>  Triçaka <span> --</span></b></h2></center>
-                            <br>
+                            <hr>                            
                             <h3>Latar Belakang</h3>
                             <p class="text-justify text-black text-arvo">&nbsp;&nbsp;
                                 Merupakan organisasi di tingkat Program Studi pada Universitas Atma Jaya Yogyakarta dengan wadah berupa :
