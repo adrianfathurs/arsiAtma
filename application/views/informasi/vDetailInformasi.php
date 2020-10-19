@@ -7,31 +7,43 @@
                         <div class="col-lg-12">
                             <div class="feature-img">
                                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <?php foreach($informasi as $informasi) :     ?>  
                                     <ol class="carousel-indicators">
                                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                        <?php if(!empty($informasi->foto2_hima)) { ?>
                                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                        <?php } if(!empty($informasi->foto3_hima)) { ?>
                                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                        <?php } if(!empty($informasi->foto4_hima)) { ?>
                                         <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                                        <?php } if(!empty($informasi->foto5_hima)){ ?>
                                         <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                                        <?php } ?>
                                     </ol>
-                                    <?php foreach($informasi as $informasi) :     ?>      
+                                        
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
                                             <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto1_hima; ?>" style="width: 100%; max-height: 350px;" alt="">                                        
                                         </div>
+                                        <?php if(!empty($informasi->foto2_hima)) { ?>
                                         <div class="carousel-item">
                                             <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto2_hima ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
                                         </div>
+                                        <?php } if(!empty($informasi->foto3_hima)) { ?>
                                         <div class="carousel-item">
                                             <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto3_hima ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
                                         </div>
+                                        <?php } if(!empty($informasi->foto4_hima)) { ?>
                                         <div class="carousel-item">
                                             <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto4_hima ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
                                         </div>
+                                        <?php } if(!empty($informasi->foto5_hima)){ ?>
                                         <div class="carousel-item">
                                             <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto5_hima ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
                                         </div>
+                                        <?php } ?>
                                     </div>
+                                    <?php if(!empty($informasi->foto2_hima)) { ?>
                                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Previous</span>
@@ -40,6 +52,7 @@
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Next</span>
                                     </a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -67,29 +80,24 @@
                         <div class="col-lg-9 col-md-9 blog_details">
                             <h2><?php echo $informasi->judul_hima ?></h2>
                             <p class="excert">
-                            <?php echo $informasi->deskripsi_hima; ?>
+                            <?php  
+                            $num=strlen($informasi->deskripsi_hima);
+                            $num_char = 700;
+                            if ($informasi->deskripsi_hima{$num_char - 1} != '.') {
+                                $num_char = strpos($informasi->deskripsi_hima, '.', $num_char); // cari posisi spasi, pencarian dilakukan mulai posisi 50
+                            }
+                            echo substr($informasi->deskripsi_hima, 0, $num_char).'.';
+                            ?>
                             </p>
                         </div>
                         <div class="col-lg-12">                        
-                            <div class="row">
-                                <!-- <div class="col-6">
-                                    <img class="img-fluid" src="<?php echo base_url('assets/')?>img/blog/post-img1.jpg" alt="">
-                                </div>
-                                <div class="col-6">
-                                    <img class="img-fluid" src="<?php echo base_url('assets/')?>img/blog/post-img2.jpg" alt="">
-                                </div>  -->
+                            <div class="row">                               
                                 <div class="col-lg-12 mt-25">
                                     <p>
-                                        MCSE boot camps have its supporters and its detractors. Some people do not
-                                        understand why you should have to spend money on boot camp when you can get the
-                                        MCSE study materials yourself at a fraction of the camp price. However, who has
-                                        the willpower.
-                                    </p>
-                                    <p>
-                                        MCSE boot camps have its supporters and its detractors. Some people do not
-                                        understand why you should have to spend money on boot camp when you can get the
-                                        MCSE study materials yourself at a fraction of the camp price. However, who has
-                                        the willpower.
+                                    <?php                                     
+                                       echo substr($informasi->deskripsi_hima, $num_char+1, $num);
+                                    ?>
+                                        
                                     </p>
                                 </div>
                             </div>

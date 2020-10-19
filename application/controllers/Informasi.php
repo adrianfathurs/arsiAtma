@@ -28,9 +28,15 @@ class Informasi extends CI_Controller
         $this->load->view('template/vtemplate',$data);
     }
 
-    function informasi_detail($id){
-        
+    function informasi_detail($id){            
             $data['informasi'] = $this->Minformasi_hima->getArtikel($id);
+            
+            // $num_char = strlen($informasi->deskripsi_hima);
+            //                 if ($informasi->deskripsi_hima{$num_char - 1} != ' ') {
+            //                     $num_char = strpos($$informasi->deskripsi_hima, ' ', $num_char); // cari posisi spasi, pencarian dilakukan mulai posisi 50
+            //                 }
+            //                 echo substr($informasi->deskripsi_hima, 0, 200) . '...'; die;
+            
             $data['header']="template/template_header.php";            
             $data['content']="informasi/vDetailInformasi.php";
             $data['asidebar']="portofolio/vasidebar_portofolio.php";
