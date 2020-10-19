@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="blog_post">
-                                    <img src="<?php echo base_url('assets/img/blog/main-blog/').$informasi->foto1_hima?>" alt="">
+                                    <center><img src="<?php echo base_url('assets/img/blog/main-blog/').$informasi->foto1_hima?>" style="width: 100%; max-height: 450px;" alt=""></center>
                                     <div class="blog_details">
                                         <a href="<?php echo base_url('Informasi/viewHima/').$informasi->id_informasi_hima ;?>">
                                             <h2><?php echo $informasi->judul_hima; ?></h2>
