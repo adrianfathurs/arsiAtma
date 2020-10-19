@@ -46,7 +46,7 @@
                                 <div class="blog_post">
                                     <img src="<?php echo base_url('assets/img/blog/main-blog/').$informasi->foto1_hima?>" alt="">
                                     <div class="blog_details">
-                                        <a href="single-blog.html">
+                                        <a href="<?php echo base_url('Informasi/viewHima/').$informasi->id_informasi_hima ;?>">
                                             <h2><?php echo $informasi->judul_hima; ?></h2>
                                         </a>
                                         <p><?php echo UCWORDS(substr($informasi->deskripsi_hima, 0, 300)) . '...'; ?></p>
