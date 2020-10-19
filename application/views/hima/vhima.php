@@ -12,6 +12,9 @@ if (isset($css)) {
             <div class="row">
                 <div class="col-lg-8 ">
                     <div class="col-lg-12">
+                    <div>
+                    <a href="<?php echo base_url('article/update/')?>" class="btn waves-effect waves-light btn-warning">Edit</a>                                             
+                    </div>
                         <div class="feature-img">
                             <img class="img-fluid" src="<?php echo base_url('assets/')?>img/blog/feature-img1.jpg" alt="">
                         </div>
