@@ -6,17 +6,23 @@
 <script type="text/javascript">
     
     $(document).ready(function(){
-      
+      var cekreload= false;
       function reload(data)
     {
-        var name = null;
-        var email = null;
-        var no_telp = null;
-        var message = null;
+        var cekreload =true;
+        var postForm = null;
+        var checker =2;
+        var tampil=data;
+       
+        console.log(checker);
        $("#announce").html(data);
     };
       
        $("#btnSubmitSaran").click(function(){
+            if(cekreload){
+                $("#announce").html(tampil);
+            }
+            else{
             var postForm = {
                 'name' : document.getElementById('name').value,
                 'email' :document.getElementById('email').value,
@@ -24,15 +30,20 @@
                 'message':document.getElementById('message').value
             };
 
-            $.ajax({
-                type:"post",
-                url:'http://localhost/arsiAtma/saran/submitSaran',
-                data:postForm,
+                $.ajax({
+                    type:"post",
+                    url:'http://localhost/arsiAtma/saran/submitSaran',
+                    data:postForm,
 
-                success:function(data){
-                    reload(data);
-                }
-            });
+                    success:function(data){
+                        var checker=1;
+                        reload(data);
+                    }
+                }); 
+
+            }
+
+            
        });
     });
 </script>

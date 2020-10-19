@@ -33,7 +33,9 @@ class Saran extends CI_Controller
         ];
 
         $this->Msaran->submit($data); 
-        echo "<h1>DATA TELAH DIREKAM<h1>";
+        echo "<div class='alert alert-success' role='alert'>
+  A simple success alert with <a href='"<?php echo base_url('Saran')?>"' class='alert-link'>an example link</a>. Give it a click if you like.
+</div>";
         
 
     }
