@@ -61,7 +61,7 @@ class Reg extends CI_Controller
 		if ($cek) {
 			redirect('home');
 		} else {
-			redirect('auth');
+			redirect('home');
 		}
     }
     
