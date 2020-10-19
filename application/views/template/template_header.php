@@ -180,7 +180,7 @@
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">UMUM</a>
+                  <a class="nav-link" href="<?php echo site_url('Umum')?>">UMUM</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="<?php echo site_url('Portofolio')?>">PORTOFOLIO</a>
