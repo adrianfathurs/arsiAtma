@@ -32,12 +32,19 @@ class Saran extends CI_Controller
             'isi_saran'=>$message
         ];
 
-        $this->Msaran->submit($data); 
-        echo "<div class='alert alert-success' role='alert'>
-  A simple success alert with <a href='"<?php echo base_url('Saran')?>"' class='alert-link'>an example link</a>. Give it a click if you like.
-</div>";
-        
+        //$this->Msaran->submit($data); 
+        echo "<div class='alert alert-success' role='alert'>Data Anda telah Terekam, Tambah Saran ? <a href= 'http://localhost/arsiAtma/saran' class='alert-link'>Klik</a>
+</div>";        
+    }
 
+    public function manajemen_saran(){
+        $data['header']="template/template_header.php";
+        $data['css']="saran/vsaran_css.php";
+        $data['content']="saran/manajemen_saran.php";
+        $data['js']="saran/vsaran_js.php";
+        $data['footer']="template/template_footer.php";
+        $data['saran']=$this->Msaran->loadSaran();
+        $this->load->view('template/vtemplate',$data);
     }
 }
 
