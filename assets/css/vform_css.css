@@ -1,0 +1,39 @@
+.container_xx {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 54px;
+}
+
+#image-preview{
+    display:none;
+    width : 250px;
+    height : 300px;
+}
+
+#image-preview2{
+    display:none;
+    width : 250px;
+    height : 300px;
+}
+
+#image-preview3{
+    display:none;
+    width : 250px;
+    height : 300px;
+}
+
+#image-preview4{
+    display:none;
+    width : 250px;
+    height : 300px;
+}
+
+#image-preview5{
+    display:none;
+    width : 250px;
+    height : 300px;
+}
+
