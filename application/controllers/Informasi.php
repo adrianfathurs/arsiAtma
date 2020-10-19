@@ -27,6 +27,16 @@ class Informasi extends CI_Controller
         $data['footer']="template/template_footer.php";
         $this->load->view('template/vtemplate',$data);
     }
+
+    function informasi_detail($id){
+        
+            $data['informasi'] = $this->Minformasi_hima->getArtikel($id);
+            $data['header']="template/template_header.php";            
+            $data['content']="informasi/vDetailInformasi.php";
+            $data['asidebar']="portofolio/vasidebar_portofolio.php";
+            $data['footer']="template/template_footer.php";                
+            $this->load->view('template/vtemplate',$data);
+    }
 }
 
 ?>

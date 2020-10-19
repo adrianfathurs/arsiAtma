@@ -18,11 +18,11 @@ if (isset($css)) {
                                 </div> <br>
                     </div>
                         <div class="container" id="main-wrapper">
-                            <h2 class="text-black">TENTANG HIMPUNAN MAHASISWA ARSITEKTUR ATMA JAYA YOGYAKARTA</h2>
+                            <h2 class="text-black text-justify">TENTANG HIMPUNAN MAHASISWA ARSITEKTUR ATMA JAYA YOGYAKARTA</h2>
                             
                             <hr>                            
                             <h3>Latar Belakang</h3>
-                            <p class="text-justify text-black text-arvo">&nbsp;&nbsp;
+                            <p class=" text-black text-arvo">&nbsp;&nbsp;
                                 Merupakan organisasi di tingkat Program Studi pada Universitas Atma Jaya Yogyakarta dengan wadah berupa :
                                 Himpunan Mahasiswa Arsitektur Triçaka disebut HIMA Triçaka. <br>
                                 1. Himpunan mahasiswa program studi Arsitektur adalah wahana dan pengembangan diri mahasiswa ke arah                 
@@ -33,7 +33,7 @@ if (isset($css)) {
                                 se-program studi pada suatu instansi. <br>
                                 </p>
                                 <h3>Tujuan</h3>
-                                <p class="text-justify text-black text-arvo">
+                                <p class=" text-black text-arvo">
                                 1. Meningkatkan komunikasi dengan saling memperkuat tukar menukar pandangan intern dan ekstern mahasiswa
                                 Arsitektur. <br>
                                 2. Mencari masukan-masukan dari masyarakat guna menunjang pendidikan Arsitektur Universitas Atma Jaya
@@ -49,14 +49,14 @@ if (isset($css)) {
                                 c. Pengabdian Masyarakat <br>
                                 d. Penunjang, meliputi minat dan bakat</p> <br>
                                 <h3>Visi</h3>
-                                <p class="text-justify text-black text-arvo">&nbsp;&nbsp;                                
+                                <p class="text-black text-arvo">&nbsp;&nbsp;                                
                                 Himpunan Mahasiswa HIMA Triçaka sebagai wadah bagi seluruh mahasiswa Arsitektur Atma Jaya Yogyakarta
                                 untuk semakin berperan aktif dalam bidang akademis maupun non akademis, menghimpun seluruh aspirasi dan
                                 kritik dari mahasiswa, serta menjalin komunikasi yang baik sehingga terbentuk relasi yang kuat terhadap sesama,
                                 baik ke dalam maupun ke luar.
                                 </p>
                                 <h3>Misi</h3>
-                                <p class="text-justify text-black text-arvo"><br>
+                                <p class=" text-black text-arvo"><br>
                                 1. Menghimpun seluruh mahasiswa Arsitektur Universitas Atma Jaya Yogyakarta. <br>
                                 2. Mempererat hubungan keluarga Arsitektur Universitas Atma Jaya Yogyakarta. <br>
                                 3. Menjadi media penghubung antara HIMA Tricaka dengan Universitas Atma Jaya Yogyakarta. <br>
@@ -68,7 +68,7 @@ if (isset($css)) {
                                 <div><center>
                                 <img class="img-fluid" src="<?php echo base_url('assets/')?>img/tentanghima.jpg" style=" max-width: 80%; max-height: 250px;"> </center>
                                 </div> <br>
-                                <p class="text-justify text-black text-arvo">&nbsp;&nbsp;
+                                <p class=" text-black text-arvo">&nbsp;&nbsp;
                                     Bagaimana hingga akhirnya tercetus sebuah nama "HIMA Triçaka" sebagai identitas dari organisasi?
                                 HIMA Triçaka (A dengan underline dan c dengan ejaan Sansekerta) sebagai aksentuasi/ikonik
                                 mahasiswa arsitektur UAJY untuk membedakan identitas Hima dengan mahasiswa jurusan lain.
@@ -93,7 +93,7 @@ if (isset($css)) {
                                 Semboyan yang ada pada HIMA Triçaka selalu mengilhami setiap ide, tindakan dan cara berpikir dari Mahasiswa Arsitektur
                                 UAJY khususnya dalam hal ini setiap langkah dan kegiatan HIMA Triçaka.
                                 </p>
-                                <p class="text-justify text-black text-arvo">
+                                <p class=" text-black text-arvo">
                                 &nbsp;&nbsp; <i> Apa proker pertama yang dijalankan di HIMA Triçaka? </i><br>
                                 “Proker kami saat itu adalah mengadakan lomba untuk merancang lambang/logo Hima, pemenangnya lambang
                                 Hima yang seperti sekarang itu Triçaka. Pemenangnya adalah Vebriano (angkatan 1989), yang juga mendesain
