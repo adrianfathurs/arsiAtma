@@ -11,12 +11,12 @@
                     <i id="alerticon"></i>
                 </div>
                 <?php endif; ?>
-                <h5 class="card-title"> Form Article</h5>
+                <h5 class="card-title"> Form tambah Informasi Hima</h5>
                
                 <?php echo form_open_multipart('informasi/formhima/');?>
               
                 <div class="form-group" >
-                    <label class="col-sm-4 form-control-label" > Judul Artikel:</label>  
+                    <label class="col-sm-4 form-control-label" > Judul Informasi:</label>  
                     <input type="text" class="form-control " name="judul" placeholder="Judul Artikel" required value="<?php echo $data->judul_hima ?>">
                 </div>
                         <div class="form-group">

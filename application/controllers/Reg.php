@@ -69,7 +69,7 @@ class Reg extends CI_Controller
         $data = array (
 			'id', 'username', 'type_akun', 'is_login'
 		);
-        // print_r($data);die;
+        // $this->session_destroy();
 		$this->session->unset_userdata($data);
 		redirect('home');
     }

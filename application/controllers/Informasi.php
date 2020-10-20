@@ -23,6 +23,7 @@ class Informasi extends CI_Controller
         $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
+        // print_r($data);die;
         $data['page'] = "Tentang Hima";
         $data['informasi'] = $this->Minformasi_hima->getAll();        
         $data['header']="template/template_header.php";
