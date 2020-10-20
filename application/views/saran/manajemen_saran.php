@@ -45,6 +45,7 @@
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 <input type="hidden" class="btn btn-danger" name="id_saran" id="modal_id_saran"></input>
                 <button type="submit" class="btn btn-success">Hapus</button>
+                <!-- <button type="submit" class="btn btn-success">Hapus</button> -->
             </form>
             </div>
             </div>
