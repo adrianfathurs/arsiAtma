@@ -6,7 +6,7 @@
             <div class="col-lg-12">
               <div class="banner_content text-center">            
                 <h2 class="text-uppercase mt-4 mb-5">
-                  Informasi Internal Himpunan Mahasiswa Arsitektur Atma Jaya Yogyakarta
+                  Informasi Internal Himpunan Mahasiswa Arsitektur Universitas Atma Jaya Yogyakarta
                 </h2>               
               </div>
             </div>
