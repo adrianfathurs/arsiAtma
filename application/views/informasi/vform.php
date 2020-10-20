@@ -12,16 +12,20 @@
                 </div>
                 <?php endif; ?>
                 <h5 class="card-title"> Form Article</h5>
-                <?php echo form_open_multipart('Article/insert/');?>
+               
+                <?php echo form_open_multipart('informasi/formhima/');?>
+              
                 <div class="form-group" >
                     <label class="col-sm-4 form-control-label" > Judul Artikel:</label>  
                     <input type="text" class="form-control " name="judul" placeholder="Judul Artikel" required value="<?php ?>">
                 </div>
-               
                         <div class="form-group">
                             <label class="col-sm-4 form-control-label" >Gambar 1 :</label>
                             <input type="file" class="form-control" name="foto1" id="foto1"  value="<?php ?>" onchange="previewImage();">
                             <img src="<?php echo base_url('assets/upload/') ?>" name="foto1" id="image-preview" alt="image preview" style="width: 300px; height: 220px;"/>
+                        </div>
+                        <div>
+                            <input type="file" name="fileeee">
                         </div>
                         <div class="form-group">
                             <label class="col-sm-4 form-control-label" >Gambar 2 :</label>
@@ -51,7 +55,7 @@
                             
                         </div>                        
                         <div class="text-right">
-                            <input type="text" hidden id="creator" name="creator" value="<?php echo $id ?>">
+                            <input type="text" hidden id="creator" name="creator" value="<?php ?>">
                             <input type="text" hidden id="id_artikel" name="id_artikel" value="<?php  ?>">
                             <input type="text" hidden id="submit" name="submit" value="submit">
                             <button type="button" class="btn btn-secondary" onclick="history.back();">Batal</button>                                        

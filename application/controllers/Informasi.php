@@ -44,21 +44,19 @@ class Informasi extends CI_Controller
             $this->load->view('template/vtemplate',$data);
     }
 
-    function form(){          
-            $data['page']="articlePage";
+    function formhima(){          
+           
             $input = $this->input->post(NULL,TRUE);
             extract($input);
-            
-            
-            if ($this->input->post('submit')) {
-            // print_r($input);die;
            
             
+            if ($this->input->post('submit')) {
+             print_r($input);die;
             
             $foto111=$_FILES['foto1'];
             $foto222=$_FILES['foto2'];
             $foto333=$_FILES['foto3'];
-
+            
             $foto1_name="foto1";
             $foto2_name="foto2";
             $foto3_name="foto3";
@@ -101,6 +99,7 @@ class Informasi extends CI_Controller
                     $obj->foto3 = '';
                     $obj->jenis_artikel = "0";
                     
+                    $data['informasi'] = "hima";
                     $data['data'] = $obj; 
                     $data['role'] = $this->session->userdata('role');            
                     $data['id'] = $this->session->userdata('id'); 
@@ -117,6 +116,55 @@ class Informasi extends CI_Controller
         
 
     }
+
+    function _upload($foto,$ft,$id){
+        $data['page']="articlePage";
+                $data = $this->Martikel->viewArtikel($id);
+                
+                $config['upload_path']='./assets/img/informasiHima/';
+                $config['allowed_types']='jpg|png|jpeg';
+                $this->load->library('upload',$config);
+                if($ft=="foto1"){
+                    if(!$this->upload->do_upload('foto1')){
+                        if($data->foto1){
+                            return $data->foto1;
+                        }else {
+                            return "";
+                        $this->session->set_userdata('typeNotif', "gagalUpload1");
+                        }
+                    }
+                    else{
+                        return $this->upload->data('file_name');
+                    }   
+                }elseif($ft=="foto2"){
+                    if(!$this->upload->do_upload('foto2')){
+                        if($data->foto2){
+                            return $data->foto2;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload2");
+                        }
+                    } else{
+                        return $this->upload->data('file_name');
+                    }  
+                }elseif($ft=="foto3"){
+                    if(!$this->upload->do_upload('foto3')){
+                        if($data->foto3){
+                            return $data->foto3;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload3");
+                        }
+                    }else{
+                        return $this->upload->data('file_name');
+                    }  
+
+                }else {
+                    echo "tolol";
+                }
+    }
+
+
 }
 
 ?>

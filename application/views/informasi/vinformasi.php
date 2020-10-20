@@ -24,7 +24,7 @@
                     <div class="blog_left_sidebar">
                     <div class="col-md">
                         <div class="text-right">                        
-                        <a href="<?php echo base_url('informasi/form/') ?>" class="btn waves-effect waves-light btn-success">Tambah</a>
+                        <a href="<?php echo base_url('informasi/formhima/') ?>" class="btn waves-effect waves-light btn-success">Tambah</a>
                         </div>
                     </div>
                         <?php foreach($informasi as $informasi) :     ?>      
