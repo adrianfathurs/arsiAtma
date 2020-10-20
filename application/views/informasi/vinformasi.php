@@ -49,6 +49,8 @@
                                         </a>
                                         <p><?php echo UCWORDS(substr($informasi->deskripsi_hima, 0, 300)) . '...'; ?></p>
                                         <a href="<?php echo base_url('Informasi/informasi_detail/').$informasi->id_informasi_hima ;?>" class="blog_btn">View More</a>
+                                        <a href="<?php echo base_url('Informasi/updatehima/').$informasi->id_informasi_hima ;?>" class="btn waves-effect waves-light btn-warning">Edit Informasi</a>
+                                        <a href="<?php echo base_url('Informasi/delete/').$informasi->id_informasi_hima?>" class="btn btn-danger remove">Hapus</a> 
                                     </div>
                                 </div>
                             </div>

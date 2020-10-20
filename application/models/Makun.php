@@ -53,6 +53,13 @@ class Makun extends CI_Model{
         $user = $this->db->get();
         return $user->row();
     }
+
+    public function get_by_id($id) {
+        $this->db->from('akun');
+        $this->db->where('id_akun ',$id);            
+        $user = $this->db->get();
+        return $user->row();
+    }
     
     function update($data){
         $user = $this->get_by_username($data['username']);            
