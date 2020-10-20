@@ -46,6 +46,12 @@ class Saran extends CI_Controller
         $data['saran']=$this->Msaran->loadSaran();
         $this->load->view('template/vtemplate',$data);
     }
+
+    public function hapusSaran(){
+        $id=$this->input->post('id_saran');
+        $this->Msaran->MhapusSaran($id);
+        redirect('saran/manajemen_saran');
+    }
 }
 
 ?>
