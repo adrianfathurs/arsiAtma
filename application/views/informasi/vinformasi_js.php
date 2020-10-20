@@ -1,6 +1,24 @@
 <script type="text/javascript" src="<?php echo base_url() ?>assets/ckeditor/ckeditor.js"></script>
-
+<script src="<?php echo base_url() ?>assets/js/sweetalert2.all.min.js" ></script>
 <script>
+    $('.remove').on('click', function(e){
+        e.preventDefault();
+        const href = $(this).attr('href');
+
+        Swal.fire({
+            title: 'Perhatikan',
+            text: "Anda Akan Menghapus Artikel Ini, Anda Yakin?",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonColor: '#343a40',
+            confirmButtonColor: '#c00e1f',
+            confirmButtonText: 'Ya, Hapus!'
+            }).then((result) => {
+            if (result.value) {
+              document.location.href = href;
+            }
+        });
+        });
 
 function previewImage() {
     document.getElementById("image-preview").style.display = "block";

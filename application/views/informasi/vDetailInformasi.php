@@ -7,7 +7,7 @@
                         <div class="col-lg-12">
                             <div class="feature-img">
                                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                <?php foreach($informasi as $informasi) :     ?>  
+                                
                                     <ol class="carousel-indicators">
                                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                                         <?php if(!empty($informasi->foto2_hima)) { ?>
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                     </div>                    
-                                    <?php endforeach; ?>
+                             
                 </div>
                 <!-- Syntac Load asidebar Content -->
                 <?php

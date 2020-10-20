@@ -23,8 +23,10 @@
                 <div class="col-lg-8">
                     <div class="blog_left_sidebar">
                     <div class="col-md">
-                        <div class="text-right">                        
+                        <div class="text-right"> 
+                        <?php if( $type_akun=="1"){ ?>                       
                         <a href="<?php echo base_url('informasi/formhima/') ?>" class="btn waves-effect waves-light btn-success">Tambah</a>
+                        <?php }; ?>
                         </div>
                     </div>
                         <?php foreach($informasi as $informasi) :     ?>      
@@ -49,6 +51,10 @@
                                         </a>
                                         <p><?php echo UCWORDS(substr($informasi->deskripsi_hima, 0, 300)) . '...'; ?></p>
                                         <a href="<?php echo base_url('Informasi/informasi_detail/').$informasi->id_informasi_hima ;?>" class="blog_btn">View More</a>
+                                        <?php if( $type_akun=='1'){ ?>    
+                                        <a href="<?php echo base_url('Informasi/updatehima/').$informasi->id_informasi_hima ;?>" class="btn waves-effect waves-light btn-warning">Edit Informasi</a>
+                                        <a href="<?php echo base_url('Informasi/delete/').$informasi->id_informasi_hima?>" class="btn btn-danger remove">Hapus</a> 
+                                         <?php }; ?>
                                     </div>
                                 </div>
                             </div>
