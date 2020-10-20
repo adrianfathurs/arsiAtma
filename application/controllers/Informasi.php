@@ -51,7 +51,7 @@ class Informasi extends CI_Controller
            
             
             if ($this->input->post('submit')) {
-             print_r($input);die;
+             print_r($input);
             
             $foto111=$_FILES['foto1'];
             $foto222=$_FILES['foto2'];
@@ -60,7 +60,7 @@ class Informasi extends CI_Controller
             $foto1_name="foto1";
             $foto2_name="foto2";
             $foto3_name="foto3";
-
+                var_dump($foto111);die();
 
             if(null == $foto111 && $foto111 && $foto111 ){
                 $this->session->set_userdata('typeNotif', "gagalUpload");

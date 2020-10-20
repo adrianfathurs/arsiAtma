@@ -53,3 +53,13 @@
         $('#table_id').DataTable();
     } );
 </script>
+<!-- SYTAX HAPUS -->
+<script type="text/javascript">
+     $(document).ready( function () {
+        $(document).on("click",'#btnPrahapus',function(){
+            var id_saran= $(this).data('id');
+            console.log(id_saran);
+            $('.modal-footer #modal_id_saran').val(id_saran);
+        });
+    } );
+</script>

@@ -24,9 +24,6 @@
                             <input type="file" class="form-control" name="foto1" id="foto1"  value="<?php ?>" onchange="previewImage();">
                             <img src="<?php echo base_url('assets/upload/') ?>" name="foto1" id="image-preview" alt="image preview" style="width: 300px; height: 220px;"/>
                         </div>
-                        <div>
-                            <input type="file" name="fileeee">
-                        </div>
                         <div class="form-group">
                             <label class="col-sm-4 form-control-label" >Gambar 2 :</label>
                             <input type="file" class="form-control" name="foto2" id="foto2"  value="<?php echo $data->foto2; ?>" onchange="previewImage2();"> 
