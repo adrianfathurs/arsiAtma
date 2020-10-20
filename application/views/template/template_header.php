@@ -128,11 +128,11 @@
                   >
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="blog.html">Blog</a>
+                      <a class="nav-link" href="<?php echo base_url('')?>universitas/">TENTANG UAJY</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="single-blog.html"
-                        >Blog Details</a
+                      <a class="nav-link" href="<?php echo site_url('Informasi/informasi_universitas')?>"
+                        >INFORMASI</a
                       >
                     </li>
                   </ul>
@@ -149,11 +149,11 @@
                   >
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="blog.html">Blog</a>
+                      <a class="nav-link" href="<?php echo base_url('')?>fakultas/">TENTANG FT</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="single-blog.html"
-                        >Blog Details</a
+                      <a class="nav-link" href="<?php echo site_url('Informasi/informasi_fakultas')?>"
+                        >INFORMASI</a
                       >
                     </li>
                   </ul>
@@ -170,11 +170,11 @@
                   >
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="blog.html">Blog</a>
+                      <a class="nav-link" href="<?php echo base_url('')?>pamiy/">TENTANG PAMIY</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="single-blog.html"
-                        >Blog Details</a
+                      <a class="nav-link" href="<?php echo site_url('Informasi/informasi_pamiy')?>"
+                        >INFORMASI</a
                       >
                     </li>
                   </ul>
