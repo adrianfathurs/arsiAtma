@@ -23,4 +23,23 @@ class Minformasi_hima extends CI_Model{
             }
             
         }
+    
+    function cekfav($id_info,$id_akun){
+        
+        $this->db->where('fk_akun ', $id_akun);
+        $this->db->where('fk_informasi_hima ', $id_info);
+        $query = $this->db->get('favorite_hima');            
+        return $query->row();
+    }
+
+    function saveinf($data){
+        $query = $this->db->insert('favorite_hima',$data);
+    }
+
+    function hapusfav($id_info,$id_akun){
+        $this->db->where('fk_akun ', $id_akun);
+        $this->db->where('fk_informasi_hima ', $id_info);
+        $this->db->delete('favorite_hima');
+        return true;
+    }
 }

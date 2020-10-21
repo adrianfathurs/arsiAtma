@@ -66,15 +66,20 @@
                                     <a href="#">Lifestyle</a>
                                 </div> -->
                                 <ul class="blog_meta list">
-                                    <li><a href="#"><?php echo $informasi->nama_penulis ?><i class="ti-user"></i></a></li>
-                                    <li><a href="#">12 Dec, 2017<i class="ti-calendar"></i></a></li>
+                                    <li title="Penulis"><a ><?php echo $informasi->nama_penulis ?><i class="ti-user" title="Penulis"></i></a></li>
+                                    <li title="Tanggal Ditulis"><a >12 Dec, 2017<i class="ti-calendar"></i></a></li>
+                                    <?php if(empty($cek_fav)){ ?>
+                                    <li title="Simpan Ke Akun Saya?" ><a <?php if(empty($id)){ ?> onclick="konfirmasi()" <?php }else {?> href="<?php echo base_url('Informasi/saveinformasi/').$informasi->id_informasi_hima?> <?php } ?> " >Simpan Informasi <br> ke Akun<i id="icon" class="fas fa-download"></i></a></li>
+                                    <?php }else { ?>
+                                        <li title="Sudah Tersimpan di Akun, hapus?" ><a href="<?php echo base_url('Informasi/hapusfav/').$informasi->id_informasi_hima?>" >Hapus <i id="icon" class="fas fa-trash-alt"></i></a></li>
+                                    <?php }?>
                                 </ul>
-                                <ul class="social-links">
-                                    <li><a href="#"><i class="ti-facebook"></i></a></li>
+                                <!-- <ul class="social-links">
+                                    <li><a href="#"><i class="fas fa-download"></i></a></li>
                                     <li><a href="#"><i class="ti-twitter"></i></a></li>
                                     <li><a href="#"><i class="ti-github"></i></a></li>
                                     <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                                </ul>
+                                </ul> -->
                             </div>
                         </div> 
                         <div class="col-lg-9 col-md-9 blog_details">
