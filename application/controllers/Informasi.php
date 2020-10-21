@@ -35,20 +35,20 @@ class Informasi extends CI_Controller
         $this->load->view('template/vtemplate',$data);
     }
 
-    function informasi_detail($id){            
-            $data['informasi'] = $this->Minformasi_hima->getArtikel($id);
-            
-            // $num_char = strlen($informasi->deskripsi_hima);
-            //                 if ($informasi->deskripsi_hima{$num_char - 1} != ' ') {
-            //                     $num_char = strpos($$informasi->deskripsi_hima, ' ', $num_char); // cari posisi spasi, pencarian dilakukan mulai posisi 50
-            //                 }
-            //                 echo substr($informasi->deskripsi_hima, 0, 200) . '...'; die;
-            
-            $data['header']="template/template_header.php";            
-            $data['content']="informasi/vDetailInformasi.php";
-            $data['asidebar']="portofolio/vasidebar_portofolio.php";
-            $data['footer']="template/template_footer.php";                
-            $this->load->view('template/vtemplate',$data);
+    function informasi_detail($id){                     
+        $data['cek_fav'] = $this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
+        // print_r($data);die;
+        $data['informasi'] = $this->Minformasi_hima->getArtikel($id);          
+        $data['type_akun'] = $this->session->userdata('type_akun');            
+        $data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
+        $data['css']="informasi/vinformasi_css.php";
+        $data['js'] = 'informasi/vinformasi_js.php'; 
+        $data['header']="template/template_header.php";            
+        $data['content']="informasi/vDetailInformasi.php";
+        $data['asidebar']="portofolio/vasidebar_portofolio.php";
+        $data['footer']="template/template_footer.php";                
+        $this->load->view('template/vtemplate',$data);
     }
 
     function formhima(){                     
@@ -230,6 +230,21 @@ class Informasi extends CI_Controller
         $this->Minformasi_hima->insert($data,$id);
         redirect("Informasi/informasi_hima");
 
+    }
+
+    function saveinformasi($id_info){
+        
+        $data=[
+            'fk_akun'=>$this->session->userdata('id'),                               
+            'fk_informasi_hima '=>$id_info
+        ];
+        $this->Minformasi_hima->saveinf($data);
+        redirect("Informasi/informasi_detail/".$id_info);
+    }
+
+    function hapusfav($id_info){
+        $this->Minformasi_hima->hapusfav($id_info,$this->session->userdata('id'));
+        redirect("Informasi/informasi_detail/".$id_info);
     }
 
 }

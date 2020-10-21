@@ -70,4 +70,28 @@ function previewImage() {
     };
   };
 
+
+  // function savelike(idhima){
+  //       $.ajax({
+  //               type: "POST",
+  //               url: "<?php echo site_url('Informasi/saveinformasi');?>",
+  //               data: "id_hima="+idhima, 
+  //               success: function (response) {
+  //                 alert(idhima);
+  //                 document.getElementById('like').innerHTML="Tersimpan <i class='fas fa-trash-alt'></i>";
+  //               }              
+  //           });
+  //   }
+    function konfirmasi(){
+      Swal.fire({
+            title: 'Perhatikan',
+            text: "Anda Harus Login/Daftar Terlebih Dahulu!",
+            icon: 'warning',
+            showCancelButton: false,
+            cancelButtonColor: '#343a40',
+            confirmButtonColor: '#c00e1f',
+            confirmButtonText: 'Ya'
+            })
+    };
+
 </script>
