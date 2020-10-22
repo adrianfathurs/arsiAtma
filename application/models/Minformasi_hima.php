@@ -42,4 +42,10 @@ class Minformasi_hima extends CI_Model{
         $this->db->delete('favorite_hima');
         return true;
     }
+
+    function getFav($id){
+        $this->db->where('fk_akun ', $id);        
+        $query = $this->db->get('favorite_hima');            
+        return $query->result();
+    }
 }

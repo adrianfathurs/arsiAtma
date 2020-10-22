@@ -69,7 +69,7 @@
                                     <li title="Penulis"><a ><?php echo $informasi->nama_penulis ?><i class="ti-user" title="Penulis"></i></a></li>
                                     <li title="Tanggal Ditulis"><a >12 Dec, 2017<i class="ti-calendar"></i></a></li>
                                     <?php if(empty($cek_fav)){ ?>
-                                    <li title="Simpan Ke Akun Saya?" ><a <?php if(empty($id)){ ?> onclick="konfirmasi()" <?php }else {?> href="<?php echo base_url('Informasi/saveinformasi/').$informasi->id_informasi_hima?> <?php } ?> " >Simpan Informasi <br> ke Akun<i id="icon" class="fas fa-download"></i></a></li>
+                                    <li title="Simpan Ke Akun Saya?" ><a <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" <?php }else {?> href="<?php echo base_url('Informasi/saveinformasi/').$informasi->id_informasi_hima?> <?php } ?> " >Simpan ke Akun<i id="icon" class="fas fa-download"></i></a></li>
                                     <?php }else { ?>
                                         <li title="Sudah Tersimpan di Akun, hapus?" ><a href="<?php echo base_url('Informasi/hapusfav/').$informasi->id_informasi_hima?>" >Hapus <i id="icon" class="fas fa-trash-alt"></i></a></li>
                                     <?php }?>

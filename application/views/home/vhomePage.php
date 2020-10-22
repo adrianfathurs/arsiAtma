@@ -1,11 +1,11 @@
+
 <section class="home_banner_area">
       <div class="banner_inner">
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
               <div class="banner_content text-center">
-                <p class="text-uppercase">
-                  
+                <p class="text-uppercase">                  
                 </p>
                 <h2 class="text-uppercase mt-4 mb-5">
                  HIMPUNAN MAHASISWA ARSITEKTUR 
@@ -80,7 +80,7 @@
     <!--================ End Feature Area =================-->
 
     <!--================ Start Popular Courses Area =================-->
-    <section class="feature_area section_gap_top">
+    <section class="feature_area section_gap_top">    
     <div class="popular_courses">
       <div class="container">
         <div class="row justify-content-center">

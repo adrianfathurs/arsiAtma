@@ -190,7 +190,7 @@
                 </li>
                 <li class="nav-item">
                 <?php if(empty($id)) { ?>
-                  <a class="nav-link" data-toggle="modal" data-target="#myModal" href="#">LOGIN</a>
+                  <a class="nav-link" data-toggle="modal" data-target="#myModal" href="#">LOGIN</a>                  
                 <?php } else { ?>
                   <li class="nav-item submenu dropdown">
                   <a
@@ -207,14 +207,13 @@
                     </li>                  
                   </ul>
                 </li>
-                <?php } ?>
-                </li>
-                
+                <?php } ?>            
+                </li>                
               </ul>
             </div>
           </div>
         </nav>
-      </div>
+      </div>    
     </header>
 
 
@@ -277,3 +276,6 @@
             </div>
             </div>
 
+            <script src="<?php echo base_url('assets/')?>js/jquery.js"></script>
+<script src="<?php echo base_url('assets/')?>js/popper.js"></script>
+<script src="<?php echo base_url('assets/')?>js/bootstrap.js"></script>

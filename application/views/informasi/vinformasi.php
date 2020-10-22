@@ -13,15 +13,18 @@
           </div>
         </div>
       </div>
+      <div>
+        <!-- <?php echo $notif ; ?> -->
+      </div>
     </section>
     <!--================ End Home Banner Area =================-->
 
     <!--================Blog Area =================-->
-    <section class="blog_area section_gap">
+    <section class="blog_area section_gap">        
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="blog_left_sidebar">
+                    <div class="blog_left_sidebar">                                        
                     <div class="col-md">
                         <div class="text-right"> 
                         <?php if( $type_akun=="1"){ ?>                       
