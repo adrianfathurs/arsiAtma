@@ -47,7 +47,7 @@ class Hima extends CI_Controller
         
         // $data['css']="viewArticle/VviewArticle_css.php";
         $data['header']="template/template_header.php";
-        $data['css']="hima/vhima_css.php";
+        $data['css']="hima/vorganisasiHima_css.php";
         $data['content']="hima/vorganisasiHima.php";        
         $data['asidebar']="viewArticle/VviewAsidebar.php";
         $data['footer']="template/template_footer.php";
