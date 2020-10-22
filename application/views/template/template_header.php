@@ -57,11 +57,22 @@
               class="collapse navbar-collapse offset"
               id="navbarSupportedContent"
             >
-              <ul class="nav navbar-nav menu_nav ml-auto">
-                <li class="nav-item active">
+     
+            
+            <ul class="nav navbar-nav menu_nav ml-auto">
+        <?php if(isset($page) && $page=="homePage"){?>
+              <li class="nav-item active">
+            <?php } else {?>
+              <li class="nav-item ">
+            <?php } ?>    
                   <a class="nav-link" href="<?php echo site_url('Home')?>">HOME</a>
                 </li>
-                <li class="nav-item submenu dropdown">
+                <?php if(isset($page) && $page=="tentangHimaPage"){?>
+                    <li class="nav-item active submenu dropdown">
+                    <?php } else {?>
+                    <li class="nav-item submenu dropdown">
+                    <?php } ?>
+                
                   <a
                     href="#"
                     class="nav-link dropdown-toggle"
@@ -72,11 +83,12 @@
                     >HIMA</a
                   >
                   <ul class="dropdown-menu">
+                
                     <li class="nav-item">
-                      <a class="nav-link" href="<?php echo base_url('')?>hima/">TENTANG HIMA</a>
+                      <a class="nav-link" href="<?php echo site_url('hima/loadTentangHima')?>">TENTANG HIMA</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="single-blog.html"
+                      <a class="nav-link" href="<?php echo site_url('hima/loadOrganisasiHima')?>"
                         >ORGANISASI</a
                       >
                     </li>
@@ -179,14 +191,27 @@
                     </li>
                   </ul>
                 </li>
-                <li class="nav-item">
+                  <?php if(isset($page) && $page=="umumPage"){?>
+              <li class="nav-item active">
+              <?php } else {?>
+              <li class="nav-item ">
+              <?php } ?>
                   <a class="nav-link" href="<?php echo site_url('Umum')?>">UMUM</a>
                 </li>
-                <li class="nav-item">
+                
+            <?php if(isset($page) && $page=="portofolioPage"){?>
+              <li class="nav-item active">
+              <?php } else {?>
+              <li class="nav-item ">
+              <?php } ?>
                   <a class="nav-link" href="<?php echo site_url('Portofolio')?>">PORTOFOLIO</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?php echo site_url('Saran')?>">Saran/Masukan</a>
+            <?php if(isset($page) && $page=="saranPage"){?>
+              <li class="nav-item active">
+              <?php } else {?>
+              <li class="nav-item ">
+              <?php } ?>
+                  <a class="nav-link" href="<?php echo site_url('Saran')?>">SARAN</a>
                 </li>
                 <li class="nav-item">
                 <?php if(empty($id)) { ?>
@@ -271,7 +296,7 @@
 			</div>
 		</div>
 	</div>
-                     </form>
+                    </form>
                 </div>
               </div>
             </div>

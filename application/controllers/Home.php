@@ -8,10 +8,14 @@ class Home extends CI_Controller
     }
 
     public function index(){
+        /* Untuk active navbar */
+        $data['page']="homePage";
         $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
         
+        
+
         $data['header']="template/template_header.php";
         $data['css']="home/vhomePage_css.php";
         $data['content']="home/vhomePage.php";

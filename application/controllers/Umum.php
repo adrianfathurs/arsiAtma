@@ -8,6 +8,7 @@ class Umum extends CI_Controller
     }
 
     public function index(){
+        $data['page']="umumPage";
         $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 

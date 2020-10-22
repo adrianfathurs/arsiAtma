@@ -9,6 +9,12 @@ class Saran extends CI_Controller
     }
 
     public function index(){
+        $data['page']="saranPage";
+
+         $data['type_akun'] = $this->session->userdata('type_akun');            
+		$data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
+
         $data['header']="template/template_header.php";
         $data['css']="saran/vsaran_css.php";
         $data['content']="saran/vsaran.php";
