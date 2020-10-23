@@ -84,13 +84,13 @@ class Hima extends CI_Controller
             $foto111=$_FILES['foto1'];
             $foto222=$_FILES['foto2'];
             
-            var_dump($foto111); die();
+            // var_dump($foto111); die();
             
             $foto1_name="foto1";
             $foto2_name="foto2";
             
 
-            $akun= $this->Makun->get_by_id($creator);
+            // $akun= $this->Makun->get_by_id($creator);
             // print_r($akun);die;
             if(null == $foto111 && $foto111 && $foto111 ){
                 $this->session->set_userdata('typeNotif', "gagalUpload");
@@ -149,8 +149,8 @@ class Hima extends CI_Controller
                 $this->load->library('upload',$config);
                 if($ft=="foto1"){
                     if(!$this->upload->do_upload('foto1')){
-                        if($biro->foto1_biro){
-                            return $biro->foto1_biro;
+                        if($data->foto1_biro){
+                            return $data->foto1_biro;
                         }else {
                             return "";
                             $this->session->set_userdata('typeNotif', "gagalUpload1");
@@ -161,8 +161,8 @@ class Hima extends CI_Controller
                     }   
                 }elseif($ft=="foto2"){
                     if(!$this->upload->do_upload('foto2')){
-                        if($biro->foto2_biro){
-                            return $biro->foto2_biro;
+                        if($data->foto2_biro){
+                            return $data->foto2_biro;
                         }else {
                             return "";
                             $this->session->set_userdata('typeNotif', "gagalUpload2");

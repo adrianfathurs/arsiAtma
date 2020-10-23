@@ -99,6 +99,3 @@ function previewImage() {
     };
     $('.toast').toast('show');
 </script>
-<script>
-		$('.toast').toast('show');
-	</script>

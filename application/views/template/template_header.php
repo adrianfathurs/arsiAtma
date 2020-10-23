@@ -225,7 +225,7 @@
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    ><?php echo $username ?></a>
+                    ><?php echo $username ?></a>                   
                   <ul class="dropdown-menu">
                     <li class="nav-item">
                       <a class="nav-link" href="<?php echo site_url('Reg/logout')?>">LogOut</a>
@@ -234,11 +234,15 @@
                 </li>
                 <?php } ?>            
                 </li>                
-              </ul>
+              </ul>              
             </div>
           </div>
         </nav>
       </div>    
+      <div>
+              <?php if(!empty($notif)) { 
+                    echo $notif; } ?>
+              </div>
     </header>
 
 

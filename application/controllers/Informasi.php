@@ -65,7 +65,7 @@ class Informasi extends CI_Controller
         $data['js'] = 'informasi/vinformasi_js.php'; 
         $data['header']="template/template_header.php";            
         $data['content']="informasi/vDetailInformasi.php";
-        $data['asidebar']="portofolio/vasidebar_portofolio.php";
+        $data['asidebar']="informasi/vasidebar_informasi.php";
         $data['footer']="template/template_footer.php";                
         $this->load->view('template/vtemplate',$data);
     }
