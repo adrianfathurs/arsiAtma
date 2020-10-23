@@ -24,7 +24,8 @@ class Home extends CI_Controller
         </div>" ;
 
 
-
+        /* Untuk active navbar */
+        $data['page']="homePage";
         $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username');         
