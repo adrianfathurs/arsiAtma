@@ -141,10 +141,6 @@ class Hima extends CI_Controller
 
     }
     function _upload($foto,$ft,$id_biro){
-        var_dump($foto);
-        var_dump($ft);
-        var_dump($id_biro);
-        die();
                 $data = $this->Morganisasi->MloadOrganisasiBiroById($id_biro);
                 
                 $config['upload_path']='./assets/img/organisasiHima/';
