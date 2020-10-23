@@ -6,6 +6,7 @@ class Hima extends CI_Controller
         parent :: __construct();
         $this->load->model('Morganisasi');
         $this->load->model('Makun');
+        $this->load->library('upload');
 
     }
 
@@ -80,14 +81,13 @@ class Hima extends CI_Controller
             
             if ($this->input->post('submit')) {
                 // print_r($input);die;
-            
+                
             $foto111=$_FILES['foto1'];
             $foto222=$_FILES['foto2'];
             
-            var_dump($foto111); die();
-            
             $foto1_name="foto1";
             $foto2_name="foto2";
+            
             
 
             $akun= $this->Makun->get_by_id($creator);
@@ -102,10 +102,10 @@ class Hima extends CI_Controller
 
                             $data=[
                                 'nama_biro'=>$this->input->post('namaBiro'),                               
-                                'deskripsi_biro'=>$this->input->post('deskripsiBiro'),
-                                'tugas_biro'=>$this->input->post('tugasBiro'),
                                 'foto1_biro'=>$foto11,
-                                'foto2_biro'=>$foto22
+                                'foto2_biro'=>$foto22,
+                                'tugas_biro'=>$this->input->post('tugasBiro'),
+                                'deskripsi_biro'=>$this->input->post('deskripsiBiro')
                             ];
                             // print_r($data);die;
                         $this->Morganisasi->insertBiro($data,$id_biro);
@@ -141,7 +141,10 @@ class Hima extends CI_Controller
 
     }
     function _upload($foto,$ft,$id_biro){
-        $data['page']="articlePage";
+        var_dump($foto);
+        var_dump($ft);
+        var_dump($id_biro);
+        die();
                 $data = $this->Morganisasi->MloadOrganisasiBiroById($id_biro);
                 
                 $config['upload_path']='./assets/img/organisasiHima/';
@@ -149,10 +152,10 @@ class Hima extends CI_Controller
                 $this->load->library('upload',$config);
                 if($ft=="foto1"){
                     if(!$this->upload->do_upload('foto1')){
-                        if($biro->foto1_biro){
-                            return $biro->foto1_biro;
+                        if($data->foto1_biro){
+                            return $data->foto1_biro;
                         }else {
-                            return "";
+                            return $foto111;
                             $this->session->set_userdata('typeNotif', "gagalUpload1");
                         }
                     }
@@ -161,10 +164,10 @@ class Hima extends CI_Controller
                     }   
                 }elseif($ft=="foto2"){
                     if(!$this->upload->do_upload('foto2')){
-                        if($biro->foto2_biro){
-                            return $biro->foto2_biro;
+                        if($data->foto2_biro){
+                            return $data->foto2_biro;
                         }else {
-                            return "";
+                            return $foto222;
                             $this->session->set_userdata('typeNotif', "gagalUpload2");
                         }
                     } else{
