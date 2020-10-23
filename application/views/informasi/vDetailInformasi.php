@@ -56,7 +56,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-lg-3  col-md-3">
                             <div class="blog_info text-right">
                                 <!-- <div class="post_tag">
@@ -108,7 +107,6 @@
                             </div>
                         </div>
                     </div>                    
-                             
                 </div>
                 <!-- Syntac Load asidebar Content -->
                 <?php
