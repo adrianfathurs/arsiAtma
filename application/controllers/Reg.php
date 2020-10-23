@@ -74,6 +74,7 @@ class Reg extends CI_Controller
 		redirect('home/Logout');
     }
         
+    
 
 }
 
