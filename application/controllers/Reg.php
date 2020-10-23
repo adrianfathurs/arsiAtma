@@ -59,9 +59,9 @@ class Reg extends CI_Controller
         $cek = $this->Makun->ceklogin($username,$pass);
 
 		if ($cek) {
-			redirect('home');
+			redirect('home/auth');
 		} else {
-			redirect('home');
+			redirect('home/failed');
 		}
     }
     
@@ -71,9 +71,10 @@ class Reg extends CI_Controller
 		);
         // $this->session_destroy();
 		$this->session->unset_userdata($data);
-		redirect('home');
+		redirect('home/Logout');
     }
         
+    
 
 }
 

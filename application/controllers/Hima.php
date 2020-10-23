@@ -85,12 +85,14 @@ class Hima extends CI_Controller
             $foto111=$_FILES['foto1'];
             $foto222=$_FILES['foto2'];
             
+            // var_dump($foto111); die();
+            
             $foto1_name="foto1";
             $foto2_name="foto2";
             
             
 
-            $akun= $this->Makun->get_by_id($creator);
+            // $akun= $this->Makun->get_by_id($creator);
             // print_r($akun);die;
             if(null == $foto111 && $foto111 && $foto111 ){
                 $this->session->set_userdata('typeNotif', "gagalUpload");

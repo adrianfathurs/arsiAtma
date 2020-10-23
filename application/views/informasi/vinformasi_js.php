@@ -1,5 +1,9 @@
 <script type="text/javascript" src="<?php echo base_url() ?>assets/ckeditor/ckeditor.js"></script>
 <script src="<?php echo base_url() ?>assets/js/sweetalert2.all.min.js" ></script>
+<script src="<?php echo base_url('assets/')?>js/jquery-3.2.1.min.js"></script>
+<script src="<?php echo base_url('assets/')?>js/jquery.js"></script>
+<script src="<?php echo base_url('assets/')?>js/popper.js"></script>
+<script src="<?php echo base_url('assets/')?>js/bootstrap.js"></script>
 <script>
     $('.remove').on('click', function(e){
         e.preventDefault();
@@ -85,7 +89,7 @@ function previewImage() {
     function konfirmasi(){
       Swal.fire({
             title: 'Perhatikan',
-            text: "Anda Harus Login/Daftar Terlebih Dahulu!",
+            text: "Anda Harus Login/Daftar Akun Pengguna Terlebih Dahulu!",
             icon: 'warning',
             showCancelButton: false,
             cancelButtonColor: '#343a40',
@@ -93,5 +97,5 @@ function previewImage() {
             confirmButtonText: 'Ya'
             })
     };
-
+    $('.toast').toast('show');
 </script>

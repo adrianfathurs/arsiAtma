@@ -19,11 +19,30 @@ class Informasi extends CI_Controller
     }
 
     function informasi_hima(){
+        
+        
 
         $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
-        // print_r($data);die;
+    //     $data['notif'] = "<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='5000' data-autohide='false'>
+    //     <div class='toast-header'>
+    //         <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+
+    //         <strong class='mr-auto'>Notifikasi</strong>
+    //         <small>1 menit yang lalu</small>
+    //         <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+    //             <span aria-hidden='true'>&times;</span>
+    //         </button>
+    //     </div>
+    //     <div class='toast-body'>
+    //         Halo, ini pesan notifikasi toast.
+    //         <br/>
+    //         www.malasngoding.com
+    //     </div>
+    // </div>";
+        $data['fav'] = $this->Minformasi_hima->getFav($this->session->userdata('id'));
+        // print_r($data['fav']);die;
         $data['page'] = "Tentang Hima";
         $data['informasi'] = $this->Minformasi_hima->getAll();        
         $data['header']="template/template_header.php";
@@ -46,7 +65,7 @@ class Informasi extends CI_Controller
         $data['js'] = 'informasi/vinformasi_js.php'; 
         $data['header']="template/template_header.php";            
         $data['content']="informasi/vDetailInformasi.php";
-        $data['asidebar']="portofolio/vasidebar_portofolio.php";
+        $data['asidebar']="informasi/vasidebar_informasi.php";
         $data['footer']="template/template_footer.php";                
         $this->load->view('template/vtemplate',$data);
     }
