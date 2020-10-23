@@ -65,34 +65,21 @@
   <h2 class="title mt-4">Biro </h2>
       <hr>
     <div class="clear"></div>
-  <?php for($i=0;$i<3;$i++):?>
     <div class="row">
+  <?php foreach ($biro as $key ):?>
        <div class="col-lg-4 col-sm-6 mb-2">
       
         <div class="zoom-effect">
             <div class="kotak">
-                <img  src="<?php echo base_url('assets/img/organisasiHima/biro1.jpg')?>" width="70vw" height="200px">
+                <img  src="<?php echo base_url('assets/img/organisasiHima/').$key['foto1_biro']?>" width="70vw" height="200px">
             </div>
         </div>
-      
+        <a href="<?php echo base_url('Hima/updateOrganisasiHima/').$key['id_biro']?>"><button class="btn btn-primary">EDIT <?php echo $key['id_biro']?></button></a>
     </div>
-    <div class="col-lg-4 col-sm-6 mb-2">
-        <div class="zoom-effect">
-            <div class="kotak">
-                <img src="<?php echo base_url('assets/img/organisasiHima/biro2.jpg')?>" width="70vw" height="200px">
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-4 col-sm-6 mb-2">
-      <div class="zoom-effect">
-            <div class="kotak">
-                <img src="<?php echo base_url('assets/img/organisasiHima/biro3.jpg')?>" width="70vw" height="200px">
-            </div>
-        </div>
-    </div>
+    
     <div class="clearfix visible-sm-block"></div>
     <div class="clearfix visible-md-block"></div>
+  <?php endforeach;?>
 </div>
-  <?php endfor;?>
 </div>
 </section>
