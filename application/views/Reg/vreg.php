@@ -29,37 +29,37 @@
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="nama" class="form-control input_user" value="" placeholder="Nama Lengkap">
+							<input type="text" name="nama" class="form-control input_user" value="" placeholder="Nama Lengkap" required>
 						</div>
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="far fa-envelope"></i></span>
 							</div>
-							<input type="text" name="email" class="form-control input_user" value="" placeholder="email">
+							<input type="email" name="email" class="form-control input_user" value="" placeholder="email" required>
 						</div>
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-university"></i></span>
 							</div>
-							<input type="text" name="instansi" class="form-control input_user" value="" placeholder="instansi">
+							<input type="text" name="instansi" class="form-control input_user" value="" placeholder="instansi" required>
 						</div>
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-phone"></i></span>
 							</div>
-							<input type="text" name="telp" class="form-control input_user" value="" placeholder="no. telp">
+							<input type="text" name="telp" class="form-control input_user" value="" placeholder="no. telp" required>
 						</div>
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="username" class="form-control input_user" value="" placeholder="username">
+							<input type="text" name="username" class="form-control input_user" value="" placeholder="username" required>
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" name="pass" class="form-control input_pass" value="" placeholder="password">
+							<input type="password" minlength="8" name="pass" class="form-control input_pass" value="" placeholder="password" required>
 						</div>
 						
 						<?php } else { ?>
@@ -67,19 +67,19 @@
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="far fa-envelope"></i></span>
 							</div>
-							<input type="text" name="email" class="form-control input_user" value="" placeholder="email">
+							<input type="email" name="email" class="form-control input_user" value="" placeholder="email akun anda" required>
 						</div>
 							<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="username" class="form-control input_user" value="" placeholder="username">
+							<input type="text" name="username" class="form-control input_user" value="" placeholder="username akun anda" required>
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" name="pass" class="form-control input_pass" value="" placeholder="password yang baru">
+							<input type="password" minlength="8" name="pass" class="form-control input_pass" value="" placeholder="password yang baru" required>
 						</div>
 						<?php }; ?>
 						<div class="d-flex justify-content-center mt-3 login_container">

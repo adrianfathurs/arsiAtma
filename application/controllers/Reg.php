@@ -37,7 +37,7 @@ class Reg extends CI_Controller
                 'status'=>1,
                 ];
                 $this->Makun->reg($data);
-                redirect('Home');
+                redirect('Home/regis');
             };
         
         if ($this->input->post('forgot')) {
@@ -47,7 +47,7 @@ class Reg extends CI_Controller
                 'password' => $pass,
             ];
             $this->Makun->update($data);
-            redirect('Home');
+            redirect('Home/update');
         }
 
     }

@@ -21,30 +21,49 @@ class Informasi extends CI_Controller
     function informasi_hima(){
         
         
+        // Load library pagination
+        $this->load->library('pagination');
 
+        // Pengaturan pagination
+        $config['base_url'] = base_url('Informasi/informasi_hima/');
+        $config['total_rows'] = $this->Minformasi_hima->get()->num_rows();
+        $config['per_page'] = 5 ;
+        $config['offset'] = $this->uri->segment(3);
+
+        // Styling pagination
+        $config['first_link']       = 'First';
+        $config['last_link']        = 'Last';
+        $config['next_link']        = 'Next';
+        $config['prev_link']        = 'Prev';
+        $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+        $config['full_tag_close']   = '</ul></nav></div>';
+        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['prev_tagl_close']  = '</span>Next</li>';
+        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['last_tagl_close']  = '</span></li>';
+
+        $this->pagination->initialize($config);
+
+        // Data untuk page index
+        // $data['pageTitle'] = 'Lowongan Kerja';
+        $data['Informasi'] = $this->Minformasi_hima->get_offset($config['per_page'], $config['offset'])->result();
+        
+        
         $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
-        $data['username'] = $this->session->userdata('username'); 
-    //     $data['notif'] = "<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='5000' data-autohide='false'>
-    //     <div class='toast-header'>
-    //         <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
-
-    //         <strong class='mr-auto'>Notifikasi</strong>
-    //         <small>1 menit yang lalu</small>
-    //         <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
-    //             <span aria-hidden='true'>&times;</span>
-    //         </button>
-    //     </div>
-    //     <div class='toast-body'>
-    //         Halo, ini pesan notifikasi toast.
-    //         <br/>
-    //         www.malasngoding.com
-    //     </div>
-    // </div>";
+        $data['username'] = $this->session->userdata('username');  
         $data['fav'] = $this->Minformasi_hima->getFav($this->session->userdata('id'));
         // print_r($data['fav']);die;
         $data['page'] = "Tentang Hima";
-        $data['informasi'] = $this->Minformasi_hima->getAll();        
+        // $data['informasi'] = $this->Minformasi_hima->getAll();        
         $data['header']="template/template_header.php";
         $data['css']="informasi/vinformasi_css.php";
         $data['js'] = 'informasi/vinformasi_js.php'; 

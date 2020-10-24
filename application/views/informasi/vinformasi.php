@@ -32,7 +32,7 @@
                         <?php }; ?>
                         </div>
                     </div>
-                        <?php foreach($informasi as $informasi) :     ?>      
+                        <?php foreach($Informasi as $informasi) :     ?>      
                         <article class="row blog_item">
                             <div class="col-md-3">
                                 <div class="blog_info text-right">
@@ -66,7 +66,7 @@
                         <nav class="blog-pagination justify-content-center d-flex">
                             <ul class="pagination">
                                 <li class="page-item">
-                                    <a href="#" class="page-link" aria-label="Previous">
+                                    <!-- <a href="#" class="page-link" aria-label="Previous">
                                         <span aria-hidden="true">
                                             <i class="ti-angle-left"></i>
                                         </span>
@@ -82,7 +82,10 @@
                                         <span aria-hidden="true">
                                             <i class="ti-angle-right"></i>
                                         </span>
-                                    </a>
+                                    </a> -->
+                                    <div class="center-align pagination ">
+                                            <?php echo $this->pagination->create_links(); ?>
+                                    </div>
                                 </li>
                             </ul>
                         </nav>
