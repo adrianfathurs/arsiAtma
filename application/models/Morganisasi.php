@@ -14,6 +14,8 @@ class Morganisasi extends CI_Model
         $query = $this->db->get('biro');            
         return $query->row();
     }
+
+    
     
     public function insertBiro($data,$id_biro){
             if ($id_biro != 0){

@@ -174,6 +174,21 @@ class Hima extends CI_Controller
                 }
     }
 
+    public function loadDetailOrganisasiBiro($id_biro){
+        $data['page']="organisasiHimaPage";
+        $data['type_akun'] = $this->session->userdata('type_akun');            
+		$data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
+        // print_r($data);die;
+        $data['biro']=$this->Morganisasi->MloadOrganisasiBiroById($id_biro);
+        $data['header']="template/template_header.php";
+        $data['css']='hima/vdetailbiro_css.php';
+        $data['js'] = 'hima/vorganisasiHima_js.php'; 
+        $data['content']="hima/vdetailBiro.php";
+        $data['footer']="template/template_footer.php";
+        $this->load->view('template/vtemplate',$data);      
+    }
+
 }
 
 ?>
