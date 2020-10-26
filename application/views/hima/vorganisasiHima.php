@@ -33,29 +33,17 @@
     <hr>
     <div class="clear"></div>
   <div class="row">
-    <div class="col-lg-4 col-sm-6 mb-2">
-      
-        <div class="zoom-effect">
-            <div class="kotak">
-                <img  src="<?php echo base_url('assets/img/organisasiHima/ph1.jpg')?>" width="70vw" height="200px">
-            </div>
-        </div>
-      
-    </div>
+  <?php foreach($ph as $key):?>
     <div class="col-lg-4 col-sm-6 mb-2">
         <div class="zoom-effect">
             <div class="kotak">
-                <img src="<?php echo base_url('assets/img/organisasiHima/ph2.jpg')?>" width="70vw" height="200px">
+            <a class="" href="<?php echo base_url('Hima/loadDetailOrganisasiPh/').$key['id_ph']?>">
+                <img  src="<?php echo base_url('assets/img/organisasiHima/').$key['foto1_ph']?>" width="70vw" height="200px">
+            </a>
             </div>
         </div>
     </div>
-    <div class="col-lg-4 col-sm-6 mb-2">
-      <div class="zoom-effect">
-            <div class="kotak">
-                <img src="<?php echo base_url('assets/img/organisasiHima/ph3.jpg')?>" width="70vw" height="200px">
-            </div>
-        </div>
-    </div>
+  <?php endforeach?>
     <div class="clearfix visible-sm-block"></div>
     <div class="clearfix visible-md-block"></div>
     
@@ -71,13 +59,14 @@
       
         <div class="zoom-effect">
             <div class="kotak">
+                <a class="" href="<?php echo base_url('Hima/loadDetailOrganisasiBiro/').$key['id_biro']?>">
                 <img  src="<?php echo base_url('assets/img/organisasiHima/').$key['foto1_biro']?>" width="70vw" height="200px">
+                </a>
             </div>
         </div>
         <?php if($type_akun=="1"){?>
         <a href="<?php echo base_url('Hima/updateOrganisasiHima/').$key['id_biro']?>"><button class="btn btn-primary">EDIT <?php echo $key['id_biro']?></button></a>
         <?php }?>
-        <a class="" href="<?php echo base_url('Hima/loadDetailOrganisasiBiro/').$key['id_biro']?>"><button class=" mt-2 btn btn-outline-warning">VIEWS <?php echo $key['id_biro']?></button></a>
     </div>
     
     <div class="clearfix visible-sm-block"></div>

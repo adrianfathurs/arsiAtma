@@ -21,8 +21,8 @@
 }
 
 .zoom-effect:hover .kotak img {
-  -webkit-transform: scale(1.6);
-  transform: scale(1.6);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
   cursor: pointer;
   opacity: 1.2;
 }

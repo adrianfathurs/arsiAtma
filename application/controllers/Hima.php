@@ -49,6 +49,7 @@ class Hima extends CI_Controller
         $data['username'] = $this->session->userdata('username'); 
         /* load data biro */
         $data['biro'] = $this->Morganisasi->MloadOrganisasiBiro();
+        $data['ph'] = $this->Morganisasi->MloadOrganisasiPh();
         // $data['css']="viewArticle/VviewArticle_css.php";
         $data['header']="template/template_header.php";
         $data['css']="hima/vorganisasiHima_css.php";
@@ -181,6 +182,21 @@ class Hima extends CI_Controller
         $data['username'] = $this->session->userdata('username'); 
         // print_r($data);die;
         $data['biro']=$this->Morganisasi->MloadOrganisasiBiroById($id_biro);
+        $data['header']="template/template_header.php";
+        $data['css']='hima/vdetailbiro_css.php';
+        $data['js'] = 'hima/vorganisasiHima_js.php'; 
+        $data['content']="hima/vdetailBiro.php";
+        $data['footer']="template/template_footer.php";
+        $this->load->view('template/vtemplate',$data);      
+    }
+
+    public function loadDetailOrganisasiPh($id_ph){
+        $data['page']="organisasiHimaPage";
+        $data['type_akun'] = $this->session->userdata('type_akun');            
+		$data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
+        // print_r($data);die;
+        $data['ph']=$this->Morganisasi->MloadOrganisasiPhById($id_ph);
         $data['header']="template/template_header.php";
         $data['css']='hima/vdetailbiro_css.php';
         $data['js'] = 'hima/vorganisasiHima_js.php'; 
