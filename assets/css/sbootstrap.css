@@ -5682,7 +5682,7 @@ a.close.disabled {
   opacity: 0;
   border-radius: 0.25rem;
   float:right;
-  display: contents;
+  /* display: contents; */
 }
 
 .toast:not(:last-child) {
