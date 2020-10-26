@@ -13,3 +13,8 @@
 }
 
 
+@media (max-width: 575px){
+.home_banner_area .banner_inner .banner_content h2 {
+    font-size: 26px;
+    line-height: 26px;
+}}

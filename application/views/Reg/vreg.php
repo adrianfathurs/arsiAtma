@@ -7,6 +7,12 @@
 <html>
     
 <head>
+<?php
+    if(isset($css))
+    {
+        $this->load->view($css);
+    }
+    ?>
 	<title>My Awesome Login Page</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -14,6 +20,10 @@
 </head>
 <!--Coded with love by Mutiullah Samim-->
 <body>
+<div>
+              <?php if(!empty($notif)) { 
+                    echo $notif; } ?>
+              </div>
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
@@ -29,37 +39,37 @@
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="nama" class="form-control input_user" value="" placeholder="Nama Lengkap">
+							<input type="text" name="nama" class="form-control input_user" value="" placeholder="Nama Lengkap" required>
 						</div>
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="far fa-envelope"></i></span>
 							</div>
-							<input type="text" name="email" class="form-control input_user" value="" placeholder="email">
+							<input type="email" name="email" class="form-control input_user" value="" placeholder="email" required>
 						</div>
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-university"></i></span>
 							</div>
-							<input type="text" name="instansi" class="form-control input_user" value="" placeholder="instansi">
+							<input type="text" name="instansi" class="form-control input_user" value="" placeholder="instansi" required>
 						</div>
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-phone"></i></span>
 							</div>
-							<input type="text" name="telp" class="form-control input_user" value="" placeholder="no. telp">
+							<input type="text" name="telp" class="form-control input_user" value="" placeholder="no. telp" required>
 						</div>
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="username" class="form-control input_user" value="" placeholder="username">
+							<input type="text" name="username" class="form-control input_user" value="" placeholder="username" required>
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" name="pass" class="form-control input_pass" value="" placeholder="password">
+							<input type="password" minlength="8" name="pass" class="form-control input_pass" value="" placeholder="password" required>
 						</div>
 						
 						<?php } else { ?>
@@ -67,19 +77,19 @@
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="far fa-envelope"></i></span>
 							</div>
-							<input type="text" name="email" class="form-control input_user" value="" placeholder="email">
+							<input type="email" name="email" class="form-control input_user" value="" placeholder="email akun anda" required>
 						</div>
 							<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="username" class="form-control input_user" value="" placeholder="username">
+							<input type="text" name="username" class="form-control input_user" value="" placeholder="username akun anda" required>
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" name="pass" class="form-control input_pass" value="" placeholder="password yang baru">
+							<input type="password" minlength="8" name="pass" class="form-control input_pass" value="" placeholder="password yang baru" required>
 						</div>
 						<?php }; ?>
 						<div class="d-flex justify-content-center mt-3 login_container">
@@ -99,4 +109,11 @@
 		</div>
 	</div>
 </body>
+<footer>
+<?php
+    if(isset($js))
+    {
+        $this->load->view($js);
+    }
+    ?></footer>
 </html>

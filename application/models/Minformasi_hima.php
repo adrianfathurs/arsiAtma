@@ -48,4 +48,23 @@ class Minformasi_hima extends CI_Model{
         $query = $this->db->get('favorite_hima');            
         return $query->result();
     }
+
+    public function get_offset($limit, $offset){
+            // Jalankan query
+            $query = $this->db
+                ->limit($limit, $offset)
+                ->order_by('id_informasi_hima', 'DESC')
+                ->get('informasi_hima');
+
+            // Return hasil query
+            return $query;
+    }
+    public function get(){
+                // Jalankan query
+        $this->db->where('status ', 1);
+        $query = $this->db->get('informasi_hima');
+
+                // Return hasil query
+        return $query;
+    }
 }
