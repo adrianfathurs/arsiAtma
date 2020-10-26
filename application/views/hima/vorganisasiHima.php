@@ -42,6 +42,11 @@
             </a>
             </div>
         </div>
+        <?php if($type_akun=="1"){?>
+        <a href="<?php echo base_url('Hima/updateOrganisasiHima/').$key['id_ph']."/"."1"?>"><button class="btn btn-primary">EDIT <?php echo $key['id_ph']?></button>
+        <input type="hidden" name="kode" value="1">
+        </a>
+        <?php }?>
     </div>
   <?php endforeach?>
     <div class="clearfix visible-sm-block"></div>
@@ -54,18 +59,20 @@
       <hr>
     <div class="clear"></div>
     <div class="row">
-  <?php foreach ($biro as $key ):?>
+  <?php foreach ($biro as $k ):?>
        <div class="col-lg-4 col-sm-6 mb-2">
       
         <div class="zoom-effect">
             <div class="kotak">
-                <a class="" href="<?php echo base_url('Hima/loadDetailOrganisasiBiro/').$key['id_biro']?>">
-                <img  src="<?php echo base_url('assets/img/organisasiHima/').$key['foto1_biro']?>" width="70vw" height="200px">
+                <a class="" href="<?php echo base_url('Hima/loadDetailOrganisasiBiro/').$k['id_biro']?>">
+                <img  src="<?php echo base_url('assets/img/organisasiHima/').$k['foto1_biro']?>" width="70vw" height="200px">
                 </a>
             </div>
         </div>
         <?php if($type_akun=="1"){?>
-        <a href="<?php echo base_url('Hima/updateOrganisasiHima/').$key['id_biro']?>"><button class="btn btn-primary">EDIT <?php echo $key['id_biro']?></button></a>
+        <a href="<?php echo base_url('Hima/updateOrganisasiHima/').$k['id_biro']?>"><button class="btn btn-primary">EDIT <?php echo $k['id_biro']?></button>
+        <input type="hidden" name="kode" value="2">
+        </a>
         <?php }?>
     </div>
     

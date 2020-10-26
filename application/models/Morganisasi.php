@@ -24,6 +24,12 @@ class Morganisasi extends CI_Model
         return $query->row();
     }
 
+    function MloadOrganisasiPhById($id_ph){
+        $this->db->where('id_ph',$id_ph);
+        $query = $this->db->get('ph');            
+        return $query->row();
+    }
+
     
     
     public function insertBiro($data,$id_biro){
@@ -37,6 +43,16 @@ class Morganisasi extends CI_Model
             
         }
     
+        public function insertPh($data,$id_ph){
+            if ($id_ph != 0){
+                $this->db->where('id_ph',$id_ph);
+                $this->db->update('ph',$data);
+
+            }else{
+                $query = $this->db->insert('ph',$data);
+            }
+            
+        }
     
 }
 
