@@ -7,6 +7,12 @@
 <html>
     
 <head>
+<?php
+    if(isset($css))
+    {
+        $this->load->view($css);
+    }
+    ?>
 	<title>My Awesome Login Page</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -14,6 +20,10 @@
 </head>
 <!--Coded with love by Mutiullah Samim-->
 <body>
+<div>
+              <?php if(!empty($notif)) { 
+                    echo $notif; } ?>
+              </div>
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
@@ -99,4 +109,11 @@
 		</div>
 	</div>
 </body>
+<footer>
+<?php
+    if(isset($js))
+    {
+        $this->load->view($js);
+    }
+    ?></footer>
 </html>
