@@ -25,12 +25,12 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="blog_left_sidebar">                                        
-                    <div class="col-md">
-                        <div class="text-right"> 
+                    <div class="text-right"> 
                         <?php if( $type_akun=="1"){ ?>                       
                         <a href="<?php echo base_url('informasi/formhima/') ?>" class="btn waves-effect waves-light btn-success">Tambah</a>
                         <?php }; ?>
                         </div>
+                    <div class="col-md">                        
                     </div>
                         <?php foreach($Informasi as $informasi) :     ?>      
                         <article class="row blog_item">

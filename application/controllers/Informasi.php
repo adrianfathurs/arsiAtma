@@ -18,16 +18,14 @@ class Informasi extends CI_Controller
         $this->load->view('template/vtemplate',$data);
     }
 
-    function informasi_hima(){
-        
-        
+    function informasi_hima(){             
         // Load library pagination
         $this->load->library('pagination');
 
         // Pengaturan pagination
         $config['base_url'] = base_url('Informasi/informasi_hima/');
         $config['total_rows'] = $this->Minformasi_hima->get()->num_rows();
-        $config['per_page'] = 5 ;
+        $config['per_page'] = 10 ;
         $config['offset'] = $this->uri->segment(3);
 
         // Styling pagination

@@ -58,12 +58,12 @@
                             
                             <br>
                             <div class="detail">
-                                    <p title="Penulis">Penulis : <a ><?php echo $informasi->nama_penulis ?><i class="ti-user" title="Penulis"></i></a></p>
-                                    <p title="Tanggal Ditulis"><a >12 Dec, 2017<i class="ti-calendar"></i></a></p>
+                                    <p title="Penulis"><i class="ti-user" title="Penulis"> Penulis : <a ><?php echo $informasi->nama_penulis ?></i></a></p>
+                                    <p title="Tanggal Ditulis"> <i class="ti-calendar"></i> <a >  12 Dec, 2017</a></p>
                                     <?php if(empty($cek_fav)){ ?>
-                                        <p title="Simpan Ke Akun Saya?" ><a <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" <?php }else {?> href="<?php echo base_url('Informasi/saveinformasi/').$informasi->id_informasi_hima?> <?php } ?> " >Simpan ke Akun<i id="icon" class="fas fa-download"></i></a></p>
+                                        <p title="Simpan Ke Akun Saya?" ><a <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" <?php }else {?> href="<?php echo base_url('Informasi/saveinformasi/').$informasi->id_informasi_hima?> <?php } ?> " ><i id="icon" class="fas fa-download"></i> Simpan ke Akun</a></p>
                                     <?php }else { ?>
-                                        <p title="Sudah Tersimpan di Akun, hapus?" ><a href="<?php echo base_url('Informasi/hapusfav/').$informasi->id_informasi_hima?>" >Hapus <i id="icon" class="fas fa-trash-alt"></i></a></p>
+                                        <p title="Sudah Tersimpan di Akun, hapus?" ><a href="<?php echo base_url('Informasi/hapusfav/').$informasi->id_informasi_hima?>" ><i id="icon" class="fas fa-trash-alt"></i> Hapus </a></p>
                                     <?php }?>                            
                             </div>
                         </div>
