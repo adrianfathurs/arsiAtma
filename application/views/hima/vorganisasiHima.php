@@ -74,7 +74,10 @@
                 <img  src="<?php echo base_url('assets/img/organisasiHima/').$key['foto1_biro']?>" width="70vw" height="200px">
             </div>
         </div>
+        <?php if($type_akun=="1"){?>
         <a href="<?php echo base_url('Hima/updateOrganisasiHima/').$key['id_biro']?>"><button class="btn btn-primary">EDIT <?php echo $key['id_biro']?></button></a>
+        <?php }?>
+        <a class="" href="<?php echo base_url('Hima/loadDetailOrganisasiBiro/').$key['id_biro']?>"><button class=" mt-2 btn btn-outline-warning">VIEWS <?php echo $key['id_biro']?></button></a>
     </div>
     
     <div class="clearfix visible-sm-block"></div>
