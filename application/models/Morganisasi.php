@@ -9,6 +9,15 @@ class Morganisasi extends CI_Model
         return $query->result_array();
     }
 
+    public function MloadOrganisasiPh(){
+            $query=$this->db->select('id_ph,nama_lengkap,foto1_ph,tugas_ph,deskripsi_ph')
+                    ->from('ph')
+                    ->get();
+        return $query->result_array();
+        }
+
+
+
     function MloadOrganisasiBiroById($id_biro){
         $this->db->where('id_biro',$id_biro);
         $query = $this->db->get('biro');            
@@ -27,6 +36,8 @@ class Morganisasi extends CI_Model
             }
             
         }
+    
+    
 }
 
 ?>
