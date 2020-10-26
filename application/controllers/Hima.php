@@ -6,7 +6,7 @@ class Hima extends CI_Controller
         parent :: __construct();
         $this->load->model('Morganisasi');
         $this->load->model('Makun');
-        $this->load->library('upload');
+        // $this->load->library('upload');
 
     }
 
@@ -100,7 +100,7 @@ class Hima extends CI_Controller
             } else {
                             $foto11=$this->_upload($foto111,$foto1_name,$id_biro);
                             $foto22=$this->_upload($foto222,$foto2_name,$id_biro);
-                            
+                            // print_r($foto111);die;
 
                             $data=[
                                 'nama_biro'=>$this->input->post('namaBiro'),                               
@@ -147,12 +147,14 @@ class Hima extends CI_Controller
                 
                 $config['upload_path']='./assets/img/organisasiHima/';
                 $config['allowed_types']='jpg|png|jpeg';
-                $this->load->library('upload',$config);
+                $this->load->library('upload',$config);                
                 if($ft=="foto1"){
                     if(!$this->upload->do_upload('foto1')){
                         if($data->foto1_biro){
                             return $data->foto1_biro;
+                            // die;
                         }else {
+                            
                             return $foto111;
                             $this->session->set_userdata('typeNotif', "gagalUpload1");
                         }
@@ -163,6 +165,7 @@ class Hima extends CI_Controller
                 }elseif($ft=="foto2"){
                     if(!$this->upload->do_upload('foto2')){
                         if($data->foto2_biro){
+                            
                             return $data->foto2_biro;
                         }else {
                             return $foto222;
@@ -171,6 +174,8 @@ class Hima extends CI_Controller
                     } else{
                         return $this->upload->data('file_name');
                     }  
+                } else{
+                    echo "asdadsasd";die;
                 }
     }
 
