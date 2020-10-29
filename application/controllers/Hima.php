@@ -67,7 +67,8 @@ class Hima extends CI_Controller
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
         // print_r($data);die;
-        if ($id_pencet="1"){
+        
+        if ($id_pencet=="1"){
 
             $data['ph']=$this->Morganisasi->MloadOrganisasiPhById($id_biro);
              $data['header']="template/template_header.php";
@@ -77,7 +78,7 @@ class Hima extends CI_Controller
         $data['footer']="template/template_footer.php";
         $this->load->view('template/vtemplate',$data);
         }
-        elseif($id_pencet="2"){
+        elseif($id_pencet=="2"){
 
             $data['biro']=$this->Morganisasi->MloadOrganisasiBiroById($id_biro);
             $data['header']="template/template_header.php";
@@ -114,10 +115,13 @@ class Hima extends CI_Controller
                 $this->session->set_userdata('typeNotif', "gagalUpload");
                 // redirect('article');
             } else {
+                var_dump($foto111);
+                $tanda=$this->_hapusFileBiro($id_biro);
+                
                             $foto11=$this->_upload($foto111,$foto1_name,$id_biro);
                             $foto22=$this->_upload($foto222,$foto2_name,$id_biro);
                             // print_r($foto111);die;
-
+                        var_dump($foto11);
                             $data=[
                                 'nama_biro'=>$this->input->post('namaBiro'),                               
                                 'foto1_biro'=>$foto11,
@@ -125,8 +129,19 @@ class Hima extends CI_Controller
                                 'tugas_biro'=>$this->input->post('tugasBiro'),
                                 'deskripsi_biro'=>$this->input->post('deskripsiBiro')
                             ];
+                            var_dump($data);
                             // print_r($data);die;
-                        $this->Morganisasi->insertBiro($data,$id_biro);
+                            //$ket=$this->_hapusFileBiro($id_biro,$data);
+                        
+                                if($kode){
+                                    $this->Morganisasi->insertBiro($data,$id_biro);
+                                } else{
+                                    $this->Morganisasi->insertBiro($data,$id_biro);
+                                    echo "masuk else";
+                                }
+                        
+                            
+                            
                         redirect('Hima/loadOrganisasiHima');
                         // $this->getArtikel($jenis_artikel);
                     }
@@ -165,14 +180,14 @@ class Hima extends CI_Controller
                 $config['allowed_types']='jpg|png|jpeg';
                 $this->load->library('upload',$config);                
                 if($ft=="foto1"){
+                    
                     if(!$this->upload->do_upload('foto1')){
                         if($data->foto1_biro){
                             return $data->foto1_biro;
                             // die;
                         }else {
-                            
-                            return $foto111;
-                            $this->session->set_userdata('typeNotif', "gagalUpload1");
+                            $this->session->set_userdata('typeNotif', "gagalUpload2");
+                            return "";
                         }
                     }
                     else{
@@ -184,8 +199,9 @@ class Hima extends CI_Controller
                             
                             return $data->foto2_biro;
                         }else {
-                            return $foto222;
                             $this->session->set_userdata('typeNotif', "gagalUpload2");
+                            return "";
+                            
                         }
                     } else{
                         return $this->upload->data('file_name');
@@ -218,6 +234,7 @@ class Hima extends CI_Controller
                 $this->session->set_userdata('typeNotif', "gagalUpload");
                 // redirect('article');
             } else {
+                            $tanda=$this->_hapusFilePh($id_ph);
                             $foto11=$this->_uploadph($foto111,$foto1_name,$id_ph);
                             
                             // print_r($foto111);die;
@@ -229,7 +246,17 @@ class Hima extends CI_Controller
                                 'deskripsi_ph'=>$this->input->post('deskripsiPh')
                             ];
                             // print_r($data);die;
-                        $this->Morganisasi->insertPh($data,$id_ph);
+                            var_dump($foto11);var_dump($data);
+                        
+                                if($tanda){
+                                   $cek= $this->Morganisasi->insertPh($data,$id_ph);
+                                   echo "masuk if";
+                                }
+                                else{
+                                    $this->Morganisasi->insertPh($data,$id_ph);
+                                    echo "masuk else";
+                                }
+                        
                         redirect('Hima/loadOrganisasiHima');
                         // $this->getArtikel($jenis_artikel);
                     }
@@ -268,17 +295,19 @@ class Hima extends CI_Controller
                 $config['allowed_types']='jpg|png|jpeg';
                 $this->load->library('upload',$config);                
                 if($ft=="foto1"){
+                    
                     if(!$this->upload->do_upload('foto1')){
                         if($data->foto1_ph){
                             return $data->foto1_ph;
                             // die;
                         }else {
                             
-                            return $foto111;
                             $this->session->set_userdata('typeNotif', "gagalUpload1");
+                            return "";
                         }
                     }
                     else{
+                        
                         return $this->upload->data('file_name');
                     }   
                 
@@ -287,21 +316,6 @@ class Hima extends CI_Controller
                 }
     }
 /*  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     public function loadDetailOrganisasiBiro($id_biro){
@@ -332,6 +346,34 @@ class Hima extends CI_Controller
         $data['content']="hima/vdetailBiro.php";
         $data['footer']="template/template_footer.php";
         $this->load->view('template/vtemplate',$data);      
+    }
+
+    public function _hapusFilePh($id_ph)
+    {
+       $data=$this->Morganisasi->MloadOrganisasiPhById($id_ph);
+       $nama='./assets/img/organisasiHima/'.$data->foto1_ph;
+        
+       if(is_readable($nama)){
+         unlink($nama);
+         return true;
+       }
+       else{
+           return false;
+       }
+        
+    }
+    public function _hapusFileBiro($id_biro){
+         $data=$this->Morganisasi->MloadOrganisasiBiroById($id_biro);
+       $nama='./assets/img/organisasiHima/'.$data->foto1_biro;
+        
+        if(is_readable($nama)){
+           unlink($nama);
+           return true;
+        }
+        else{
+           return false;
+       }
+        
     }
 
 }

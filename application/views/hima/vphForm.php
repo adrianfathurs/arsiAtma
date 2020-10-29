@@ -1,7 +1,7 @@
 <section class="contact_area section_gap">
 <div class="container">
 <div id="wrap-form" class="container_xx table-responsive">
-    <center><h2 class="card-title"> Form Update Biro</h2></center>
+    <center><h2 class="card-title"> Form Update PH</h2></center>
     <div class="row">
         <div class="col-xl">
             <div class="card">

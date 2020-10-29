@@ -43,7 +43,7 @@
             </div>
         </div>
         <?php if($type_akun=="1"){?>
-        <a href="<?php echo base_url('Hima/updateOrganisasiHima/').$key['id_ph']."/"."1"?>"><button class="btn btn-primary">EDIT <?php echo $key['id_ph']?></button>
+        <a href="<?php echo base_url('Hima/updateOrganisasiHima/').$key['id_ph']."/"."1"?>"><button class="mt-3 btn btn-outline-primary">EDIT <?php echo $key['id_ph']?></button>
         <input type="hidden" name="kode" value="1">
         </a>
         <?php }?>
@@ -70,7 +70,7 @@
             </div>
         </div>
         <?php if($type_akun=="1"){?>
-        <a href="<?php echo base_url('Hima/updateOrganisasiHima/').$k['id_biro']?>"><button class="btn btn-primary">EDIT <?php echo $k['id_biro']?></button>
+        <a href="<?php echo base_url('Hima/updateOrganisasiHima/').$k['id_biro']."/"."2"?>"><button class="mt-3 btn  btn-outline-primary">EDIT <?php echo $k['id_biro']?></button>
         <input type="hidden" name="kode" value="2">
         </a>
         <?php }?>
