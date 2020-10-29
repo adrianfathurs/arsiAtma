@@ -104,6 +104,14 @@ if (isset($css)) {
                                     </p><br>
                                     
                             <h3 class="text-black text-center">ORGANISASI</h3><br>
+                            <div>
+                            <center>
+                                <img class="img-fluid" src="<?php echo base_url('assets/')?>img/organisasipamiy.png" style=" max-width: 80%; max-height: 250px;"> 
+                            </center>
+                            <center>
+                                <img class="img-fluid" src="<?php echo base_url('assets/')?>img/organisasipamiy2.png" style=" max-width: 80%; max-height: 250px;"> 
+                            </center>
+                            </div> <br>
 
                             <h5><b>Contact Person</b></h5>
                             <p class="text-black text-justify">

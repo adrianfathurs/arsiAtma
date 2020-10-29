@@ -142,7 +142,7 @@
                   >
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="<?php echo base_url('')?>universitas/">TENTANG UAJY</a>
+                      <a class="nav-link" href="<?php echo base_url('')?>universitas/loadTentangUniversitas">TENTANG UAJY</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="<?php echo site_url('Informasi/informasi_universitas')?>"
