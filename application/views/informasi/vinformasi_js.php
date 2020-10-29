@@ -11,12 +11,50 @@
 
         Swal.fire({
             title: 'Perhatikan',
-            text: "Anda Akan Menghapus Artikel Ini, Anda Yakin?",
+            text: "Anda Akan Menghapus Informasi Ini, Anda Yakin?",
             icon: 'warning',
             showCancelButton: true,
             cancelButtonColor: '#343a40',
             confirmButtonColor: '#c00e1f',
             confirmButtonText: 'Ya, Hapus!'
+            }).then((result) => {
+            if (result.value) {
+              document.location.href = href;
+            }
+        });
+        });
+
+        $('.removefav').on('click', function(e){
+        e.preventDefault();
+        const href = $(this).attr('href');
+
+        Swal.fire({
+            title: 'Perhatikan',
+            text: "Anda Akan Menghapus Informasi Ini dari Akun Anda, Anda Yakin?",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonColor: '#343a40',
+            confirmButtonColor: '#c00e1f',
+            confirmButtonText: 'Ya, Hapus!'
+            }).then((result) => {
+            if (result.value) {
+              document.location.href = href;
+            }
+        });
+        });
+
+        $('.addfav').on('click', function(e){
+        e.preventDefault();
+        const href = $(this).attr('href');
+
+        Swal.fire({
+            title: 'Perhatikan',
+            text: "Anda Akan Menghapus Informasi Ini ke Akun Anda, Anda Yakin?",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonColor: '#343a40',
+            confirmButtonColor: '#ffc107',
+            confirmButtonText: 'Ya, Simpan!'
             }).then((result) => {
             if (result.value) {
               document.location.href = href;

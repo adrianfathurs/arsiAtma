@@ -18,16 +18,14 @@ class Informasi extends CI_Controller
         $this->load->view('template/vtemplate',$data);
     }
 
-    function informasi_hima(){             
+    function informasi_hima(){                     
         // Load library pagination
         $this->load->library('pagination');
-
         // Pengaturan pagination
         $config['base_url'] = base_url('Informasi/informasi_hima/');
         $config['total_rows'] = $this->Minformasi_hima->get()->num_rows();
         $config['per_page'] = 10 ;
         $config['offset'] = $this->uri->segment(3);
-
         // Styling pagination
         $config['first_link']       = 'First';
         $config['last_link']        = 'Last';
@@ -47,21 +45,14 @@ class Informasi extends CI_Controller
         $config['first_tagl_close'] = '</span></li>';
         $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
         $config['last_tagl_close']  = '</span></li>';
-
         $this->pagination->initialize($config);
 
-        // Data untuk page index
-        // $data['pageTitle'] = 'Lowongan Kerja';
         $data['Informasi'] = $this->Minformasi_hima->get_offset($config['per_page'], $config['offset'])->result();
-        
-        
         $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username');  
         $data['fav'] = $this->Minformasi_hima->getFav($this->session->userdata('id'));
-        // print_r($data['fav']);die;
-        $data['page'] = "Tentang Hima";
-        // $data['informasi'] = $this->Minformasi_hima->getAll();        
+        $data['page'] = "Tentang Hima";        
         $data['header']="template/template_header.php";
         $data['css']="informasi/vinformasi_css.php";
         $data['js'] = 'informasi/vinformasi_js.php'; 
@@ -73,7 +64,6 @@ class Informasi extends CI_Controller
 
     function informasi_detail($id){                     
         $data['cek_fav'] = $this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
-        // print_r($data);die;
         $data['informasi'] = $this->Minformasi_hima->getArtikel($id);          
         $data['type_akun'] = $this->session->userdata('type_akun');            
         $data['id'] = $this->session->userdata('id'); 
@@ -92,8 +82,6 @@ class Informasi extends CI_Controller
             extract($input);           
             
             if ($this->input->post('submit')) {
-                // print_r($input);die;
-            
             $foto111=$_FILES['foto1'];
             $foto222=$_FILES['foto2'];
             $foto333=$_FILES['foto3'];
@@ -105,12 +93,9 @@ class Informasi extends CI_Controller
             $foto3_name="foto3";
             $foto4_name="foto4";
             $foto5_name="foto5";
-
             $akun= $this->Makun->get_by_id($creator);
-            // print_r($akun);die;
             if(null == $foto111 && $foto111 && $foto111 ){
                 $this->session->set_userdata('typeNotif', "gagalUpload");
-                // redirect('article');
             } else {
                             $foto11=$this->_upload($foto111,$foto1_name,$id_info);
                             $foto22=$this->_upload($foto222,$foto2_name,$id_info);
@@ -129,10 +114,8 @@ class Informasi extends CI_Controller
                                 'nama_penulis' => $akun->nama_lengkap,
                                 'status' => 1
                             ];
-                            // print_r($data);die;
-                        $this->Minformasi_hima->insert($data,$id_info);
+                        $this->Minformasi_hima->insert($data,$id_info);                         
                         redirect('Informasi/informasi_hima');
-                        // $this->getArtikel($jenis_artikel);
                     }
                     
                 }else{
@@ -145,7 +128,6 @@ class Informasi extends CI_Controller
                     $obj->foto1_hima = '';
                     $obj->foto2_hima = '';
                     $obj->foto3_hima = '';
-                    // $obj->jenis_artikel = "0";
                     $data['data'] = $obj;
                     $data['informasi'] = "hima";                   
                     $data['js'] = 'informasi/vinformasi_js.php'; 
@@ -233,9 +215,7 @@ class Informasi extends CI_Controller
     }
 
     function updatehima($id){
-
         $data['data'] = $this->Minformasi_hima->getArtikel($id);
-        // print_r($data['data']);die;
         $data['informasi'] = "hima";                   
         $data['js'] = 'informasi/vinformasi_js.php'; 
         $data['css'] = 'informasi/vinformasi_css';      
@@ -248,8 +228,6 @@ class Informasi extends CI_Controller
         $data['footer']="template/template_footer.php";          
         $this->load->view('template/vtemplate', $data);
     }
-
-
     function delete($id){
         $dataInf = $this->Minformasi_hima->getArtikel($id);
         $data=[
@@ -263,6 +241,8 @@ class Informasi extends CI_Controller
             'nama_penulis' => $dataInf->nama_penulis,
             'status' => 0
         ];
+        $alert = array('teks'=>'Informasi Hima Berhasil Dihapus');
+        $this->session->set_flashdata($alert);  
         $this->Minformasi_hima->insert($data,$id);
         redirect("Informasi/informasi_hima");
 
@@ -275,11 +255,15 @@ class Informasi extends CI_Controller
             'fk_informasi_hima '=>$id_info
         ];
         $this->Minformasi_hima->saveinf($data);
+        $alert = array('teks'=>'Disimpan ke Akun Anda');
+        $this->session->set_flashdata($alert);  
         redirect("Informasi/informasi_detail/".$id_info);
     }
 
     function hapusfav($id_info){
         $this->Minformasi_hima->hapusfav($id_info,$this->session->userdata('id'));
+        $alert = array('teks'=>'Dihapus dari Akun Anda');
+        $this->session->set_flashdata($alert);  
         redirect("Informasi/informasi_detail/".$id_info);
     }
 
