@@ -382,6 +382,8 @@ class Informasi extends CI_Controller
                 $this->session->set_userdata('typeNotif', "gagalUpload");
                 // redirect('article');
             } else {
+                    
+                
                             $foto11=$this->_uploaduniv($foto111,$foto1_name,$id_info);
                             $foto22=$this->_uploaduniv($foto222,$foto2_name,$id_info);
                             $foto33=$this->_uploaduniv($foto333,$foto3_name,$id_info);
@@ -390,18 +392,18 @@ class Informasi extends CI_Controller
 
                             $data=[
                                 'judul_univ'=>$this->input->post('judul'),                               
-                                'foto4_univ'=>$foto44,
-                                'foto5_univ'=>$foto55,
-                                'deskripsi_univ'=>$this->input->post('essay'),
                                 'foto1_univ'=>$foto11,
                                 'foto2_univ'=>$foto22,
                                 'foto3_univ'=>$foto33,
+                                'foto4_univ'=>$foto44,
+                                'foto5_univ'=>$foto55,
+                                'deskripsi_univ'=>$this->input->post('essay'),
                                 'nama_penulis' => $akun->nama_lengkap,
                                 'status' => 1
                             ];
                             // print_r($data);die;
-                        $this->Minformasi_fakultas->insert($data,$id_info);
-                        redirect('Informasi/informasi_fakultas');
+                        $this->Minformasi_universitas->insert($data,$id_info);
+                        redirect('informasi/informasi_universitas');
                         // $this->getArtikel($jenis_artikel);
                     }
                     
