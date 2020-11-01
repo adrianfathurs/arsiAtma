@@ -18,8 +18,12 @@ class Minformasi_hima extends CI_Model{
             if ($id != 0){
                 $this->db->where('id_informasi_hima ', $id);
                 $this->db->update('informasi_hima', $data);
+                $alert = array('teks'=>'Informasi Hima Berhasil Diperbarui');
+                return $this->session->set_flashdata($alert);  
             }else{
                 $query = $this->db->insert('informasi_hima',$data);
+                $alert = array('teks'=>'Informasi Hima Berhasil Ditambahkan');
+                return $this->session->set_flashdata($alert);  
             }
             
         }
