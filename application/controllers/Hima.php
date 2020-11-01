@@ -178,6 +178,7 @@ class Hima extends CI_Controller
                 
                 $config['upload_path']='./assets/img/organisasiHima/';
                 $config['allowed_types']='jpg|png|jpeg';
+                $config['max_size']=10000;
                 $this->load->library('upload',$config);                
                 if($ft=="foto1"){
                     
@@ -187,7 +188,7 @@ class Hima extends CI_Controller
                             // die;
                         }else {
                             $this->session->set_userdata('typeNotif', "gagalUpload2");
-                            return "";
+
                         }
                     }
                     else{
@@ -219,15 +220,9 @@ class Hima extends CI_Controller
                 // print_r($input);die;
                 
             $foto111=$_FILES['foto1'];
-            
-            
             // var_dump($foto111); die();
-            
             $foto1_name="foto1";
             
-            
-            
-
             // $akun= $this->Makun->get_by_id($creator);
             // print_r($akun);die;
             if(null == $foto111 && $foto111 && $foto111 ){
@@ -293,6 +288,7 @@ class Hima extends CI_Controller
                 
                 $config['upload_path']='./assets/img/organisasiHima/';
                 $config['allowed_types']='jpg|png|jpeg';
+                $config['max_size']= 10000;
                 $this->load->library('upload',$config);                
                 if($ft=="foto1"){
                     
@@ -329,6 +325,7 @@ class Hima extends CI_Controller
         $data['css']='hima/vdetailbiro_css.php';
         $data['js'] = 'hima/vorganisasiHima_js.php'; 
         $data['content']="hima/vdetailBiro.php";
+        $data['asidebar']="hima/vasidebarorganisasi.php";
         $data['footer']="template/template_footer.php";
         $this->load->view('template/vtemplate',$data);      
     }
@@ -341,9 +338,10 @@ class Hima extends CI_Controller
         // print_r($data);die;
         $data['ph']=$this->Morganisasi->MloadOrganisasiPhById($id_ph);
         $data['header']="template/template_header.php";
-        $data['css']='hima/vdetailbiro_css.php';
+        $data['css']='hima/vdetailph_css.php';
         $data['js'] = 'hima/vorganisasiHima_js.php'; 
-        $data['content']="hima/vdetailBiro.php";
+        $data['content']="hima/vdetailph.php";
+        $data['asidebar']="hima/vasidebarorganisasi.php";
         $data['footer']="template/template_footer.php";
         $this->load->view('template/vtemplate',$data);      
     }

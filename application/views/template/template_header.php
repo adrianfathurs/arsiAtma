@@ -27,8 +27,7 @@
         <div class="search_input" id="search_input_box">
         <div class="container">
             <form class="d-flex justify-content-between" method="" action="">
-            <input type="text" class="form-control"id="search_input" placeholder="Search Here"
-            />
+            <!-- <input type="text" class="form-control"id="search_input" placeholder="Search Here"/> -->
             <button type="submit" class="btn"></button>
             <span class="ti-close" id="close_search" title="Close Search"></span>
             </form>
@@ -68,7 +67,7 @@
                   <a class="nav-link" href="<?php echo site_url('Home')?>">HOME</a>
                 </li>
                 <?php if(isset($page) ){ 
-                  if($page=="organisasiHimaPage" || $page=="tentangHimaPage"){?>
+                  if($page=="organisasiHimaPage" || $page=="tentangHimaPage" || $page=="informasiHimasPage"){?>
                     <li class="nav-item active submenu dropdown">
                     <?php } else{ ?>
                       <li class="nav-item submenu dropdown">

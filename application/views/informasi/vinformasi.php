@@ -20,16 +20,24 @@
     <!--================ End Home Banner Area =================-->
 
     <!--================Blog Area =================-->
-    <section class="blog_area section_gap">        
+    <section class="blog_area section_gap">   
+    <div class="text-center"> 
+                    <?php if (!empty($this->session->flashdata('teks'))) : ?>
+                    <div id="alerttype" class="alert p-3 mb-2">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                        <h5 id="alerttitle"></h5>
+                        <span class="alert alert-info"> <?php echo $this->session->flashdata('teks'); ?></span>
+                        <i id="alerticon"></i>
+                    </div>
+                <?php endif; ?>                      
+                        </div>     
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="blog_left_sidebar">                                        
-                    <div class="text-right"> 
-                        <?php if( $type_akun=="1"){ ?>                       
-                        <a href="<?php echo base_url('informasi/formhima/') ?>" class="btn waves-effect waves-light btn-success">Tambah</a>
+                <?php if( $type_akun=="1"){ ?>                       
+                        <a href="<?php echo base_url('informasi/formhima/') ?>" class="btn waves-effect waves-light btn-success">Tambah Informasi</a>
                         <?php }; ?>
-                        </div>
+                    <div class="blog_left_sidebar">                                                           
                     <div class="col-md">                        
                     </div>
                         <?php foreach($Informasi as $informasi) :     ?>      
