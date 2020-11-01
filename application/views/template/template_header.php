@@ -67,7 +67,7 @@
                   <a class="nav-link" href="<?php echo site_url('Home')?>">HOME</a>
                 </li>
                 <?php if(isset($page) ){ 
-                  if($page=="organisasiHimaPage" || $page=="tentangHimaPage"){?>
+                  if($page=="organisasiHimaPage" || $page=="tentangHimaPage" || $page=="informasiHimasPage"){?>
                     <li class="nav-item active submenu dropdown">
                     <?php } else{ ?>
                       <li class="nav-item submenu dropdown">
