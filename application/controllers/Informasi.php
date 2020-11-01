@@ -60,7 +60,7 @@ class Informasi extends CI_Controller
         $data['username'] = $this->session->userdata('username');  
         $data['fav'] = $this->Minformasi_hima->getFav($this->session->userdata('id'));
         // print_r($data['fav']);die;
-        $data['page'] = "Tentang Hima";
+        $data['page'] = "informasiHimasPage";
         // $data['informasi'] = $this->Minformasi_hima->getAll();        
         $data['header']="template/template_header.php";
         $data['css']="informasi/vinformasi_css.php";
@@ -71,7 +71,8 @@ class Informasi extends CI_Controller
         $this->load->view('template/vtemplate',$data);
     }
 
-    function informasi_detail($id){                     
+    function informasi_detail($id){       
+        $data['page']="informasiHimasPage";              
         $data['cek_fav'] = $this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
         // print_r($data);die;
         $data['informasi'] = $this->Minformasi_hima->getArtikel($id);          
@@ -87,7 +88,8 @@ class Informasi extends CI_Controller
         $this->load->view('template/vtemplate',$data);
     }
 
-    function formhima(){                     
+    function formhima(){                   
+            $data['page']="informasiHimasPage";  
             $input = $this->input->post(NULL,TRUE);
             extract($input);           
             
@@ -233,7 +235,7 @@ class Informasi extends CI_Controller
     }
 
     function updatehima($id){
-
+        $data['page']="informasiHimasPage";
         $data['data'] = $this->Minformasi_hima->getArtikel($id);
         // print_r($data['data']);die;
         $data['informasi'] = "hima";                   

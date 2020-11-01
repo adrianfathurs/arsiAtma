@@ -325,6 +325,7 @@ class Hima extends CI_Controller
         $data['css']='hima/vdetailbiro_css.php';
         $data['js'] = 'hima/vorganisasiHima_js.php'; 
         $data['content']="hima/vdetailBiro.php";
+        $data['asidebar']="hima/vasidebarorganisasi.php";
         $data['footer']="template/template_footer.php";
         $this->load->view('template/vtemplate',$data);      
     }
@@ -337,9 +338,10 @@ class Hima extends CI_Controller
         // print_r($data);die;
         $data['ph']=$this->Morganisasi->MloadOrganisasiPhById($id_ph);
         $data['header']="template/template_header.php";
-        $data['css']='hima/vdetailbiro_css.php';
+        $data['css']='hima/vdetailph_css.php';
         $data['js'] = 'hima/vorganisasiHima_js.php'; 
-        $data['content']="hima/vdetailBiro.php";
+        $data['content']="hima/vdetailph.php";
+        $data['asidebar']="hima/vasidebarorganisasi.php";
         $data['footer']="template/template_footer.php";
         $this->load->view('template/vtemplate',$data);      
     }
