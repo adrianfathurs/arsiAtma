@@ -5,6 +5,9 @@ class Informasi extends CI_Controller
     public function __construct(){
         parent :: __construct();
         $this->load->model('Minformasi_hima');
+        $this->load->model('Minformasi_universitas');
+        $this->load->model('Minformasi_fakultas');
+        $this->load->model('Minformasi_pamiy');
         $this->load->model("Makun");
     }
 
@@ -66,8 +69,158 @@ class Informasi extends CI_Controller
         $this->load->view('template/vtemplate',$data);
     }
 
+
+    function informasi_universitas(){
+        // Load library pagination
+        $this->load->library('pagination');
+
+        // Pengaturan pagination
+        $config['base_url'] = base_url('Informasi/informasi_universitas/');
+        $config['total_rows'] = $this->Minformasi_universitas->get()->num_rows();
+        $config['per_page'] = 10 ;
+        $config['offset'] = $this->uri->segment(3);
+
+        // Styling pagination
+        $config['first_link']       = 'First';
+        $config['last_link']        = 'Last';
+        $config['next_link']        = 'Next';
+        $config['prev_link']        = 'Prev';
+        $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+        $config['full_tag_close']   = '</ul></nav></div>';
+        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['prev_tagl_close']  = '</span>Next</li>';
+        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['last_tagl_close']  = '</span></li>';
+
+        $this->pagination->initialize($config);
+
+        // Data untuk page index
+        $data['Informasi'] = $this->Minformasi_universitas->get_offset($config['per_page'], $config['offset'])->result();
+        $data['type_akun'] = $this->session->userdata('type_akun');            
+		$data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
+        $data['fav'] = $this->Minformasi_universitas->getFav($this->session->userdata('id'));
+        $data['page'] = "Tentang UAJY";
+        // $data['informasi'] = $this->Minformasi_universitas->getAll();        
+        $data['header']="template/template_header.php";
+        $data['css']="informasi/vinformasiuniv_css.php";
+        $data['js'] = 'informasi/vinformasiuniv_js.php'; 
+        $data['content']="informasi/vinformasiuniv.php";
+        $data['asidebar']="informasi/vasidebar_informasi.php";
+        $data['footer']="template/template_footer.php";
+        $this->load->view('template/vtemplate',$data);
+    }
+
+    function informasi_fakultas(){
+        // Load library pagination
+        $this->load->library('pagination');
+
+        // Pengaturan pagination
+        $config['base_url'] = base_url('Informasi/informasi_fakultas/');
+        $config['total_rows'] = $this->Minformasi_fakultas->get()->num_rows();
+        $config['per_page'] = 10 ;
+        $config['offset'] = $this->uri->segment(3);
+
+        // Styling pagination
+        $config['first_link']       = 'First';
+        $config['last_link']        = 'Last';
+        $config['next_link']        = 'Next';
+        $config['prev_link']        = 'Prev';
+        $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+        $config['full_tag_close']   = '</ul></nav></div>';
+        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['prev_tagl_close']  = '</span>Next</li>';
+        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['last_tagl_close']  = '</span></li>';
+
+        $this->pagination->initialize($config);
+
+        // Data untuk page index
+        $data['Informasi'] = $this->Minformasi_fakultas->get_offset($config['per_page'], $config['offset'])->result();
+        $data['type_akun'] = $this->session->userdata('type_akun');            
+		$data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
+        $data['fav'] = $this->Minformasi_fakultas->getFav($this->session->userdata('id'));
+        $data['page'] = "Tentang Hima";
+        // $data['informasi'] = $this->Minformasi_fakultas->getAll();        
+        $data['header']="template/template_header.php";
+        $data['css']="informasi/vinformasifakultas_css.php";
+        $data['js'] = 'informasi/vinformasifakultas_js.php'; 
+        $data['content']="informasi/vinformasifakultas.php";
+        $data['asidebar']="informasi/vasidebar_informasi.php";
+        $data['footer']="template/template_footer.php";
+        $this->load->view('template/vtemplate',$data);
+    }
+
+    function informasi_pamiy(){
+        // Load library pagination
+        $this->load->library('pagination');
+
+        // Pengaturan pagination
+        $config['base_url'] = base_url('Informasi/informasi_pamiy/');
+        $config['total_rows'] = $this->Minformasi_pamiy->get()->num_rows();
+        $config['per_page'] = 10 ;
+        $config['offset'] = $this->uri->segment(3);
+
+        // Styling pagination
+        $config['first_link']       = 'First';
+        $config['last_link']        = 'Last';
+        $config['next_link']        = 'Next';
+        $config['prev_link']        = 'Prev';
+        $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+        $config['full_tag_close']   = '</ul></nav></div>';
+        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['prev_tagl_close']  = '</span>Next</li>';
+        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['last_tagl_close']  = '</span></li>';
+
+        $this->pagination->initialize($config);
+
+        // Data untuk page index
+        $data['Informasi'] = $this->Minformasi_pamiy->get_offset($config['per_page'], $config['offset'])->result();
+        $data['type_akun'] = $this->session->userdata('type_akun');            
+		$data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
+        $data['fav'] = $this->Minformasi_pamiy->getFav($this->session->userdata('id'));
+        $data['page'] = "Tentang Hima";
+        //$data['informasi'] = $this->Minformasi_pamiy->getAll();        
+        $data['header']="template/template_header.php";
+        $data['css']="informasi/vinformasipamiy_css.php";
+        $data['js'] = 'informasi/vinformasipamiy_js.php'; 
+        $data['content']="informasi/vinformasipamiy.php";
+        $data['asidebar']="informasi/vasidebar_informasi.php";
+        $data['footer']="template/template_footer.php";
+        $this->load->view('template/vtemplate',$data);
+    }
+
+   
     function informasi_detail($id){       
         $data['page']="informasiHimasPage";              
+
         $data['cek_fav'] = $this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
         $data['informasi'] = $this->Minformasi_hima->getArtikel($id);          
         $data['type_akun'] = $this->session->userdata('type_akun');            
@@ -82,8 +235,59 @@ class Informasi extends CI_Controller
         $this->load->view('template/vtemplate',$data);
     }
 
+
+    function informasi_detailuniv($id){                     
+        $data['cek_fav'] = $this->Minformasi_universitas->cekfav($id,$this->session->userdata('id'));
+        // print_r($data);die;
+        $data['informasi'] = $this->Minformasi_universitas->getArtikel($id);          
+        $data['type_akun'] = $this->session->userdata('type_akun');            
+        $data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
+        $data['css']="informasi/vinformasiuniv_css.php";
+        $data['js'] = 'informasi/vinformasiuniv_js.php'; 
+        $data['header']="template/template_header.php";            
+        $data['content']="informasi/vDetailInformasiuniv.php";
+        $data['asidebar']="informasi/vasidebar_informasiuniv.php";
+        $data['footer']="template/template_footer.php";                
+        $this->load->view('template/vtemplate',$data);
+    }
+
+    function informasi_detailfakultas($id){                     
+        $data['cek_fav'] = $this->Minformasi_fakultas->cekfav($id,$this->session->userdata('id'));
+        // print_r($data);die;
+        $data['informasi'] = $this->Minformasi_fakultas->getArtikel($id);          
+        $data['type_akun'] = $this->session->userdata('type_akun');            
+        $data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
+        $data['css']="informasi/vinformasifakultas_css.php";
+        $data['js'] = 'informasi/vinformasifakultas_js.php'; 
+        $data['header']="template/template_header.php";            
+        $data['content']="informasi/vDetailInformasifakultas.php";
+        $data['asidebar']="informasi/vasidebar_informasifakultas.php";
+        $data['footer']="template/template_footer.php";                
+        $this->load->view('template/vtemplate',$data);
+    }
+
+    function informasi_detailpamiy($id){                     
+        $data['cek_fav'] = $this->Minformasi_pamiy->cekfav($id,$this->session->userdata('id'));
+        // print_r($data);die;
+        $data['informasi'] = $this->Minformasi_pamiy->getArtikel($id);          
+        $data['type_akun'] = $this->session->userdata('type_akun');            
+        $data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
+        $data['css']="informasi/vinformasipamiy_css.php";
+        $data['js'] = 'informasi/vinformasipamiy_js.php'; 
+        $data['header']="template/template_header.php";            
+        $data['content']="informasi/vDetailInformasipamiy.php";
+        $data['asidebar']="informasi/vasidebar_informasipamiy.php";
+        $data['footer']="template/template_footer.php";                
+        $this->load->view('template/vtemplate',$data);
+    }
+
+    
     function formhima(){                   
             $data['page']="informasiHimasPage";  
+
             $input = $this->input->post(NULL,TRUE);
             extract($input);           
             
@@ -120,8 +324,11 @@ class Informasi extends CI_Controller
                                 'nama_penulis' => $akun->nama_lengkap,
                                 'status' => 1
                             ];
-                        $this->Minformasi_hima->insert($data,$id_info);                         
+
+                            // print_r($data);die;
+                        $this->Minformasi_hima->insert($data,$id_info);
                         redirect('Informasi/informasi_hima');
+                        // $this->getArtikel($jenis_artikel);
                     }
                     
                 }else{
@@ -134,6 +341,7 @@ class Informasi extends CI_Controller
                     $obj->foto1_hima = '';
                     $obj->foto2_hima = '';
                     $obj->foto3_hima = '';
+                    // $obj->jenis_artikel = "0";
                     $data['data'] = $obj;
                     $data['informasi'] = "hima";                   
                     $data['js'] = 'informasi/vinformasi_js.php'; 
@@ -147,8 +355,231 @@ class Informasi extends CI_Controller
                     $data['footer']="template/template_footer.php";          
                     $this->load->view('template/vtemplate', $data);
                 }
-        
+    }
 
+    function formuniv(){                     
+            $input = $this->input->post(NULL,TRUE);
+            extract($input);           
+            
+            if ($this->input->post('submit')) {
+                // print_r($input);die;
+            
+            $foto111=$_FILES['foto1'];
+            $foto222=$_FILES['foto2'];
+            $foto333=$_FILES['foto3'];
+            $foto444=$_FILES['foto4'];
+            $foto555=$_FILES['foto5'];
+            
+            $foto1_name="foto1";
+            $foto2_name="foto2";
+            $foto3_name="foto3";
+            $foto4_name="foto4";
+            $foto5_name="foto5";
+
+            $akun= $this->Makun->get_by_id($creator);
+            // print_r($akun);die;
+            if(null == $foto111 && $foto111 && $foto111 ){
+                $this->session->set_userdata('typeNotif', "gagalUpload");
+                // redirect('article');
+            } else {
+                            $foto11=$this->_uploaduniv($foto111,$foto1_name,$id_info);
+                            $foto22=$this->_uploaduniv($foto222,$foto2_name,$id_info);
+                            $foto33=$this->_uploaduniv($foto333,$foto3_name,$id_info);
+                            $foto44=$this->_uploaduniv($foto444,$foto4_name,$id_info);
+                            $foto55=$this->_uploaduniv($foto555,$foto5_name,$id_info);
+
+                            $data=[
+                                'judul_univ'=>$this->input->post('judul'),                               
+                                'foto4_univ'=>$foto44,
+                                'foto5_univ'=>$foto55,
+                                'deskripsi_univ'=>$this->input->post('essay'),
+                                'foto1_univ'=>$foto11,
+                                'foto2_univ'=>$foto22,
+                                'foto3_univ'=>$foto33,
+                                'nama_penulis' => $akun->nama_lengkap,
+                                'status' => 1
+                            ];
+                            // print_r($data);die;
+                        $this->Minformasi_fakultas->insert($data,$id_info);
+                        redirect('Informasi/informasi_fakultas');
+                        // $this->getArtikel($jenis_artikel);
+                    }
+                    
+                }else{
+                    $obj = new stdClass();            
+                    $obj->judul_univ = '';
+                    $obj->id_informasi_univ  = '';
+                    $obj->deskripsi_univ = '';
+                    $obj->foto4_univ = '';
+                    $obj->foto5_univ = '';
+                    $obj->foto1_univ = '';
+                    $obj->foto2_univ = '';
+                    $obj->foto3_univ = '';
+                    // $obj->jenis_artikel = "0";
+                    $data['data'] = $obj;
+                    $data['informasi'] = "univ";                   
+                    $data['js'] = 'informasi/vinformasiuniv_js.php'; 
+                    $data['css'] = 'informasi/vinformasiuniv_css';      
+                    $data['type_akun'] = $this->session->userdata('type_akun');            
+                    $data['id'] = $this->session->userdata('id'); 
+                    $data['username'] = $this->session->userdata('username'); 
+                    $data['header']="template/template_header.php";            
+                    $data['content'] = 'informasi/vformuniv.php';    
+                    $data['asidebar']="portofolio/vasidebar_portofolio.php";
+                    $data['footer']="template/template_footer.php";          
+                    $this->load->view('template/vtemplate', $data);
+                }
+    }
+
+    function formfakultas(){                     
+            $input = $this->input->post(NULL,TRUE);
+            extract($input);           
+            
+            if ($this->input->post('submit')) {
+                // print_r($input);die;
+            
+            $foto111=$_FILES['foto1'];
+            $foto222=$_FILES['foto2'];
+            $foto333=$_FILES['foto3'];
+            $foto444=$_FILES['foto4'];
+            $foto555=$_FILES['foto5'];
+            
+            $foto1_name="foto1";
+            $foto2_name="foto2";
+            $foto3_name="foto3";
+            $foto4_name="foto4";
+            $foto5_name="foto5";
+
+            $akun= $this->Makun->get_by_id($creator);
+            // print_r($akun);die;
+            if(null == $foto111 && $foto111 && $foto111 ){
+                $this->session->set_userdata('typeNotif', "gagalUpload");
+                // redirect('article');
+            } else {
+                            $foto11=$this->_upload($foto111,$foto1_name,$id_info);
+                            $foto22=$this->_upload($foto222,$foto2_name,$id_info);
+                            $foto33=$this->_upload($foto333,$foto3_name,$id_info);
+                            $foto44=$this->_upload($foto444,$foto4_name,$id_info);
+                            $foto55=$this->_upload($foto555,$foto5_name,$id_info);
+
+                            $data=[
+                                'judul_fakultas'=>$this->input->post('judul'),                               
+                                'foto4_fakultas'=>$foto44,
+                                'foto5_fakultas'=>$foto55,
+                                'deskripsi_fakultas'=>$this->input->post('essay'),
+                                'foto1_fakultas'=>$foto11,
+                                'foto2_fakultas'=>$foto22,
+                                'foto3_fakultas'=>$foto33,
+                                'nama_penulis' => $akun->nama_lengkap,
+                                'status' => 1
+                            ];
+                            // print_r($data);die;
+                        $this->Minformasi_fakultas->insert($data,$id_info);
+                        redirect('Informasi/informasi_fakultas');
+                        // $this->getArtikel($jenis_artikel);
+                    }
+                    
+                }else{
+                    $obj = new stdClass();            
+                    $obj->judul_fakultas = '';
+                    $obj->id_informasi_fakultas  = '';
+                    $obj->deskripsi_fakultas = '';
+                    $obj->foto4_fakultas = '';
+                    $obj->foto5_fakultas = '';
+                    $obj->foto1_fakultas = '';
+                    $obj->foto2_fakultas = '';
+                    $obj->foto3_fakultas = '';
+                    // $obj->jenis_artikel = "0";
+                    $data['data'] = $obj;
+                    $data['informasi'] = "fakultas";                   
+                    $data['js'] = 'informasi/vinformasifakultas_js.php'; 
+                    $data['css'] = 'informasi/vinformasifakultas_css';      
+                    $data['type_akun'] = $this->session->userdata('type_akun');            
+                    $data['id'] = $this->session->userdata('id'); 
+                    $data['username'] = $this->session->userdata('username'); 
+                    $data['header']="template/template_header.php";            
+                    $data['content'] = 'informasi/vformfakultas.php';    
+                    $data['asidebar']="portofolio/vasidebar_portofolio.php";
+                    $data['footer']="template/template_footer.php";          
+                    $this->load->view('template/vtemplate', $data);
+                }
+    }
+
+    function formpamiy(){                     
+            $input = $this->input->post(NULL,TRUE);
+            extract($input);           
+            
+            if ($this->input->post('submit')) {
+                // print_r($input);die;
+            
+            $foto111=$_FILES['foto1'];
+            $foto222=$_FILES['foto2'];
+            $foto333=$_FILES['foto3'];
+            $foto444=$_FILES['foto4'];
+            $foto555=$_FILES['foto5'];
+            
+            $foto1_name="foto1";
+            $foto2_name="foto2";
+            $foto3_name="foto3";
+            $foto4_name="foto4";
+            $foto5_name="foto5";
+
+            $akun= $this->Makun->get_by_id($creator);
+            // print_r($akun);die;
+            if(null == $foto111 && $foto111 && $foto111 ){
+                $this->session->set_userdata('typeNotif', "gagalUpload");
+                // redirect('article');
+            } else {
+                            $foto11=$this->_upload($foto111,$foto1_name,$id_info);
+                            $foto22=$this->_upload($foto222,$foto2_name,$id_info);
+                            $foto33=$this->_upload($foto333,$foto3_name,$id_info);
+                            $foto44=$this->_upload($foto444,$foto4_name,$id_info);
+                            $foto55=$this->_upload($foto555,$foto5_name,$id_info);
+
+                            $data=[
+                                'judul_pamiy'=>$this->input->post('judul'),                               
+                                'foto4_pamiy'=>$foto44,
+                                'foto5_pamiy'=>$foto55,
+                                'deskripsi_pamiy'=>$this->input->post('essay'),
+                                'foto1_pamiy'=>$foto11,
+                                'foto2_pamiy'=>$foto22,
+                                'foto3_pamiy'=>$foto33,
+                                'nama_penulis' => $akun->nama_lengkap,
+                                'status' => 1
+                            ];
+                            // print_r($data);die;
+                        $this->Minformasi_fakultas->insert($data,$id_info);
+                        redirect('Informasi/informasi_fakultas');
+                        // $this->getArtikel($jenis_artikel);
+
+                    }
+                    
+                }else{
+                    $obj = new stdClass();            
+
+                    $obj->judul_pamiy = '';
+                    $obj->id_informasi_pamiy  = '';
+                    $obj->deskripsi_pamiy = '';
+                    $obj->foto4_pamiy = '';
+                    $obj->foto5_pamiy = '';
+                    $obj->foto1_pamiy = '';
+                    $obj->foto2_pamiy = '';
+                    $obj->foto3_pamiy = '';
+                    // $obj->jenis_artikel = "0";
+
+                    $data['data'] = $obj;
+                    $data['informasi'] = "pamiy";                   
+                    $data['js'] = 'informasi/vinformasipamiy_js.php'; 
+                    $data['css'] = 'informasi/vinformasipamiy_css';      
+                    $data['type_akun'] = $this->session->userdata('type_akun');            
+                    $data['id'] = $this->session->userdata('id'); 
+                    $data['username'] = $this->session->userdata('username'); 
+                    $data['header']="template/template_header.php";            
+                    $data['content'] = 'informasi/vformpamiy.php';    
+                    $data['asidebar']="portofolio/vasidebar_portofolio.php";
+                    $data['footer']="template/template_footer.php";          
+                    $this->load->view('template/vtemplate', $data);
+                }
     }
 
     function _upload($foto,$ft,$id){
@@ -199,7 +630,7 @@ class Informasi extends CI_Controller
                             return $data->foto4_hima;
                         }else {
                             return "";
-                            $this->session->set_userdata('typeNotif', "gagalUpload3");
+                            $this->session->set_userdata('typeNotif', "gagalUpload4");
                         }
                     }else{
                         return $this->upload->data('file_name');
@@ -211,7 +642,214 @@ class Informasi extends CI_Controller
                             return $data->foto5_hima;
                         }else {
                             return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload5");
+                        }
+                    }else{
+                        return $this->upload->data('file_name');
+                    }  
+
+                }
+    }
+
+    function _uploaduniv($foto,$ft,$id){
+        $data['page']="articlePage";
+                $data = $this->Minformasi_universitas->getArtikel($id);
+                
+                $config['upload_path']='./assets/img/informasiUniv/';
+                $config['allowed_types']='jpg|png|jpeg';
+                $this->load->library('upload',$config);
+                if($ft=="foto1"){
+                    if(!$this->upload->do_upload('foto1')){
+                        if($data->foto1_univ){
+                            return $data->foto1_univ;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload1");
+                        }
+                    }
+                    else{
+                        return $this->upload->data('file_name');
+                    }   
+                }elseif($ft=="foto2"){
+                    if(!$this->upload->do_upload('foto2')){
+                        if($data->foto2_univ){
+                            return $data->foto2_univ;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload2");
+                        }
+                    } else{
+                        return $this->upload->data('file_name');
+                    }  
+                }elseif($ft=="foto3"){
+                    if(!$this->upload->do_upload('foto3')){
+                        if($data->foto3_univ){
+                            return $data->foto3_univ;
+                        }else {
+                            return "";
                             $this->session->set_userdata('typeNotif', "gagalUpload3");
+                        }
+                    }else{
+                        return $this->upload->data('file_name');
+                    }  
+
+                }elseif($ft=="foto4"){
+                    if(!$this->upload->do_upload('foto4')){
+                        if($data->foto4_univ){
+                            return $data->foto4_univ;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload4");
+                        }
+                    }else{
+                        return $this->upload->data('file_name');
+                    }  
+
+                }elseif($ft=="foto5"){
+                    if(!$this->upload->do_upload('foto5')){
+                        if($data->foto5_univ){
+                            return $data->foto5_univ;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload5");
+                        }
+                    }else{
+                        return $this->upload->data('file_name');
+                    }  
+
+                }
+    }
+
+    function _uploadfakultas($foto,$ft,$id){
+        $data['page']="articlePage";
+                $data = $this->Minformasi_fakultas->getArtikel($id);
+                
+                $config['upload_path']='./assets/img/informasiFakultas/';
+                $config['allowed_types']='jpg|png|jpeg';
+                $this->load->library('upload',$config);
+                if($ft=="foto1"){
+                    if(!$this->upload->do_upload('foto1')){
+                        if($data->foto1_univ){
+                            return $data->foto1_univ;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload1");
+                        }
+                    }
+                    else{
+                        return $this->upload->data('file_name');
+                    }   
+                }elseif($ft=="foto2"){
+                    if(!$this->upload->do_upload('foto2')){
+                        if($data->foto2_univ){
+                            return $data->foto2_univ;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload2");
+                        }
+                    } else{
+                        return $this->upload->data('file_name');
+                    }  
+                }elseif($ft=="foto3"){
+                    if(!$this->upload->do_upload('foto3')){
+                        if($data->foto3_univ){
+                            return $data->foto3_univ;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload3");
+                        }
+                    }else{
+                        return $this->upload->data('file_name');
+                    }  
+
+                }elseif($ft=="foto4"){
+                    if(!$this->upload->do_upload('foto4')){
+                        if($data->foto4_univ){
+                            return $data->foto4_univ;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload4");
+                        }
+                    }else{
+                        return $this->upload->data('file_name');
+                    }  
+
+                }elseif($ft=="foto5"){
+                    if(!$this->upload->do_upload('foto5')){
+                        if($data->foto5_univ){
+                            return $data->foto5_univ;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload5");
+                        }
+                    }else{
+                        return $this->upload->data('file_name');
+                    }  
+
+                }
+    }
+
+    function _uploadpamiy($foto,$ft,$id){
+        $data['page']="articlePage";
+                $data = $this->Minformasi_pamiy->getArtikel($id);
+                
+                $config['upload_path']='./assets/img/informasiPamiy/';
+                $config['allowed_types']='jpg|png|jpeg';
+                $this->load->library('upload',$config);
+                if($ft=="foto1"){
+                    if(!$this->upload->do_upload('foto1')){
+                        if($data->foto1_univ){
+                            return $data->foto1_univ;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload1");
+                        }
+                    }
+                    else{
+                        return $this->upload->data('file_name');
+                    }   
+                }elseif($ft=="foto2"){
+                    if(!$this->upload->do_upload('foto2')){
+                        if($data->foto2_univ){
+                            return $data->foto2_univ;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload2");
+                        }
+                    } else{
+                        return $this->upload->data('file_name');
+                    }  
+                }elseif($ft=="foto3"){
+                    if(!$this->upload->do_upload('foto3')){
+                        if($data->foto3_univ){
+                            return $data->foto3_univ;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload3");
+                        }
+                    }else{
+                        return $this->upload->data('file_name');
+                    }  
+
+                }elseif($ft=="foto4"){
+                    if(!$this->upload->do_upload('foto4')){
+                        if($data->foto4_univ){
+                            return $data->foto4_univ;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload4");
+                        }
+                    }else{
+                        return $this->upload->data('file_name');
+                    }  
+
+                }elseif($ft=="foto5"){
+                    if(!$this->upload->do_upload('foto5')){
+                        if($data->foto5_univ){
+                            return $data->foto5_univ;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload5");
                         }
                     }else{
                         return $this->upload->data('file_name');
@@ -237,6 +875,60 @@ class Informasi extends CI_Controller
         $data['footer']="template/template_footer.php";          
         $this->load->view('template/vtemplate', $data);
     }
+
+
+    function updateuniv($id){
+
+        $data['data'] = $this->Minformasi_universitas->getArtikel($id);
+        // print_r($data['data']);die;
+        $data['informasi'] = "hima";                   
+        $data['js'] = 'informasi/vinformasiuniv_js.php'; 
+        $data['css'] = 'informasi/vinformasiuniv_css';      
+        $data['type_akun'] = $this->session->userdata('type_akun');            
+        $data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
+        $data['header']="template/template_header.php";            
+        $data['content'] = 'informasi/vformuniv.php';    
+        $data['asidebar']="portofolio/vasidebar_portofolio.php";
+        $data['footer']="template/template_footer.php";          
+        $this->load->view('template/vtemplate', $data);
+    }
+    
+    function updatefakultas($id){
+
+        $data['data'] = $this->Minformasi_fakultas->getArtikel($id);
+        // print_r($data['data']);die;
+        $data['informasi'] = "hima";                   
+        $data['js'] = 'informasi/vinformasifakultas_js.php'; 
+        $data['css'] = 'informasi/vinformasifakultas_css';      
+        $data['type_akun'] = $this->session->userdata('type_akun');            
+        $data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
+        $data['header']="template/template_header.php";            
+        $data['content'] = 'informasi/vformfakultas.php';    
+        $data['asidebar']="portofolio/vasidebar_portofolio.php";
+        $data['footer']="template/template_footer.php";          
+        $this->load->view('template/vtemplate', $data);
+    }
+
+    function updatepamiy($id){
+
+        $data['data'] = $this->Minformasi_hima->getArtikel($id);
+        // print_r($data['data']);die;
+        $data['informasi'] = "hima";                   
+        $data['js'] = 'informasi/vinformasipamiy_js.php'; 
+        $data['css'] = 'informasi/vinformasipamiy_css';      
+        $data['type_akun'] = $this->session->userdata('type_akun');            
+        $data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
+        $data['header']="template/template_header.php";            
+        $data['content'] = 'informasi/vformpamiy.php';    
+        $data['asidebar']="portofolio/vasidebar_portofolio.php";
+        $data['footer']="template/template_footer.php";          
+        $this->load->view('template/vtemplate', $data);
+    }
+
+
     function delete($id){
         $dataInf = $this->Minformasi_hima->getArtikel($id);
         $data=[
@@ -254,11 +946,60 @@ class Informasi extends CI_Controller
         $this->session->set_flashdata($alert);  
         $this->Minformasi_hima->insert($data,$id);
         redirect("Informasi/informasi_hima");
+    }
 
+    function deleteuniv($id){
+        $dataInf = $this->Minformasi_universitas->getArtikel($id);
+        $data=[
+            'judul_univ'=>$dataInf->judul_univ,                               
+            'foto4_univ'=>$dataInf->foto4_univ,
+            'foto5_univ'=>$dataInf->foto5_univ,
+            'deskripsi_univ'=>$dataInf->deskripsi_univ,
+            'foto1_univ'=>$dataInf->foto1_univ,
+            'foto2_univ'=>$dataInf->foto2_univ,
+            'foto3_univ'=>$dataInf->foto3_univ,
+            'nama_penulis' => $dataInf->nama_penulis,
+            'status' => 0
+        ];
+        $this->Minformasi_univ->insert($data,$id);
+        redirect("Informasi/informasi_univ");
+    }
+
+    function deletefakultas($id){
+        $dataInf = $this->Minformasi_fakultas->getArtikel($id);
+        $data=[
+            'judul_fakultas'=>$dataInf->judul_fakultas,                               
+            'foto4_fakultas'=>$dataInf->foto4_fakultas,
+            'foto5_fakultas'=>$dataInf->foto5_fakultas,
+            'deskripsi_fakultas'=>$dataInf->deskripsi_fakultas,
+            'foto1_fakultas'=>$dataInf->foto1_fakultas,
+            'foto2_fakultas'=>$dataInf->foto2_fakultas,
+            'foto3_fakultas'=>$dataInf->foto3_fakultas,
+            'nama_penulis' => $dataInf->nama_penulis,
+            'status' => 0
+        ];
+        $this->Minformasi_fakultas->insert($data,$id);
+        redirect("Informasi/informasi_fakultas");
+    }    
+
+    function deletepamiy($id){
+        $dataInf = $this->Minformasi_pamiy->getArtikel($id);
+        $data=[
+            'judul_pamiy'=>$dataInf->judul_pamiy,                               
+            'foto4_pamiy'=>$dataInf->foto4_pamiy,
+            'foto5_pamiy'=>$dataInf->foto5_pamiy,
+            'deskripsi_pamiy'=>$dataInf->deskripsi_pamiy,
+            'foto1_pamiy'=>$dataInf->foto1_pamiy,
+            'foto2_pamiy'=>$dataInf->foto2_pamiy,
+            'foto3_pamiy'=>$dataInf->foto3_pamiy,
+            'nama_penulis' => $dataInf->nama_penulis,
+            'status' => 0
+        ];
+        $this->Minformasi_pamiy->insert($data,$id);
+        redirect("Informasi/informasi_pamiy");
     }
 
     function saveinformasi($id_info){
-        
         $data=[
             'fk_akun'=>$this->session->userdata('id'),                               
             'fk_informasi_hima '=>$id_info
@@ -269,6 +1010,33 @@ class Informasi extends CI_Controller
         redirect("Informasi/informasi_detail/".$id_info);
     }
 
+    function saveinformasiuniv($id_info){
+        $data=[
+            'fk_akun'=>$this->session->userdata('id'),                               
+            'fk_informasi_univ '=>$id_info
+        ];
+        $this->Minformasi_univ->saveinf($data);
+        redirect("Informasi/informasi_detailuniv/".$id_info);
+    }
+
+    function saveinformasifakultas($id_info){
+        $data=[
+            'fk_akun'=>$this->session->userdata('id'),                               
+            'fk_informasi_fakultas '=>$id_info
+        ];
+        $this->Minformasi_fakultas->saveinf($data);
+        redirect("Informasi/informasi_detailfakultas/".$id_info);
+    }
+
+    function saveinformasipamiy($id_info){
+        $data=[
+            'fk_akun'=>$this->session->userdata('id'),                               
+            'fk_informasi_pamiy '=>$id_info
+        ];
+        $this->Minformasi_pamiy->saveinf($data);
+        redirect("Informasi/informasi_detailpamiy/".$id_info);
+    }
+
     function hapusfav($id_info){
         $this->Minformasi_hima->hapusfav($id_info,$this->session->userdata('id'));
         $alert = array('teks'=>'Dihapus dari Akun Anda');
@@ -276,6 +1044,20 @@ class Informasi extends CI_Controller
         redirect("Informasi/informasi_detail/".$id_info);
     }
 
+    function hapusfavuniv($id_info){
+        $this->Minformasi_universitas->hapusfavuniv($id_info,$this->session->userdata('id'));
+        redirect("Informasi/informasi_detailuniv/".$id_info);
+    }
+
+    function hapusfavfakultas($id_info){
+        $this->Minformasi_fakultas->hapusfavfakultas($id_info,$this->session->userdata('id'));
+        redirect("Informasi/informasi_detailfakultas/".$id_info);
+    }
+
+    function hapusfavpamiy($id_info){
+        $this->Minformasi_pamiy->hapusfavpamiy($id_info,$this->session->userdata('id'));
+        redirect("Informasi/informasi_detailpamiy/".$id_info);
+    }
 }
 
 ?>
