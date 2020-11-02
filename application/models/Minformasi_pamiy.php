@@ -53,6 +53,7 @@ class Minformasi_pamiy extends CI_Model{
             $query = $this->db
                 ->limit($limit, $offset)
                 ->order_by('id_informasi_pamiy', 'DESC')
+                ->where('status ', 1)
                 ->get('informasi_pamiy');
 
             // Return hasil query
