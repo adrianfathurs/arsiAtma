@@ -125,10 +125,15 @@ class Reg extends CI_Controller
     function auth(){
         $input = $this->input->post(NULL,TRUE);
         extract($input);
-
+        // print_r($input);die;
         $cek = $this->Makun->ceklogin($username,$pass);
 
 		if ($cek) {
+            $time = time();
+            if($remember){
+                setcookie("arsiAtma[username]",$username , $time + 86400);        
+                setcookie("arsiAtma[pass]", $pass, $time + 86400); 
+            }
             $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
             <div class='toast-header'>
                 <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
@@ -162,6 +167,11 @@ class Reg extends CI_Controller
     }
     
     function logout(){
+        if(isset($_COOKIE['cookielogin'])){
+            $time = time();
+            setcookie("arsiAtma[username]", $time - 86400);
+            setcookie("arsiAtma[pass]", $time - 86400);
+        }
         $data = array (
 			'id', 'username', 'type_akun', 'is_login'
 		);
