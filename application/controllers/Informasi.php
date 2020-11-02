@@ -51,6 +51,12 @@ class Informasi extends CI_Controller
         $this->pagination->initialize($config);
 
         $data['Informasi'] = $this->Minformasi_hima->get_offset($config['per_page'], $config['offset'])->result();
+        foreach ($data['Informasi'] as $key => $val) {
+			if (!empty($val->created_date)) {
+                // $tanggal = ;
+				$data['Informasi'][$key]->created_date	= $this->convert_date(date('Y-m-d', strtotime($val->created_date)));
+			}
+		}
         $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username');  
@@ -68,7 +74,6 @@ class Informasi extends CI_Controller
         $data['footer']="template/template_footer.php";
         $this->load->view('template/vtemplate',$data);
     }
-
 
     function informasi_universitas(){
         // Load library pagination
@@ -218,11 +223,14 @@ class Informasi extends CI_Controller
     }
 
    
-    function informasi_detail($id){       
+    function informasi_detail($id){               
         $data['page']="informasiHimasPage";              
-
         $data['cek_fav'] = $this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
-        $data['informasi'] = $this->Minformasi_hima->getArtikel($id);          
+        $data['informasi'] = $this->Minformasi_hima->getArtikel($id);         
+        //convert date 
+        $tanggal = date('Y-m-d', strtotime($data['informasi']->created_date));
+        $data['informasi']->created_date = $this->tanggal_indo($tanggal,true);
+        
         $data['type_akun'] = $this->session->userdata('type_akun');            
         $data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
@@ -327,6 +335,19 @@ class Informasi extends CI_Controller
 
                             // print_r($data);die;
                         $this->Minformasi_hima->insert($data,$id_info);
+                        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                                    <div class='toast-header'>
+                                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+                            
+                                        <strong class='mr-auto'>Notifikasi </strong>                                
+                                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class='toast-body'>
+                                        Informasi Hima Berhasil Diperbarui
+                                    </div>");
+                        $this->session->set_flashdata($alert);                        
                         redirect('Informasi/informasi_hima');
                         // $this->getArtikel($jenis_artikel);
                     }
@@ -1093,6 +1114,65 @@ class Informasi extends CI_Controller
         $this->Minformasi_pamiy->hapusfavpamiy($id_info,$this->session->userdata('id'));
         redirect("Informasi/informasi_detailpamiy/".$id_info);
     }
+
+    function tanggal_indo($tanggal, $cetak_hari = false){
+        $hari = array ( 1 =>    'Senin',
+                    'Selasa',
+                    'Rabu',
+                    'Kamis',
+                    'Jumat',
+                    'Sabtu',
+                    'Minggu'
+                );
+                
+        $bulan = array (1 =>   'Januari',
+                    'Februari',
+                    'Maret',
+                    'April',
+                    'Mei',
+                    'Juni',
+                    'Juli',
+                    'Agustus',
+                    'September',
+                    'Oktober',
+                    'November',
+                    'Desember'
+                );
+        $split 	  = explode('-', $tanggal);
+        $tgl_indo = $split[2] . ' ' . $bulan[ (int)$split[1] ] . ' ' . $split[0];
+        
+        if ($cetak_hari) {
+            $num = date('N', strtotime($tanggal));
+            return $hari[$num] . ', ' . $tgl_indo;
+        }
+        return $tgl_indo;
+    }
+
+    
+    private function convert_date($date) {
+		$split_date			= explode("-", $date);
+		$year				= $split_date[0];
+		$month				= (int) $split_date[1];
+		$day				= $split_date[2];
+
+		if		($month == 1)	{ $month = "Januari"; }
+		else if ($month == 2)	{ $month = "Februari"; }
+		else if ($month == 3)	{ $month = "Maret"; }
+		else if ($month == 4)	{ $month = "April"; }
+		else if ($month == 5)	{ $month = "Mei"; }
+		else if ($month == 6)	{ $month = "Juni"; }
+		else if ($month == 7)	{ $month = "Juli"; }
+		else if ($month == 8)	{ $month = "Agustus"; }
+		else if ($month == 9)	{ $month = "September"; }
+		else if ($month == 10)	{ $month = "Oktober"; }
+		else if ($month == 11)	{ $month = "November"; }
+		else if ($month == 12)	{ $month = "Desember"; }
+
+		$final_convert = $day . " " . $month . " " . $year;
+		return $final_convert;
+	}
+
+
 }
 
 ?>
