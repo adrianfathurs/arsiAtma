@@ -944,8 +944,19 @@ class Informasi extends CI_Controller
             'nama_penulis' => $dataInf->nama_penulis,
             'status' => 0
         ];
-        $alert = array('teks'=>'Informasi Hima Berhasil Dihapus');
-        $this->session->set_flashdata($alert);  
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Dihapus dari Database
+                    </div>");
+        $this->session->set_flashdata($alert);
         $this->Minformasi_hima->insert($data,$id);
         redirect("Informasi/informasi_hima");
     }
