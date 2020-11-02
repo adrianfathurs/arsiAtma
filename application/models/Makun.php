@@ -26,7 +26,7 @@ class Makun extends CI_Model{
                     $data = array (
                         'id' 		=> $user->id_akun,
                         'username' 	=> $user->username,                        
-                        'type_akun' => $user->type_akun,
+                        'type_akun' => $user->type_akun,  
                         'is_login' 	=> true
                     );
                     // print_r($data);die;

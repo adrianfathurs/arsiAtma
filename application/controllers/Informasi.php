@@ -1060,6 +1060,43 @@ class Informasi extends CI_Controller
         $this->Minformasi_pamiy->hapusfavpamiy($id_info,$this->session->userdata('id'));
         redirect("Informasi/informasi_detailpamiy/".$id_info);
     }
+
+    function likeButton(){
+       $id_informasi=$this->input->post('id_informasi');
+       $id_jenis_informasi=$this->input->post('id_jenis_informasi');
+       $id_button=$this->input->post('id_button');
+       if($id_informasi==1){
+        //informasi_hima
+        if($id_button==1){
+            //update
+        }
+        else{
+            //insert
+            $data=[
+                'fk_akun'=>$this->session->userdata('id'),
+                'fk_informasi_hima'=> $id_informasi,
+                'statusfavoritehima'=> $id_button
+
+            ];
+            $insert=$this->Minformasi_hima->saveFav($data);
+            if($insert){
+                return echo "";
+            }
+            else{
+                return echo "Belum tersimpan";
+            }
+        }
+       }
+       elseif($id_informasi==2){
+        //informas_univ
+       }
+       elseif($id_informasi==3){
+        //informasi_fakultas
+       }
+
+    }
 }
 
+
+    
 ?>

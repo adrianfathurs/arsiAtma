@@ -6,6 +6,7 @@ class Home extends CI_Controller
         parent :: __construct();
 
         $this->load->model('Minformasi_hima');
+        $this->load->model('Minformasi_universitas');
 
     }
 
@@ -19,7 +20,8 @@ class Home extends CI_Controller
         $data['header']="template/template_header.php";
         $data['css']="home/vhomePage_css.php";
         $data['informasiHima']=$this->Minformasi_hima->getThreeInformasi();
-      
+        $data['informasiUniv']=$this->Minformasi_universitas->getThreeInformasi();
+        
         $data['content']="home/vhomePage.php";
         $data['js']="home/vhomePage_js.php";
         $data['footer']="template/template_footer.php";
@@ -36,13 +38,13 @@ class Home extends CI_Controller
             <strong class='mr-auto'>Notifikasi </strong>                                
             <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
                 <span aria-hidden='true'>&times;</span>
-            </button>
+                </button>
         </div>
         <div class='toast-body'>
             Selamat, Anda Berhasil Login :)                           
         </div>" ;
-
-
+        
+        
         /* Untuk active navbar */
         $data['page']="homePage";
         $data['type_akun'] = $this->session->userdata('type_akun');            
@@ -50,6 +52,8 @@ class Home extends CI_Controller
         $data['username'] = $this->session->userdata('username');         
         $data['header']="template/template_header.php";
         $data['css']="home/vhomePage_css.php";
+        $data['informasiHima']=$this->Minformasi_hima->getThreeInformasi();
+        $data['informasiUniv']=$this->Minformasi_universitas->getThreeInformasi();
         $data['content']="home/vhomePage.php";
         $data['js']="home/vhomePage_js.php";
         $data['footer']="template/template_footer.php";
@@ -79,6 +83,9 @@ class Home extends CI_Controller
         $data['username'] = $this->session->userdata('username');         
         $data['header']="template/template_header.php";
         $data['css']="home/vhomePage_css.php";
+        $data['informasiHima']=$this->Minformasi_hima->getThreeInformasi();
+        $data['informasiUniv']=$this->Minformasi_universitas->getThreeInformasi();
+      
         $data['content']="home/vhomePage.php";
         $data['js']="home/vhomePage_js.php";
         $data['footer']="template/template_footer.php";
@@ -108,6 +115,9 @@ class Home extends CI_Controller
         $data['username'] = $this->session->userdata('username');         
         $data['header']="template/template_header.php";
         $data['css']="home/vhomePage_css.php";
+        $data['informasiHima']=$this->Minformasi_hima->getThreeInformasi();
+        $data['informasiUniv']=$this->Minformasi_universitas->getThreeInformasi();
+      
         $data['content']="home/vhomePage.php";
         $data['js']="home/vhomePage_js.php";
         $data['footer']="template/template_footer.php";
@@ -137,6 +147,8 @@ class Home extends CI_Controller
         $data['username'] = $this->session->userdata('username');         
         $data['header']="template/template_header.php";
         $data['css']="home/vhomePage_css.php";
+        $data['informasiHima']=$this->Minformasi_hima->getThreeInformasi();
+      
         $data['content']="home/vhomePage.php";
         $data['js']="home/vhomePage_js.php";
         $data['footer']="template/template_footer.php";
@@ -166,6 +178,9 @@ class Home extends CI_Controller
         $data['username'] = $this->session->userdata('username');         
         $data['header']="template/template_header.php";
         $data['css']="home/vhomePage_css.php";
+        $data['informasiHima']=$this->Minformasi_hima->getThreeInformasi();
+        $data['informasiUniv']=$this->Minformasi_universitas->getThreeInformasi();
+      
         $data['content']="home/vhomePage.php";
         $data['js']="home/vhomePage_js.php";
         $data['footer']="template/template_footer.php";

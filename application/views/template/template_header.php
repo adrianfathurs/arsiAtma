@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/themify-icons.css" />
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>vendors/owl-carousel/owl.carousel.min.css" />
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>vendors/nice-select/css/nice-select.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
     <!-- main css -->
+     <script src="https://use.fontawesome.com/d1fb53bc02.js"></script>
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/style.css" />
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/login.css" />
 </head>
