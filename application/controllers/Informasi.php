@@ -1190,13 +1190,7 @@ class Informasi extends CI_Controller
                 'statusfavoritehima'=> $id_button
 
             ];
-            $insert=$this->Minformasi_hima->saveFav($data);
-            if($insert){
-                return echo "";
-            }
-            else{
-                return echo "Belum tersimpan";
-            }
+            $insert=$this->Minformasi_hima->saveFav($data);            
         }
        }
        elseif($id_informasi==2){
