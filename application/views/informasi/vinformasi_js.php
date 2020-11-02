@@ -49,7 +49,7 @@
 
         Swal.fire({
             title: 'Perhatikan',
-            text: "Anda Akan Menghapus Informasi Ini ke Akun Anda, Anda Yakin?",
+            text: "Anda Akan Menyimpan Informasi Ini ke Akun Anda, Anda Yakin?",
             icon: 'warning',
             showCancelButton: true,
             cancelButtonColor: '#343a40',

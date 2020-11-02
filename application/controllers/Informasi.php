@@ -255,15 +255,37 @@ class Informasi extends CI_Controller
             'fk_informasi_hima '=>$id_info
         ];
         $this->Minformasi_hima->saveinf($data);
-        $alert = array('teks'=>'Disimpan ke Akun Anda');
-        $this->session->set_flashdata($alert);  
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Disimpan ke Akun Anda                      
+                    </div>");
+        $this->session->set_flashdata($alert);
         redirect("Informasi/informasi_detail/".$id_info);
     }
 
     function hapusfav($id_info){
         $this->Minformasi_hima->hapusfav($id_info,$this->session->userdata('id'));
-        $alert = array('teks'=>'Dihapus dari Akun Anda');
-        $this->session->set_flashdata($alert);  
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Dihapus dari Akun Anda                    
+                    </div>");
+        $this->session->set_flashdata($alert);
         redirect("Informasi/informasi_detail/".$id_info);
     }
 

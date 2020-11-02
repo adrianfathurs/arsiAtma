@@ -9,7 +9,7 @@ class Reg extends CI_Controller
 
     public function index(){
         $data['css']="reg/vreg_css.php";
-        // $data['js']="viewArticle/VviewArticle_js.php";
+        $data['js']="reg/vreg_js.php";
         $data['data'] = "false";
         $data['content']="reg/vreg.php";
         $this->load->view('template/vtemplate',$data);
@@ -17,6 +17,7 @@ class Reg extends CI_Controller
 
     function forgot(){
         $data['css']="reg/vreg_css.php";
+        $data['js']="reg/vreg_js.php";
         $data['content']="reg/vreg.php";
         $data['data'] = "forgot";
         $this->load->view('template/vtemplate',$data);
@@ -42,10 +43,35 @@ class Reg extends CI_Controller
                     'status'=>1,
                     ];
                     $this->Makun->reg($data);
-                    redirect('Home/regis');
+                    $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Pendaftaran Akun Berhasil, Silahkan Login, Terimakasih :)                        
+                    </div>");
+                    $this->session->set_flashdata($alert);
+                    redirect('Home/');
                 }else{             
-                          
-                    redirect('Reg/signupfail');
+                    $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='1000' data-autohide='false'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                    <i class='fas fa-user-ninja'></i> Email atau Username yang Anda Masukkan Sudah Terdaftar, Silahkan Login.
+                    </div>");
+                    $this->session->set_flashdata($alert); 
+                    redirect('Reg/');
                 }
         
         }
@@ -60,12 +86,38 @@ class Reg extends CI_Controller
             
             if( !empty($user) && !empty($em)){
                 
-            $this->Makun->update($data);            
-            redirect('Home/update');
-            }else{
-               
-                redirect('Reg/updatefail');
-            }
+            $this->Makun->update($data);  
+            $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Password Akun Anda Berhasil Diperbarui, Silahkan Login :)                        
+                    </div>");
+            $this->session->set_flashdata($alert);          
+             redirect('Home/');
+
+                }else{
+                    $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='1000' data-autohide='false'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                    <i class='fas fa-user-ninja'></i> Email dan Username yang Anda Masukkan Tidak Cocok                       
+                    </div>");
+                    $this->session->set_flashdata($alert); 
+                    redirect('Reg/forgot');
+                }
         }
 
     }
@@ -77,9 +129,35 @@ class Reg extends CI_Controller
         $cek = $this->Makun->ceklogin($username,$pass);
 
 		if ($cek) {
-			redirect('home/auth');
+            $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+            <div class='toast-header'>
+                <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+    
+                <strong class='mr-auto'>Notifikasi </strong>                                
+                <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+            <div class='toast-body'>
+                Selamat, Anda Berhasil Login :)                           
+            </div>");
+            $this->session->set_flashdata($alert); 
+			redirect('home/');
 		} else {
-			redirect('home/failed');
+            $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='500' data-autohide='false'>
+            <div class='toast-header'>
+                <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+    
+                <strong class='mr-auto'>Notifikasi </strong>                                
+                <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+            <div class='toast-body'>
+                Gagal Login, Username atau Kata Sandi Salah!                         
+            </div>");
+            $this->session->set_flashdata($alert); 
+			redirect('home/');
 		}
     }
     
@@ -89,51 +167,20 @@ class Reg extends CI_Controller
 		);
         // $this->session_destroy();
 		$this->session->unset_userdata($data);
-		redirect('home/Logout');
-    }
-     
-    function updatefail(){
+		$alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='1000' data-autohide='true'>
+            <div class='toast-header'>
+                <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
 
-        $data['notif'] = "<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='1000' data-autohide='false'>
-        <div class='toast-header'>
-            <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
-
-            <strong class='mr-auto'>Notifikasi </strong>                                
-            <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
-                <span aria-hidden='true'>&times;</span>
-            </button>
-        </div>
-        <div class='toast-body'>
-        <i class='fas fa-user-ninja'></i> Email dan Username yang Anda Masukkan Tidak Cocok                       
-        </div>" ;
-
-        $data['css']="reg/vreg_css.php";
-        $data['js']="reg/vreg_js.php";
-        $data['content']="reg/vreg.php";
-        $data['data'] = "forgot";
-        $this->load->view('template/vtemplate',$data);
-    }
-    
-    function signupfail(){
-
-        $data['notif'] = "<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='1000' data-autohide='false'>
-        <div class='toast-header'>
-            <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
-
-            <strong class='mr-auto'>Notifikasi </strong>                                
-            <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
-                <span aria-hidden='true'>&times;</span>
-            </button>
-        </div>
-        <div class='toast-body'>
-        <i class='fas fa-user-ninja'></i> Email atau Username yang Anda Masukkan Sudah Terdaftar, Silahkan Login.
-        </div>" ;
-
-        $data['css']="reg/vreg_css.php";
-        $data['js']="reg/vreg_js.php";
-        $data['content']="reg/vreg.php";
-        $data['data'] = "false";
-        $this->load->view('template/vtemplate',$data);
+                <strong class='mr-auto'>Notifikasi </strong>                                
+                <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+            <div class='toast-body'>
+                LogOut Akun Berhasil, Terimakasih :)                        
+            </div>");
+        $this->session->set_flashdata($alert); 
+		redirect('home/');
     }
 
 }

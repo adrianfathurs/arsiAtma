@@ -241,9 +241,9 @@
         </nav>
       </div>    
       <div>
-              <?php if(!empty($notif)) { 
-                    echo $notif; } ?>
-              </div>
+          <?php if(!empty($this->session->flashdata('notif'))) { 
+          echo $this->session->flashdata('notif'); } ?>
+      </div>
     </header>
 
 
