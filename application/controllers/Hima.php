@@ -6,6 +6,7 @@ class Hima extends CI_Controller
         parent :: __construct();
         $this->load->model('Morganisasi');
         $this->load->model('Makun');
+        $this->load->model('Minformasi_hima');
         // $this->load->library('upload');
 
     }
@@ -14,7 +15,7 @@ class Hima extends CI_Controller
         $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
-        
+        $data['informasiHima']=$this->Minformasi_hima->getThreeInformasi();
         // $data['css']="viewArticle/VviewArticle_css.php";
         $data['header']="template/template_header.php";
         $data['css']="hima/vhima_css.php";

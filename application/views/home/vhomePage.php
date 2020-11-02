@@ -103,13 +103,48 @@
                 <div class="course_content">
                   <span class="tag mb-4 d-inline-block">News</span>
                   <h4 class="mb-3">
-                    <a href="<?php echo base_url('Article')?>"><?php echo $hima['judul_hima']?></a>
+                    <a href="<?php echo base_url('Article')?>"><?php echo substr($hima['judul_hima'],0,14)."..."?></a>
                   </h4>
-                  <?php echo  substr($hima['deskripsi_hima'],0,200)."...";?>
+                  <?php echo  substr($hima['deskripsi_hima'],0,120)."...";?>
                   <div class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
                     <div class="mt-lg-0 mt-3">
                       <span class="meta_info">
-                        <a href="#"> <i class="ti-heart mr-2"></i></a>
+                        <?php if(!empty($id) ){?>
+                        <!-- keterangan fungsi id_informasi_hima, id_jenis_informasi,id_like_button -->
+                         <a id="btnLove" style="cursor:pointer;" onclick="like_button(<?php echo $hima['id_informasi_hima']?>,1,1)"><i class="far fa-heart"></i></a>
+                        <?php } ?>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          <?php endforeach;?>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- single course -->
+          <div class="col-lg-12">
+            <div class="owl-carousel active_course">    
+          <?php foreach($informasiUniv as $univ):?>
+              <div class="single_course">
+                <div class="course_head">
+                  <img class="img-fluid" src="<?php echo base_url('assets/img/informasiUniv/').$univ['foto1_univ']?>" alt="" />
+                </div>
+                <div class="course_content">
+                  <span class="tag mb-4 d-inline-block">News</span>
+                  <h4 class="mb-3">
+                    <a href="<?php echo base_url('Article')?>"><?php echo substr($univ['judul_univ'],0,14)."..."?></a>
+                  </h4>
+                  <?php echo  substr($univ['deskripsi_univ'],0,120)."...";?>
+                  <div class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
+                    <div class="mt-lg-0 mt-3">
+                      <span class="meta_info">
+                        <?php if(!empty($id) ){?>
+                        <!-- keterangan fungsi id_informasi_hima, id_jenis_informasi,id_like_button -->
+                         <a id="btnLove" style="cursor:pointer;" onclick="like_button(<?php echo $univ['id_informasi_univ']?>,2,1)"><i class="far fa-heart"></i></a>
+                        <?php } ?>
                       </span>
                     </div>
                   </div>
