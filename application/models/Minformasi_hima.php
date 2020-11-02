@@ -14,6 +14,13 @@ class Minformasi_hima extends CI_Model{
         return $query->row();
     }
 
+    function getThreeInformasi(){
+       
+        
+        $query=$this->db->get('informasi_hima',3);
+        return $query->result_array();
+    }
+
     public function insert($data,$id){
             if ($id != 0){
                 $this->db->where('id_informasi_hima ', $id);

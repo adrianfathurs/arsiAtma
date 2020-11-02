@@ -5,6 +5,8 @@ class Home extends CI_Controller
     public function __construct(){
         parent :: __construct();
 
+        $this->load->model('Minformasi_hima');
+
     }
 
     public function index(){
@@ -16,6 +18,8 @@ class Home extends CI_Controller
         $data['username'] = $this->session->userdata('username');         
         $data['header']="template/template_header.php";
         $data['css']="home/vhomePage_css.php";
+        $data['informasiHima']=$this->Minformasi_hima->getThreeInformasi();
+      
         $data['content']="home/vhomePage.php";
         $data['js']="home/vhomePage_js.php";
         $data['footer']="template/template_footer.php";

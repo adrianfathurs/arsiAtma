@@ -93,70 +93,44 @@
         </div>
         <div class="row">
           <!-- single course -->
-          <?php for($i=0;$i<3;$i++) :?>
           <div class="col-lg-12">
-            <div class="owl-carousel active_course">
+            <div class="owl-carousel active_course">    
+          <?php foreach($informasiHima as $hima):?>
               <div class="single_course">
                 <div class="course_head">
-                  <img class="img-fluid" src="<?php echo base_url('assets/')?>img/courses/c1.jpg" alt="" />
+                  <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$hima['foto1_hima']?>" alt="" />
                 </div>
                 <div class="course_content">
-                
                   <span class="tag mb-4 d-inline-block">News</span>
                   <h4 class="mb-3">
-                    <a href="<?php echo base_url('Article')?>">Rektor Atma Jaya menyanjung Jurusan Arsitek</a>
+                    <a href="<?php echo base_url('Article')?>"><?php echo $hima['judul_hima']?></a>
                   </h4>
-                  <p>
-                    One make creepeth man bearing their one firmament won't fowl
-                    meat over sea
-                  </p>
-                  <div
-                    class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4"
-                  >
-                  
+                  <?php echo  substr($hima['deskripsi_hima'],0,200)."...";?>
+                  <div class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
                     <div class="mt-lg-0 mt-3">
-                      <span class="meta_info"
-                        ><a href="#"> <i class="ti-heart mr-2"></i> </a></span
-                      >
+                      <span class="meta_info">
+                        <a href="#"> <i class="ti-heart mr-2"></i></a>
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
+          <?php endforeach;?>
+            </div>
+          </div>
+        </div>
 
-              <div class="single_course">
-                <div class="course_head">
-                  <img class="img-fluid" src="<?php echo base_url('assets/')?>img/courses/c2.jpg" alt="" />
-                </div>
-                <div class="course_content">
-                  
-                  <span class="tag mb-4 d-inline-block">Important</span>
-                  <h4 class="mb-3">
-                    <a href="<?php echo base_url('Article')?>">Mahasiswa Wajib KKN</a>
-                  </h4>
-                  <p>
-                    One make creepeth man bearing their one firmament won't fowl
-                    meat over sea
-                  </p>
-                  <div
-                    class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4"
-                  >
-                  
-                    <div class="mt-lg-0 mt-3">
-                      
-                      <span class="meta_info"
-                        ><a href="#"> <i class="ti-heart mr-2"></i> </a></span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+<!--  -->
+        <div class="row">
+          <!-- single course -->
+          
+          <div class="col-lg-12">
+            <div class="owl-carousel active_course">    
               <div class="single_course">
                 <div class="course_head">
                   <img class="img-fluid" src="<?php echo base_url('assets/')?>img/courses/c3.jpg" alt="" />
                 </div>
                 <div class="course_content">
-                  
                   <span class="tag mb-4 d-inline-block">News</span>
                   <h4 class="mb-3">
                     <a href="<?php echo base_url('Article')?>">Juara Lomba</a>
@@ -165,23 +139,21 @@
                     One make creepeth man bearing their one firmament won't fowl
                     meat over sea
                   </p>
-                  <div
-                    class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4"
-                  >
-                  
+                  <div class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
                     <div class="mt-lg-0 mt-3">
-                     
-                      <span class="meta_info"
-                        ><a href="#"> <i class="ti-heart mr-2"></i></a></span
-                      >
+                      <span class="meta_info">
+                        <a href="#"> <i class="ti-heart mr-2"></i></a>
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <?php endfor;?>
+          
         </div>
+<!--  -->
+
       </div>
     </div>
     </section>
