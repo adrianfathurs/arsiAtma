@@ -134,7 +134,7 @@
                              
                          
                         <!-- keterangan fungsi id_informasi_hima, id_jenis_informasi,id_like_button var_dump($hima['id_informasi_hima']);var_dump($cek['fk_informasi_hima']); var_dump($hello);  var_dump($hello)-->
-                        <?php } endforeach;
+                        <?php } endforeach;;
                             if($hello==1){?>
                                <!-- <a id="btnLoveHima" style="cursor:pointer;" onclick="like_button(<?php echo $hima['id_informasi_hima']?>,1,0)" >
                                 <i id="gambarLoveHima" class="fas fa-heart"></i>
