@@ -80,7 +80,7 @@
     <!--================ End Feature Area =================-->
 
     <!--================ Start Popular Courses Area =================-->
-    <section class="feature_area section_gap_top">    
+    <section id="autoload" class="feature_area section_gap_top">    
     <div class="popular_courses">
       <div class="container">
         <div class="row justify-content-center">
@@ -93,9 +93,10 @@
         </div>
         <div class="row">
           <!-- single course -->
+          
           <div class="col-lg-12">
             <div class="owl-carousel active_course">    
-          <?php foreach($informasiHima as $hima):?>
+          <?php foreach($informasiHima as $hima): $hello=0?>
               <div class="single_course">
                 <div class="course_head">
                   <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$hima['foto1_hima']?>" alt="" />
@@ -109,10 +110,49 @@
                   <div class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
                     <div class="mt-lg-0 mt-3">
                       <span class="meta_info">
-                        <?php if(!empty($id) ){?>
-                        <!-- keterangan fungsi id_informasi_hima, id_jenis_informasi,id_like_button -->
-                         <a id="btnLove" style="cursor:pointer;" onclick="like_button(<?php echo $hima['id_informasi_hima']?>,1,1)"><i class="far fa-heart"></i></a>
-                        <?php } ?>
+                        <?php if(!empty($id)){
+                          foreach($joinInformasiFavoriteHima as $cek) :?>
+                            
+                                <?php if($hima['id_informasi_hima']==$cek['fk_informasi_hima']){
+                                 
+                                 if( $cek['statusfavoritehima']==1){
+
+                                    $hello=1;
+                                  }
+                                  else{
+                                    $hello=0;
+                                  }
+                                }else{ 
+                                  if($hello==1)
+                                  {
+                                    $hello=1;
+                                  }
+                                  else{
+                                    $hello=0;
+                                  }
+                                  ?>
+                             
+                         
+                        <!-- keterangan fungsi id_informasi_hima, id_jenis_informasi,id_like_button var_dump($hima['id_informasi_hima']);var_dump($cek['fk_informasi_hima']); var_dump($hello);  var_dump($hello)-->
+                        <?php } endforeach;
+                            if($hello==1){?>
+                               <!-- <a id="btnLoveHima" style="cursor:pointer;" onclick="like_button(<?php echo $hima['id_informasi_hima']?>,1,0)" >
+                                <i id="gambarLoveHima" class="fas fa-heart"></i>
+                              </a>  -->
+                               <a id="btnLoveHima" style="cursor:pointer;" href="<?php echo base_url('informasi/informasi_hima_home/').$hima['id_informasi_hima']?>">
+                                <i id="gambarLoveHima" class="fas fa-heart"></i>
+                               </a> 
+                      
+                           <?php }
+                            else{?>
+                              <a id="btnDislikeHima" style="cursor:pointer;" href="<?php echo base_url('informasi/informasi_hima_home/').$hima['id_informasi_hima']?>">
+                                <div id="bungkusDislikeHima">
+                                <i id="gambarDislikeHima" class="far fa-heart"></i>
+                                </div>
+                              </a> 
+                            
+                              
+                            <?php }} ?>
                       </span>
                     </div>
                   </div>
@@ -141,9 +181,11 @@
                   <div class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
                     <div class="mt-lg-0 mt-3">
                       <span class="meta_info">
-                        <?php if(!empty($id) ){?>
+                        <?php if(!empty($id) ){ ?>
+                        <div id="btnLoveHima">
                         <!-- keterangan fungsi id_informasi_hima, id_jenis_informasi,id_like_button -->
-                         <a id="btnLove" style="cursor:pointer;" onclick="like_button(<?php echo $univ['id_informasi_univ']?>,2,1)"><i class="far fa-heart"></i></a>
+                         <a class="btnLove" style="cursor:pointer;" onclick="like_button(<?php echo $univ['id_informasi_univ']?>,2,1)"><i  class="far fa-heart"></i></a>
+                        </div>
                         <?php } ?>
                       </span>
                     </div>

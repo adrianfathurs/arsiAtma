@@ -17,6 +17,7 @@ class Hima extends CI_Controller
         $data['username'] = $this->session->userdata('username'); 
         $data['informasiHima']=$this->Minformasi_hima->getThreeInformasi();
         // $data['css']="viewArticle/VviewArticle_css.php";
+        
         $data['header']="template/template_header.php";
         $data['css']="hima/vhima_css.php";
         $data['content']="home/vhome.php";
