@@ -16,7 +16,7 @@ class Minformasi_hima extends CI_Model{
 
     function getThreeInformasi(){
        
-        
+        $this->db->order_by('id_informasi_hima', 'DESC');
         $query=$this->db->get('informasi_hima',3);
         return $query->result_array();
     }
@@ -75,4 +75,18 @@ class Minformasi_hima extends CI_Model{
                 // Return hasil query
         return $query;
     }
+
+    public function joinInformasiFavoriteHima($id){
+        $this->db->select('favorite_hima.fk_informasi_hima,informasi_hima.id_informasi_hima,favorite_hima.statusfavoritehima');
+        $this->db->from('informasi_hima');
+        $this->db->join('favorite_hima','favorite_hima.fk_informasi_hima=informasi_hima.id_informasi_hima');
+        $this->db->where('favorite_hima.fk_akun',$id);
+        $this->db->group_by('fk_informasi_hima');
+        $this->db->order_by('fk_informasi_hima', 'DESC');
+        $query = $this->db->get();
+        return $query->result_array();
+
+    }
+
+   
 }

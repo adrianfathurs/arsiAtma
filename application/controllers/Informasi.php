@@ -242,6 +242,33 @@ class Informasi extends CI_Controller
         $data['footer']="template/template_footer.php";                
         $this->load->view('template/vtemplate',$data);
     }
+    // fungsi yang digunakan untuk like button hima di home
+    function informasi_hima_home($id){       
+        $data['page']="informasiHimasPage";              
+
+        $data['cek_fav'] = $this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
+        $cek_status=$this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
+        
+        if(empty($cek_status))
+        {
+            $this->saveinformasi($id);
+            
+        }
+        else{
+            $this->hapusfav($id);
+        }
+        $data['informasi'] = $this->Minformasi_hima->getArtikel($id);          
+        $data['type_akun'] = $this->session->userdata('type_akun');            
+        $data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
+        $data['css']="informasi/vinformasi_css.php";
+        $data['js'] = 'informasi/vinformasi_js.php'; 
+        $data['header']="template/template_header.php";            
+        $data['content']="informasi/vDetailInformasi.php";
+        $data['asidebar']="informasi/vasidebar_informasi.php";
+        $data['footer']="template/template_footer.php";                
+        $this->load->view('template/vtemplate',$data);
+    }
 
 
     function informasi_detailuniv($id){                     
@@ -1036,7 +1063,8 @@ class Informasi extends CI_Controller
     function saveinformasi($id_info){
         $data=[
             'fk_akun'=>$this->session->userdata('id'),                               
-            'fk_informasi_hima '=>$id_info
+            'fk_informasi_hima '=>$id_info,
+            'statusfavoritehima'=>1
         ];
         $this->Minformasi_hima->saveinf($data);
         $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
@@ -1173,24 +1201,29 @@ class Informasi extends CI_Controller
 	}
 
 
-    function likeButton(){
+    /* function likeButton(){
        $id_informasi=$this->input->post('id_informasi');
        $id_jenis_informasi=$this->input->post('id_jenis_informasi');
        $id_button=$this->input->post('id_button');
-       if($id_informasi==1){
+       if($id_jenis_informasi==1){
         //informasi_hima
         if($id_button==1){
-            //update
-        }
-        else{
             //insert
-            $data=[
+              $data=[
                 'fk_akun'=>$this->session->userdata('id'),
                 'fk_informasi_hima'=> $id_informasi,
                 'statusfavoritehima'=> $id_button
 
             ];
-            $insert=$this->Minformasi_hima->saveFav($data);            
+            //$insert=$this->Minformasi_hima->saveinf($data);
+           echo "<li class='fas fa-heart'></li>";
+             
+        }
+        else{
+            //update
+            
+          
+           
         }
        }
        elseif($id_informasi==2){
@@ -1200,10 +1233,11 @@ class Informasi extends CI_Controller
         //informasi_fakultas
        }
 
-    }
+    } */
+
+
+
 
 }
-
-
     
 ?>

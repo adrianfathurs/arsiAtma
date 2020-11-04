@@ -34,16 +34,20 @@ class Home extends CI_Controller
         $data['page']="homePage";
         $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
+        $id = $this->session->userdata('id');
         $data['username'] = $this->session->userdata('username');         
         $data['header']="template/template_header.php";
         $data['css']="home/vhomePage_css.php";
-        $data['informasiHima']=$this->Minformasi_hima->getThreeInformasi();
+        
+         $data['informasiHima']=$this->Minformasi_hima->getThreeInformasi();
+         $data['joinInformasiFavoriteHima']=$this->Minformasi_hima->joinInformasiFavoriteHima($id);
+        
         $data['informasiUniv']=$this->Minformasi_universitas->getThreeInformasi();
         
         $data['content']="home/vhomePage.php";
         $data['js']="home/vhomePage_js.php";
         $data['footer']="template/template_footer.php";
-
+        
         $this->load->view('template/vtemplate',$data);
         // print_r($data);die;
     }
@@ -52,7 +56,7 @@ class Home extends CI_Controller
     function auth(){
         $data['notif'] = "<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
         <div class='toast-header'>
-            <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
 
             <strong class='mr-auto'>Notifikasi </strong>                                
             <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
@@ -68,10 +72,13 @@ class Home extends CI_Controller
         $data['page']="homePage";
         $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
-        $data['username'] = $this->session->userdata('username');         
-        $data['header']="template/template_header.php";
-        $data['css']="home/vhomePage_css.php";
-        $data['informasiHima']=$this->Minformasi_hima->getThreeInformasi();
+        $data['username'] = $this->session->userdata('username');  
+         $id = $this->session->userdata('id');
+         $data['header']="template/template_header.php";
+         $data['css']="home/vhomePage_css.php";
+         $data['informasiHima']=$this->Minformasi_hima->getThreeInformasi();
+         $data['joinInformasiFavoriteHima']=$this->Minformasi_hima->joinInformasiFavoriteHima($id);
+        
         $data['informasiUniv']=$this->Minformasi_universitas->getThreeInformasi();
         $data['content']="home/vhomePage.php";
         $data['js']="home/vhomePage_js.php";
