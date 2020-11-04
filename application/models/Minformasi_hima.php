@@ -24,13 +24,9 @@ class Minformasi_hima extends CI_Model{
     public function insert($data,$id){
             if ($id != 0){
                 $this->db->where('id_informasi_hima ', $id);
-                $this->db->update('informasi_hima', $data);
-                $alert = array('teks'=>'Informasi Hima Berhasil Diperbarui');
-                return $this->session->set_flashdata($alert);  
+                $this->db->update('informasi_hima', $data);                
             }else{
                 $query = $this->db->insert('informasi_hima',$data);
-                $alert = array('teks'=>'Informasi Hima Berhasil Ditambahkan');
-                return $this->session->set_flashdata($alert);  
             }
             
         }
@@ -65,6 +61,7 @@ class Minformasi_hima extends CI_Model{
             $query = $this->db
                 ->limit($limit, $offset)
                 ->order_by('id_informasi_hima', 'DESC')
+                ->where('status ', 1)
                 ->get('informasi_hima');
 
             // Return hasil query

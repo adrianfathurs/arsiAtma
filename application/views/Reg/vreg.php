@@ -24,8 +24,8 @@
 <!--Coded with love by Mutiullah Samim-->
 <body>
 <div>
-              <?php if(!empty($notif)) { 
-                    echo $notif; } ?>
+              <?php if(!empty($this->session->flashdata('notif'))) { 
+                    echo $this->session->flashdata('notif'); } ?>
               </div>
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">

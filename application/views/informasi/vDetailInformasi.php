@@ -59,22 +59,12 @@
                             <br>
                             <div class="detail">
                                     <p title="Penulis"><i class="ti-user" title="Penulis"> Penulis : <a ><?php echo $informasi->nama_penulis ?></i></a></p>
-                                    <p title="Tanggal Ditulis"> <i class="ti-calendar"></i> <a >  12 Dec, 2017</a></p>
+                                    <p title="Tanggal Ditulis"> <i class="ti-calendar"></i> <a ><?php echo $informasi->created_date ?></a></p>
                                     <?php if(empty($cek_fav)){ ?>
                                         <p title="Simpan Ke Akun Saya?" ><a <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('Informasi/saveinformasi/').$informasi->id_informasi_hima?>" class="addfav" <?php } ?> ><i id="icon" class="fas fa-download"></i> Simpan ke Akun</a></p>
                                     <?php }else { ?>
                                         <p title="Sudah Tersimpan di Akun, hapus?" ><a href="<?php echo base_url('Informasi/hapusfav/').$informasi->id_informasi_hima?>" class="removefav" ><i id="icon" class="fas fa-trash-alt"></i> Hapus </a></p>
-                                    <?php }?>   
-                                    <div class="text-center"> 
-                    <?php if (!empty($this->session->flashdata('teks'))) : ?>
-                    <div id="alerttype" class="alert p-3 mb-2">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
-                        <h5 id="alerttitle"></h5>
-                        <span class="alert alert-info"> <?php echo $this->session->flashdata('teks'); ?></span>
-                        <i id="alerticon"></i>
-                    </div>
-                <?php endif; ?>                      
-                        </div>                           
+                                    <?php }?>                                                              
                             </div>
                         </div>
                         <hr>  

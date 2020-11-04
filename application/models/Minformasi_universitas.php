@@ -67,6 +67,7 @@ class Minformasi_universitas extends CI_Model{
             $query = $this->db
                 ->limit($limit, $offset)
                 ->order_by('id_informasi_univ', 'DESC')
+                ->where('status ', 1)
                 ->get('informasi_univ');
 
             // Return hasil query
