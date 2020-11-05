@@ -35,7 +35,7 @@ class Reg extends CI_Controller
                 $data=[
                     'email'=>$this->input->post('email'),
                     'username'=>$this->input->post('username'),
-                    'password'=>$this->input->post('pass'),
+                    'password'=>md5($this->input->post('pass')),
                     'nama_lengkap'=>$this->input->post('nama'),
                     'no_telp'=>$this->input->post('telp'),
                     'instasi'=>$this->input->post('instansi'),
@@ -81,7 +81,7 @@ class Reg extends CI_Controller
             $data=[
                 'email' => $email,
                 'username' => $username,
-                'password' => $pass,
+                'password' => md5($pass),
             ];           
             
             if( !empty($user) && !empty($em)){
@@ -126,7 +126,7 @@ class Reg extends CI_Controller
         $input = $this->input->post(NULL,TRUE);
         extract($input);
         // print_r($input);die;
-        $cek = $this->Makun->ceklogin($username,$pass);
+        $cek = $this->Makun->ceklogin($username,md5($pass));
 
 		if ($cek) {
             $time = time();
@@ -147,7 +147,7 @@ class Reg extends CI_Controller
                 Selamat, Anda Berhasil Login :)                           
             </div>");
             $this->session->set_flashdata($alert); 
-			redirect('home/');
+			redirect('Home/');
 		} else {
             $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='500' data-autohide='false'>
             <div class='toast-header'>
@@ -162,7 +162,7 @@ class Reg extends CI_Controller
                 Gagal Login, Username atau Kata Sandi Salah!                         
             </div>");
             $this->session->set_flashdata($alert); 
-			redirect('home/');
+			redirect('Home/');
 		}
     }
     

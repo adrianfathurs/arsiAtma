@@ -1080,7 +1080,7 @@ class Informasi extends CI_Controller
                         Informasi Ini Berhasil Disimpan ke Akun Anda                      
                     </div>");
         $this->session->set_flashdata($alert);
-        redirect("Informasi/informasi_detail/".$id_info);
+        redirect("Hima/".$id_info);
     }
 
     function saveinformasiuniv($id_info){
@@ -1125,7 +1125,7 @@ class Informasi extends CI_Controller
                         Informasi Ini Berhasil Dihapus dari Akun Anda                    
                     </div>");
         $this->session->set_flashdata($alert);
-        redirect("Informasi/informasi_detail/".$id_info);
+        redirect("Hima/".$id_info);
     }
 
     function hapusfavuniv($id_info){
