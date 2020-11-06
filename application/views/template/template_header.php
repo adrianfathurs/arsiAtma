@@ -242,7 +242,7 @@
                   <?php }else{ ?>
                     <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="<?php echo site_url('Manajemen_akun/')?>">Manajemen Akun</a>
+                      <a class="nav-link" href="<?php echo site_url('informasi/manajemen_informasi/')?>">INFORMASI HIMA TERSIMPAN</a>
                     </li>    
                     <li class="nav-item">
                       <a class="nav-link" href="<?php echo site_url('Reg/logout')?>">LogOut</a>
@@ -251,7 +251,7 @@
                   <?php }?>
                 </li>
                 <?php } ?>            
-                </li>                
+                              
               </ul>              
             </div>
           </div>

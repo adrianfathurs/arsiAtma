@@ -77,7 +77,7 @@ class Minformasi_hima extends CI_Model{
     }
 
     public function joinInformasiFavoriteHima($id){
-        $this->db->select('favorite_hima.fk_informasi_hima,informasi_hima.id_informasi_hima,favorite_hima.statusfavoritehima');
+        $this->db->select('favorite_hima.fk_informasi_hima,informasi_hima.id_informasi_hima,favorite_hima.statusfavoritehima,informasi_hima.judul_hima');
         $this->db->from('informasi_hima');
         $this->db->join('favorite_hima','favorite_hima.fk_informasi_hima=informasi_hima.id_informasi_hima');
         $this->db->where('favorite_hima.fk_akun',$id);

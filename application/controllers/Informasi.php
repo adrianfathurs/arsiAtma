@@ -272,7 +272,7 @@ class Informasi extends CI_Controller
 
 
     function informasi_detailuniv($id){                     
-        $data['cek_fav'] = $this->Minformasi_universitas->cekfav($id,$this->session->userdata('id'));
+        $data['cek_fav'] = $this->Minformasi_universitas->cekfavuniv($id,$this->session->userdata('id'));
         // print_r($data);die;
         $data['informasi'] = $this->Minformasi_universitas->getArtikel($id);          
         $data['type_akun'] = $this->session->userdata('type_akun');            
@@ -1235,7 +1235,20 @@ class Informasi extends CI_Controller
 
     } */
 
-
+    function manajemen_informasi(){
+        $id= $this->session->userdata('id'); 
+         $data['manajemenInformasiHima'] = $this->Minformasi_hima->joinInformasiFavoriteHima($id);
+        // print_r($data);die;         
+        $data['type_akun'] = $this->session->userdata('type_akun');            
+        $data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
+        $data['css']="informasi/vmanajemenInformasi_css.php";
+        $data['header']="template/template_header.php";            
+        $data['content']="informasi/vmanajemenInformasi.php";
+        $data['js'] = 'informasi/vmanajemenInformasi_js.php'; 
+        $data['footer']="template/template_footer.php";                
+        $this->load->view('template/vtemplate',$data);
+    }
 
 
 }

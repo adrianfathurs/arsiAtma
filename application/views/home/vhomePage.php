@@ -122,7 +122,7 @@
                 <div class="course_content">
                   <span class="tag mb-4 d-inline-block">News</span>
                   <h4 class="mb-3">
-                    <a href="<?php echo base_url('Article')?>"><?php echo substr($univ['judul_univ'],0,14)."..."?></a>
+                    <a href="<?php echo base_url('informasi/informasi_detailuniv/').$univ['id_informasi_univ'];?>"><?php echo substr($univ['judul_univ'],0,14)."..."?></a>
                   </h4>
                   <?php echo  substr($univ['deskripsi_univ'],0,120)."...";?>
                   <div class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
