@@ -8,17 +8,14 @@ class Minformasi_universitas extends CI_Model{
         $user = $this->db->get('informasi_univ');
 		return $user->result();
     }
+    
     function getArtikel($id){
-        
-
             $this->db->where('id_informasi_univ', $id);
             $query = $this->db->get('informasi_univ');            
-            return $query->row();
-       
+            return $query->row();  
     }
-    function getThreeInformasi(){
-       
-        
+
+    function getThreeInformasi(){    
         $query=$this->db->get('informasi_univ',3);
         return $query->result_array();
     }

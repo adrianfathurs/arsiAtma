@@ -8,18 +8,28 @@ class Minformasi_fakultas extends CI_Model{
         $user = $this->db->get('Informasi_fakultas');
 		return $user->result();
     }
+
     function getArtikel($id){
         $this->db->where('id_informasi_fakultas', $id);
         $query = $this->db->get('Informasi_fakultas');            
         return $query->row();
     }
 
+    function getThreeInformasi(){    
+        $query=$this->db->get('informasi_fakultas',3);
+        return $query->result_array();
+    }
+
     public function insert($data,$id){
             if ($id != 0){
                 $this->db->where('id_informasi_fakultas ', $id);
                 $this->db->update('informasi_fakultas', $data);
+                $alert = array('teks'=>'Informasi Fakultas Berhasil Diperbarui');
+                return $this->session->set_flashdata($alert);  
             }else{
                 $query = $this->db->insert('informasi_fakultas',$data);
+                $alert = array('teks'=>'Informasi Fakultas Berhasil Ditambahkan');
+                return $this->session->set_flashdata($alert);  
             }
             
         }
