@@ -2,6 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Makun extends CI_Model{
     
+    function getAll(){
+        $this->db->select('*');
+        $query=$this->db->get('akun');
+        return $query->result_array();
+    }
+
     function reg($data){
             if ($this->db->insert('akun', $data)) {
                 $this->session->set_userdata('typeNotif', 'successAddUser');
@@ -84,6 +90,12 @@ class Makun extends CI_Model{
             die;
         }
 
+    }
+
+    function updateManajemenAkun($data,$id_akun){
+        $this->db->where('id_akun',$id_akun);
+        $this->db->update('akun',$data);
+        return true;
     }
 
 }
