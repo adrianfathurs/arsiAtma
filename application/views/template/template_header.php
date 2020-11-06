@@ -229,6 +229,9 @@
                     ><?php echo $username ?></a>                   
                   <ul class="dropdown-menu">
                     <li class="nav-item">
+                      <a class="nav-link" href="<?php echo site_url('Manajemen_akun/')?>">Manajemen Akun</a>
+                    </li>                  
+                    <li class="nav-item">
                       <a class="nav-link" href="<?php echo site_url('Reg/logout')?>">LogOut</a>
                     </li>                  
                   </ul>
