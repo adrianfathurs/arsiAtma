@@ -8,18 +8,28 @@ class Minformasi_pamiy extends CI_Model{
         $user = $this->db->get('Informasi_pamiy');
 		return $user->result();
     }
+
     function getArtikel($id){
         $this->db->where('id_informasi_pamiy', $id);
         $query = $this->db->get('Informasi_pamiy');            
         return $query->row();
     }
 
+    function getThreeInformasi(){    
+        $query=$this->db->get('informasi_pamiy',3);
+        return $query->result_array();
+    }
+
     public function insert($data,$id){
             if ($id != 0){
                 $this->db->where('id_informasi_pamiy ', $id);
                 $this->db->update('informasi_pamiy', $data);
+                $alert = array('teks'=>'Informasi PAMIY Berhasil Diperbarui');
+                return $this->session->set_flashdata($alert);  
             }else{
                 $query = $this->db->insert('informasi_pamiy',$data);
+                $alert = array('teks'=>'Informasi PAMIY Berhasil Ditambahkan');
+                return $this->session->set_flashdata($alert);  
             }
             
         }
@@ -48,6 +58,7 @@ class Minformasi_pamiy extends CI_Model{
         $query = $this->db->get('favorite_pamiy');            
         return $query->result();
     }
+    
     public function get_offset($limit, $offset){
             // Jalankan query
             $query = $this->db

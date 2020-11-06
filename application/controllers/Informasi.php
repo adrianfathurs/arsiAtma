@@ -48,6 +48,7 @@ class Informasi extends CI_Controller
         $config['first_tagl_close'] = '</span></li>';
         $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
         $config['last_tagl_close']  = '</span></li>';
+        
         $this->pagination->initialize($config);
 
         $data['Informasi'] = $this->Minformasi_hima->get_offset($config['per_page'], $config['offset'])->result();
@@ -63,7 +64,7 @@ class Informasi extends CI_Controller
         $data['fav'] = $this->Minformasi_hima->getFav($this->session->userdata('id'));
 
         // print_r($data['fav']);die;
-        $data['page'] = "informasiHimasPage";
+        $data['page'] = "Tentang Hima";
         // $data['informasi'] = $this->Minformasi_hima->getAll();        
 
         $data['header']="template/template_header.php";
@@ -109,6 +110,12 @@ class Informasi extends CI_Controller
 
         // Data untuk page index
         $data['Informasi'] = $this->Minformasi_universitas->get_offset($config['per_page'], $config['offset'])->result();
+        foreach ($data['Informasi'] as $key => $val) {
+			if (!empty($val->created_date)) {
+                // $tanggal = ;
+				$data['Informasi'][$key]->created_date	= $this->convert_date(date('Y-m-d', strtotime($val->created_date)));
+			}
+		}
         $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
@@ -158,11 +165,17 @@ class Informasi extends CI_Controller
 
         // Data untuk page index
         $data['Informasi'] = $this->Minformasi_fakultas->get_offset($config['per_page'], $config['offset'])->result();
+        foreach ($data['Informasi'] as $key => $val) {
+			if (!empty($val->created_date)) {
+                // $tanggal = ;
+				$data['Informasi'][$key]->created_date	= $this->convert_date(date('Y-m-d', strtotime($val->created_date)));
+			}
+		}
         $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
         $data['fav'] = $this->Minformasi_fakultas->getFav($this->session->userdata('id'));
-        $data['page'] = "Tentang Hima";
+        $data['page'] = "Tentang Fakultas";
         // $data['informasi'] = $this->Minformasi_fakultas->getAll();        
         $data['header']="template/template_header.php";
         $data['css']="informasi/vinformasifakultas_css.php";
@@ -207,6 +220,12 @@ class Informasi extends CI_Controller
 
         // Data untuk page index
         $data['Informasi'] = $this->Minformasi_pamiy->get_offset($config['per_page'], $config['offset'])->result();
+        foreach ($data['Informasi'] as $key => $val) {
+			if (!empty($val->created_date)) {
+                // $tanggal = ;
+				$data['Informasi'][$key]->created_date	= $this->convert_date(date('Y-m-d', strtotime($val->created_date)));
+			}
+		}
         $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
@@ -221,12 +240,12 @@ class Informasi extends CI_Controller
         $data['footer']="template/template_footer.php";
         $this->load->view('template/vtemplate',$data);
     }
-
    
     function informasi_detail($id){               
         $data['page']="informasiHimasPage";              
         $data['cek_fav'] = $this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
         $data['informasi'] = $this->Minformasi_hima->getArtikel($id);         
+        
         //convert date 
         $tanggal = date('Y-m-d', strtotime($data['informasi']->created_date));
         $data['informasi']->created_date = $this->tanggal_indo($tanggal,true);
@@ -244,32 +263,17 @@ class Informasi extends CI_Controller
     }
     // fungsi yang digunakan untuk like button hima di home
     function informasi_hima_home($id){       
-        $data['page']="informasiHimasPage";              
+        $data['page']="informasiHimasPage";
+    }              
 
-        $data['cek_fav'] = $this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
-        $cek_status=$this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
-        
-        if(empty($cek_status))
-        {
-            $this->saveinformasi($id);
-            
-        }
-        else{
-            $this->hapusfav($id);
-        }
-        $data['informasi'] = $this->Minformasi_hima->getArtikel($id);          
-        $data['type_akun'] = $this->session->userdata('type_akun');            
-        $data['id'] = $this->session->userdata('id'); 
-        $data['username'] = $this->session->userdata('username'); 
-        $data['css']="informasi/vinformasi_css.php";
-        $data['js'] = 'informasi/vinformasi_js.php'; 
-        $data['header']="template/template_header.php";            
-        $data['content']="informasi/vDetailInformasi.php";
-        $data['asidebar']="informasi/vasidebar_informasi.php";
-        $data['footer']="template/template_footer.php";                
-        $this->load->view('template/vtemplate',$data);
-    }
+    function informasi_detailuniv($id){                     
+        /* $data['page']="informasiUnivsPage"; */              
+        $data['cek_fav'] = $this->Minformasi_universitas->cekfavuniv($id,$this->session->userdata('id'));
+        $data['informasi'] = $this->Minformasi_universitas->getArtikel($id);
 
+        //convert date 
+        $tanggal = date('Y-m-d', strtotime($data['informasi']->created_date));
+        $data['informasi']->created_date = $this->tanggal_indo($tanggal,true);
 
     function informasi_detailuniv($id){                     
         $data['cek_fav'] = $this->Minformasi_universitas->cekfavuniv($id,$this->session->userdata('id'));
@@ -286,11 +290,20 @@ class Informasi extends CI_Controller
         $data['footer']="template/template_footer.php";                
         $this->load->view('template/vtemplate',$data);
     }
+    // fungsi yang digunakan untuk like button univ di home
+    /* function informasi_univ_home($id){       
+        $data['page']="informasiUnivsPage";
+    } */
 
-    function informasi_detailfakultas($id){                     
-        $data['cek_fav'] = $this->Minformasi_fakultas->cekfav($id,$this->session->userdata('id'));
-        // print_r($data);die;
+    function informasi_detailfakultas($id){   
+        /* $data['page']="informasiFakultassPage"; */                  
+        $data['cek_fav'] = $this->Minformasi_fakultas->cekfavfakultas($id,$this->session->userdata('id'));
         $data['informasi'] = $this->Minformasi_fakultas->getArtikel($id);          
+        
+        //convert date 
+        $tanggal = date('Y-m-d', strtotime($data['informasi']->created_date));
+        $data['informasi']->created_date = $this->tanggal_indo($tanggal,true);
+
         $data['type_akun'] = $this->session->userdata('type_akun');            
         $data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
@@ -302,11 +315,20 @@ class Informasi extends CI_Controller
         $data['footer']="template/template_footer.php";                
         $this->load->view('template/vtemplate',$data);
     }
+    // fungsi yang digunakan untuk like button fakultas di home
+    /* function informasi_fakultas_home($id){       
+        $data['page']="informasiFakultassPage";
+    } */
 
     function informasi_detailpamiy($id){                     
-        $data['cek_fav'] = $this->Minformasi_pamiy->cekfav($id,$this->session->userdata('id'));
-        // print_r($data);die;
+        /* $data['page']="informasiPamiysPage"; */
+        $data['cek_fav'] = $this->Minformasi_pamiy->cekfavpamiy($id,$this->session->userdata('id'));
         $data['informasi'] = $this->Minformasi_pamiy->getArtikel($id);          
+        
+        //convert date 
+        $tanggal = date('Y-m-d', strtotime($data['informasi']->created_date));
+        $data['informasi']->created_date = $this->tanggal_indo($tanggal,true);
+
         $data['type_akun'] = $this->session->userdata('type_akun');            
         $data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
@@ -318,8 +340,11 @@ class Informasi extends CI_Controller
         $data['footer']="template/template_footer.php";                
         $this->load->view('template/vtemplate',$data);
     }
+    // fungsi yang digunakan untuk like button pamiy di home
+    /* function informasi_pamiy_home($id){       
+        $data['page']="informasiPamiysPage";
+    }  */
 
-    
     function formhima(){                   
             $data['page']="informasiHimasPage";  
 
@@ -338,6 +363,7 @@ class Informasi extends CI_Controller
             $foto3_name="foto3";
             $foto4_name="foto4";
             $foto5_name="foto5";
+
             $akun= $this->Makun->get_by_id($creator);
             if(null == $foto111 && $foto111 && $foto111 ){
                 $this->session->set_userdata('typeNotif', "gagalUpload");
@@ -405,13 +431,13 @@ class Informasi extends CI_Controller
                 }
     }
 
-    function formuniv(){                     
+    function formuniv(){        
+            /* $data['page']="informasiUnivsPage"; */ 
+        
             $input = $this->input->post(NULL,TRUE);
             extract($input);           
             
             if ($this->input->post('submit')) {
-                // print_r($input);die;
-            
             $foto111=$_FILES['foto1'];
             $foto222=$_FILES['foto2'];
             $foto333=$_FILES['foto3'];
@@ -425,13 +451,9 @@ class Informasi extends CI_Controller
             $foto5_name="foto5";
 
             $akun= $this->Makun->get_by_id($creator);
-            // print_r($akun);die;
             if(null == $foto111 && $foto111 && $foto111 ){
                 $this->session->set_userdata('typeNotif', "gagalUpload");
-                // redirect('article');
             } else {
-                    
-                
                             $foto11=$this->_uploaduniv($foto111,$foto1_name,$id_info);
                             $foto22=$this->_uploaduniv($foto222,$foto2_name,$id_info);
                             $foto33=$this->_uploaduniv($foto333,$foto3_name,$id_info);
@@ -449,8 +471,22 @@ class Informasi extends CI_Controller
                                 'nama_penulis' => $akun->nama_lengkap,
                                 'status' => 1
                             ];
+                            
                             // print_r($data);die;
                         $this->Minformasi_universitas->insert($data,$id_info);
+                        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                                    <div class='toast-header'>
+                                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+                            
+                                        <strong class='mr-auto'>Notifikasi </strong>                                
+                                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class='toast-body'>
+                                        Informasi Universitas Berhasil Diperbarui
+                                    </div>");
+                        $this->session->set_flashdata($alert);    
                         redirect('informasi/informasi_universitas');
                         // $this->getArtikel($jenis_artikel);
                     }
@@ -481,13 +517,13 @@ class Informasi extends CI_Controller
                 }
     }
 
-    function formfakultas(){                     
+    function formfakultas(){      
+            /* $data['page']="informasiFakultassPage"; */
+
             $input = $this->input->post(NULL,TRUE);
             extract($input);           
             
             if ($this->input->post('submit')) {
-                // print_r($input);die;
-            
             $foto111=$_FILES['foto1'];
             $foto222=$_FILES['foto2'];
             $foto333=$_FILES['foto3'];
@@ -501,30 +537,41 @@ class Informasi extends CI_Controller
             $foto5_name="foto5";
 
             $akun= $this->Makun->get_by_id($creator);
-            // print_r($akun);die;
             if(null == $foto111 && $foto111 && $foto111 ){
                 $this->session->set_userdata('typeNotif', "gagalUpload");
-                // redirect('article');
             } else {
-                            $foto11=$this->_upload($foto111,$foto1_name,$id_info);
-                            $foto22=$this->_upload($foto222,$foto2_name,$id_info);
-                            $foto33=$this->_upload($foto333,$foto3_name,$id_info);
-                            $foto44=$this->_upload($foto444,$foto4_name,$id_info);
-                            $foto55=$this->_upload($foto555,$foto5_name,$id_info);
+                            $foto11=$this->_uploadfakultas($foto111,$foto1_name,$id_info);
+                            $foto22=$this->_uploadfakultas($foto222,$foto2_name,$id_info);
+                            $foto33=$this->_uploadfakultas($foto333,$foto3_name,$id_info);
+                            $foto44=$this->_uploadfakultas($foto444,$foto4_name,$id_info);
+                            $foto55=$this->_uploadfakultas($foto555,$foto5_name,$id_info);
 
                             $data=[
                                 'judul_fakultas'=>$this->input->post('judul'),                               
-                                'foto4_fakultas'=>$foto44,
-                                'foto5_fakultas'=>$foto55,
-                                'deskripsi_fakultas'=>$this->input->post('essay'),
                                 'foto1_fakultas'=>$foto11,
                                 'foto2_fakultas'=>$foto22,
                                 'foto3_fakultas'=>$foto33,
+                                'foto4_fakultas'=>$foto44,
+                                'foto5_fakultas'=>$foto55,
+                                'deskripsi_fakultas'=>$this->input->post('essay'),
                                 'nama_penulis' => $akun->nama_lengkap,
                                 'status' => 1
                             ];
                             // print_r($data);die;
                         $this->Minformasi_fakultas->insert($data,$id_info);
+                        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                                    <div class='toast-header'>
+                                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+                            
+                                        <strong class='mr-auto'>Notifikasi </strong>                                
+                                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class='toast-body'>
+                                        Informasi Fakultas Berhasil Diperbarui
+                                    </div>");
+                        $this->session->set_flashdata($alert);
                         redirect('Informasi/informasi_fakultas');
                         // $this->getArtikel($jenis_artikel);
                     }
@@ -555,13 +602,13 @@ class Informasi extends CI_Controller
                 }
     }
 
-    function formpamiy(){                     
+    function formpamiy(){    
+            /* $data['page']="informasiPamiysPage";  */
+        
             $input = $this->input->post(NULL,TRUE);
             extract($input);           
             
             if ($this->input->post('submit')) {
-                // print_r($input);die;
-            
             $foto111=$_FILES['foto1'];
             $foto222=$_FILES['foto2'];
             $foto333=$_FILES['foto3'];
@@ -575,38 +622,48 @@ class Informasi extends CI_Controller
             $foto5_name="foto5";
 
             $akun= $this->Makun->get_by_id($creator);
-            // print_r($akun);die;
             if(null == $foto111 && $foto111 && $foto111 ){
                 $this->session->set_userdata('typeNotif', "gagalUpload");
-                // redirect('article');
             } else {
-                            $foto11=$this->_upload($foto111,$foto1_name,$id_info);
-                            $foto22=$this->_upload($foto222,$foto2_name,$id_info);
-                            $foto33=$this->_upload($foto333,$foto3_name,$id_info);
-                            $foto44=$this->_upload($foto444,$foto4_name,$id_info);
-                            $foto55=$this->_upload($foto555,$foto5_name,$id_info);
+                            $foto11=$this->_uploadpamiy($foto111,$foto1_name,$id_info);
+                            $foto22=$this->_uploadpamiy($foto222,$foto2_name,$id_info);
+                            $foto33=$this->_uploadpamiy($foto333,$foto3_name,$id_info);
+                            $foto44=$this->_uploadpamiy($foto444,$foto4_name,$id_info);
+                            $foto55=$this->_uploadpamiy($foto555,$foto5_name,$id_info);
 
                             $data=[
                                 'judul_pamiy'=>$this->input->post('judul'),                               
-                                'foto4_pamiy'=>$foto44,
-                                'foto5_pamiy'=>$foto55,
-                                'deskripsi_pamiy'=>$this->input->post('essay'),
                                 'foto1_pamiy'=>$foto11,
                                 'foto2_pamiy'=>$foto22,
                                 'foto3_pamiy'=>$foto33,
+                                'foto4_pamiy'=>$foto44,
+                                'foto5_pamiy'=>$foto55,
+                                'deskripsi_pamiy'=>$this->input->post('essay'),
                                 'nama_penulis' => $akun->nama_lengkap,
                                 'status' => 1
                             ];
-                            // print_r($data);die;
-                        $this->Minformasi_fakultas->insert($data,$id_info);
-                        redirect('Informasi/informasi_fakultas');
-                        // $this->getArtikel($jenis_artikel);
 
+                            // print_r($data);die;
+                        $this->Minformasi_pamiy->insert($data,$id_info);
+                        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                                    <div class='toast-header'>
+                                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+                            
+                                        <strong class='mr-auto'>Notifikasi </strong>                                
+                                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class='toast-body'>
+                                        Informasi PAMIY Berhasil Diperbarui
+                                    </div>");
+                        $this->session->set_flashdata($alert);
+                        redirect('Informasi/informasi_pamiy');
+                        // $this->getArtikel($jenis_artikel);
                     }
                     
                 }else{
                     $obj = new stdClass();            
-
                     $obj->judul_pamiy = '';
                     $obj->id_informasi_pamiy  = '';
                     $obj->deskripsi_pamiy = '';
@@ -697,7 +754,6 @@ class Informasi extends CI_Controller
                     }else{
                         return $this->upload->data('file_name');
                     }  
-
                 }
     }
 
@@ -766,7 +822,6 @@ class Informasi extends CI_Controller
                     }else{
                         return $this->upload->data('file_name');
                     }  
-
                 }
     }
 
@@ -779,8 +834,8 @@ class Informasi extends CI_Controller
                 $this->load->library('upload',$config);
                 if($ft=="foto1"){
                     if(!$this->upload->do_upload('foto1')){
-                        if($data->foto1_univ){
-                            return $data->foto1_univ;
+                        if($data->foto1_fakultas){
+                            return $data->foto1_fakultas;
                         }else {
                             return "";
                             $this->session->set_userdata('typeNotif', "gagalUpload1");
@@ -791,8 +846,8 @@ class Informasi extends CI_Controller
                     }   
                 }elseif($ft=="foto2"){
                     if(!$this->upload->do_upload('foto2')){
-                        if($data->foto2_univ){
-                            return $data->foto2_univ;
+                        if($data->foto2_fakultas){
+                            return $data->foto2_fakultas;
                         }else {
                             return "";
                             $this->session->set_userdata('typeNotif', "gagalUpload2");
@@ -802,8 +857,8 @@ class Informasi extends CI_Controller
                     }  
                 }elseif($ft=="foto3"){
                     if(!$this->upload->do_upload('foto3')){
-                        if($data->foto3_univ){
-                            return $data->foto3_univ;
+                        if($data->foto3_fakultas){
+                            return $data->foto3_fakultas;
                         }else {
                             return "";
                             $this->session->set_userdata('typeNotif', "gagalUpload3");
@@ -814,8 +869,8 @@ class Informasi extends CI_Controller
 
                 }elseif($ft=="foto4"){
                     if(!$this->upload->do_upload('foto4')){
-                        if($data->foto4_univ){
-                            return $data->foto4_univ;
+                        if($data->foto4_fakultas){
+                            return $data->foto4_fakultas;
                         }else {
                             return "";
                             $this->session->set_userdata('typeNotif', "gagalUpload4");
@@ -826,8 +881,8 @@ class Informasi extends CI_Controller
 
                 }elseif($ft=="foto5"){
                     if(!$this->upload->do_upload('foto5')){
-                        if($data->foto5_univ){
-                            return $data->foto5_univ;
+                        if($data->foto5_fakultas){
+                            return $data->foto5_fakultas;
                         }else {
                             return "";
                             $this->session->set_userdata('typeNotif', "gagalUpload5");
@@ -835,7 +890,6 @@ class Informasi extends CI_Controller
                     }else{
                         return $this->upload->data('file_name');
                     }  
-
                 }
     }
 
@@ -848,8 +902,8 @@ class Informasi extends CI_Controller
                 $this->load->library('upload',$config);
                 if($ft=="foto1"){
                     if(!$this->upload->do_upload('foto1')){
-                        if($data->foto1_univ){
-                            return $data->foto1_univ;
+                        if($data->foto1_pamiy){
+                            return $data->foto1_pamiy;
                         }else {
                             return "";
                             $this->session->set_userdata('typeNotif', "gagalUpload1");
@@ -860,8 +914,8 @@ class Informasi extends CI_Controller
                     }   
                 }elseif($ft=="foto2"){
                     if(!$this->upload->do_upload('foto2')){
-                        if($data->foto2_univ){
-                            return $data->foto2_univ;
+                        if($data->foto2_pamiy){
+                            return $data->foto2_pamiy;
                         }else {
                             return "";
                             $this->session->set_userdata('typeNotif', "gagalUpload2");
@@ -871,8 +925,8 @@ class Informasi extends CI_Controller
                     }  
                 }elseif($ft=="foto3"){
                     if(!$this->upload->do_upload('foto3')){
-                        if($data->foto3_univ){
-                            return $data->foto3_univ;
+                        if($data->foto3_pamiy){
+                            return $data->foto3_pamiy;
                         }else {
                             return "";
                             $this->session->set_userdata('typeNotif', "gagalUpload3");
@@ -883,8 +937,8 @@ class Informasi extends CI_Controller
 
                 }elseif($ft=="foto4"){
                     if(!$this->upload->do_upload('foto4')){
-                        if($data->foto4_univ){
-                            return $data->foto4_univ;
+                        if($data->foto4_pamiy){
+                            return $data->foto4_pamiy;
                         }else {
                             return "";
                             $this->session->set_userdata('typeNotif', "gagalUpload4");
@@ -895,8 +949,8 @@ class Informasi extends CI_Controller
 
                 }elseif($ft=="foto5"){
                     if(!$this->upload->do_upload('foto5')){
-                        if($data->foto5_univ){
-                            return $data->foto5_univ;
+                        if($data->foto5_pamiy){
+                            return $data->foto5_pamiy;
                         }else {
                             return "";
                             $this->session->set_userdata('typeNotif', "gagalUpload5");
@@ -904,7 +958,6 @@ class Informasi extends CI_Controller
                     }else{
                         return $this->upload->data('file_name');
                     }  
-
                 }
     }
 
@@ -929,8 +982,9 @@ class Informasi extends CI_Controller
 
     function updateuniv($id){
 
+        /* $data['page']="informasiUnivsPage"; */
+
         $data['data'] = $this->Minformasi_universitas->getArtikel($id);
-        // print_r($data['data']);die;
         $data['informasi'] = "hima";                   
         $data['js'] = 'informasi/vinformasiuniv_js.php'; 
         $data['css'] = 'informasi/vinformasiuniv_css';      
@@ -946,8 +1000,9 @@ class Informasi extends CI_Controller
     
     function updatefakultas($id){
 
+        /* $data['page']="informasiFakultassPage"; */
+
         $data['data'] = $this->Minformasi_fakultas->getArtikel($id);
-        // print_r($data['data']);die;
         $data['informasi'] = "hima";                   
         $data['js'] = 'informasi/vinformasifakultas_js.php'; 
         $data['css'] = 'informasi/vinformasifakultas_css';      
@@ -963,8 +1018,9 @@ class Informasi extends CI_Controller
 
     function updatepamiy($id){
 
+        /* $data['page']="informasiPamiysPage"; */
+
         $data['data'] = $this->Minformasi_hima->getArtikel($id);
-        // print_r($data['data']);die;
         $data['informasi'] = "hima";                   
         $data['js'] = 'informasi/vinformasipamiy_js.php'; 
         $data['css'] = 'informasi/vinformasipamiy_css';      
@@ -977,7 +1033,6 @@ class Informasi extends CI_Controller
         $data['footer']="template/template_footer.php";          
         $this->load->view('template/vtemplate', $data);
     }
-
 
     function delete($id){
         $dataInf = $this->Minformasi_hima->getArtikel($id);
@@ -1022,8 +1077,21 @@ class Informasi extends CI_Controller
             'nama_penulis' => $dataInf->nama_penulis,
             'status' => 0
         ];
-        $this->Minformasi_univ->insert($data,$id);
-        redirect("Informasi/informasi_univ");
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Dihapus dari Database
+                    </div>");
+        $this->session->set_flashdata($alert);  
+        $this->Minformasi_universitas->insert($data,$id);
+        redirect("Informasi/informasi_universitas");
     }
 
     function deletefakultas($id){
@@ -1039,6 +1107,19 @@ class Informasi extends CI_Controller
             'nama_penulis' => $dataInf->nama_penulis,
             'status' => 0
         ];
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Dihapus dari Database
+                    </div>");
+        $this->session->set_flashdata($alert);  
         $this->Minformasi_fakultas->insert($data,$id);
         redirect("Informasi/informasi_fakultas");
     }    
@@ -1056,6 +1137,19 @@ class Informasi extends CI_Controller
             'nama_penulis' => $dataInf->nama_penulis,
             'status' => 0
         ];
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Dihapus dari Database
+                    </div>");
+        $this->session->set_flashdata($alert);  
         $this->Minformasi_pamiy->insert($data,$id);
         redirect("Informasi/informasi_pamiy");
     }
@@ -1086,27 +1180,69 @@ class Informasi extends CI_Controller
     function saveinformasiuniv($id_info){
         $data=[
             'fk_akun'=>$this->session->userdata('id'),                               
-            'fk_informasi_univ '=>$id_info
+            'fk_informasi_univ '=>$id_info,
+            'statusfavoriteuniv'=>1
         ];
         $this->Minformasi_univ->saveinf($data);
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Disimpan ke Akun Anda                      
+                    </div>");
+        $this->session->set_flashdata($alert);
         redirect("Informasi/informasi_detailuniv/".$id_info);
     }
 
     function saveinformasifakultas($id_info){
         $data=[
             'fk_akun'=>$this->session->userdata('id'),                               
-            'fk_informasi_fakultas '=>$id_info
+            'fk_informasi_fakultas '=>$id_info,
+            'statusfavoritefakultas'=>1
         ];
         $this->Minformasi_fakultas->saveinf($data);
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Disimpan ke Akun Anda                      
+                    </div>");
+        $this->session->set_flashdata($alert);
         redirect("Informasi/informasi_detailfakultas/".$id_info);
     }
 
     function saveinformasipamiy($id_info){
         $data=[
             'fk_akun'=>$this->session->userdata('id'),                               
-            'fk_informasi_pamiy '=>$id_info
+            'fk_informasi_pamiy '=>$id_info,
+            'statusfavoritepamiy'=>1
         ];
         $this->Minformasi_pamiy->saveinf($data);
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Disimpan ke Akun Anda                      
+                    </div>");
+        $this->session->set_flashdata($alert);
         redirect("Informasi/informasi_detailpamiy/".$id_info);
     }
 
@@ -1129,17 +1265,56 @@ class Informasi extends CI_Controller
     }
 
     function hapusfavuniv($id_info){
-        $this->Minformasi_universitas->hapusfavuniv($id_info,$this->session->userdata('id'));
+        $this->Minformasi_univ->hapusfavuniv($id_info,$this->session->userdata('id'));
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Dihapus dari Akun Anda                    
+                    </div>");
+        $this->session->set_flashdata($alert);
         redirect("Informasi/informasi_detailuniv/".$id_info);
     }
 
     function hapusfavfakultas($id_info){
         $this->Minformasi_fakultas->hapusfavfakultas($id_info,$this->session->userdata('id'));
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Dihapus dari Akun Anda                    
+                    </div>");
+        $this->session->set_flashdata($alert);
         redirect("Informasi/informasi_detailfakultas/".$id_info);
     }
 
     function hapusfavpamiy($id_info){
         $this->Minformasi_pamiy->hapusfavpamiy($id_info,$this->session->userdata('id'));
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Dihapus dari Akun Anda                    
+                    </div>");
+        $this->session->set_flashdata($alert);
         redirect("Informasi/informasi_detailpamiy/".$id_info);
     }
 
@@ -1175,8 +1350,8 @@ class Informasi extends CI_Controller
         }
         return $tgl_indo;
     }
+}
 
-    
     private function convert_date($date) {
 		$split_date			= explode("-", $date);
 		$year				= $split_date[0];
@@ -1215,9 +1390,13 @@ class Informasi extends CI_Controller
                 'statusfavoritehima'=> $id_button
 
             ];
-            //$insert=$this->Minformasi_hima->saveinf($data);
-           echo "<li class='fas fa-heart'></li>";
-             
+            $insert=$this->Minformasi_hima->saveFav($data);
+            if($insert){
+                return echo "";
+            }
+            else{
+                return echo "Belum tersimpan";
+            }
         }
         else{
             //update

@@ -227,7 +227,7 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                     ><?php echo $username;?></a>                   
-                  <?php if($id=="1"){?>
+                  <?php if($type_akun=="1"){?>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
                       <a class="nav-link" href="<?php echo site_url('Manajemen_akun/')?>">Manajemen Akun</a>
@@ -251,7 +251,7 @@
                   <?php }?>
                 </li>
                 <?php } ?>            
-                              
+                </li>                
               </ul>              
             </div>
           </div>

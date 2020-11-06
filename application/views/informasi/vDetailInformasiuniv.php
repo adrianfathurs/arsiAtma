@@ -58,12 +58,12 @@
                             
                             <br>
                             <div class="detail">
-                                    <p title="Penulis">Penulis : <a ><?php echo $informasi->nama_penulis ?><i class="ti-user" title="Penulis"></i></a></p>
-                                    <p title="Tanggal Ditulis"><a >12 Dec, 2017<i class="ti-calendar"></i></a></p>
-                                    <?php if(empty($cek_fav)){ ?>
+                                    <p title="Penulis"><i class="ti-user" title="Penulis"> Penulis : <a ><?php echo $informasi->nama_penulis ?></i></a></p>
+                                    <p title="Tanggal Ditulis"> <i class="ti-calendar"></i> <a ><?php echo $informasi->created_date ?></a></p>
+                                    <?php if(empty($cek_favuniv)){ ?>
                                         <p title="Simpan Ke Akun Saya?" ><a <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" <?php }else {?> href="<?php echo base_url('Informasi/saveinformasi/').$informasi->id_informasi_univ?> <?php } ?> " >Simpan ke Akun<i id="icon" class="fas fa-download"></i></a></p>
                                     <?php }else { ?>
-                                        <p title="Sudah Tersimpan di Akun, hapus?" ><a href="<?php echo base_url('Informasi/hapusfav/').$informasi->id_informasi_univ?>" >Hapus <i id="icon" class="fas fa-trash-alt"></i></a></p>
+                                        <p title="Sudah Tersimpan di Akun, hapus?" ><a href="<?php echo base_url('Informasi/hapusfavuniv/').$informasi->id_informasi_univ?>" >Hapus <i id="icon" class="fas fa-trash-alt"></i></a></p>
                                     <?php }?>                            
                             </div>
                         </div>
@@ -79,10 +79,10 @@
                                 <!-- <ul class="blog_meta list">
                                     <li title="Penulis"><a ><?php echo $informasi->nama_penulis ?><i class="ti-user" title="Penulis"></i></a></li>
                                     <li title="Tanggal Ditulis"><a >12 Dec, 2017<i class="ti-calendar"></i></a></li>
-                                    <?php if(empty($cek_fav)){ ?>
+                                    <?php if(empty($cek_favuniv)){ ?>
                                     <li title="Simpan Ke Akun Saya?" ><a <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" <?php }else {?> href="<?php echo base_url('Informasi/saveinformasi/').$informasi->id_informasi_univ?> <?php } ?> " >Simpan ke Akun<i id="icon" class="fas fa-download"></i></a></li>
                                     <?php }else { ?>
-                                        <li title="Sudah Tersimpan di Akun, hapus?" ><a href="<?php echo base_url('Informasi/hapusfav/').$informasi->id_informasi_univ?>" >Hapus <i id="icon" class="fas fa-trash-alt"></i></a></li>
+                                        <li title="Sudah Tersimpan di Akun, hapus?" ><a href="<?php echo base_url('Informasi/hapusfavuniv/').$informasi->id_informasi_univ?>" >Hapus <i id="icon" class="fas fa-trash-alt"></i></a></li>
                                     <?php }?>
                                 </ul> -->
                                 <!-- <ul class="social-links">
