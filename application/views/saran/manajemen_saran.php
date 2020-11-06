@@ -2,7 +2,7 @@
     <div class="main-title">
         <h2 class="text-center mb-4">MANAJEMEN SARAN</h2></div>
     <div class="container">
-        <table id="table_id" class="table table-responsive table-dark ">
+        <table id="table_id" class="table ">
             <thead>
                 <tr>
                     <th class="text-center" scope="col" >No</th>

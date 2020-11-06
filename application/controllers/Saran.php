@@ -26,6 +26,9 @@ class Saran extends CI_Controller
 
     public function submitSaran(){
         
+         $data['type_akun'] = $this->session->userdata('type_akun');            
+		$data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
         $name   = $this->input->post('name');
         $email  = $this->input->post('email');
         $no_telp= $this->input->post('no_telp');
@@ -44,6 +47,10 @@ class Saran extends CI_Controller
     }
 
     public function manajemen_saran(){
+        
+         $data['type_akun'] = $this->session->userdata('type_akun');            
+		$data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
         $data['header']="template/template_header.php";
         $data['css']="saran/vsaran_css.php";
         $data['content']="saran/manajemen_saran.php";
@@ -54,6 +61,7 @@ class Saran extends CI_Controller
     }
 
     public function hapusSaran(){
+        
         $id=$this->input->post('id_saran');
         $this->Msaran->MhapusSaran($id);
         redirect('saran/manajemen_saran');

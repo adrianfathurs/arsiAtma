@@ -217,7 +217,7 @@
                 <li class="nav-item">
                 <?php if(empty($id)) { ?>
                   <a class="nav-link" data-toggle="modal" data-target="#myModal" href="#">LOGIN</a>                  
-                <?php } else { ?>
+                <?php } else {?>
                   <li class="nav-item submenu dropdown">
                   <a
                     href="#"
@@ -226,15 +226,29 @@
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    ><?php echo $username ?></a>                   
+                    ><?php echo $username;?></a>                   
+                  <?php if($id=="1"){?>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
                       <a class="nav-link" href="<?php echo site_url('Manajemen_akun/')?>">Manajemen Akun</a>
                     </li>                  
                     <li class="nav-item">
+                      <a class="nav-link" href="<?php echo site_url('Saran/manajemen_saran/')?>">Manajemen Saran</a>
+                    </li>                  
+                    <li class="nav-item">
                       <a class="nav-link" href="<?php echo site_url('Reg/logout')?>">LogOut</a>
                     </li>                  
                   </ul>
+                  <?php }else{ ?>
+                    <ul class="dropdown-menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="<?php echo site_url('Manajemen_akun/')?>">Manajemen Akun</a>
+                    </li>    
+                    <li class="nav-item">
+                      <a class="nav-link" href="<?php echo site_url('Reg/logout')?>">LogOut</a>
+                    </li>                                
+                  </ul>
+                  <?php }?>
                 </li>
                 <?php } ?>            
                 </li>                
