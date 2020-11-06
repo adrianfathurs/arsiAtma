@@ -57,11 +57,11 @@
                                 <div class="blog_post">
                                     <center><img src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto1_hima?>" style="width: 100%; max-height: 450px;" alt=""></center>
                                     <div class="blog_details">
-                                        <a href="<?php echo base_url('Informasi/informasi_detail/').$informasi->id_informasi_hima ;?>">
+                                        <a href="<?php echo base_url('Hima/').$informasi->id_informasi_hima ;?>">
                                             <h2><?php echo $informasi->judul_hima; ?></h2>
                                         </a>
                                         <p><?php echo UCWORDS(substr($informasi->deskripsi_hima, 0, 300)) . '...'; ?></p>
-                                        <a href="<?php echo base_url('Informasi/informasi_detail/').$informasi->id_informasi_hima ;?>" class="blog_btn">View More</a>
+                                        <a href="<?php echo base_url('Hima/').$informasi->id_informasi_hima ;?>" class="blog_btn">View More</a>
                                         <?php if( $type_akun=='1'){ ?>    
                                         <a href="<?php echo base_url('Informasi/updatehima/').$informasi->id_informasi_hima ;?>" class="btn waves-effect waves-light btn-warning">Edit Informasi</a>
                                         <a href="<?php echo base_url('Informasi/delete/').$informasi->id_informasi_hima?>" class="btn btn-danger remove">Hapus</a> 
@@ -73,24 +73,7 @@
                         <?php endforeach; ?>  
                         <nav class="blog-pagination justify-content-center d-flex">
                             <ul class="pagination">
-                                <li class="page-item">
-                                    <!-- <a href="#" class="page-link" aria-label="Previous">
-                                        <span aria-hidden="true">
-                                            <i class="ti-angle-left"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="page-item"><a href="#" class="page-link">01</a></li>
-                                <li class="page-item active"><a href="#" class="page-link">02</a></li>
-                                <li class="page-item"><a href="#" class="page-link">03</a></li>
-                                <li class="page-item"><a href="#" class="page-link">04</a></li>
-                                <li class="page-item"><a href="#" class="page-link">09</a></li>
-                                <li class="page-item">
-                                    <a href="#" class="page-link" aria-label="Next">
-                                        <span aria-hidden="true">
-                                            <i class="ti-angle-right"></i>
-                                        </span>
-                                    </a> -->
+                                <li class="page-item">                                    
                                     <div class="center-align pagination ">
                                             <?php echo $this->pagination->create_links(); ?>
                                     </div>
