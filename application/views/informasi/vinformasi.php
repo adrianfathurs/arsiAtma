@@ -45,12 +45,11 @@
                             <div class="col-md-3">
                                 <div class="blog_info text-right">
                                     <div class="post_tag">
-                                    <a href="#"><?php echo $page; ?></a> <i class="ti-eye"></i>
+                                        <ul class="blog_meta list">
+                                            <li><a href="#"><?php echo $informasi->nama_penulis; ?> <i class="ti-user"></i></a></li>
+                                            <li><a href="#"><?php echo $informasi->created_date; ?><i class="ti-calendar"></i></a></li>                                        
+                                        </ul>
                                     </div>
-                                    <ul class="blog_meta list">
-                                        <li><a href="#"><?php echo $informasi->nama_penulis; ?> <i class="ti-user"></i></a></li>
-                                        <li><a href="#"><?php echo $informasi->created_date; ?><i class="ti-calendar"></i></a></li>                                        
-                                    </ul>
                                 </div>
                             </div>
                             <div class="col-md-9">
