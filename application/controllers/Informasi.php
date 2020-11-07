@@ -248,7 +248,7 @@ class Informasi extends CI_Controller
         
         //convert date 
         $tanggal = date('Y-m-d', strtotime($data['informasi']->created_date));
-        $data['informasi']->created_date = $this->tanggal_indo($tanggal,true);
+        //$data['informasi']->created_date = $this->tanggal_indo($tanggal,true);
         
         $data['type_akun'] = $this->session->userdata('type_akun');            
         $data['id'] = $this->session->userdata('id'); 
@@ -263,21 +263,37 @@ class Informasi extends CI_Controller
     }
     // fungsi yang digunakan untuk like button hima di home
     function informasi_hima_home($id){       
-        $data['page']="informasiHimasPage";
-    }              
-
-    function informasi_detailuniv($id){                     
-        /* $data['page']="informasiUnivsPage"; */              
-        $data['cek_fav'] = $this->Minformasi_universitas->cekfavuniv($id,$this->session->userdata('id'));
-        $data['informasi'] = $this->Minformasi_universitas->getArtikel($id);
-
-        //convert date 
-        $tanggal = date('Y-m-d', strtotime($data['informasi']->created_date));
-        $data['informasi']->created_date = $this->tanggal_indo($tanggal,true);
+        $data['page']="informasiHimasPage";              
+        $id= $this->session->userdata('id'); 
+        $data['cek_fav'] = $this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
+        $cek_status=$this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
+        
+        if(empty($cek_status))
+        {
+            $this->saveinformasi($id);
+            
+        }
+        else{
+            $this->hapusfav($id);
+        }
+        $data['informasi'] = $this->Minformasi_hima->getArtikel($id);          
+        $data['type_akun'] = $this->session->userdata('type_akun');            
+        $data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
+        $data['css']="informasi/vinformasi_css.php";
+        $data['js'] = 'informasi/vinformasi_js.php'; 
+        $data['header']="template/template_header.php";            
+        $data['content']="informasi/vDetailInformasi.php";
+        $data['asidebar']="informasi/vasidebar_informasi.php";
+        $data['footer']="template/template_footer.php";                
+        $this->load->view('template/vtemplate',$data);
+    }          
+   
 
     function informasi_detailuniv($id){                     
         $data['cek_fav'] = $this->Minformasi_universitas->cekfavuniv($id,$this->session->userdata('id'));
         // print_r($data);die;
+        $data['informasi']->created_date = $this->tanggal_indo($tanggal,true);
         $data['informasi'] = $this->Minformasi_universitas->getArtikel($id);          
         $data['type_akun'] = $this->session->userdata('type_akun');            
         $data['id'] = $this->session->userdata('id'); 
@@ -1153,6 +1169,7 @@ class Informasi extends CI_Controller
         $this->Minformasi_pamiy->insert($data,$id);
         redirect("Informasi/informasi_pamiy");
     }
+    
 
     function saveinformasi($id_info){
         $data=[
@@ -1349,7 +1366,7 @@ class Informasi extends CI_Controller
             return $hari[$num] . ', ' . $tgl_indo;
         }
         return $tgl_indo;
-    }
+    
 }
 
     private function convert_date($date) {

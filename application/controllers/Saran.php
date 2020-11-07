@@ -41,7 +41,7 @@ class Saran extends CI_Controller
             'isi_saran'=>$message
         ];
 
-        //$this->Msaran->submit($data); 
+        $this->Msaran->submit($data); 
         echo "<div class='alert alert-success' role='alert'>Data Anda telah Terekam, Tambah Saran ? <a href= 'http://localhost/arsiAtma/saran' class='alert-link'>Klik</a>
 </div>";        
     }
