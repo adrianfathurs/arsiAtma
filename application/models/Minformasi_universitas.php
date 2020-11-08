@@ -15,7 +15,9 @@ class Minformasi_universitas extends CI_Model{
             return $query->row();  
     }
 
-    function getThreeInformasi(){    
+    function getThreeInformasi(){
+        $this->db->where('status',1);    
+        $this->db->order_by('id_informasi_univ', 'DESC');
         $query=$this->db->get('informasi_univ',3);
         return $query->result_array();
     }
@@ -77,5 +79,17 @@ class Minformasi_universitas extends CI_Model{
 
                 // Return hasil query
         return $query;
+    }
+    public function joinInformasiFavoriteUniv($id){
+        $this->db->select('favorite_univ.fk_informasi_univ,informasi_univ.id_informasi_univ,informasi_univ.judul_univ,favorite_univ.statusfavoriteuniv');
+        $this->db->from('informasi_univ');
+        $this->db->join('favorite_univ','favorite_univ.fk_informasi_univ=informasi_univ.id_informasi_univ');
+        $this->db->where('favorite_univ.fk_akun',$id);
+        
+        $this->db->group_by('fk_informasi_univ');
+        $this->db->order_by('fk_informasi_univ', 'DESC');
+        $query = $this->db->get();
+        return $query->result_array();
+
     }
 }

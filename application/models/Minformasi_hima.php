@@ -15,7 +15,7 @@ class Minformasi_hima extends CI_Model{
     }
 
     function getThreeInformasi(){
-       
+       $this->db->where('status',1);   
         $this->db->order_by('id_informasi_hima', 'DESC');
         $query=$this->db->get('informasi_hima',3);
         return $query->result_array();

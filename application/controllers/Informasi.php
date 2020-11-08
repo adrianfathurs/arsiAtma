@@ -288,15 +288,42 @@ class Informasi extends CI_Controller
         $data['footer']="template/template_footer.php";                
         $this->load->view('template/vtemplate',$data);
     }          
+    function informasi_univ_home($id){       
+        $data['page']="informasiHimasPage";              
+        
+        $data['cek_fav'] = $this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
+        $cek_status=$this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
+        var_dump($id);
+        if(empty($cek_status))
+        {
+            $this->saveinformasiuniv($id);
+            
+        }
+        else{
+            $this->hapusfavuniv($id);
+        }
+        $data['informasi'] = $this->Minformasi_hima->getArtikel($id);          
+        $data['type_akun'] = $this->session->userdata('type_akun');            
+        $data['id'] = $this->session->userdata('id'); 
+        $data['username'] = $this->session->userdata('username'); 
+        $data['css']="informasi/vinformasi_css.php";
+        $data['js'] = 'informasi/vinformasi_js.php'; 
+        $data['header']="template/template_header.php";            
+        $data['content']="informasi/vDetailInformasi.php";
+        $data['asidebar']="informasi/vasidebar_informasi.php";
+        $data['footer']="template/template_footer.php";                
+        $this->load->view('template/vtemplate',$data);
+    }          
    
 
     function informasi_detailuniv($id){                     
         $data['cek_fav'] = $this->Minformasi_universitas->cekfavuniv($id,$this->session->userdata('id'));
         // print_r($data);die;
-        $data['informasi']->created_date = $this->tanggal_indo($tanggal,true);
+        //$data['informasi']->created_date = $this->tanggal_indo($tanggal,true);
         $data['informasi'] = $this->Minformasi_universitas->getArtikel($id);          
         $data['type_akun'] = $this->session->userdata('type_akun');            
         $data['id'] = $this->session->userdata('id'); 
+      
         $data['username'] = $this->session->userdata('username'); 
         $data['css']="informasi/vinformasiuniv_css.php";
         $data['js'] = 'informasi/vinformasiuniv_js.php'; 
@@ -1200,7 +1227,7 @@ class Informasi extends CI_Controller
             'fk_informasi_univ '=>$id_info,
             'statusfavoriteuniv'=>1
         ];
-        $this->Minformasi_univ->saveinf($data);
+        $this->Minformasi_universitas->saveinf($data);
         $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
                     <div class='toast-header'>
                         <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>

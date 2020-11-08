@@ -41,8 +41,8 @@ class Home extends CI_Controller
         
          $data['informasiHima']=$this->Minformasi_hima->getThreeInformasi();
          $data['joinInformasiFavoriteHima']=$this->Minformasi_hima->joinInformasiFavoriteHima($id);
-        
-        $data['informasiUniv']=$this->Minformasi_universitas->getThreeInformasi();
+         $data['informasiUniv']=$this->Minformasi_universitas->getThreeInformasi();
+         $data['joinInformasiFavoriteUniv']=$this->Minformasi_universitas->joinInformasiFavoriteUniv($id);
         
         $data['content']="home/vhomePage.php";
         $data['js']="home/vhomePage_js.php";
