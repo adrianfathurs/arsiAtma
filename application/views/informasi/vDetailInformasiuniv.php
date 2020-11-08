@@ -61,7 +61,7 @@
                                     <p title="Penulis"><i class="ti-user" title="Penulis"> Penulis : <a ><?php echo $informasi->nama_penulis ?></i></a></p>
                                     <p title="Tanggal Ditulis"> <i class="ti-calendar"></i> <a ><?php echo $informasi->created_date ?></a></p>
                                     <?php if(empty($cek_favuniv)){ ?>
-                                        <p title="Simpan Ke Akun Saya?" ><a <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" <?php }else {?> href="<?php echo base_url('Informasi/saveinformasiuniv/').$informasi->id_informasi_univ?> <?php } ?> " >Simpan ke Akun<i id="icon" class="fas fa-download"></i></a></p>
+                                        <p title="Simpan Ke Akun Saya?" ><a <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#"<?php }else {?> href="<?php echo base_url('Informasi/saveinformasiuniv/').$informasi->id_informasi_univ?> <?php } ?> " >Simpan ke AKun<i id="icon" class="fas fa-download"></i></a></p>
                                     <?php }else { ?>
                                         <p title="Sudah Tersimpan di Akun, hapus?" ><a href="<?php echo base_url('Informasi/hapusfavuniv/').$informasi->id_informasi_univ?>" >Hapus <i id="icon" class="fas fa-trash-alt"></i></a></p>
                                     <?php }?>                            
