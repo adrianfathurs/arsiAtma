@@ -89,487 +89,86 @@
           <div class="col-lg-8">
             <div class="main_title">
               <h2 class="mb-3">Informasi Umum Seputar Arsitektur</h2>
-              
             </div>
           </div>
         </div>
+        <?php if(empty($id) || $type_akun=="1") {?>
+        <div class="row float-right">
+          <a href="<?php echo base_url('Umum/submitInformasi') ?>"><button class="btn btn-success ">Tambah Informasi Umum</button></a>
+        </div>
+        <br>
+        <div class="clc"></div>
+        <br>
+        <?php }?>
         <div class="row">
-          <!-- single course -->
-          <?php for($i=0;$i<3;$i++) :?>
-          <div class="col-lg-12">
-            <div class="owl-carousel active_course">
-              <div class="single_course">
-                <div class="course_head">
-                  <img class="img-fluid" src="<?php echo base_url('assets/')?>img/courses/c1.jpg" alt="" />
-                </div>
-                <div class="course_content">
-                
-                  <span class="tag mb-4 d-inline-block">News</span>
-                  <h4 class="mb-3">
-                    <a href="<?php echo base_url('Article')?>">Seminar Arsitek</a>
-                  </h4>
-                  <p>
-                    One make creepeth man bearing their one firmament won't fowl
-                    meat over sea
-                  </p>
-                  <div
-                    class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4"
-                  >
-                  
-                    <div class="mt-lg-0 mt-3">
-                      <span class="meta_info"
-                        ><a href="#"> <i class="ti-heart mr-2"></i> </a></span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="single_course">
-                <div class="course_head">
-                  <img class="img-fluid" src="<?php echo base_url('assets/')?>img/courses/c2.jpg" alt="" />
-                </div>
-                <div class="course_content">
-                  
-                  <span class="tag mb-4 d-inline-block">Important</span>
-                  <h4 class="mb-3">
-                    <a href="<?php echo base_url('Article')?>">Workshop Arsitek</a>
-                  </h4>
-                  <p>
-                    One make creepeth man bearing their one firmament won't fowl
-                    meat over sea
-                  </p>
-                  <div
-                    class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4"
-                  >
-                  
-                    <div class="mt-lg-0 mt-3">
-                      
-                      <span class="meta_info"
-                        ><a href="#"> <i class="ti-heart mr-2"></i> </a></span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="single_course">
-                <div class="course_head">
-                  <img class="img-fluid" src="<?php echo base_url('assets/')?>img/courses/c3.jpg" alt="" />
-                </div>
-                <div class="course_content">
-                  
-                  <span class="tag mb-4 d-inline-block">News</span>
-                  <h4 class="mb-3">
-                    <a href="<?php echo base_url('Article')?>">Forum Diskusi Aristek</a>
-                  </h4>
-                  <p>
-                    One make creepeth man bearing their one firmament won't fowl
-                    meat over sea
-                  </p>
-                  <div
-                    class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4"
-                  >
-                  
-                    <div class="mt-lg-0 mt-3">
-                     
-                      <span class="meta_info"
-                        ><a href="#"> <i class="ti-heart mr-2"></i></a></span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <?php foreach($informasiUmum as $umum) : $hello=0?>
+        <div class="col-md-4">
+         <div class="card">
+            <a href="<?php echo base_url('umum/informasi_detailUmum/').$umum['id_informasi_umum']?>">
+              <img class="card-img-top" src="<?php echo base_url('assets/img/informasiUmum/').$umum['foto1_umum']?>" alt="Card image cap">
+            </a>
+            <div class="card-body">
+               <h5 class="card-title border-bottom pb-3"><?php $umum['judul_umum']?> <a href="#" class="float-right d-inline-flex share"><i class="fas fa-share-alt text-primary"></i></a></h5>
+               <p class="card-text"><?php echo  substr($umum['deskripsi_umum'],0,120)."...";?></p>
+               
+               <!--  -->
+                <?php if(!empty($id)){
+                          foreach($joinInformasiFavoriteUmum as $cek) :?>          
+                                <?php if($umum['id_informasi_umum']==$cek['fk_informasi_umum']){
+                                  if( $cek['statusfavoriteumum']==1){
+                                      $hello=1;
+                                      }
+                                      else{
+                                      $hello=0;
+                                      }
+                                  }else{ 
+                                    if($hello==1)
+                                    {
+                                      $hello=1;
+                                    }
+                                    else{
+                                      $hello=0;
+                                    }
+                                  ?>
+                        <!-- keterangan fungsi id_informasi_hima, id_jenis_informasi,id_like_button var_dump($hima['id_informasi_hima']);var_dump($cek['fk_informasi_hima']); var_dump($hello);  var_dump($hello)-->
+                        <?php } endforeach;
+                            if($hello==1){?>
+                             
+                              <a id="btnLoveHima" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('umum/informasi_umum_home/').$umum['id_informasi_umum'];}?>"> 
+                               <i id="gambarLoveHima" class="fas fa-heart"></i>
+                              </a> 
+                          <?php }
+                            else{?>
+                              <a id="btnDislikeHima" style="cursor:pointer;" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('umum/informasi_umum_home/').$umum['id_informasi_umum'];}?>">
+                                <div id="bungkusDislikeHima">
+                                <i id="gambarDislikeHima" class="far fa-heart"></i>
+                                </div>
+                              </a> 
+                            
+                              
+                            <?php }} ?>
+               <!--  -->
+               <a href="<?php echo base_url('umum/informasi_detailUmum/').$umum['id_informasi_umum']?>" class="float-right">Read more <i class="fas fa-angle-double-right"></i></a>
             </div>
-          </div>
-          <?php endfor;?>
-        </div>
+          <?php if($type_akun=="1"){?>
+            <a href="<?php echo base_url('umum/updateUmum/').$umum['id_informasi_umum']?>"><button class="mt-3 btn  btn-outline-primary">EDIT <?php echo $umum['id_informasi_umum']?></button>
+            </a>
+          <?php }?>
+         </div>
+      </div>
+        <?php endforeach;?>
+   </div>
       </div>
     </div>
+    <nav class="blog-pagination justify-content-center d-flex">
+                            <ul class="pagination">
+                                <li class="page-item">                                    
+                                    <div class="center-align pagination ">
+                                            <?php echo $this->pagination->create_links(); ?>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
     </section>
     <!--================ End Popular Courses Area =================-->
 
-    <!--================ Start Registration Area =================-->
-    <!-- <div class="section_gap registration_area">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-7">
-            <div class="row clock_sec clockdiv" id="clockdiv">
-              <div class="col-lg-12">
-                <h1 class="mb-3">Register Now</h1>
-                <p>
-                  There is a moment in the life of any aspiring astronomer that
-                  it is time to buy that first telescope. It’s exciting to think
-                  about setting up your own viewing station.
-                </p>
-              </div>
-              <div class="col clockinner1 clockinner">
-                <h1 class="days">150</h1>
-                <span class="smalltext">Days</span>
-              </div>
-              <div class="col clockinner clockinner1">
-                <h1 class="hours">23</h1>
-                <span class="smalltext">Hours</span>
-              </div>
-              <div class="col clockinner clockinner1">
-                <h1 class="minutes">47</h1>
-                <span class="smalltext">Mins</span>
-              </div>
-              <div class="col clockinner clockinner1">
-                <h1 class="seconds">59</h1>
-                <span class="smalltext">Secs</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 offset-lg-1">
-            <div class="register_form">
-              <h3>Courses for Free</h3>
-              <p>It is high time for learning</p>
-              <form
-                class="form_area"
-                id="myForm"
-                action="mail.html"
-                method="post"
-              >
-                <div class="row">
-                  <div class="col-lg-12 form_group">
-                    <input
-                      name="name"
-                      placeholder="Your Name"
-                      required=""
-                      type="text"
-                    />
-                    <input
-                      name="name"
-                      placeholder="Your Phone Number"
-                      required=""
-                      type="tel"
-                    />
-                    <input
-                      name="email"
-                      placeholder="Your Email Address"
-                      pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
-                      required=""
-                      type="email"
-                    />
-                  </div>
-                  <div class="col-lg-12 text-center">
-                    <button class="primary-btn">Submit</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!--================ End Registration Area =================-->
-
-    <!--================ Start Trainers Area =================-->
-    <!-- <section class="trainer_area section_gap_top">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-5">
-            <div class="main_title">
-              <h2 class="mb-3">Our Expert Trainers</h2>
-              <p>
-                Replenish man have thing gathering lights yielding shall you
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-center d-flex align-items-center">
-          <div class="col-lg-3 col-md-6 col-sm-12 single-trainer">
-            <div class="thumb d-flex justify-content-sm-center">
-              <img class="img-fluid" src="<?php echo base_url('assets/')?>img/trainer/t1.jpg" alt="" />
-            </div>
-            <div class="meta-text text-sm-center">
-              <h4>Mated Nithan</h4>
-              <p class="designation">Sr. web designer</p>
-              <div class="mb-4">
-                <p>
-                  If you are looking at blank cassettes on the web, you may be
-                  very confused at the.
-                </p>
-              </div>
-              <div class="align-items-center justify-content-center d-flex">
-                <a href="#"><i class="ti-facebook"></i></a>
-                <a href="#"><i class="ti-twitter"></i></a>
-                <a href="#"><i class="ti-linkedin"></i></a>
-                <a href="#"><i class="ti-pinterest"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-sm-12 single-trainer">
-            <div class="thumb d-flex justify-content-sm-center">
-              <img class="img-fluid" src="<?php echo base_url('assets/')?>img/trainer/t2.jpg" alt="" />
-            </div>
-            <div class="meta-text text-sm-center">
-              <h4>David Cameron</h4>
-              <p class="designation">Sr. web designer</p>
-              <div class="mb-4">
-                <p>
-                  If you are looking at blank cassettes on the web, you may be
-                  very confused at the.
-                </p>
-              </div>
-              <div class="align-items-center justify-content-center d-flex">
-                <a href="#"><i class="ti-facebook"></i></a>
-                <a href="#"><i class="ti-twitter"></i></a>
-                <a href="#"><i class="ti-linkedin"></i></a>
-                <a href="#"><i class="ti-pinterest"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-sm-12 single-trainer">
-            <div class="thumb d-flex justify-content-sm-center">
-              <img class="img-fluid" src="<?php echo base_url('assets/')?>img/trainer/t3.jpg" alt="" />
-            </div>
-            <div class="meta-text text-sm-center">
-              <h4>Jain Redmel</h4>
-              <p class="designation">Sr. Faculty Data Science</p>
-              <div class="mb-4">
-                <p>
-                  If you are looking at blank cassettes on the web, you may be
-                  very confused at the.
-                </p>
-              </div>
-              <div class="align-items-center justify-content-center d-flex">
-                <a href="#"><i class="ti-facebook"></i></a>
-                <a href="#"><i class="ti-twitter"></i></a>
-                <a href="#"><i class="ti-linkedin"></i></a>
-                <a href="#"><i class="ti-pinterest"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-sm-12 single-trainer">
-            <div class="thumb d-flex justify-content-sm-center">
-              <img class="img-fluid" src="<?php echo base_url('assets/')?>img/trainer/t4.jpg" alt="" />
-            </div>
-            <div class="meta-text text-sm-center">
-              <h4>Nathan Macken</h4>
-              <p class="designation">Sr. web designer</p>
-              <div class="mb-4">
-                <p>
-                  If you are looking at blank cassettes on the web, you may be
-                  very confused at the.
-                </p>
-              </div>
-              <div class="align-items-center justify-content-center d-flex">
-                <a href="#"><i class="ti-facebook"></i></a>
-                <a href="#"><i class="ti-twitter"></i></a>
-                <a href="#"><i class="ti-linkedin"></i></a>
-                <a href="#"><i class="ti-pinterest"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-    <!--================ End Trainers Area =================-->
-
-    <!--================ Start Events Area =================-->
-    <!-- <div class="events_area">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-5">
-            <div class="main_title">
-              <h2 class="mb-3 text-white">Upcoming Events</h2>
-              <p>
-                Replenish man have thing gathering lights yielding shall you
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6 col-md-6">
-            <div class="single_event position-relative">
-              <div class="event_thumb">
-                <img src="<?php echo base_url('assets/')?>img/event/e1.jpg" alt="" />
-              </div>
-              <div class="event_details">
-                <div class="d-flex mb-4">
-                  <div class="date"><span>15</span> Jun</div>
-
-                  <div class="time-location">
-                    <p>
-                      <span class="ti-time mr-2"></span> 12:00 AM - 12:30 AM
-                    </p>
-                    <p>
-                      <span class="ti-location-pin mr-2"></span> Hilton Quebec
-                    </p>
-                  </div>
-                </div>
-                <p>
-                  One make creepeth man for so bearing their firmament won't
-                  fowl meat over seas great
-                </p>
-                <a href="#" class="primary-btn rounded-0 mt-3">View Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6">
-            <div class="single_event position-relative">
-              <div class="event_thumb">
-                <img src="<?php echo base_url('assets/')?>img/event/e2.jpg" alt="" />
-              </div>
-              <div class="event_details">
-                <div class="d-flex mb-4">
-                  <div class="date"><span>15</span> Jun</div>
-
-                  <div class="time-location">
-                    <p>
-                      <span class="ti-time mr-2"></span> 12:00 AM - 12:30 AM
-                    </p>
-                    <p>
-                      <span class="ti-location-pin mr-2"></span> Hilton Quebec
-                    </p>
-                  </div>
-                </div>
-                <p>
-                  One make creepeth man for so bearing their firmament won't
-                  fowl meat over seas great
-                </p>
-                <a href="#" class="primary-btn rounded-0 mt-3">View Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-12">
-            <div class="text-center pt-lg-5 pt-3">
-              <a href="#" class="event-link">
-                View All Event <img src="<?php echo base_url('assets/')?>img/next.png" alt="" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!--================ End Events Area =================-->
-
-    <!--================ Start Testimonial Area =================-->
-    <!-- <div class="testimonial_area section_gap">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-5">
-            <div class="main_title">
-              <h2 class="mb-3">Client say about me</h2>
-              <p>
-                Replenish man have thing gathering lights yielding shall you
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="testi_slider owl-carousel">
-            <div class="testi_item">
-              <div class="row">
-                <div class="col-lg-4 col-md-6">
-                  <img src="<?php echo base_url('assets/')?>img/testimonials/t1.jpg" alt="" />
-                </div>
-                <div class="col-lg-8">
-                  <div class="testi_text">
-                    <h4>Elite Martin</h4>
-                    <p>
-                      Him, made can't called over won't there on divide there
-                      male fish beast own his day third seed sixth seas unto.
-                      Saw from
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="testi_item">
-              <div class="row">
-                <div class="col-lg-4 col-md-6">
-                  <img src="<?php echo base_url('assets/')?>img/testimonials/t2.jpg" alt="" />
-                </div>
-                <div class="col-lg-8">
-                  <div class="testi_text">
-                    <h4>Davil Saden</h4>
-                    <p>
-                      Him, made can't called over won't there on divide there
-                      male fish beast own his day third seed sixth seas unto.
-                      Saw from
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="testi_item">
-              <div class="row">
-                <div class="col-lg-4 col-md-6">
-                  <img src="<?php echo base_url('assets/')?>img/testimonials/t1.jpg" alt="" />
-                </div>
-                <div class="col-lg-8">
-                  <div class="testi_text">
-                    <h4>Elite Martin</h4>
-                    <p>
-                      Him, made can't called over won't there on divide there
-                      male fish beast own his day third seed sixth seas unto.
-                      Saw from
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="testi_item">
-              <div class="row">
-                <div class="col-lg-4 col-md-6">
-                  <img src="<?php echo base_url('assets/')?>img/testimonials/t2.jpg" alt="" />
-                </div>
-                <div class="col-lg-8">
-                  <div class="testi_text">
-                    <h4>Davil Saden</h4>
-                    <p>
-                      Him, made can't called over won't there on divide there
-                      male fish beast own his day third seed sixth seas unto.
-                      Saw from
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="testi_item">
-              <div class="row">
-                <div class="col-lg-4 col-md-6">
-                  <img src="<?php echo base_url('assets/')?>img/testimonials/t1.jpg" alt="" />
-                </div>
-                <div class="col-lg-8">
-                  <div class="testi_text">
-                    <h4>Elite Martin</h4>
-                    <p>
-                      Him, made can't called over won't there on divide there
-                      male fish beast own his day third seed sixth seas unto.
-                      Saw from
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="testi_item">
-              <div class="row">
-                <div class="col-lg-4 col-md-6">
-                  <img src="<?php echo base_url('assets/')?>img/testimonials/t2.jpg" alt="" />
-                </div>
-                <div class="col-lg-8">
-                  <div class="testi_text">
-                    <h4>Davil Saden</h4>
-                    <p>
-                      Him, made can't called over won't there on divide there
-                      male fish beast own his day third seed sixth seas unto.
-                      Saw from
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!--================ End Testimonial Area =================-->

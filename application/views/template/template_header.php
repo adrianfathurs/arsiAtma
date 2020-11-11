@@ -29,7 +29,7 @@
             <form class="d-flex justify-content-between" method="" action="">
             <!-- <input type="text" class="form-control"id="search_input" placeholder="Search Here"/> -->
             <button type="submit" class="btn"></button>
-            <span class="ti-close" id="close_search" title="Close Search"></span>
+            <span class="ti-close" id="close_search" class="close" title="Close Search"></span>
             </form>
           </div>
         </div>
@@ -37,7 +37,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <a class="navbar-brand logo_h" href="index.html"
+            <a class="navbar-brand logo_h" href="<?php echo base_url('home')?>"
               ><h2>HIMARSI</h2></a>
             <button
               class="navbar-toggler"
@@ -129,7 +129,13 @@
                     </li>
                   </ul>
               </li> -->
-                <li class="nav-item submenu dropdown">
+                <?php if(isset($page) ){ 
+                  if($page=="tentangUnivPage" || $page=="informasiUnivPage"){?>
+                    <li class="nav-item active submenu dropdown">
+                    <?php } else{ ?>
+                      <li class="nav-item submenu dropdown">
+                    <?php } }else {?><li class="nav-item submenu dropdown">
+                    <?php } ?>
                   <a
                     href="#"
                     class="nav-link dropdown-toggle"
@@ -150,7 +156,13 @@
                     </li>
                   </ul>
                 </li>
-                <li class="nav-item submenu dropdown">
+                <?php if(isset($page) ){ 
+                  if($page=="tentangFakultasPage" || $page=="informasiFakultasPage"){?>
+                    <li class="nav-item active submenu dropdown">
+                    <?php } else{ ?>
+                      <li class="nav-item submenu dropdown">
+                    <?php } }else {?><li class="nav-item submenu dropdown">
+                    <?php } ?>
                   <a
                     href="#"
                     class="nav-link dropdown-toggle"

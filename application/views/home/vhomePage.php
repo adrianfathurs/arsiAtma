@@ -59,7 +59,7 @@
                   <div class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
                     <div class="mt-lg-0 mt-3">
                       <span class="meta_info">
-                        <?php if(!empty($id)){
+                        <?php 
                           foreach($joinInformasiFavoriteHima as $cek) :?>          
                                 <?php if($hima['id_informasi_hima']==$cek['fk_informasi_hima']){
                                   if( $cek['statusfavoritehima']==1){
@@ -83,20 +83,20 @@
                               <!-- <a id="btnLoveHima" style="cursor:pointer;" onclick="like_button(<?php echo $hima['id_informasi_hima']?>,1,0)" >
                                 <i id="gambarLoveHima" class="fas fa-heart"></i>
                               </a>  -->
-                              <a id="btnLoveHima" style="cursor:pointer;" href="<?php echo base_url('informasi/informasi_hima_home/').$hima['id_informasi_hima']?>">
+                              <a id="btnLoveHima" style="cursor:pointer;"<?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('informasi/informasi_hima_home/').$hima['id_informasi_hima'];}?>">
                                 <i id="gambarLoveHima" class="fas fa-heart"></i>
                               </a> 
                       
                           <?php }
                             else{?>
-                              <a id="btnDislikeHima" style="cursor:pointer;" href="<?php echo base_url('informasi/informasi_hima_home/').$hima['id_informasi_hima']?>">
+                              <a id="btnDislikeHima" style="cursor:pointer;" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('informasi/informasi_hima_home/').$hima['id_informasi_hima'];}?>">
                                 <div id="bungkusDislikeHima">
                                 <i id="gambarDislikeHima" class="far fa-heart"></i>
                                 </div>
                               </a> 
                             
                               
-                            <?php }} ?>
+                            <?php } ?>
                       </span>
                     </div>
                   </div>
@@ -128,7 +128,7 @@
                   <div class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
                     <div class="mt-lg-0 mt-3">
                       <span class="meta_info">
-                        <?php if(!empty($id)){
+                        <?php 
                           foreach($joinInformasiFavoriteUniv as $cek) :?>          
                                 <?php if($univ['id_informasi_univ']==$cek['fk_informasi_univ']){
                                   if( $cek['statusfavoriteuniv']==1){
@@ -147,25 +147,24 @@
                                     }
                                   ?>
                         <!-- keterangan fungsi id_informasi_hima, id_jenis_informasi,id_like_button var_dump($hima['id_informasi_hima']);var_dump($cek['fk_informasi_hima']); var_dump($hello);  var_dump($hello)-->
-                        <?php } endforeach;;
+                        <?php } endforeach;
                             if($hello==1){?>
                               <!-- <a id="btnLoveHima" style="cursor:pointer;" onclick="like_button(<?php echo $univ['id_informasi_univ']?>,1,0)" >
                                 <i id="gambarLoveHima" class="fas fa-heart"></i>
                               </a>  -->
-                              <a id="btnLoveHima" style="cursor:pointer;" href="<?php echo base_url('informasi/informasi_univ_home/').$univ['id_informasi_univ']?>">
-                                <i id="gambarLoveHima" class="fas fa-heart"></i>
+                              <a id="btnLoveHima" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('informasi/informasi_univ_home/').$univ['id_informasi_univ'];}?>"> 
+                               <i id="gambarLoveHima" class="fas fa-heart"></i>
                               </a> 
-                      
                           <?php }
                             else{?>
-                              <a id="btnDislikeHima" style="cursor:pointer;" href="<?php echo base_url('informasi/informasi_univ_home/').$univ['id_informasi_univ']?>">
+                              <a id="btnDislikeHima" style="cursor:pointer;" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('informasi/informasi_univ_home/').$univ['id_informasi_univ'];}?>">
                                 <div id="bungkusDislikeHima">
                                 <i id="gambarDislikeHima" class="far fa-heart"></i>
                                 </div>
                               </a> 
                             
                               
-                            <?php }} ?>
+                            <?php } ?>
                       </span>
                     </div>
                   </div>
@@ -196,7 +195,7 @@
                   <div class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
                     <div class="mt-lg-0 mt-3">
                       <span class="meta_info">
-                        <?php if(!empty($id)){
+                        <?php 
                           foreach($joinInformasiFavoriteFakultas as $cek) :?>
                             
                                 <?php if($fakultas['id_informasi_fakultas']==$cek['fk_informasi_fakultas']){
@@ -220,25 +219,25 @@
                         
                         
                         <!-- keterangan fungsi id_informasi_hima, id_jenis_informasi,id_like_button var_dump($hima['id_informasi_hima']);var_dump($cek['fk_informasi_hima']); var_dump($hello);  var_dump($hello)-->
-                        <?php } endforeach;;
+                        <?php } endforeach;
                             if($hello==1){?>
                               <!-- <a id="btnLoveHima" style="cursor:pointer;" onclick="like_button(<?php echo $fakultas['id_informasi_fakultas']?>,1,0)" >
                                 <i id="gambarLoveHima" class="fas fa-heart"></i>
                               </a>  -->
-                              <a id="btnLoveHima" style="cursor:pointer;" href="<?php echo base_url('informasi/informasi_fakultas_home/').$fakultas['id_informasi_fakultas']?>">
+                              <a id="btnLoveHima" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('informasi/informasi_fakultas_home/').$fakultas['id_informasi_fakultas'];}?>">
                                 <i id="gambarLoveHima" class="fas fa-heart"></i>
                               </a> 
                       
                           <?php }
                             else{?>
-                              <a id="btnDislikeHima" style="cursor:pointer;" href="<?php echo base_url('informasi/informasi_fakultas_home/').$fakultas['id_informasi_fakultas']?>">
+                              <a id="btnDislikeHima" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('informasi/informasi_fakultas_home/').$fakultas['id_informasi_fakultas'];}?>">
                                 <div id="bungkusDislikeHima">
                                 <i id="gambarDislikeHima" class="far fa-heart"></i>
                                 </div>
                               </a> 
                             
                               
-                            <?php }} ?>
+                            <?php } ?>
                       </span>
                     </div>
                   </div>
@@ -249,7 +248,7 @@
         </div>
 
 <!--  -->
-        
+     
 
 <!--  -->
         

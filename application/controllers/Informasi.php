@@ -248,7 +248,7 @@ class Informasi extends CI_Controller
         
         //convert date 
         $tanggal = date('Y-m-d', strtotime($data['informasi']->created_date));
-        //$data['informasi']->created_date = $this->tanggal_indo($tanggal,true);
+        $data['informasi']->created_date = $this->tanggal_indo($tanggal,true);
         
         $data['type_akun'] = $this->session->userdata('type_akun');            
         $data['id'] = $this->session->userdata('id'); 
@@ -291,8 +291,8 @@ class Informasi extends CI_Controller
     function informasi_univ_home($id){       
         $data['page']="informasiUnivPage";              
         
-        $data['cek_fav'] = $this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
-        $cek_status=$this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
+        $data['cek_fav'] = $this->Minformasi_universitas->cekfavuniv($id,$this->session->userdata('id'));
+        $cek_status=$this->Minformasi_universitas->cekfavuniv($id,$this->session->userdata('id'));
         var_dump($id);
         if(empty($cek_status))
         {
@@ -344,13 +344,14 @@ class Informasi extends CI_Controller
    
 
     function informasi_detailuniv($id){   
-        $data['page']="informasiHimasPage";                     
+        $data['page']="informasiUnivPage";                     
         $data['cek_favuniv'] = $this->Minformasi_universitas->cekfavuniv($id,$this->session->userdata('id'));
         // print_r($data);die;
         $data['informasi'] = $this->Minformasi_universitas->getArtikel($id);          
         $data['type_akun'] = $this->session->userdata('type_akun');            
         $data['id'] = $this->session->userdata('id');
-      
+        $tanggal = date('Y-m-d', strtotime($data['informasi']->created_date));
+        $data['informasi']->created_date = $this->tanggal_indo($tanggal,true);
         $data['username'] = $this->session->userdata('username'); 
         $data['css']="informasi/vinformasiuniv_css.php";
         $data['js'] = 'informasi/vinformasiuniv_js.php'; 
@@ -363,13 +364,14 @@ class Informasi extends CI_Controller
    
 
     function informasi_detailFakultas($id){   
-        /* $data['page']="informasiFakultassPage"; */                  
+        /* $data['page']="informasiFakultassPage"; */
+         $data['page']="informasiFakultasPage";                   
         $data['cek_favfakultas'] = $this->Minformasi_fakultas->cekfavfakultas($id,$this->session->userdata('id'));
         $data['informasi'] = $this->Minformasi_fakultas->getArtikel($id);          
         
         //convert date 
-       /*  $tanggal = date('Y-m-d', strtotime($data['informasi']->created_date));
-        $data['informasi']->created_date = $this->tanggal_indo($tanggal,true); */
+         $tanggal = date('Y-m-d', strtotime($data['informasi']->created_date));
+        $data['informasi']->created_date = $this->tanggal_indo($tanggal,true); 
 
         $data['type_akun'] = $this->session->userdata('type_akun');            
         $data['id'] = $this->session->userdata('id'); 
@@ -1333,7 +1335,7 @@ class Informasi extends CI_Controller
     }
 
     function hapusfavuniv($id_info){
-        $this->Minformasi_univ->hapusfavuniv($id_info,$this->session->userdata('id'));
+        $this->Minformasi_universitas->hapusfavuniv($id_info,$this->session->userdata('id'));
         $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
                     <div class='toast-header'>
                         <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
