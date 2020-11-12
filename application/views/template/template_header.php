@@ -30,7 +30,7 @@
             <form class="d-flex justify-content-between" method="" action="">
             <!-- <input type="text" class="form-control"id="search_input" placeholder="Search Here"/> -->
             <button type="submit" class="btn"></button>
-            <span class="ti-close" id="close_search" class="close" title="Close Search"></span>
+            
             </form>
           </div>
         </div>
