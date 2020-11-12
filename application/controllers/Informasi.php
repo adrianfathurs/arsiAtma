@@ -248,7 +248,7 @@ class Informasi extends CI_Controller
         
         //convert date 
         $tanggal = date('Y-m-d', strtotime($data['informasi']->created_date));
-        //$data['informasi']->created_date = $this->tanggal_indo($tanggal,true);
+        $data['informasi']->created_date = $this->tanggal_indo($tanggal,true);
         
         $data['type_akun'] = $this->session->userdata('type_akun');            
         $data['id'] = $this->session->userdata('id'); 
