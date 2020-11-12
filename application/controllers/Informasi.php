@@ -244,8 +244,8 @@ class Informasi extends CI_Controller
     function informasi_detail($id){               
         $data['page']="informasiHimasPage";              
         $data['cek_fav'] = $this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
-        $data['informasi'] = $this->Minformasi_hima->getArtikel($id);         
         
+        $data['informasi'] = $this->Minformasi_hima->getArtikel($id);         
         //convert date 
         $tanggal = date('Y-m-d', strtotime($data['informasi']->created_date));
         $data['informasi']->created_date = $this->tanggal_indo($tanggal,true);

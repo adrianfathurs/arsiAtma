@@ -55,7 +55,6 @@ class Hima extends CI_Controller
         // $data['css']="viewArticle/VviewArticle_css.php";
         $data['header']="template/template_header.php";
         $data['css']="hima/vorganisasiHima_css.php";
-        
         $data['content']="hima/vorganisasiHima.php";        
         $data['asidebar']="viewArticle/VviewAsidebar.php";
         $data['footer']="template/template_footer.php";
@@ -69,7 +68,7 @@ class Hima extends CI_Controller
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
         // print_r($data);die;
-        
+      
         if ($id_pencet=="1"){
 
             $data['ph']=$this->Morganisasi->MloadOrganisasiPhById($id_biro);
@@ -108,7 +107,7 @@ class Hima extends CI_Controller
             
             $foto1_name="foto1";
             $foto2_name="foto2";
-            
+           
             
 
             // $akun= $this->Makun->get_by_id($creator);
@@ -117,13 +116,13 @@ class Hima extends CI_Controller
                 $this->session->set_userdata('typeNotif', "gagalUpload");
                 // redirect('article');
             } else {
-                var_dump($foto111);
+                
                 $tanda=$this->_hapusFileBiro($id_biro);
                 
                             $foto11=$this->_upload($foto111,$foto1_name,$id_biro);
                             $foto22=$this->_upload($foto222,$foto2_name,$id_biro);
                             // print_r($foto111);die;
-                        var_dump($foto11);
+                        
                             $data=[
                                 'nama_biro'=>$this->input->post('namaBiro'),                               
                                 'foto1_biro'=>$foto11,
@@ -131,21 +130,15 @@ class Hima extends CI_Controller
                                 'tugas_biro'=>$this->input->post('tugasBiro'),
                                 'deskripsi_biro'=>$this->input->post('deskripsiBiro')
                             ];
-                            var_dump($data);
+                            
                             // print_r($data);die;
                             //$ket=$this->_hapusFileBiro($id_biro,$data);
                         
-                                if($kode){
+                                
                                     $this->Morganisasi->insertBiro($data,$id_biro);
-                                } else{
-                                    $this->Morganisasi->insertBiro($data,$id_biro);
-                                    echo "masuk else";
-                                }
+                               
                         
-                            
-                            
-                        redirect('Hima/loadOrganisasiHima');
-                        // $this->getArtikel($jenis_artikel);
+                          redirect('hima/loadOrganisasiHima');
                     }
                     
                 }else{
@@ -243,18 +236,11 @@ class Hima extends CI_Controller
                                 'deskripsi_ph'=>$this->input->post('deskripsiPh')
                             ];
                             // print_r($data);die;
-                            var_dump($foto11);var_dump($data);
+                            
+                                $this->Morganisasi->insertPh($data,$id_ph);
+                                 
                         
-                                if($tanda){
-                                   $cek= $this->Morganisasi->insertPh($data,$id_ph);
-                                   echo "masuk if";
-                                }
-                                else{
-                                    $this->Morganisasi->insertPh($data,$id_ph);
-                                    echo "masuk else";
-                                }
-                        
-                        redirect('Hima/loadOrganisasiHima');
+                        redirect('hima/loadOrganisasiHima');
                         // $this->getArtikel($jenis_artikel);
                     }
                     
