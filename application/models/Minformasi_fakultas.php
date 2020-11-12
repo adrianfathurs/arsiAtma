@@ -16,6 +16,7 @@ class Minformasi_fakultas extends CI_Model{
     }
 
     function getThreeInformasi(){    
+        $this->db->where('status',1);    
         $query=$this->db->get('informasi_fakultas',3);
         return $query->result_array();
     }
@@ -77,5 +78,18 @@ class Minformasi_fakultas extends CI_Model{
 
                 // Return hasil query
         return $query;
+    }
+
+    public function joinInformasiFavoriteFakultas($id){
+        $this->db->select('favorite_fakultas.fk_informasi_fakultas,informasi_fakultas.id_informasi_fakultas,informasi_fakultas.judul_fakultas,favorite_fakultas.statusfavoritefakultas');
+        $this->db->from('informasi_fakultas');
+        $this->db->join('favorite_fakultas','favorite_fakultas.fk_informasi_fakultas=informasi_fakultas.id_informasi_fakultas');
+        $this->db->where('favorite_fakultas.fk_akun',$id);
+        
+        $this->db->group_by('fk_informasi_fakultas');
+        $this->db->order_by('fk_informasi_fakultas', 'DESC');
+        $query = $this->db->get();
+        return $query->result_array();
+
     }
 }

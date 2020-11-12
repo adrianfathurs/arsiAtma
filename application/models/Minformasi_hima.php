@@ -88,5 +88,4 @@ class Minformasi_hima extends CI_Model{
 
     }
 
-   
 }

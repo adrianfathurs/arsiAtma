@@ -28,7 +28,7 @@ class Universitas extends CI_Controller
     }
 
     public function loadTentangUniversitas(){
-        $data['page']="tentangUniversitasPage";
+        $data['page']="tentangUnivPage";
         $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 

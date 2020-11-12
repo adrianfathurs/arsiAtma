@@ -52,12 +52,9 @@
                   placeholder="Your Email Address"
                   onfocus="this.placeholder = ''"
                   onblur="this.placeholder = 'Your Email Address'"
-                  required=""
-                  type="email"
+                  
                 />
-                <button class="click-btn btn btn-default">
-                  <span>subscribe</span>
-                </button>
+                
                 <div style="position: absolute; left: -5000px;">
                   <input
                     name="b_36c4fd991d266f23781ded980_aefe40901a"

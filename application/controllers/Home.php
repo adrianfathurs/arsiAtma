@@ -7,6 +7,7 @@ class Home extends CI_Controller
         $this->load->model("Makun");
         $this->load->model('Minformasi_hima');
         $this->load->model('Minformasi_universitas');
+        $this->load->model('Minformasi_fakultas');
 
     }
 
@@ -43,6 +44,8 @@ class Home extends CI_Controller
          $data['joinInformasiFavoriteHima']=$this->Minformasi_hima->joinInformasiFavoriteHima($id);
          $data['informasiUniv']=$this->Minformasi_universitas->getThreeInformasi();
          $data['joinInformasiFavoriteUniv']=$this->Minformasi_universitas->joinInformasiFavoriteUniv($id);
+         $data['informasiFakultas']=$this->Minformasi_fakultas->getThreeInformasi();
+         $data['joinInformasiFavoriteFakultas']=$this->Minformasi_fakultas->joinInformasiFavoriteFakultas($id);
         
         $data['content']="home/vhomePage.php";
         $data['js']="home/vhomePage_js.php";
