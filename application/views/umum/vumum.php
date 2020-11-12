@@ -92,7 +92,7 @@
             </div>
           </div>
         </div>
-        <?php if(empty($id) || $type_akun=="1") {?>
+        <?php if($type_akun=="1") {?>
         <div class="row float-right">
           <a href="<?php echo base_url('Umum/submitInformasi') ?>"><button class="btn btn-success ">Tambah Informasi Umum</button></a>
         </div>
@@ -112,7 +112,7 @@
                <p class="card-text"><?php echo  substr($umum['deskripsi_umum'],0,120)."...";?></p>
                
                <!--  -->
-                <?php if(!empty($id)){
+                <?php 
                           foreach($joinInformasiFavoriteUmum as $cek) :?>          
                                 <?php if($umum['id_informasi_umum']==$cek['fk_informasi_umum']){
                                   if( $cek['statusfavoriteumum']==1){
@@ -146,7 +146,7 @@
                               </a> 
                             
                               
-                            <?php }} ?>
+                            <?php } ?>
                <!--  -->
                <a href="<?php echo base_url('umum/informasi_detailUmum/').$umum['id_informasi_umum']?>" class="float-right">Read more <i class="fas fa-angle-double-right"></i></a>
             </div>
