@@ -18,6 +18,7 @@
      <script src="https://use.fontawesome.com/d1fb53bc02.js"></script>
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/style.css" />
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/login.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 </head>
 
 <body>
