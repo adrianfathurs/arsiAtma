@@ -35,7 +35,7 @@
             <div class="row">
                 <div class="col-lg-8">
                 <?php if( $type_akun=="1"){ ?>                       
-                        <a href="<?php echo base_url('informasi/form/') ?>" class="btn waves-effect waves-light btn-success">Tambah Informasi</a>
+                        <a href="<?php echo base_url('portofolio/form/') ?>" class="btn waves-effect waves-light btn-success">Tambah Informasi</a>
                         <?php }; ?>
                     <div class="blog_left_sidebar">                                                           
                     <div class="col-md">                        
@@ -46,15 +46,15 @@
                                 <div class="blog_info text-right">
                                     <div class="post_tag">
                                         <ul class="blog_meta list">
-                                            <li><a href="#"><?php echo $informasi->nama_peraih; ?> <i class="ti-user"></i></a></li>
-                                            <li><a href="#"><?php echo $informasi->created_date; ?><i class="ti-calendar"></i></a></li>                                        
+                                            <li title="Peraih Penghargaan"><a ><?php echo $informasi->nama_peraih; ?> <i class="ti-user"></i></a></li>
+                                            <li><a><?php echo $informasi->created_date; ?><i class="ti-calendar"></i></a></li>                                        
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-9">
                                 <div class="blog_post">
-                                    <center><img src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto1_portofolio?>" style="width: 100%; max-height: 450px;" alt=""></center>
+                                    <center><img src="<?php echo base_url('assets/img/portofolio/').$informasi->foto1_portofolio?>" style="width: 100%; max-height: 450px;" alt=""></center>
                                     <div class="blog_details">
                                         <a href="<?php echo base_url('Portofolio/detail/').$informasi->id_portofolio ;?>">
                                             <h2><?php echo $informasi->judul_portofolio; ?></h2>

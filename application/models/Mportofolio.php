@@ -26,10 +26,9 @@ class Mportofolio extends CI_Model{
         }
     
     function cekfav($id_info,$id_akun){
-        
         $this->db->where('fk_user ', $id_akun);
-        $this->db->where('id_favorite_portofolio ', $id_info);
-        $query = $this->db->get('favorite_portofolio');            
+        $this->db->where('fk_portofolio ', $id_info);
+        $query = $this->db->get('favorite_portofolio');             
         return $query->row();
     }
 

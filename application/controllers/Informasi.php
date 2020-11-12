@@ -1487,7 +1487,7 @@ class Informasi extends CI_Controller
     function manajemen_informasi(){
         $id= $this->session->userdata('id'); 
          $data['manajemenInformasiHima'] = $this->Minformasi_hima->joinInformasiFavoriteHima($id);
-        // print_r($data);die;         
+        // print_r($data['manajemenInformasiHima']);die;         
         $data['type_akun'] = $this->session->userdata('type_akun');            
         $data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 

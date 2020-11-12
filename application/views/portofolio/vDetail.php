@@ -23,23 +23,23 @@
                                         
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto1_portofolio; ?>" style="width: 100%; max-height: 350px;" alt="">                                        
+                                            <img class="img-fluid" src="<?php echo base_url('assets/img/portofolio/').$informasi->foto1_portofolio; ?>" style="width: 100%; max-height: 350px;" alt="">                                        
                                         </div>
                                         <?php if(!empty($informasi->foto2_portofolio)) { ?>
                                         <div class="carousel-item">
-                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto2_portofolio ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
+                                            <img class="img-fluid" src="<?php echo base_url('assets/img/portofolio/').$informasi->foto2_portofolio ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
                                         </div>
                                         <?php } if(!empty($informasi->foto3_portofolio)) { ?>
                                         <div class="carousel-item">
-                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto3_portofolio ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
+                                            <img class="img-fluid" src="<?php echo base_url('assets/img/portofolio/').$informasi->foto3_portofolio ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
                                         </div>
                                         <?php } if(!empty($informasi->foto4_portofolio)) { ?>
                                         <div class="carousel-item">
-                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiportofolio/').$informasi->foto4_portofolio ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
+                                            <img class="img-fluid" src="<?php echo base_url('assets/img/portofolio/').$informasi->foto4_portofolio ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
                                         </div>
                                         <?php } if(!empty($informasi->foto5_portofolio)){ ?>
                                         <div class="carousel-item">
-                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiportofolio/').$informasi->foto5_portofolio ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
+                                            <img class="img-fluid" src="<?php echo base_url('assets/img/portofolio/').$informasi->foto5_portofolio ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
                                         </div>
                                         <?php } ?>
                                     </div>
@@ -58,12 +58,11 @@
                             
                             <br>
                             <div class="detail">
-                                    <p title="Penulis"><i class="ti-user" title="Penulis"> Penulis : <a ><?php echo $informasi->nama_peraih ?></i></a></p>
-                                    <p title="Tanggal Ditulis"> <i class="ti-calendar"></i> <a ><?php echo $informasi->created_date ?></a></p>
+                                    <p title="Peraih Penghargaan"><i class="ti-user" title="Peraih Penghargaan"> Peraih Penghargaan : <a ><?php echo $informasi->nama_peraih ?></i></a></p>                                    
                                     <?php if(empty($cek_fav)){ ?>
-                                        <p title="Simpan Ke Akun Saya?" ><a <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('Informasi/saveinformasi/').$informasi->id_portofolio?>" class="addfav" <?php } ?> ><i id="icon" class="fas fa-download"></i> Simpan ke Akun</a></p>
+                                        <p title="Simpan Ke Akun Saya?" ><a <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('portofolio/savefav/').$informasi->id_portofolio?>" class="addfav" <?php } ?> ><i id="icon" class="fas fa-download"></i> Simpan ke Akun</a></p>
                                     <?php }else { ?>
-                                        <p title="Sudah Tersimpan di Akun, hapus?" ><a href="<?php echo base_url('Informasi/hapusfav/').$informasi->id_portofolio?>" class="removefav" ><i id="icon" class="fas fa-trash-alt"></i> Hapus </a></p>
+                                        <p title="Sudah Tersimpan di Akun, hapus?" ><a href="<?php echo base_url('portofolio/hapusfav/').$informasi->id_portofolio?>" class="removefav" ><i id="icon" class="fas fa-trash-alt"></i> Hapus </a></p>
                                     <?php }?>                                                              
                             </div>
                         </div>

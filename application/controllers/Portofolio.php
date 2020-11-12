@@ -104,7 +104,7 @@ class Portofolio extends CI_Controller
     }
 
     function delete($id){
-        $dataInf = $this->Minformasi_portofolio->getArtikel($id);
+        $dataInf = $this->Mportofolio->getArtikel($id);
         $data=[
             'judul_portofolio'=>$dataInf->judul_portofolio,                               
             'foto4_portofolio'=>$dataInf->foto4_portofolio,
@@ -129,8 +129,8 @@ class Portofolio extends CI_Controller
                         Informasi Ini Berhasil Dihapus dari Database
                     </div>");
         $this->session->set_flashdata($alert);
-        $this->Minformasi_portofolio->insert($data,$id);
-        redirect("portofolio/informasi_portofolio");
+        $this->Mportofolio->insert($data,$id);
+        redirect("portofolio");
     }
 
     function form(){                   
@@ -152,7 +152,7 @@ class Portofolio extends CI_Controller
         $foto4_name="foto4";
         $foto5_name="foto5";
 
-        $akun= $this->Makun->get_by_id($creator);
+        // $akun= $this->Makun->get_by_id($creator);
         if(null == $foto111 && $foto111 && $foto111 ){
             $this->session->set_userdata('typeNotif', "gagalUpload");
         } else {
@@ -170,12 +170,12 @@ class Portofolio extends CI_Controller
                             'foto1_portofolio'=>$foto11,
                             'foto2_portofolio'=>$foto22,
                             'foto3_portofolio'=>$foto33,
-                            'nama_penulis' => $akun->nama_lengkap,
+                            'nama_peraih' => $this->input->post('peraih'),
                             'status' => 1
                         ];
 
                         // print_r($data);die;
-                    $this->Minformasi_portofolio->insert($data,$id_info);
+                    $this->Mportofolio->insert($data,$id_info);
                     $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
                                 <div class='toast-header'>
                                     <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
@@ -189,13 +189,14 @@ class Portofolio extends CI_Controller
                                     Informasi portofolio Berhasil Diperbarui
                                 </div>");
                     $this->session->set_flashdata($alert);                        
-                    redirect('portofolio/informasi_portofolio');
+                    redirect('portofolio');
                     // $this->getArtikel($jenis_artikel);
                 }
                 
             }else{
                 $obj = new stdClass();            
                 $obj->judul_portofolio = '';
+                $obj->nama_peraih = '';
                 $obj->id_portofolio  = '';
                 $obj->keterangan_portofolio = '';
                 $obj->foto4_portofolio = '';
@@ -217,6 +218,74 @@ class Portofolio extends CI_Controller
                 $data['footer']="template/template_footer.php";          
                 $this->load->view('template/vtemplate', $data);
             }
+    }
+
+    function _upload($foto,$ft,$id){
+                $data['page']="articlePage";
+                $data = $this->Mportofolio->getArtikel($id);
+                
+                $config['upload_path']='./assets/img/portofolio/';
+                $config['allowed_types']='jpg|png|jpeg';
+                $this->load->library('upload',$config);
+                if($ft=="foto1"){
+                    if(!$this->upload->do_upload('foto1')){
+                        if($data->foto1_portofolio){
+                            return $data->foto1_portofolio;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload1");
+                        }
+                    }
+                    else{
+                        return $this->upload->data('file_name');
+                    }   
+                }elseif($ft=="foto2"){
+                    if(!$this->upload->do_upload('foto2')){
+                        if($data->foto2_portofolio){
+                            return $data->foto2_portofolio;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload2");
+                        }
+                    } else{
+                        return $this->upload->data('file_name');
+                    }  
+                }elseif($ft=="foto3"){
+                    if(!$this->upload->do_upload('foto3')){
+                        if($data->foto3_portofolio){
+                            return $data->foto3_portofolio;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload3");
+                        }
+                    }else{
+                        return $this->upload->data('file_name');
+                    }  
+
+                }elseif($ft=="foto4"){
+                    if(!$this->upload->do_upload('foto4')){
+                        if($data->foto4_portofolio){
+                            return $data->foto4_portofolio;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload4");
+                        }
+                    }else{
+                        return $this->upload->data('file_name');
+                    }  
+
+                }elseif($ft=="foto5"){
+                    if(!$this->upload->do_upload('foto5')){
+                        if($data->foto5_portofolio){
+                            return $data->foto5_portofolio;
+                        }else {
+                            return "";
+                            $this->session->set_userdata('typeNotif', "gagalUpload5");
+                        }
+                    }else{
+                        return $this->upload->data('file_name');
+                    }  
+                }
     }
 
     function tanggal_indo($tanggal, $cetak_hari = false){
@@ -274,7 +343,47 @@ class Portofolio extends CI_Controller
 
 		$final_convert = $day . " " . $month . " " . $year;
 		return $final_convert;
-	}
+    }
+    
+    function savefav($id_info){
+        $data=[
+            'fk_user'=>$this->session->userdata('id'),                               
+            'fk_portofolio  '=>$id_info,            
+        ];
+        $this->Mportofolio->saveinf($data);
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Disimpan ke Akun Anda                      
+                    </div>");
+        $this->session->set_flashdata($alert);
+        $this->detail($id_info);
+    }
+
+    function hapusfav($id_info){
+        $this->Mportofolio->hapusfav($id_info,$this->session->userdata('id'));
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Dihapus dari Akun Anda                    
+                    </div>");
+        $this->session->set_flashdata($alert);
+        $this->detail($id_info);
+    }
 
 }
 

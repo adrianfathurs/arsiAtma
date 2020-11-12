@@ -7,11 +7,15 @@
                 <?php endif; ?>
                 <h5 class="card-title"> Form tambah Informasi portofolio</h5>
                
-                <?php echo form_open_multipart('informasi/formportofolio/');?>
+                <?php echo form_open_multipart('portofolio/form/');?>
               
                 <div class="form-group" >
-                    <label class="col-sm-4 form-control-label" > Judul Informasi:</label>  
+                    <label class="col-sm-4 form-control-label" > Nama Portofolio:</label>  
                     <input type="text" class="form-control " name="judul" placeholder="Judul Artikel" required value="<?php echo $data->judul_portofolio ?>">
+                </div>
+                <div class="form-group" >
+                    <label class="col-sm-4 form-control-label" > Peraih Penghargaan:</label>  
+                    <input type="text" class="form-control " name="peraih" placeholder="Judul Artikel" required value="<?php echo $data->nama_peraih ?>">
                 </div>
                         <div class="form-group">
                             <label class="col-sm-4 form-control-label" >Gambar 1 :</label>
