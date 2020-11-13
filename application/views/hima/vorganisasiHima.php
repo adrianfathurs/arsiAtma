@@ -23,22 +23,16 @@
     <!--================ End Home Banner Area =================-->
 <section class="contact_area section_gap">
     <div class="container">
-        <div class="jumbotron">
-            <h1>
-                <span class="glyphicon glyphicon-camera"></span> The Image Gallery</h1>
-            <p>A bunch of images depicting daily life of stormtroopers.</p>
-        </div>
-
-    <h2 class="title">Pengurus Harian </h2>
-    <hr>
+      <h2 class="title">Pengurus Harian </h2>
+      <hr>
     <div class="clear"></div>
   <div class="row">
   <?php foreach($ph as $key):?>
-    <div class="col-lg-4 col-sm-6 mb-2">
-        <div class="zoom-effect">
-            <div class="kotak">
+    <div class="col-lg-12">
+        <div class="">
+            <div class="kotakph">
             <a class="" href="<?php echo base_url('Hima/loadDetailOrganisasiPh/').$key['id_ph']?>">
-                <img  src="<?php echo base_url('assets/img/organisasiHima/').$key['foto1_ph']?>" width="70vw" height="200px">
+                <img  src="<?php echo base_url('assets/img/organisasiHima/').$key['foto1_ph']?>" width="" height="500px">
             </a>
             </div>
         </div>
@@ -51,21 +45,20 @@
   <?php endforeach?>
     <div class="clearfix visible-sm-block"></div>
     <div class="clearfix visible-md-block"></div>
-    
-    
   </div>
   
-  <h2 class="title mt-4">Biro </h2>
+    <div class="container"><br>
+      <h2 class="title mt-4">Biro dan Divisi </h2>
       <hr>
     <div class="clear"></div>
-    <div class="row">
+  <div class="row">
   <?php foreach ($biro as $k ):?>
-       <div class="col-lg-4 col-sm-6 mb-2">
+       <div class="col-lg-4 col-sm-4 mb-2">
       
-        <div class="zoom-effect">
-            <div class="kotak">
+        <div class="">
+            <div class="kotakbiro">
                 <a class="" href="<?php echo base_url('Hima/loadDetailOrganisasiBiro/').$k['id_biro']?>">
-                <img  src="<?php echo base_url('assets/img/organisasiHima/').$k['foto1_biro']?>" width="70vw" height="200px">
+                <img  src="<?php echo base_url('assets/img/organisasiHima/').$k['foto1_biro']?>">
                 </a>
             </div>
         </div>
