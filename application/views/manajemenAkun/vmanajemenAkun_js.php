@@ -1,6 +1,14 @@
  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 
+
+<!-- boost traps toogle -->
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<!--  -->
+
+
 <script type="text/javascript">
     $(document).ready( function () {
         $('#table_id').DataTable();
@@ -30,3 +38,28 @@
         });
     } );
 </script>
+
+<script>
+        $(document).ready(function(){
+            $('#gender[]').change(function(){
+                if($(this).prop('checked')){
+                var id_akun=$('#gender').val();
+                console.log(id_akun);
+                    var gender="active";
+                    $('#label').html("Active");
+                    _submitUpdateStatus(gender);
+                }
+                else{
+                     var gender="deactive";
+                     $('#label').html("Deactive");
+                     _submitUpdateStatus(gender);
+                    
+                }
+            });
+        });
+
+        function _submitUpdateStatus(gender){
+            console.log(gender);
+        }
+    </script>
+</body>
