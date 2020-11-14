@@ -8,6 +8,7 @@ class Informasi extends CI_Controller
         $this->load->model('Minformasi_universitas');
         $this->load->model('Minformasi_fakultas');
         $this->load->model('Minformasi_pamiy');
+        $this->load->model('Minformasi_umum');
         $this->load->model("Makun");
     }
 
@@ -262,33 +263,124 @@ class Informasi extends CI_Controller
         $this->load->view('template/vtemplate',$data);
     }
     // fungsi yang digunakan untuk like button hima di home
-    function informasi_hima_home($id){       
+    function informasi_hima_home($id_info){       
         $data['page']="informasiHimasPage";              
         $id= $this->session->userdata('id'); 
-        $data['cek_fav'] = $this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
-        $cek_status=$this->Minformasi_hima->cekfav($id,$this->session->userdata('id'));
+        $data['cek_fav'] = $this->Minformasi_hima->cekfav($id_info,$this->session->userdata('id'));
+        $cek_status=$this->Minformasi_hima->cekfav($id_info,$this->session->userdata('id'));
         
         if(empty($cek_status))
         {
-            $this->saveinformasi($id);
+            $this->saveinformasihimalikehome($id_info);
+           
             
         }
         else{
-            $this->hapusfav($id);
+            $this->hapusfavhimalikehome($id_info);
+            
         }
-        $data['informasi'] = $this->Minformasi_hima->getArtikel($id);          
-        $data['type_akun'] = $this->session->userdata('type_akun');            
-        $data['id'] = $this->session->userdata('id'); 
-        $data['username'] = $this->session->userdata('username'); 
-        $data['css']="informasi/vinformasi_css.php";
-        $data['js'] = 'informasi/vinformasi_js.php'; 
-        $data['header']="template/template_header.php";            
-        $data['content']="informasi/vDetailInformasi.php";
-        $data['asidebar']="informasi/vasidebar_informasi.php";
-        $data['footer']="template/template_footer.php";                
-        $this->load->view('template/vtemplate',$data);
-    }          
-    function informasi_univ_home($id){       
+    }      
+       function saveinformasihimalikehome($id_info){
+        $data=[
+            'fk_akun'=>$this->session->userdata('id'),                               
+            'fk_informasi_hima '=>$id_info,
+            'statusfavoritehima'=>1
+        ];
+        $this->Minformasi_hima->saveinf($data);
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Disimpan ke Akun Anda                      
+                    </div>");
+        $this->session->set_flashdata($alert);
+         
+        redirect('Home');
+    }
+    function hapusfavhimalikehome($id_info){
+        $this->Minformasi_hima->hapusfav($id_info,$this->session->userdata('id'));
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Dihapus dari Akun Anda                    
+                    </div>");
+        $this->session->set_flashdata($alert);
+        redirect('Home');
+    }
+
+    function informasi_univ_home($id_info){       
+        $data['page']="informasiUnivPage";              
+        
+        $data['cek_fav'] = $this->Minformasi_universitas->cekfavuniv($id_info,$this->session->userdata('id'));
+        $cek_status=$this->Minformasi_universitas->cekfavuniv($id_info,$this->session->userdata('id'));
+        
+        if(empty($cek_status))
+        {
+            $this->saveinformasiunivlikehome($id_info);
+            
+        }
+        else{
+            $this->hapusfavunivlikehome($id_info);
+        }
+        
+    } 
+
+    function saveinformasiunivlikehome($id_info){
+        $data=[
+            'fk_akun'=>$this->session->userdata('id'),                               
+            'fk_informasi_univ '=>$id_info,
+            'statusfavoriteuniv'=>1
+        ];
+        $this->Minformasi_universitas->saveinf($data);
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Disimpan ke Akun Anda                      
+                    </div>");
+        $this->session->set_flashdata($alert);
+        redirect('Home');
+    }
+    function hapusfavunivlikehome($id_info){
+        $this->Minformasi_universitas->hapusfavuniv($id_info,$this->session->userdata('id'));
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Dihapus dari Akun Anda                    
+                    </div>");
+        $this->session->set_flashdata($alert);
+        redirect('Home');
+    }
+    //
+    //FUNGSI DIBAWAH INI JGN DIHAPUS
+    //
+    /* function informasi_univ_home($id){       
         $data['page']="informasiUnivPage";              
         
         $data['cek_fav'] = $this->Minformasi_universitas->cekfavuniv($id,$this->session->userdata('id'));
@@ -313,35 +405,63 @@ class Informasi extends CI_Controller
         $data['asidebar']="informasi/vasidebar_informasi.php";
         $data['footer']="template/template_footer.php";                
         $this->load->view('template/vtemplate',$data);
-    }
+    } */
 
-    function informasi_fakultas_home($id){       
+    function informasi_fakultas_home($id_info){       
         $data['page']="informasiFakultasPage";              
         
-        $data['cek_favfakultas'] = $this->Minformasi_fakultas->cekfavfakultas($id,$this->session->userdata('id'));
-        $cek_status=$this->Minformasi_fakultas->cekfavfakultas($id,$this->session->userdata('id'));
-        var_dump($id);
+        $data['cek_favfakultas'] = $this->Minformasi_fakultas->cekfavfakultas($id_info,$this->session->userdata('id'));
+        $cek_status=$this->Minformasi_fakultas->cekfavfakultas($id_info,$this->session->userdata('id'));
+        
         if(empty($cek_status))
         {
-            $this->saveinformasifakultas($id);
+            $this->saveinformasifakultaslikehome($id_info);
             
         }
         else{
-            $this->hapusfavfakultas($id);
+            $this->hapusfavfakultaslikehome($id_info);
         }
-        $data['informasi'] = $this->Minformasi_fakultas->getArtikel($id);          
-        $data['type_akun'] = $this->session->userdata('type_akun');            
-        $data['id'] = $this->session->userdata('id'); 
-        $data['username'] = $this->session->userdata('username'); 
-        $data['css']="informasi/vinformasi_css.php";
-        $data['js'] = 'informasi/vinformasi_js.php'; 
-        $data['header']="template/template_header.php";            
-        $data['content']="informasi/vDetailInformasi.php";
-        $data['asidebar']="informasi/vasidebar_informasi.php";
-        $data['footer']="template/template_footer.php";                
-        $this->load->view('template/vtemplate',$data);
+        
     }          
-   
+   function saveinformasifakultaslikehome($id_info){
+        $data=[
+            'fk_akun'=>$this->session->userdata('id'),                               
+            'fk_informasi_fakultas '=>$id_info,
+            'statusfavoritefakultas'=>1
+        ];
+        $this->Minformasi_fakultas->saveinf($data);
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Disimpan ke Akun Anda                      
+                    </div>");
+        $this->session->set_flashdata($alert);
+        redirect("Home");
+    }
+    function hapusfavfakultaslikehome($id_info){
+        $this->Minformasi_fakultas->hapusfavfakultas($id_info,$this->session->userdata('id'));
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Dihapus dari Akun Anda                    
+                    </div>");
+        $this->session->set_flashdata($alert);
+        redirect("Home");
+    }
 
     function informasi_detailuniv($id){   
         $data['page']="informasiUnivPage";                     
@@ -390,7 +510,7 @@ class Informasi extends CI_Controller
     } */
 
     function informasi_detailpamiy($id){                     
-        /* $data['page']="informasiPamiysPage"; */
+         $data['page']="informasiPamiysPage";
         $data['cek_fav'] = $this->Minformasi_pamiy->cekfavpamiy($id,$this->session->userdata('id'));
         $data['informasi'] = $this->Minformasi_pamiy->getArtikel($id);          
         
@@ -1489,6 +1609,8 @@ class Informasi extends CI_Controller
          $data['manajemenInformasiHima'] = $this->Minformasi_hima->joinInformasiFavoriteHima($id);
          $data['manajemenInformasiUniv'] = $this->Minformasi_universitas->joinInformasiFavoriteUniv($id);
          $data['manajemenInformasiFakultas'] = $this->Minformasi_fakultas->joinInformasiFavoriteFakultas($id);
+         $data['manajemenInformasiUmum'] = $this->Minformasi_umum->joinInformasiFavoriteUmum($id);
+         $data['manajemenInformasiPamiy'] = $this->Minformasi_pamiy->joinInformasiFavoritePamiy($id);
         // print_r($data);die;         
         $data['type_akun'] = $this->session->userdata('type_akun');            
         $data['id'] = $this->session->userdata('id'); 

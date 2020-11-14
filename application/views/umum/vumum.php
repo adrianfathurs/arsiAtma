@@ -134,12 +134,12 @@
                         <?php } endforeach;
                             if($hello==1){?>
                              
-                              <a id="btnLoveHima" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('umum/informasi_umum_home/').$umum['id_informasi_umum'];}?>"> 
+                              <a id="btnLoveHima" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> class="unlike" href="<?php echo base_url('umum/informasi_umum_home/').$umum['id_informasi_umum'];}?>"> 
                                <i id="gambarLoveHima" class="fas fa-heart"></i>
                               </a> 
                           <?php }
                             else{?>
-                              <a id="btnDislikeHima" style="cursor:pointer;" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('umum/informasi_umum_home/').$umum['id_informasi_umum'];}?>">
+                              <a id="btnDislikeHima" style="cursor:pointer;" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> class="like" href="<?php echo base_url('umum/informasi_umum_home/').$umum['id_informasi_umum'];}?>">
                                 <div id="bungkusDislikeHima">
                                 <i id="gambarDislikeHima" class="far fa-heart"></i>
                                 </div>
