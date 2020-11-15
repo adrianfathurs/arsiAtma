@@ -20,6 +20,9 @@
                 </tr>
             </thead>
             <tbody>
+            <!--  -->
+           
+            <!--  -->
                 <?php $a=1; foreach ($loadAkun as $key ) : ?>
                 <tr>
                     <td scope="col" class="text-dark"><?php echo $a?></td>
@@ -34,9 +37,11 @@
                         <td scope="col" class="text-dark">Member</td>
                     <?php } ?>
                     <?php if($key['status']==1){?>
-                        <td scope="col" class="text-dark">Active</td>
+                            <td scope="col" class="text-dark">Active</td>
+                        
                     <?php } else{?>
-                        <td scope="col" class="text-dark">Deactive</td>
+                            <td scope="col" class="text-dark">Deactive</td>
+    
                     <?php } ?>
         <!-- Button trigger modal -->
         <td ><a id="btnPraedit" 

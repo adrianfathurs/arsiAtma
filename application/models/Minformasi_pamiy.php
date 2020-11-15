@@ -78,4 +78,16 @@ class Minformasi_pamiy extends CI_Model{
                 // Return hasil query
         return $query;
     }
+
+    public function joinInformasiFavoritePamiy($id){
+        $this->db->select('favorite_pamiy.fk_informasi_pamiy,informasi_pamiy.id_informasi_pamiy,favorite_pamiy.statusfavoritepamiy,informasi_pamiy.judul_pamiy');
+        $this->db->from('informasi_pamiy');
+        $this->db->join('favorite_pamiy','favorite_pamiy.fk_informasi_pamiy=informasi_pamiy.id_informasi_pamiy');
+        $this->db->where('favorite_pamiy.fk_akun',$id);
+        $this->db->group_by('fk_informasi_pamiy');
+        $this->db->order_by('fk_informasi_pamiy', 'DESC');
+        $query = $this->db->get();
+        return $query->result_array();
+
+    }
 }
