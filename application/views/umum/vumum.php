@@ -102,19 +102,19 @@
         <?php }?>
         <div class="row">
         <?php foreach($informasiUmum as $umum) : $hello=0?>
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4">
          <div class="card">
-            <a href="<?php echo base_url('umum/informasi_detailUmum/').$umum['id_informasi_umum']?>">
-              <img class="card-img-top" src="<?php echo base_url('assets/img/informasiUmum/').$umum['foto1_umum']?>" alt="Card image cap">
+            <a href="<?php echo base_url('umum/informasi_detailUmum/').$umum->id_informasi_umum?>">
+              <img class="card-img-top" src="<?php echo base_url('assets/img/informasiUmum/').$umum->foto1_umum?>" alt="Card image cap">
             </a>
-            <div class="card-body">
-               <h5 class="card-title border-bottom pb-3"><?php $umum['judul_umum']?> <a href="#" class="float-right d-inline-flex share"><i class="fas fa-share-alt text-primary"></i></a></h5>
-               <p class="card-text"><?php echo  substr($umum['deskripsi_umum'],0,120)."...";?></p>
+            <div class="card-body"  style=" max-height: 80%;">
+               <h5 class="card-title border-bottom pb-3"><?php $umum->judul_umum?> <a href="#" class="float-right d-inline-flex share"><i class="fas fa-share-alt text-primary"></i></a></h5>
+               <p class="card-text"><?php echo  substr($umum->deskripsi_umum,0,120)."...";?></p>
                
                <!--  -->
                 <?php if(!empty($id)){
                           foreach($joinInformasiFavoriteUmum as $cek) :?>          
-                                <?php if($umum['id_informasi_umum']==$cek['fk_informasi_umum']){
+                                <?php if($umum->id_informasi_umum==$cek['fk_informasi_umum']){
                                   if( $cek['statusfavoriteumum']==1){
                                       $hello=1;
                                       }
@@ -134,12 +134,12 @@
                         <?php } endforeach;
                             if($hello==1){?>
                              
-                              <a id="btnLoveHima" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('umum/informasi_umum_home/').$umum['id_informasi_umum'];}?>"> 
+                              <a id="btnLoveHima" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('umum/informasi_umum_home/').$umum->id_informasi_umum;}?>"> 
                                <i id="gambarLoveHima" class="fas fa-heart"></i>
                               </a> 
                           <?php }
                             else{?>
-                              <a id="btnDislikeHima" style="cursor:pointer;" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('umum/informasi_umum_home/').$umum['id_informasi_umum'];}?>">
+                              <a id="btnDislikeHima" style="cursor:pointer;" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('umum/informasi_umum_home/').$umum->id_informasi_umum;}?>">
                                 <div id="bungkusDislikeHima">
                                 <i id="gambarDislikeHima" class="far fa-heart"></i>
                                 </div>
@@ -148,10 +148,10 @@
                               
                             <?php }} ?>
                <!--  -->
-               <a href="<?php echo base_url('umum/informasi_detailUmum/').$umum['id_informasi_umum']?>" class="float-right">Read more <i class="fas fa-angle-double-right"></i></a>
+               <a href="<?php echo base_url('umum/informasi_detailUmum/').$umum->id_informasi_umum?>" class="float-right">Read more <i class="fas fa-angle-double-right"></i></a>
             </div>
           <?php if($type_akun=="1"){?>
-            <a href="<?php echo base_url('umum/updateUmum/').$umum['id_informasi_umum']?>"><button class="mt-3 btn  btn-outline-primary">EDIT <?php echo $umum['id_informasi_umum']?></button>
+            <a href="<?php echo base_url('umum/updateUmum/').$umum->id_informasi_umum?>"><button class="mt-3 btn  btn-outline-primary">EDIT <?php echo $umum->id_informasi_umum?></button>
             </a>
           <?php }?>
          </div>

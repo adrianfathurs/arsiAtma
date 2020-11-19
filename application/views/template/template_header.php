@@ -210,7 +210,7 @@
               <?php } else {?>
               <li class="nav-item ">
               <?php } ?>
-                  <a class="nav-link" href="<?php echo site_url('Umum')?>">UMUM</a>
+                  <a class="nav-link" href="<?php echo site_url('Umum/informasi')?>">UMUM</a>
                 </li>
                 
             <?php if(isset($page) && $page=="portofolioPage"){?>

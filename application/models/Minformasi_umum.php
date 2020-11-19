@@ -2,12 +2,23 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Minformasi_umum extends CI_Model{
 
-    function getAll(){
+    function getAlls(){
         $this->db->order_by('id_informasi_umum', 'DESC');
         $this->db->where('status ', 1);
         $user = $this->db->get('Informasi_umum');
 		return $user->result_array();
     }
+    public function getAll($limit, $offset){
+        // Jalankan query
+        $query = $this->db
+            ->limit($limit, $offset)
+            ->order_by('id_informasi_umum', 'DESC')
+            ->where('status ', 1)
+            ->get('Informasi_umum');
+
+        // Return hasil query
+        return $query;
+}
     function getArtikel($id){
         $this->db->where('id_informasi_umum', $id);
         $query = $this->db->get('Informasi_umum');            
