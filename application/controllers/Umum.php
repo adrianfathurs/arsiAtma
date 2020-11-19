@@ -16,7 +16,7 @@ $this->load->library('pagination');
         // Pengaturan pagination
         $config['base_url'] = base_url('Umum');
         $config['total_rows'] = $this->Minformasi_umum->get()->num_rows();
-        $config['per_page'] = 10 ;
+        $config['per_page'] = 1 ;
         $config['offset'] = $this->uri->segment(3);
 
         // Styling pagination
@@ -416,6 +416,35 @@ $this->load->library('pagination');
         $this->session->set_flashdata($alert);
         
     }
+    function delete($id){
+        $dataInf = $this->Minformasi_umum->getArtikel($id);
+        $data=[
+            'judul_umum'=>$dataInf->judul_umum,                               
+            'foto4_umum'=>$dataInf->foto4_umum,
+            'foto5_umum'=>$dataInf->foto5_umum,
+            'deskripsi_umum'=>$dataInf->deskripsi_umum,
+            'foto1_umum'=>$dataInf->foto1_umum,
+            'foto2_umum'=>$dataInf->foto2_umum,
+            'foto3_umum'=>$dataInf->foto3_umum,
+            'nama_penulis' => $dataInf->nama_penulis,
+            'status' => 0
+        ];
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Dihapus dari Database
+                    </div>");
+        $this->session->set_flashdata($alert);  
+        $this->Minformasi_umum->insert($data,$id);
+        redirect("Umum");
+    }    
 
 
 }

@@ -9,6 +9,7 @@ class Informasi extends CI_Controller
         $this->load->model('Minformasi_fakultas');
         $this->load->model('Minformasi_pamiy');
         $this->load->model('Minformasi_umum');
+        $this->load->model('Mportofolio');
         $this->load->model("Makun");
     }
 
@@ -65,7 +66,7 @@ class Informasi extends CI_Controller
         $data['fav'] = $this->Minformasi_hima->getFav($this->session->userdata('id'));
 
         // print_r($data['fav']);die;
-        $data['page'] = "Tentang Hima";
+        $data['page'] = "Tentang Hi";
         // $data['informasi'] = $this->Minformasi_hima->getAll();        
 
         $data['header']="template/template_header.php";
@@ -1611,6 +1612,7 @@ class Informasi extends CI_Controller
          $data['manajemenInformasiFakultas'] = $this->Minformasi_fakultas->joinInformasiFavoriteFakultas($id);
          $data['manajemenInformasiUmum'] = $this->Minformasi_umum->joinInformasiFavoriteUmum($id);
          $data['manajemenInformasiPamiy'] = $this->Minformasi_pamiy->joinInformasiFavoritePamiy($id);
+         $data['manajemenInformasiPortofolio'] = $this->Mportofolio->joinInformasiFavoritePortofolio($id);
         // print_r($data);die;         
         $data['type_akun'] = $this->session->userdata('type_akun');            
         $data['id'] = $this->session->userdata('id'); 

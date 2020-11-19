@@ -69,13 +69,13 @@ class Mportofolio extends CI_Model{
         return $query;
     }
 
-    public function joinInformasiFavoriteHima($id){
-        $this->db->select('favorite_hima.fk_informasi_hima,informasi_hima.id_informasi_hima,favorite_hima.statusfavoritehima,informasi_hima.judul_hima');
-        $this->db->from('informasi_hima');
-        $this->db->join('favorite_hima','favorite_hima.fk_informasi_hima=informasi_hima.id_informasi_hima');
-        $this->db->where('favorite_hima.fk_akun',$id);
-        $this->db->group_by('fk_informasi_hima');
-        $this->db->order_by('fk_informasi_hima', 'DESC');
+    public function joinInformasiFavoritePortofolio($id){
+        $this->db->select('favorite_portofolio.fk_portofolio,portofolio.id_portofolio,portofolio.judul_portofolio');
+        $this->db->from('portofolio');
+        $this->db->join('favorite_portofolio','favorite_portofolio.fk_portofolio=portofolio.id_portofolio');
+        $this->db->where('favorite_portofolio.fk_user',$id);
+        $this->db->group_by('fk_portofolio');
+        $this->db->order_by('fk_portofolio', 'DESC');
         $query = $this->db->get();
         return $query->result_array();
 

@@ -55,8 +55,6 @@
                                     <?php } ?>
                                 </div>
                             </div>
-                            
-                            <br>
                             <div class="detail">
                                     <p title="Peraih Penghargaan"><i class="ti-user" title="Peraih Penghargaan"> Peraih Penghargaan : <a ><?php echo $informasi->nama_peraih ?></i></a></p>                                    
                                     <?php if(empty($cek_fav)){ ?>
@@ -66,42 +64,16 @@
                                     <?php }?>                                                              
                             </div>
                         </div>
-                        <hr>  
-                        <!-- <div class="col-lg-3  col-md-3"> -->
-                            <!-- <div class="blog_info text-right"> -->
-                                <!-- <div class="post_tag">
-                                    <a href="#">Food,</a>
-                                    <a class="active" href="#">Technology,</a>
-                                    <a href="#">Politics,</a>
-                                    <a href="#">Lifestyle</a>
-                                </div> -->
-                                <!-- <ul class="blog_meta list">
-                                    <li title="Penulis"><a ><?php echo $informasi->nama_peraih ?><i class="ti-user" title="Penulis"></i></a></li>
-                                    <li title="Tanggal Ditulis"><a >12 Dec, 2017<i class="ti-calendar"></i></a></li>
-                                    <?php if(empty($cek_fav)){ ?>
-                                    <li title="Simpan Ke Akun Saya?" ><a <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" <?php }else {?> href="<?php echo base_url('Informasi/saveinformasi/').$informasi->id_portofolio?> <?php } ?> " >Simpan ke Akun<i id="icon" class="fas fa-download"></i></a></li>
-                                    <?php }else { ?>
-                                        <li title="Sudah Tersimpan di Akun, hapus?" ><a href="<?php echo base_url('Informasi/hapusfav/').$informasi->id_portofolio?>" >Hapus <i id="icon" class="fas fa-trash-alt"></i></a></li>
-                                    <?php }?>
-                                </ul> -->
-                                <!-- <ul class="social-links">
-                                    <li><a href="#"><i class="fas fa-download"></i></a></li>
-                                    <li><a href="#"><i class="ti-twitter"></i></a></li>
-                                    <li><a href="#"><i class="ti-github"></i></a></li>
-                                    <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                                </ul> -->
-                            <!-- </div> -->
-                        <!-- </div>  -->
-                        <div class="col-lg-9 col-md-9 blog_details">
-                            <h2><?php echo $informasi->judul_portofolio ?></h2>
-                            
+                        <hr>    
+                        <div class="col-lg-9 col-md-9">
+                            <h2><?php echo $informasi->judul_portofolio ?></h2>  
                         </div>
                         <div class="col-lg-12">                        
                             <div class="row">                               
                                 <div class="col-lg-12 mt-25">
                                     <p >
                                     <?php                                     
-                                       echo $informasi->keterangan_portofolio;
+                                        echo $informasi->keterangan_portofolio;
                                     ?>
                                         
                                     </p>

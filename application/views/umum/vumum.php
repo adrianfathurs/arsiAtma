@@ -100,12 +100,12 @@
         <div class="clc"></div>
         <br>
         <?php }?>
-        <div class="row">
+        <div class="row ">
         <?php foreach($informasiUmum as $umum) : $hello=0?>
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4">
          <div class="card">
             <a href="<?php echo base_url('umum/informasi_detailUmum/').$umum['id_informasi_umum']?>">
-              <img class="card-img-top" src="<?php echo base_url('assets/img/informasiUmum/').$umum['foto1_umum']?>" alt="Card image cap">
+              <img class="card-img-top" src="<?php echo base_url('assets/img/informasiUmum/').$umum['foto1_umum']?>" alt="Card image cap" >
             </a>
             <div class="card-body">
                <h5 class="card-title border-bottom pb-3"><?php $umum['judul_umum']?> <a href="#" class="float-right d-inline-flex share"><i class="fas fa-share-alt text-primary"></i></a></h5>
@@ -151,8 +151,10 @@
                <a href="<?php echo base_url('umum/informasi_detailUmum/').$umum['id_informasi_umum']?>" class="float-right">Read more <i class="fas fa-angle-double-right"></i></a>
             </div>
           <?php if($type_akun=="1"){?>
-            <a href="<?php echo base_url('umum/updateUmum/').$umum['id_informasi_umum']?>"><button class="mt-3 btn  btn-outline-primary">EDIT <?php echo $umum['id_informasi_umum']?></button>
-            </a>
+            <div>
+              <a href="<?php echo base_url('umum/updateUmum/').$umum['id_informasi_umum']?>"><button class="mt-3 btn  btn-outline-primary">EDIT <?php echo $umum['id_informasi_umum']?></button></a>
+              <a href="<?php echo base_url('umum/delete/').$umum['id_informasi_umum']?>"><button class="mt-3 btn  btn-outline-danger">Delete <?php echo $umum['id_informasi_umum']?></button></a>
+            </div>
           <?php }?>
          </div>
       </div>

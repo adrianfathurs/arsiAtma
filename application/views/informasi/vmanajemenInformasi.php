@@ -8,6 +8,7 @@
             <div class="col-lg col-md col-sm"><button class="btn btn-outline-success" id="btnTableFakultas">Informasi Fakultas</button></div>
             <div class="col-lg col-md col-sm"><button class="btn btn-outline-success" id="btnTablePamiy">Informasi Pamiy </button></div>
             <div class="col-lg col-md col-sm"><button class="btn btn-outline-success" id="btnTableUmum">Informasi Umum</button></div>
+            <div class="col-lg col-md col-sm"><button class="btn btn-outline-success" id="btnTablePortofolio">Informasi Portofolio</button></div>
         </div>
         <br>
         <br>
@@ -132,6 +133,31 @@
                     <td scope="col" class="text-dark text-center">
                         <a title="Lihat detail" href="<?php echo base_url('informasi/informasi_detailpamiy/').$key['id_informasi_pamiy']?>"><i class="fas fa-search"></i></a>
                         <a title="Hapus Informasi" class="hapusInfo" href="<?php echo base_url('informasi/hapusfavpamiy/').$key['id_informasi_pamiy']?>"><i class="text-danger  fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+                <?php $a++;endforeach;?>
+            </tbody>
+        </table>
+       </div>
+       <div id="table_portofolio">
+        <table id="table_id_portofolio" class="table">
+        <h4 class="text-center mb-4">INFORMASI PORTOFOLIO</h4></div>
+            <thead>
+                <tr>
+                    <th class="text-center" scope="col" >No</th>
+                    <th class="text-center" scope="col">Judul</th>
+                    <th class="text-center" scope="col">Action</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <?php $a=1; foreach ($manajemenInformasiPortofolio as $key ) : ?>
+                <tr>
+                    <td scope="col" class="text-dark text-center"><?php echo $a?></td>
+                    <td scope="col" class="text-dark text-center"><?php echo $key['judul_portofolio']?></td>
+                    <td scope="col" class="text-dark text-center">
+                        <a title="Lihat detail" href="<?php echo base_url('portofolio/detail/').$key['id_portofolio']?>"><i class="fas fa-search"></i></a>
+                        <a title="Hapus Informasi" class="hapusInfo" href="<?php echo base_url('portofolio/hapusfav/').$key['id_portofolio']?>"><i class="text-danger  fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
                 <?php $a++;endforeach;?>

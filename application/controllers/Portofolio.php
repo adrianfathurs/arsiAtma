@@ -8,7 +8,7 @@ class Portofolio extends CI_Controller
     }
 
     public function index(){
-        $data['page']="portofolioPage";  
+        
         // Load library pagination
         $this->load->library('pagination');
         // Pengaturan pagination
@@ -52,7 +52,7 @@ class Portofolio extends CI_Controller
         $data['fav'] = $this->Mportofolio->getFav($this->session->userdata('id'));
 
         // print_r($data['fav']);die;
-        $data['page'] = "Portofolio";
+        $data['page']="portofolioPage";  
         // $data['informasi'] = $this->Mportofolio->getAll();        
         $data['header']="template/template_header.php";
         $data['css']="portofolio/vportofolio_css.php";
