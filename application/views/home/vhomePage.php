@@ -83,13 +83,13 @@
                               <!-- <a id="btnLoveHima" style="cursor:pointer;" onclick="like_button(<?php echo $hima['id_informasi_hima']?>,1,0)" >
                                 <i id="gambarLoveHima" class="fas fa-heart"></i>
                               </a>  -->
-                              <a id="btnLoveHima" style="cursor:pointer;"<?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('informasi/informasi_hima_home/').$hima['id_informasi_hima'];}?>">
+                              <a id="btnLoveHima" style="cursor:pointer;"<?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> class="unlike" href="<?php echo base_url('informasi/informasi_hima_home/').$hima['id_informasi_hima'];}?>">
                                 <i id="gambarLoveHima" class="fas fa-heart"></i>
-                              </a> 
+                              </a>  
                       
                           <?php }
                             else{?>
-                              <a id="btnDislikeHima" style="cursor:pointer;" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('informasi/informasi_hima_home/').$hima['id_informasi_hima'];}?>">
+                              <a id="btnDislikeHima" style="cursor:pointer;" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> class="like" href="<?php echo base_url('informasi/informasi_hima_home/').$hima['id_informasi_hima'];}?>">
                                 <div id="bungkusDislikeHima">
                                 <i id="gambarDislikeHima" class="far fa-heart"></i>
                                 </div>
@@ -152,12 +152,12 @@
                               <!-- <a id="btnLoveHima" style="cursor:pointer;" onclick="like_button(<?php echo $univ['id_informasi_univ']?>,1,0)" >
                                 <i id="gambarLoveHima" class="fas fa-heart"></i>
                               </a>  -->
-                              <a id="btnLoveHima" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('informasi/informasi_univ_home/').$univ['id_informasi_univ'];}?>"> 
+                              <a id="btnLoveHima" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> class="unlike" href="<?php echo base_url('informasi/informasi_univ_home/').$univ['id_informasi_univ'];}?>"> 
                                <i id="gambarLoveHima" class="fas fa-heart"></i>
                               </a> 
                           <?php }
                             else{?>
-                              <a id="btnDislikeHima" style="cursor:pointer;" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('informasi/informasi_univ_home/').$univ['id_informasi_univ'];}?>">
+                              <a id="btnDislikeHima" style="cursor:pointer;" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> class="like" href="<?php echo base_url('informasi/informasi_univ_home/').$univ['id_informasi_univ'];}?>">
                                 <div id="bungkusDislikeHima">
                                 <i id="gambarDislikeHima" class="far fa-heart"></i>
                                 </div>
@@ -224,13 +224,13 @@
                               <!-- <a id="btnLoveHima" style="cursor:pointer;" onclick="like_button(<?php echo $fakultas['id_informasi_fakultas']?>,1,0)" >
                                 <i id="gambarLoveHima" class="fas fa-heart"></i>
                               </a>  -->
-                              <a id="btnLoveHima" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('informasi/informasi_fakultas_home/').$fakultas['id_informasi_fakultas'];}?>">
+                              <a id="btnLoveHima" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?>  class="unlike" href="<?php echo base_url('informasi/informasi_fakultas_home/').$fakultas['id_informasi_fakultas'];}?>">
                                 <i id="gambarLoveHima" class="fas fa-heart"></i>
                               </a> 
                       
                           <?php }
                             else{?>
-                              <a id="btnDislikeHima" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> href="<?php echo base_url('informasi/informasi_fakultas_home/').$fakultas['id_informasi_fakultas'];}?>">
+                              <a id="btnDislikeHima" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> class="like" href="<?php echo base_url('informasi/informasi_fakultas_home/').$fakultas['id_informasi_fakultas'];}?>">
                                 <div id="bungkusDislikeHima">
                                 <i id="gambarDislikeHima" class="far fa-heart"></i>
                                 </div>

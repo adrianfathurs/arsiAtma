@@ -15,3 +15,8 @@
     font-size: 32px;
     color:#FFF;
 }
+
+.card img{
+    max-height: 300px;
+    min-height: 300px;
+}

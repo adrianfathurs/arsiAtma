@@ -61,9 +61,9 @@
                                     <p title="Penulis">Penulis : <a ><?php echo $informasi->nama_penulis ?><i class="ti-user" title="Penulis"></i></a></p>
                                     <p title="Tanggal Ditulis"><a >12 Dec, 2017<i class="ti-calendar"></i></a></p>
                                     <?php if(empty($cek_fav)){ ?>
-                                        <p title="Simpan Ke Akun Saya?" ><a <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" <?php }else {?> href="<?php echo base_url('Informasi/saveinformasi/').$informasi->id_informasi_pamiy?> <?php } ?> " >Simpan ke Akun<i id="icon" class="fas fa-download"></i></a></p>
+                                        <p title="Simpan Ke Akun Saya?" ><a <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="" <?php }else {?> href="<?php echo base_url('Informasi/saveinformasipamiy/').$informasi->id_informasi_pamiy?> <?php } ?> " >Simpan ke Akun<i id="icon" class="fas fa-download"></i></a></p>
                                     <?php }else { ?>
-                                        <p title="Sudah Tersimpan di Akun, hapus?" ><a href="<?php echo base_url('Informasi/hapusfav/').$informasi->id_informasi_pamiy?>" >Hapus <i id="icon" class="fas fa-trash-alt"></i></a></p>
+                                        <p title="Sudah Tersimpan di Akun, hapus?" ><a href="<?php echo base_url('Informasi/hapusfavpamiy/').$informasi->id_informasi_pamiy?>" >Hapus <i id="icon" class="fas fa-trash-alt"></i></a></p>
                                     <?php }?>                            
                             </div>
                         </div>

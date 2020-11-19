@@ -255,7 +255,7 @@
                   <?php }else{ ?>
                     <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="<?php echo site_url('informasi/manajemen_informasi/')?>">INFORMASI HIMA TERSIMPAN</a>
+                      <a class="nav-link" href="<?php echo site_url('informasi/manajemen_informasi/')?>">INFORMASI TERSIMPAN</a>
                     </li>    
                     <li class="nav-item">
                       <a class="nav-link" href="<?php echo site_url('Reg/logout')?>">LogOut</a>

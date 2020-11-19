@@ -341,28 +341,20 @@ class Umum extends CI_Controller
      function informasi_umum_home($id_info){       
         $data['page']="informasiUmumPage";              
         $id= $this->session->userdata('id'); 
-        $data['cek_favumum'] = $this->Minformasi_umum->cekfavumum($id,$this->session->userdata('id'));
-        $cek_status=$this->Minformasi_umum->cekfavumum($id,$this->session->userdata('id'));
+        $data['cek_favumum'] = $this->Minformasi_umum->cekfavumum($id_info,$this->session->userdata('id'));
+        $cek_status=$this->Minformasi_umum->cekfavumum($id_info,$this->session->userdata('id'));
         
         if(empty($cek_status))
         {
             $this->saveinformasi($id_info);
-            
+            redirect("Umum");
         }
+        
         else{
             $this->hapusfav($id_info);
+            redirect("Umum");
         }
-        $data['informasi'] = $this->Minformasi_umum->getArtikel($id);          
-        $data['type_akun'] = $this->session->userdata('type_akun');            
-        $data['id'] = $this->session->userdata('id'); 
-        $data['username'] = $this->session->userdata('username'); 
-       $data['css']="umum/vumum_css.php";
-        $data['js'] = 'umum/vumum_js.php'; 
-        $data['header']="template/template_header.php";            
-        $data['content']="umum/vDetailUmum.php";
-        $data['asidebar']="informasi/vasidebar_informasiuniv.php";
-        $data['footer']="template/template_footer.php";               
-        $this->load->view('template/vtemplate',$data);
+       
     }
 
       function hapusfav($id_info){
@@ -380,7 +372,26 @@ class Umum extends CI_Controller
                         Informasi Ini Berhasil Dihapus dari Akun Anda                    
                     </div>");
         $this->session->set_flashdata($alert);
-        redirect("Umum/".$id_info);
+        
+    }
+      function hapusfavmanajemeninformasi($id_info){
+        $this->Minformasi_umum->hapusfav($id_info,$this->session->userdata('id'));
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Dihapus dari Akun Anda                    
+                    </div>");
+        $this->session->set_flashdata($alert);
+        
+        $this->informasi_detailUmum($id_info);
+        
     }
 
     function saveinformasi($id_info){
@@ -405,8 +416,37 @@ class Umum extends CI_Controller
                         Informasi Ini Berhasil Disimpan ke Akun Anda                      
                     </div>");
         $this->session->set_flashdata($alert);
-        redirect("umum/informasi_detailumum/".$id_info);
+        
     }
+    function delete($id){
+        $dataInf = $this->Minformasi_umum->getArtikel($id);
+        $data=[
+            'judul_umum'=>$dataInf->judul_umum,                               
+            'foto4_umum'=>$dataInf->foto4_umum,
+            'foto5_umum'=>$dataInf->foto5_umum,
+            'deskripsi_umum'=>$dataInf->deskripsi_umum,
+            'foto1_umum'=>$dataInf->foto1_umum,
+            'foto2_umum'=>$dataInf->foto2_umum,
+            'foto3_umum'=>$dataInf->foto3_umum,
+            'nama_penulis' => $dataInf->nama_penulis,
+            'status' => 0
+        ];
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Dihapus dari Database
+                    </div>");
+        $this->session->set_flashdata($alert);  
+        $this->Minformasi_umum->insert($data,$id);
+        redirect("Umum");
+    }    
 
 
 }
