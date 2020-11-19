@@ -7,16 +7,17 @@ class Umum extends CI_Controller
         $this->load->model('Minformasi_umum');
         $this->load->model('Makun');
     }
-
-    public function index(){
+    function index(){
+        redirect('Umum/informasi');
+    }
+    public function informasi(){
         $data['page']="umumPage";
-/*  */
-$this->load->library('pagination');
-
+        /*  */
+        $this->load->library('pagination');
         // Pengaturan pagination
-        $config['base_url'] = base_url('Umum');
+        $config['base_url'] = base_url('Umum/informasi/');
         $config['total_rows'] = $this->Minformasi_umum->get()->num_rows();
-        $config['per_page'] = 1 ;
+        $config['per_page'] = 5 ;
         $config['offset'] = $this->uri->segment(3);
 
         // Styling pagination
@@ -49,7 +50,8 @@ $this->load->library('pagination');
 		$data['id'] = $this->session->userdata('id'); 
 		$id = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
-        $data['informasiUmum']= $this->Minformasi_umum->getAll();
+        $data['informasiUmum']= $this->Minformasi_umum->getAll($config['per_page'], $config['offset'])->result();
+        // $data['Informasi'] = $this->Minformasi_universitas->get_offset($config['per_page'], $config['offset'])->result();
         $data['joinInformasiFavoriteUmum']=$this->Minformasi_umum->joinInformasiFavoriteUmum($id);
         
         // $data['css']="viewArticle/VviewArticle_css.php";
@@ -142,7 +144,7 @@ $this->load->library('pagination');
                                         Informasi Umum Berhasil Diperbarui
                                     </div>");
                         $this->session->set_flashdata($alert);                        
-                        redirect('Umum');
+                        redirect('Umum/informasi');
                         // $this->getArtikel($jenis_artikel);
                     }
                     
