@@ -25,7 +25,7 @@
     <!--================ Start Header Menu Area =================-->
     <header class="header_area">
     <div class="main_menu">
-        <div class="search_input" id="search_input_box">
+        
         <div class="container">
             <form class="d-flex justify-content-between" method="" action="">
             <!-- <input type="text" class="form-control"id="search_input" placeholder="Search Here"/> -->
@@ -33,7 +33,7 @@
             
             </form>
           </div>
-        </div>
+        
 
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container">
@@ -280,8 +280,8 @@
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog modal-sm" role="document">
                 
-                  <div class="modal-header"></div>
-                  <div class="modal-content ">
+                  <div class="modal-headers"></div>
+                  <div class="modal-contents ">
                   <div class="modal-body">
                     
   <div class="">
