@@ -2,12 +2,12 @@
 <script src="<?php echo base_url('assets/')?>js/popper.js"></script>
 <script src="<?php echo base_url('assets/')?>js/bootstrap.js"></script>
 
-
-<script src="<?php echo base_url('assets/')?>js/jquery-3.2.1.min.js"></script>
-<script src="<?php echo base_url() ?>assets/js/sweetalert2.all.min.js" ></script>
 <script>
 		$('.toast').toast('show');
 </script>
+
+<script src="<?php echo base_url('assets/')?>js/jquery-3.2.1.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/sweetalert2.all.min.js" ></script>
 
 <!-- <script type="text/javascript">
 	function like_button(id_informasi,id_jenis_informasi,id_button)
@@ -82,13 +82,14 @@
             title: 'Perhatikan',
             text: "Anda Harus Login/Daftar Akun Pengguna Terlebih Dahulu!",
             icon: 'warning',
+			position: 'center',
             showCancelButton: false,
             cancelButtonColor: '#343a40',
             confirmButtonColor: '#c00e1f',
             confirmButtonText: 'Ya'
             })
     };
-    $('.toast').toast('show');
+    
  </script>
 
  <script>

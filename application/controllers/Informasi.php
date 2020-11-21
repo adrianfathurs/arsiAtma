@@ -1210,7 +1210,7 @@ class Informasi extends CI_Controller
 
         /* $data['page']="informasiPamiysPage"; */
 
-        $data['data'] = $this->Minformasi_hima->getArtikel($id);
+        $data['data'] = $this->Minformasi_pamiy->getArtikel($id);
         $data['informasi'] = "hima";                   
         $data['js'] = 'informasi/vinformasipamiy_js.php'; 
         $data['css'] = 'informasi/vinformasipamiy_css';      

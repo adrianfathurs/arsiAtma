@@ -33,17 +33,25 @@ class Saran extends CI_Controller
         $email  = $this->input->post('email');
         $no_telp= $this->input->post('no_telp');
         $message= $this->input->post('message');
+        
+        if(!empty($name) && !empty($email) && !empty($no_telp) && !empty($message)){
 
-        $data= [
-            'email' => $email,
-            'nama_lengkap' => $name,
-            'no_telp'   =>$no_telp,
-            'isi_saran'=>$message
-        ];
-
-        $this->Msaran->submit($data); 
-        echo "<div class='alert alert-success' role='alert'>Data Anda telah Terekam, Tambah Saran ? <a href= 'http://localhost/arsiAtma/saran' class='alert-link'>Klik</a>
-</div>";        
+            $data= [
+                'email' => $email,
+                'nama_lengkap' => $name,
+                'no_telp'   =>$no_telp,
+                'isi_saran'=>$message
+            ];
+            
+            $this->Msaran->submit($data); 
+            echo "<div class='alert alert-success' role='alert'>Data Anda telah Terekam, Tambah Saran ? <a href= 'http://localhost/arsiAtma/saran' class='alert-link'>Klik</a>
+            </div>";        
+        }
+        else{
+            echo "<div class='alert alert-danger' role='alert'>Ada Kolom Yang Masih Kosong
+            </div>";        
+            
+        }
     }
 
     public function manajemen_saran(){
