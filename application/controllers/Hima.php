@@ -127,7 +127,7 @@ class Hima extends CI_Controller
                                 'nama_biro'=>$this->input->post('namaBiro'),                               
                                 'foto1_biro'=>$foto11,
                                 'foto2_biro'=>$foto22,
-                                'tugas_biro'=>$this->input->post('tugasBiro'),
+                                'tugas_biro'=>"tidakAda",
                                 'deskripsi_biro'=>$this->input->post('deskripsiBiro')
                             ];
                             
@@ -232,8 +232,8 @@ class Hima extends CI_Controller
                             $data=[
                                 'nama_lengkap'=>$this->input->post('namaPh'),                               
                                 'foto1_ph'=>$foto11,
-                                'tugas_ph'=>$this->input->post('tugasPh'),
-                                'deskripsi_ph'=>$this->input->post('deskripsiPh')
+                                'tugas_ph'=>"tidakAda",
+                                'deskripsi_ph'=>"tidakAda"
                             ];
                             // print_r($data);die;
                             

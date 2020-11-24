@@ -24,32 +24,29 @@
     <section class="course_details_area section_gap">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 course_details_left">
-                    <div class="main_image">
+                <div class="col-lg-8 course_details_left kotakBisque"  >
+                    <div class="main_image pt-1 ">
                         
-                        <img class="img-fluid" src="<?php echo base_url('assets/img/organisasiHima/').$biro->foto2_biro;?>" alt="">
+                        <center>
+                          <img class="img-fluid pt-4" src="<?php echo base_url('assets/img/organisasiHima/').$biro->foto2_biro;?>" alt="">
+                        </center>
                         
                     </div>
                     <div class="content_wrapper">
-                        <h4 class="title">Deskripsi Biro</h4>
+                        <h4 class="title">Deskripsi <?php echo $biro->nama_biro ?></h4>
                         <div class="content">
                             
                             <?php echo $biro->deskripsi_biro ?>
                         </div>
-
-                        <h4 class="title">Tugas Biro</h4>
-                        <div class="content">
-                            <?php echo $biro->tugas_biro ?>
-                        </div>
                     </div>
-                </div>
-    <?php if(!empty($asidebar)){
-        $this->load->view($asidebar);
-    }
-        ?>
+                  </div>
+          <?php if(!empty($asidebar)){
+              $this->load->view($asidebar);
+                  }
+          ?>
+        </div>  
 
                 
-            </div>
         </div>
     </section>
     <!--================ End Course Details Area =================-->

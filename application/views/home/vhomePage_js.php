@@ -3,11 +3,13 @@
 <script src="<?php echo base_url('assets/')?>js/bootstrap.js"></script>
 
 <script>
-	$('.toast').toast('show');
+		$('.toast').toast('show');
 </script>
+
 <script src="<?php echo base_url('assets/')?>js/jquery-3.2.1.min.js"></script>
 <script src="<?php echo base_url() ?>assets/js/sweetalert2.all.min.js" ></script>
-<script>
+
+ <script>
  function konfirmasi(){
       Swal.fire({
 			title: 'Perhatikan',
@@ -15,6 +17,7 @@
 			grow: 'bottom',
             text: "Anda Harus Login/Daftar Akun Pengguna Terlebih Dahulu!",
             icon: 'warning',
+			position: 'center',
             showCancelButton: false,
             cancelButtonColor: '#343a40',
             confirmButtonColor: '#c00e1f',

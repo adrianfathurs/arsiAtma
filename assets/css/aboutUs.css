@@ -1,9 +1,10 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: #ffffff !important;
-}
+body,
+	html {
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		background:#FAEBD7 !important;
+	}
 #main-wrapper {
 	float: left;
 	

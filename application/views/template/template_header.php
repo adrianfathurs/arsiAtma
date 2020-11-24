@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 </head>
 
-<body>
+<body >
     <!--================ Start Header Menu Area =================-->
     <header class="header_area">
     <div class="main_menu">
