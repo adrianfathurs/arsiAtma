@@ -15,7 +15,8 @@ class Minformasi_pamiy extends CI_Model{
         return $query->row();
     }
 
-    function getThreeInformasi(){    
+    function getThreeInformasi(){  
+        $this->db->where('status',1);  
         $query=$this->db->get('informasi_pamiy',3);
         return $query->result_array();
     }

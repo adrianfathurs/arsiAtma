@@ -1175,7 +1175,7 @@ class Informasi extends CI_Controller
         /* $data['page']="informasiUnivsPage"; */
 
         $data['data'] = $this->Minformasi_universitas->getArtikel($id);
-        $data['informasi'] = "hima";                   
+        $data['informasi'] = "universitas";                   
         $data['js'] = 'informasi/vinformasiuniv_js.php'; 
         $data['css'] = 'informasi/vinformasiuniv_css';      
         $data['type_akun'] = $this->session->userdata('type_akun');            
@@ -1193,7 +1193,7 @@ class Informasi extends CI_Controller
         /* $data['page']="informasiFakultassPage"; */
 
         $data['data'] = $this->Minformasi_fakultas->getArtikel($id);
-        $data['informasi'] = "hima";                   
+        $data['informasi'] = "fakultas";                   
         $data['js'] = 'informasi/vinformasifakultas_js.php'; 
         $data['css'] = 'informasi/vinformasifakultas_css';      
         $data['type_akun'] = $this->session->userdata('type_akun');            
@@ -1210,7 +1210,7 @@ class Informasi extends CI_Controller
 
         /* $data['page']="informasiPamiysPage"; */
 
-        $data['data'] = $this->Minformasi_pamiy->getArtikel($id);
+        $data['data'] = $this->Minformasi_hima->getArtikel($id);
         $data['informasi'] = "hima";                   
         $data['js'] = 'informasi/vinformasipamiy_js.php'; 
         $data['css'] = 'informasi/vinformasipamiy_css';      
