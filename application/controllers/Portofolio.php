@@ -14,7 +14,7 @@ class Portofolio extends CI_Controller
         // Pengaturan pagination
         $config['base_url'] = base_url('Portofolio/');
         $config['total_rows'] = $this->Mportofolio->get()->num_rows();
-        $config['per_page'] = 10 ;
+        $config['per_page'] = 3 ;
         $config['offset'] = $this->uri->segment(2);
         // Styling pagination
         $config['first_link']       = 'First';

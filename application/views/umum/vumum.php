@@ -151,7 +151,7 @@
                <a href="<?php echo base_url('umum/informasi_detailUmum/').$umum->id_informasi_umum?>" class="float-right">Read more <i class="fas fa-angle-double-right"></i></a>
             </div>
           <?php if($type_akun=="1"){?>
-            <div class="kotakBisque">
+            <div class="kotakBisque pb-3">
               <center><a href="<?php echo base_url('umum/updateUmum/').$umum->id_informasi_umum?>"><button class="mt-3 btn  btn-outline-primary">EDIT <?php echo $umum->id_informasi_umum?></button></a>
                       <a href="<?php echo base_url('umum/delete/').$umum->id_informasi_umum?>"><button class="mt-3 btn  btn-outline-danger">Delete <?php echo $umum->id_informasi_umum?></button></a>
               </center>

@@ -29,7 +29,7 @@ class Informasi extends CI_Controller
         // Pengaturan pagination
         $config['base_url'] = base_url('Informasi/informasi_hima/');
         $config['total_rows'] = $this->Minformasi_hima->get()->num_rows();
-        $config['per_page'] = 10 ;
+        $config['per_page'] = 3 ;
         $config['offset'] = $this->uri->segment(3);
         // Styling pagination
         $config['first_link']       = 'First';
