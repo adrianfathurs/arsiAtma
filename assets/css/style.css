@@ -31,7 +31,9 @@ body {
 	font-weight: 400;
 	color: #7b838a;
 }
-
+.fas{
+color:  	#B22222;
+}
 h1,
 h2,
 h3,
@@ -961,7 +963,12 @@ button:focus {
 	margin-bottom: 22px;
 	
 }
-
+#btnSmartphone{
+	background-color: #FAEBD7;
+}
+.icon-bar{
+	background-color: #DEB887;
+}
 .course_details_area .title:after {
 	content: "";
 	position: absolute;
@@ -4120,7 +4127,7 @@ h6 {
 	}
 
 	.header_area .navbar {
-		background: #868686;
+		background:	 	#DAA520;
 	}
 
 	.navbar-toggler[aria-expanded="false"] span:nth-child(2) {
@@ -4437,7 +4444,7 @@ h6 {
 
 @media (max-width: 991px) {
 	.footer-area .single-footer-widget {
-		margin-bottom: 30px;
+		margin: 12px;
 	}
 }
 
@@ -4540,7 +4547,7 @@ h6 {
 
 @media (max-width: 991px) {
 	.footer-area .footer-bottom {
-		margin-top: 20px;
+		margin: 12px;
 	}
 }
 

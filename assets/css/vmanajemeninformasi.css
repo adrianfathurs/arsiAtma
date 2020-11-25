@@ -1,3 +1,17 @@
 .active{
     background-color: rgb(rgb(11, 167, 45), green, blue);
 }
+
+.bg-GoldenRod{
+
+    background-color:#DAA520;
+}
+.bg-Bisque{
+
+    background-color: 	#FFE4C4;
+}
+.border{
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

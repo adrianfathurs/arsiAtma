@@ -108,7 +108,7 @@
               <img class="card-img-top" src="<?php echo base_url('assets/img/informasiUmum/').$umum->foto1_umum?>" alt="Card image cap">
             </a>
             <div class="card-body"  style=" max-height: 80%;">
-               <h5 class="card-title border-bottom pb-3"><?php $umum->judul_umum?> <a href="#" class="float-right d-inline-flex share"><i class="fas fa-share-alt text-primary"></i></a></h5>
+               <h5 class="card-title border-bottom pb-3"><?php $umum->judul_umum?> <a href="#" class="float-right d-inline-flex share"></a></h5>
                <p class="card-text"><?php echo  substr($umum->deskripsi_umum,0,120)."...";?></p>
                
                <!--  -->

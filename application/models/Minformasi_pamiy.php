@@ -20,6 +20,11 @@ class Minformasi_pamiy extends CI_Model{
         $query=$this->db->get('informasi_pamiy',3);
         return $query->result_array();
     }
+    function getTwoInformasi(){  
+        $this->db->where('status',1);  
+        $query=$this->db->get('informasi_pamiy',2);
+        return $query->result_array();
+    }
 
     public function insert($data,$id){
             if ($id != 0){

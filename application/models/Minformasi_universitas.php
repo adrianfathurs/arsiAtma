@@ -21,6 +21,12 @@ class Minformasi_universitas extends CI_Model{
         $query=$this->db->get('informasi_univ',3);
         return $query->result_array();
     }
+    function getTwoInformasi(){
+        $this->db->where('status',1);    
+        $this->db->order_by('id_informasi_univ', 'DESC');
+        $query=$this->db->get('informasi_univ',2);
+        return $query->result_array();
+    }
 
     public function insert($data,$id){
             if ($id != 0){

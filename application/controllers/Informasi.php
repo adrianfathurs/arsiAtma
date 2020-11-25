@@ -66,7 +66,7 @@ class Informasi extends CI_Controller
         $data['fav'] = $this->Minformasi_hima->getFav($this->session->userdata('id'));
 
         // print_r($data['fav']);die;
-        $data['page'] = "Tentang Hi";
+        $data['page'] = "informasiHimasPage";
         // $data['informasi'] = $this->Minformasi_hima->getAll();        
 
         $data['header']="template/template_header.php";
@@ -74,6 +74,10 @@ class Informasi extends CI_Controller
         $data['js'] = 'informasi/vinformasi_js.php'; 
         $data['content']="informasi/vinformasi.php";
         $data['asidebar']="informasi/vasidebar_informasi.php";
+        
+        $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
+        $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
+        $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
         $data['footer']="template/template_footer.php";
         $this->load->view('template/vtemplate',$data);
     }
@@ -122,13 +126,16 @@ class Informasi extends CI_Controller
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
         $data['fav'] = $this->Minformasi_universitas->getFav($this->session->userdata('id'));
-        $data['page'] = "Tentang UAJY";
+        $data['page'] = "informasiUnivPage";
         // $data['informasi'] = $this->Minformasi_universitas->getAll();        
         $data['header']="template/template_header.php";
         $data['css']="informasi/vinformasiuniv_css.php";
         $data['js'] = 'informasi/vinformasiuniv_js.php'; 
         $data['content']="informasi/vinformasiuniv.php";
-        $data['asidebar']="informasi/vasidebar_informasi.php";
+        $data['asidebar']="informasi/vasidebar_informasiuniv.php";
+        $data['asidebarContentHima']=$this->Minformasi_hima->getTwoInformasi();
+        $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
+        $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
         $data['footer']="template/template_footer.php";
         $this->load->view('template/vtemplate',$data);
     }
@@ -177,13 +184,16 @@ class Informasi extends CI_Controller
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
         $data['fav'] = $this->Minformasi_fakultas->getFav($this->session->userdata('id'));
-        $data['page'] = "Tentang Fakultas";
+        $data['page'] = "informasiFakultasPage";
         // $data['informasi'] = $this->Minformasi_fakultas->getAll();        
         $data['header']="template/template_header.php";
         $data['css']="informasi/vinformasifakultas_css.php";
         $data['js'] = 'informasi/vinformasifakultas_js.php'; 
         $data['content']="informasi/vinformasifakultas.php";
         $data['asidebar']="informasi/vasidebar_informasi.php";
+        $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
+        $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
+        $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
         $data['footer']="template/template_footer.php";
         $this->load->view('template/vtemplate',$data);
     }
@@ -195,7 +205,7 @@ class Informasi extends CI_Controller
         // Pengaturan pagination
         $config['base_url'] = base_url('Informasi/informasi_pamiy/');
         $config['total_rows'] = $this->Minformasi_pamiy->get()->num_rows();
-        $config['per_page'] = 10 ;
+        $config['per_page'] = 10;
         $config['offset'] = $this->uri->segment(3);
 
         // Styling pagination
@@ -232,13 +242,16 @@ class Informasi extends CI_Controller
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
         $data['fav'] = $this->Minformasi_pamiy->getFav($this->session->userdata('id'));
-        $data['page'] = "Tentang Hima";
+        $data['page'] = "informasiPamiyPage";
         //$data['informasi'] = $this->Minformasi_pamiy->getAll();        
         $data['header']="template/template_header.php";
         $data['css']="informasi/vinformasipamiy_css.php";
         $data['js'] = 'informasi/vinformasipamiy_js.php'; 
         $data['content']="informasi/vinformasipamiy.php";
         $data['asidebar']="informasi/vasidebar_informasi.php";
+        $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
+        $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
+        $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
         $data['footer']="template/template_footer.php";
         $this->load->view('template/vtemplate',$data);
     }
@@ -260,6 +273,9 @@ class Informasi extends CI_Controller
         $data['header']="template/template_header.php";            
         $data['content']="informasi/vDetailInformasi.php";
         $data['asidebar']="informasi/vasidebar_informasi.php";
+        $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
+        $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
+        $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
         $data['footer']="template/template_footer.php";                
         $this->load->view('template/vtemplate',$data);
     }
@@ -479,6 +495,9 @@ class Informasi extends CI_Controller
         $data['header']="template/template_header.php";            
         $data['content']="informasi/vDetailInformasiuniv.php";
         $data['asidebar']="informasi/vasidebar_informasiuniv.php";
+        $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
+        $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
+        $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
         $data['footer']="template/template_footer.php";                
         $this->load->view('template/vtemplate',$data);
     }
@@ -502,6 +521,9 @@ class Informasi extends CI_Controller
         $data['header']="template/template_header.php";            
         $data['content']="informasi/vDetailInformasifakultas.php";
         $data['asidebar']="informasi/vasidebar_informasifakultas.php";
+        $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
+        $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
+        $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
         $data['footer']="template/template_footer.php";                
         $this->load->view('template/vtemplate',$data);
     }
@@ -527,6 +549,9 @@ class Informasi extends CI_Controller
         $data['header']="template/template_header.php";            
         $data['content']="informasi/vDetailInformasipamiy.php";
         $data['asidebar']="informasi/vasidebar_informasipamiy.php";
+         $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
+        $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
+        $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
         $data['footer']="template/template_footer.php";                
         $this->load->view('template/vtemplate',$data);
     }
@@ -1210,7 +1235,7 @@ class Informasi extends CI_Controller
 
         /* $data['page']="informasiPamiysPage"; */
 
-        $data['data'] = $this->Minformasi_hima->getArtikel($id);
+        $data['data'] = $this->Minformasi_pamiy->getArtikel($id);
         $data['informasi'] = "hima";                   
         $data['js'] = 'informasi/vinformasipamiy_js.php'; 
         $data['css'] = 'informasi/vinformasipamiy_css';      

@@ -20,6 +20,11 @@ class Minformasi_fakultas extends CI_Model{
         $query=$this->db->get('informasi_fakultas',3);
         return $query->result_array();
     }
+    function getTwoInformasi(){    
+        $this->db->where('status',1);    
+        $query=$this->db->get('informasi_fakultas',2);
+        return $query->result_array();
+    }
 
     public function insert($data,$id){
             if ($id != 0){

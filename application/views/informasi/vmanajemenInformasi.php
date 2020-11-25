@@ -12,8 +12,8 @@
         </div>
         <br>
         <br>
-       <div id="table_hima">
-        <table id="table_id" class="table">
+       <div id="table_hima" class="border bg-Bisque">
+        <table id="table_id" class="table ">
         <h4 class="text-center mb-4">INFORMASI HIMA</h4></div>
             <thead>
                 <tr>
@@ -38,7 +38,7 @@
         </table>
        </div>
        <!--  -->
-       <div id="table_univ">
+       <div id="table_univ" class="border bg-Bisque">
         <table id="table_id_univ" class="table">
         <h4 class="text-center mb-4">INFORMASI UNIVERSITAS</h4></div>
             <thead>
@@ -64,7 +64,7 @@
         </table>
        </div>
        <!--  -->
-       <div id="table_fakultas">
+       <div id="table_fakultas" class="border bg-Bisque">
         <table id="table_id_fakultas" class="table">
         <h4 class="text-center mb-4">INFORMASI FAKULTAS</h4></div>
             <thead>
@@ -89,7 +89,7 @@
             </tbody>
         </table>
        </div>
-       <div id="table_umum">
+       <div id="table_umum" class="border bg-Bisque">
         <table id="table_id_umum" class="table">
         <h4 class="text-center mb-4">INFORMASI UMUM</h4></div>
             <thead>
@@ -114,7 +114,7 @@
             </tbody>
         </table>
        </div>
-       <div id="table_pamiy">
+       <div id="table_pamiy" class="border bg-Bisque">
         <table id="table_id_pamiy" class="table">
         <h4 class="text-center mb-4">INFORMASI PAMIY</h4></div>
             <thead>
@@ -139,7 +139,7 @@
             </tbody>
         </table>
        </div>
-       <div id="table_portofolio">
+       <div id="table_portofolio" class="border bg-Bisque">
         <table id="table_id_portofolio" class="table">
         <h4 class="text-center mb-4">INFORMASI PORTOFOLIO</h4></div>
             <thead>
