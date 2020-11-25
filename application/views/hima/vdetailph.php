@@ -24,20 +24,22 @@
     <section class="course_details_area section_gap">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 course_details_left">
+                <div class="col-lg-8 course_details_left kotakBisque">
                     <div class="main_image">
-                        
-                        <img class="img-fluid" src="<?php echo base_url('assets/img/organisasiHima/').$ph->foto1_ph;?>" alt="">
+                        <center>
+
+                          <img class="img-fluid pt-4" src="<?php echo base_url('assets/img/organisasiHima/').$ph->foto1_ph;?>" alt="">
+                        </center>
                         
                     </div>
                     <div class="content_wrapper">
-                        <h4 class="title">Nama Lengkap</h4>
+                        <h4 class="title">Nama Pengurus Harian</h4>
                         <div class="content">
                             
                             <?php echo $ph->nama_lengkap ?>
                         </div>
 
-                        <h4 class="title">Deskripsi Pengurus Harian</h4>
+                        <!-- <h4 class="title">Deskripsi Pengurus Harian</h4>
                         <div class="content">
                             <?php echo $ph->deskripsi_ph ?>
                         </div>
@@ -45,7 +47,7 @@
                         <h4 class="title">Tugas Pengurus Harian</h4>
                         <div class="content">
                             <?php echo $ph->tugas_ph ?>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 

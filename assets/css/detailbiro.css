@@ -1,9 +1,31 @@
+body,
+	html {
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		background:#FAEBD7 !important;
+	}
 .main_image img {
 	min-width: 650px;
 	min-height: 400px;
 	max-width: 650px;
 	max-height: 400px;
 	background-size: cover;
+}
+
+.kotakBisque{
+	
+	background-color:#FFE4C4;
+	border-radius: 4px;
+	box-shadow: 0px 0px 10px grey;
+}
+.blog_right_sidebar .widget_title{
+	background-color: burlywood;
+	color:#002347;
+}
+
+.content_wrapper{
+	padding-left:10%;
 }
 
 @media(max-width:980px) {
@@ -15,6 +37,13 @@
 		background-size: cover;
 		margin: 0;
 		padding: 0;
+	}
+	.kotakBisque{
+	margin-right: 5%;
+	margin-left: 5%;
+	background-color:#FFE4C4;
+	border-radius: 4px;
+	box-shadow: 0px 0px 10px grey;
 	}
 }
 
@@ -28,6 +57,13 @@
 		margin: 0;
 		padding: 0;
 	}
+	.kotakBisque{
+	margin-right: 5%;
+	margin-left: 5%;
+	background-color:#FFE4C4;
+	border-radius: 4px;
+	box-shadow: 0px 0px 10px grey;
+	}
 }
 
 @media(max-width:641px) {
@@ -40,6 +76,13 @@
 		margin: 0;
 		padding: 0;
 	}
+	.kotakBisque{
+	margin-right: 5%;
+	margin-left: 5%;
+	background-color:#FFE4C4;
+	border-radius: 4px;
+	box-shadow: 0px 0px 10px grey;
+	}
 }
 
 @media(max-width:485px) {
@@ -51,5 +94,12 @@
 		background-size: cover;
 		margin: 0;
 		padding: 0;
+	}
+	.kotakBisque{
+	margin-right: 5%;
+	margin-left: 5%;
+	background-color:#FFE4C4;
+	border-radius: 4px;
+	box-shadow: 0px 0px 10px grey;
 	}
 }

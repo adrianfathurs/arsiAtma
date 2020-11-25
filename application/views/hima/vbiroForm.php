@@ -35,11 +35,11 @@
                             <img src="<?php echo base_url('assets/img/organisasiHima/').$biro->foto2_biro ?>" name="foto2" id="image-preview2" alt="image preview" style="width: 300px; height: 220px;"/>
                         </div>
                         <br>                 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label class="col-sm-4 form-control-label" >Tugas Biro :</label>
                             <textarea class="ckeditor" name="tugasBiro" required ><?php echo $biro->tugas_biro ?></textarea>        
                         </div>
-                        <br>                        
+                        <br>    -->                     
                         <div class="form-group">
                             <label class="col-sm-4 form-control-label" >Deskripsi Biro :</label>
                             <textarea class="ckeditor" name="deskripsiBiro" required ><?php echo $biro->deskripsi_biro ?></textarea>        

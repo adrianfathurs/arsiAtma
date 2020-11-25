@@ -19,8 +19,9 @@
                 <?php echo form_open_multipart('hima/formOrganisasiPh/');?>
               
                         <div class="form-group" >
-                            <label class="col-sm-4 form-control-label" >Nama Lengkap:</label>  
-                            <input type="text" class="form-control " name="namaPh" placeholder="Nama Pengurus Harian" required value="<?php echo $ph->nama_lengkap ?>">
+                            <label class="col-sm-4 form-control-label" >Nama Pengurus Harian:</label>  
+                            
+                            <textarea class="ckeditor" name="namaPh" required ><?php echo $ph->nama_lengkap ?></textarea>     
                         </div>
                         <br>
                         <div class="form-group">
@@ -28,8 +29,8 @@
                             <input type="file" class="form-control" name="foto1" id="foto1"  value="<?php echo $ph->foto1_ph ?>" onchange="previewImage();">
                             <img src="<?php echo base_url('assets/img/organisasiHima/').$ph->foto1_ph ?>" name="foto1" id="image-preview" alt="image preview" style="width: 300px; height: 220px;"/>
                         </div>
-                        <br>                                   
-                        <div class="form-group">
+                                                           
+                        <!-- <div class="form-group">
                             <label class="col-sm-4 form-control-label" >Tugas Pengurus Harian :</label>
                             <textarea class="ckeditor" name="tugasPh" required ><?php echo $ph->tugas_ph ?></textarea>        
                         </div>
@@ -37,7 +38,7 @@
                         <div class="form-group">
                             <label class="col-sm-4 form-control-label" >Deskripsi Pengurus Harian:</label>
                             <textarea class="ckeditor" name="deskripsiPh" required ><?php echo $ph->deskripsi_ph ?></textarea>        
-                        </div>
+                        </div> -->
                         <br>                        
                         <div class="text-right">
                             <input type="text" hidden id="creator" name="creator" value="<?php echo $id; ?>">

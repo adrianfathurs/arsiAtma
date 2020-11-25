@@ -58,7 +58,7 @@
                     placeholder="Enter your name"
                     onfocus="this.placeholder = ''"
                     onblur="this.placeholder = 'Enter your name'"
-                    required=""
+                    required="true"
                   />
                 </div>
                 <div class="form-group">
@@ -70,7 +70,7 @@
                     placeholder="Enter email address"
                     onfocus="this.placeholder = ''"
                     onblur="this.placeholder = 'Enter email address'"
-                    required=""
+                    required="true"
                   />
                 </div>
                 <div class="form-group">
@@ -82,7 +82,7 @@
                     placeholder="Enter No.Telp"
                     onfocus="this.placeholder = ''"
                     onblur="this.placeholder = 'Enter No.Telp'"
-                    required=""
+                    required="true"
                   />
                 </div>
               </div>
@@ -96,7 +96,7 @@
                     placeholder="Enter Message"
                     onfocus="this.placeholder = ''"
                     onblur="this.placeholder = 'Enter Message'"
-                    required=""
+                    required="true"
                   ></textarea>
                 </div>
               </div>

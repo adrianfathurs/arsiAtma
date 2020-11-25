@@ -4563,6 +4563,13 @@ input[type="button"].btn-block {
   border-radius: 0.25rem;
 }
 
+.card:hover{
+  margin: 10px;
+  transform: scale(1.1);
+  background-color:#FFE4C4;
+  box-shadow: 10px 10px 10px grey;
+}
+
 .card > hr {
   margin-right: 0;
   margin-left: 0;
@@ -4582,6 +4589,11 @@ input[type="button"].btn-block {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1.25rem;
+  background-color:#ffffff;
+}
+
+.card-body:hover {
+  background-color:#FFE4C4;
 }
 
 .card-title {

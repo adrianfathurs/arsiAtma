@@ -18,6 +18,9 @@
     $(document).ready( function () {
         $('#table_id_pamiy').DataTable();
     } );
+    $(document).ready( function () {
+        $('#table_id_portofolio').DataTable();
+    } );
 
     
 </script>
