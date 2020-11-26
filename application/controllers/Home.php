@@ -8,7 +8,7 @@ class Home extends CI_Controller
         $this->load->model('Minformasi_hima');
         $this->load->model('Minformasi_universitas');
         $this->load->model('Minformasi_fakultas');
-
+        $this->load->model('Minstagram');
     }
 
     public function index(){
@@ -39,13 +39,13 @@ class Home extends CI_Controller
         $data['username'] = $this->session->userdata('username');         
         $data['header']="template/template_header.php";
         $data['css']="home/vhomePage_css.php";
-        
-         $data['informasiHima']=$this->Minformasi_hima->getThreeInformasi();
-         $data['joinInformasiFavoriteHima']=$this->Minformasi_hima->joinInformasiFavoriteHima($id);
-         $data['informasiUniv']=$this->Minformasi_universitas->getThreeInformasi();
-         $data['joinInformasiFavoriteUniv']=$this->Minformasi_universitas->joinInformasiFavoriteUniv($id);
-         $data['informasiFakultas']=$this->Minformasi_fakultas->getThreeInformasi();
-         $data['joinInformasiFavoriteFakultas']=$this->Minformasi_fakultas->joinInformasiFavoriteFakultas($id);
+        $data['instagram'] = $this->Minstagram->get();
+        $data['informasiHima']=$this->Minformasi_hima->getThreeInformasi();
+        $data['joinInformasiFavoriteHima']=$this->Minformasi_hima->joinInformasiFavoriteHima($id);
+        $data['informasiUniv']=$this->Minformasi_universitas->getThreeInformasi();
+        $data['joinInformasiFavoriteUniv']=$this->Minformasi_universitas->joinInformasiFavoriteUniv($id);
+        $data['informasiFakultas']=$this->Minformasi_fakultas->getThreeInformasi();
+        $data['joinInformasiFavoriteFakultas']=$this->Minformasi_fakultas->joinInformasiFavoriteFakultas($id);
         
         $data['content']="home/vhomePage.php";
         $data['js']="home/vhomePage_js.php";

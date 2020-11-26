@@ -4,7 +4,7 @@ class Article extends CI_Controller
 {
     public function __construct(){
         parent :: __construct();
-
+        $this->load->model('Minstagram');
     }
 
     public function index(){
@@ -14,7 +14,7 @@ class Article extends CI_Controller
         $data['asidebar']="viewArticle/VviewAsidebar.php";
         $data['js']="viewArticle/VviewArticle_js.php";
         $data['footer']="template/template_footer.php";
-
+        $data['instagram'] = $this->Minstagram->get();
         $this->load->view('template/vtemplate',$data);
     }
 }

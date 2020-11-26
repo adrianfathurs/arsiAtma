@@ -5,6 +5,7 @@ class Reg extends CI_Controller
     public function __construct(){
         parent :: __construct();
         $this->load->model("Makun");
+        $this->load->model("Minstagram");
     }
 
     public function index(){
@@ -123,6 +124,7 @@ class Reg extends CI_Controller
     }
     
     function auth(){
+        $redirect_to = $_SERVER['HTTP_REFERER'];
         $input = $this->input->post(NULL,TRUE);
         extract($input);
         // print_r($input);die;
@@ -147,7 +149,7 @@ class Reg extends CI_Controller
                 Selamat, Anda Berhasil Login :)                           
             </div>");
             $this->session->set_flashdata($alert); 
-			redirect('Home/');
+			redirect($redirect_to);
 		} else {
             $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='500' data-autohide='false'>
             <div class='toast-header'>
@@ -162,11 +164,12 @@ class Reg extends CI_Controller
                 Gagal Login, Username atau Kata Sandi Salah!                         
             </div>");
             $this->session->set_flashdata($alert); 
-			redirect('Home/');
+			redirect($redirect_to);
 		}
     }
     
     function logout(){
+        $redirect_to = $_SERVER['HTTP_REFERER'];
         if(isset($_COOKIE['cookielogin'])){
             $time = time();
             setcookie("arsiAtma[username]", $time - 86400);
@@ -190,7 +193,15 @@ class Reg extends CI_Controller
                 LogOut Akun Berhasil, Terimakasih :)                        
             </div>");
         $this->session->set_flashdata($alert); 
-		redirect('home/');
+		redirect($redirect_to);
+    }
+
+    function instagram(){
+        $redirect_to = $_SERVER['HTTP_REFERER'];
+        $input = $this->input->post(NULL,TRUE);
+        extract($input);        
+        $this->Minstagram->update($data=['link_instagram' => $this->input->post('link')]);
+        redirect($redirect_to);
     }
 
 }

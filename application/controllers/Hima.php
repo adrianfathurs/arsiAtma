@@ -10,8 +10,8 @@ class Hima extends CI_Controller
         $this->load->model('Minformasi_universitas');
         $this->load->model('Minformasi_fakultas');
         $this->load->model('Minformasi_pamiy');
-        // $this->load->library('upload');
-
+        $this->load->model('Minstagram');
+        
     }
 
     public function index(){
@@ -19,8 +19,7 @@ class Hima extends CI_Controller
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
         $data['informasiHima']=$this->Minformasi_hima->getThreeInformasi();
-        // $data['css']="viewArticle/VviewArticle_css.php";
-        
+        $data['instagram'] = $this->Minstagram->get();
         $data['header']="template/template_header.php";
         $data['css']="hima/vhima_css.php";
         $data['content']="home/vhome.php";
@@ -36,7 +35,7 @@ class Hima extends CI_Controller
         $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
-        // $data['css']="viewArticle/VviewArticle_css.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['header']="template/template_header.php";
         $data['css']="hima/vhima_css.php";
         $data['asidebar']="viewArticle/VviewAsidebar.php";
@@ -58,7 +57,7 @@ class Hima extends CI_Controller
         /* load data biro */
         $data['biro'] = $this->Morganisasi->MloadOrganisasiBiro();
         $data['ph'] = $this->Morganisasi->MloadOrganisasiPh();
-        // $data['css']="viewArticle/VviewArticle_css.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['header']="template/template_header.php";
         $data['css']="hima/vorganisasiHima_css.php";
         $data['content']="hima/vorganisasiHima.php";        
@@ -74,7 +73,7 @@ class Hima extends CI_Controller
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
         // print_r($data);die;
-      
+        $data['instagram'] = $this->Minstagram->get();
         if ($id_pencet=="1"){
 
             $data['ph']=$this->Morganisasi->MloadOrganisasiPhById($id_biro);
@@ -166,6 +165,7 @@ class Hima extends CI_Controller
                     $data['username'] = $this->session->userdata('username'); 
                     $data['header']="template/template_header.php";            
                     $data['content'] = 'hima/vbiroForm.php';    
+                    $data['instagram'] = $this->Minstagram->get();
                     $data['css']='hima/vorganisasiHima_css.php';
                     $data['js'] = 'hima/vorganisasiHima_js.php'; 
                     $data['footer']="template/template_footer.php";          
@@ -267,6 +267,7 @@ class Hima extends CI_Controller
                     $data['type_akun'] = $this->session->userdata('type_akun');            
                     $data['id'] = $this->session->userdata('id'); 
                     $data['username'] = $this->session->userdata('username'); 
+                    $data['instagram'] = $this->Minstagram->get();
                     $data['header']="template/template_header.php";            
                     $data['content'] = 'hima/vphForm.php';    
                     $data['css']='hima/vorganisasiHima_css.php';
@@ -319,6 +320,7 @@ class Hima extends CI_Controller
         $data['css']='hima/vdetailbiro_css.php';
         $data['js'] = 'hima/vorganisasiHima_js.php'; 
         $data['content']="hima/vdetailBiro.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="hima/vasidebarorganisasi.php";
         $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
         $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
@@ -339,6 +341,7 @@ class Hima extends CI_Controller
         $data['css']='hima/vdetailph_css.php';
         $data['js'] = 'hima/vorganisasiHima_js.php'; 
         $data['content']="hima/vdetailph.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
         $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
         $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();

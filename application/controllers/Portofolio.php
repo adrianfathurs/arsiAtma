@@ -9,7 +9,8 @@ class Portofolio extends CI_Controller
         $this->load->model('Minformasi_universitas');
         $this->load->model('Minformasi_fakultas');
         $this->load->model('Minformasi_pamiy');
-
+        $this->load->model('Minstagram');
+        
     }
 
     public function index(){
@@ -63,7 +64,8 @@ class Portofolio extends CI_Controller
         $data['css']="portofolio/vportofolio_css.php";
         $data['js'] = 'portofolio/vportofolio_js.php'; 
         $data['content']="portofolio/vportofolio.php";
-         $data['asidebar']="viewArticle/VviewAsidebar.php";
+        $data['instagram'] = $this->Minstagram->get();
+        $data['asidebar']="viewArticle/VviewAsidebar.php";
         $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
         $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
         $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
@@ -89,6 +91,7 @@ class Portofolio extends CI_Controller
         $data['js'] = 'portofolio/vportofolio_js.php'; 
         $data['header']="template/template_header.php";            
         $data['content']="portofolio/vDetail.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="viewArticle/VviewAsidebar.php";
         $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
         $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
@@ -110,7 +113,8 @@ class Portofolio extends CI_Controller
         $data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
         $data['header']="template/template_header.php";            
-        $data['content'] = 'portofolio/vform.php';    
+        $data['content'] = 'portofolio/vform.php';  
+        $data['instagram'] = $this->Minstagram->get();  
         $data['asidebar']="portofolio/vasidebar_portofolio.php";
         $data['footer']="template/template_footer.php";          
         $this->load->view('template/vtemplate', $data);
@@ -226,7 +230,8 @@ class Portofolio extends CI_Controller
                 $data['id'] = $this->session->userdata('id'); 
                 $data['username'] = $this->session->userdata('username'); 
                 $data['header']="template/template_header.php";            
-                $data['content'] = 'portofolio/vform.php';    
+                $data['content'] = 'portofolio/vform.php';   
+                $data['instagram'] = $this->Minstagram->get(); 
                 $data['asidebar']="portofolio/vasidebar_portofolio.php";
                 $data['footer']="template/template_footer.php";          
                 $this->load->view('template/vtemplate', $data);

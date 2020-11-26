@@ -106,36 +106,7 @@
                       >
                     </li>
                   </ul>
-                </li>
-               <!--  <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true"
-                    aria-expanded="false">HIMA &nbsp;</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Deskripsi</a></li>
-                    <li><a class="dropdown-item" href="#">Informasi</a></li>
-                    <li><a class="dropdown-item" href="#">Organisasi &nbsp;<i class="fas fa-caret-down" style="color:black;"></i></a>
-                      <ul class="submenu dropdown-menu">
-                          <li><a class="dropdown-item" href="">PH+CP</a></li>
-                          <li><a class="dropdown-item" href="">BIRO <i class="fas fa-caret-down"></i></a>
-                            <ul class="submenu dropdown-menu">
-                              <li><a class="dropdown-item" href="">BIRO 1</a></li>
-                              <li><a class="dropdown-item" href="">BIRO 2</a></li>
-                              <li><a class="dropdown-item" href="">BIRO 3</a></li>
-                              <li><a class="dropdown-item" href="">BIRO 4</a></li>
-                              <li><a class="dropdown-item" href="">BIRO 5</a></li>
-                              <li><a class="dropdown-item" href="">BIRO 6</a></li>
-                              <li><a class="dropdown-item" href="">BIRO 7</a></li>
-                              <li><a class="dropdown-item" href="">BIRO 9</a></li>
-                              <li><a class="dropdown-item" href="">BIRO 10</a></li>
-                              <li><a class="dropdown-item" href="">BIRO 11</a></li>
-                              <li><a class="dropdown-item" href="">BIRO 12</a></li>
-                            </ul>
-                          </li>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-              </li> -->
+                </li>            
                 <?php if(isset($page) ){ 
                   if($page=="tentangUnivPage" || $page=="informasiUnivPage"){?>
                     <li class="nav-item active submenu dropdown">
@@ -259,6 +230,9 @@
                     </li>                  
                     <li class="nav-item">
                       <a class="nav-link" href="<?php echo site_url('Saran/manajemen_saran/')?>">Manajemen Saran</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#" data-toggle="modal" data-target="#modalInstagram">Update Instagram</a>
                     </li>                  
                     <li class="nav-item">
                       <a class="nav-link" href="<?php echo site_url('Reg/logout')?>">LogOut</a>
@@ -289,11 +263,11 @@
     </header>
 
 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog modal-sm" role="document">
                 
-                  <div class="modal-headers"></div>
-                  <div class="modal-contents ">
+                  <div class="modal-header"></div>
+                  <div class="modal-content">
                   <div class="modal-body">
                     
   <div class="">
@@ -343,11 +317,45 @@
 		</div>
 	</div>
                     </form>
-                </div>
+              </div>
               </div>
             </div>
             </div>
 
-            <script src="<?php echo base_url('assets/')?>js/jquery.js"></script>
-<script src="<?php echo base_url('assets/')?>js/popper.js"></script>
-<script src="<?php echo base_url('assets/')?>js/bootstrap.js"></script>
+<!-- update link instagram -->
+<div class="modal fade" id="modalInstagram" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog modal-sm" role="document">
+                
+                  <div class="modal-header"></div>
+                  <div class="modal-content">
+                  <div class="modal-body">
+                      
+		<div class="">
+			<div class="user_cards">				
+				<div class="d-flex justify-content-center form_container">
+        <form action="<?php echo site_url('Reg/instagram')?>" method="post">
+        <div class="mt-4">
+        Link Postingan Instagram Sebelumnya :
+					<div class="d-flex justify-content-center links" style="background-color:yellow">
+						 <?php echo $instagram->link_instagram ?>
+					</div>					
+				</div>
+          <div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fab fa-instagram"></i></span>
+							</div>
+							<input type="text" name="link" class="form-control input_user" value="" placeholder="Paste link post instagram yg baru">
+						</div>					
+							<div class="d-flex justify-content-center mt-3 login_container">
+				 	  <button type="submit" name="button" class="btn login_btn">Update</button>
+            <input type="text" hidden id="submit" name="submit" value="submit">
+				   </div>
+					</form>						
+			</div>
+		</div>
+	</div>
+                    </form>
+              </div>
+              </div>
+            </div>
+            </div>

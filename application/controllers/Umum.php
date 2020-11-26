@@ -10,6 +10,8 @@ class Umum extends CI_Controller
         $this->load->model('Minformasi_universitas');
         $this->load->model('Minformasi_fakultas');
         $this->load->model('Minformasi_pamiy');
+        $this->load->model('Minstagram');
+        
     }
     function index(){
         redirect('Umum/informasi');
@@ -58,7 +60,7 @@ class Umum extends CI_Controller
         // $data['Informasi'] = $this->Minformasi_universitas->get_offset($config['per_page'], $config['offset'])->result();
         $data['joinInformasiFavoriteUmum']=$this->Minformasi_umum->joinInformasiFavoriteUmum($id);
         
-        // $data['css']="viewArticle/VviewArticle_css.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['header']="template/template_header.php";
         $data['css']="umum/vumum_css.php";
         $data['js']="umum/vumum_js.php";
@@ -76,7 +78,7 @@ class Umum extends CI_Controller
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
         $data['informasi']=$this->Minformasi_umum->getAll();
-        
+        $data['instagram'] = $this->Minstagram->get();
         // $data['css']="viewArticle/VviewArticle_css.php";
         $data['header']="template/template_header.php";
         $data['css']="umum/vumum_css.php";
@@ -171,6 +173,7 @@ class Umum extends CI_Controller
                     $data['type_akun'] = $this->session->userdata('type_akun');            
                     $data['id'] = $this->session->userdata('id'); 
                     $data['username'] = $this->session->userdata('username'); 
+                    $data['instagram'] = $this->Minstagram->get();
                     $data['header']="template/template_header.php";            
                     $data['content'] = 'umum/vformUmum.php';    
                     $data['footer']="template/template_footer.php";          
@@ -263,6 +266,7 @@ class Umum extends CI_Controller
         $data['js'] = 'umum/vumum_js.php'; 
         $data['header']="template/template_header.php";            
         $data['content']="umum/vDetailUmum.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="viewArticle/VviewAsidebar.php";
         $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
         $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
@@ -331,7 +335,7 @@ class Umum extends CI_Controller
      function updateUmum($id){
 
         /* $data['page']="informasiPamiysPage"; */
-
+        
         $data['data'] = $this->Minformasi_umum->getArtikel($id);
         $data['informasi'] = "umum ";                   
         $data['js'] = 'umum/vumum_js.php'; 
@@ -341,6 +345,7 @@ class Umum extends CI_Controller
         $data['username'] = $this->session->userdata('username'); 
         $data['header']="template/template_header.php";            
         $data['content'] = 'umum/vformUmum.php';    
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="portofolio/vasidebar_portofolio.php";
         $data['footer']="template/template_footer.php";          
         $this->load->view('template/vtemplate', $data);

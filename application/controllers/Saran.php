@@ -6,11 +6,12 @@ class Saran extends CI_Controller
         parent :: __construct();
 
         $this->load->model('Msaran');
+        $this->load->model('Minstagram');
     }
 
     public function index(){
         $data['page']="saranPage";
-
+        $data['instagram'] = $this->Minstagram->get();
          $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
@@ -55,7 +56,7 @@ class Saran extends CI_Controller
     }
 
     public function manajemen_saran(){
-        
+        $data['instagram'] = $this->Minstagram->get();
          $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 

@@ -11,6 +11,7 @@ class Universitas extends CI_Controller
         $this->load->model('Minformasi_universitas');
         $this->load->model('Minformasi_fakultas');
         $this->load->model('Minformasi_pamiy');
+        $this->load->model('Minstagram');
 
     }
 
@@ -24,6 +25,7 @@ class Universitas extends CI_Controller
         $data['header']="template/template_header.php";
         $data['css']="universitas/vuniversitas_css.php";
         $data['content']="home/vhomePage.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="viewArticle/VviewAsidebar.php";
          $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
         $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
@@ -44,6 +46,7 @@ class Universitas extends CI_Controller
         // $data['css']="viewArticle/VviewArticle_css.php";
         $data['header']="template/template_header.php";
         $data['css']="universitas/vuniversitas_css.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="viewArticle/VviewAsidebar.php";
          $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
         $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();

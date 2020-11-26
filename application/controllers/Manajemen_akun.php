@@ -5,10 +5,12 @@ class Manajemen_akun extends CI_Controller
     public function __construct(){
         parent :: __construct();
         $this->load->model("Makun");
+        $this->load->model('Minstagram');
     }
 
     function index()
     {
+        $data['instagram'] = $this->Minstagram->get();
         $data['loadAkun']=$this->Makun->getAll();
         $data['page']="Login";
         $data['type_akun'] = $this->session->userdata('type_akun');            
