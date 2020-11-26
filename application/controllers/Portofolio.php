@@ -5,6 +5,11 @@ class Portofolio extends CI_Controller
     public function __construct(){
         parent :: __construct();
         $this->load->model("Mportofolio");
+        $this->load->model('Minformasi_hima');
+        $this->load->model('Minformasi_universitas');
+        $this->load->model('Minformasi_fakultas');
+        $this->load->model('Minformasi_pamiy');
+
     }
 
     public function index(){
@@ -14,7 +19,7 @@ class Portofolio extends CI_Controller
         // Pengaturan pagination
         $config['base_url'] = base_url('Portofolio/');
         $config['total_rows'] = $this->Mportofolio->get()->num_rows();
-        $config['per_page'] = 10 ;
+        $config['per_page'] = 3 ;
         $config['offset'] = $this->uri->segment(2);
         // Styling pagination
         $config['first_link']       = 'First';
@@ -58,7 +63,11 @@ class Portofolio extends CI_Controller
         $data['css']="portofolio/vportofolio_css.php";
         $data['js'] = 'portofolio/vportofolio_js.php'; 
         $data['content']="portofolio/vportofolio.php";
-        $data['asidebar']="portofolio/vasidebar_portofolio.php";
+         $data['asidebar']="viewArticle/VviewAsidebar.php";
+        $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
+        $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
+        $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
+        $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
         $data['footer']="template/template_footer.php";
         $this->load->view('template/vtemplate',$data);
     }
@@ -80,7 +89,11 @@ class Portofolio extends CI_Controller
         $data['js'] = 'portofolio/vportofolio_js.php'; 
         $data['header']="template/template_header.php";            
         $data['content']="portofolio/vDetail.php";
-        $data['asidebar']="portofolio/vasidebar_portofolio.php";
+        $data['asidebar']="viewArticle/VviewAsidebar.php";
+        $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
+        $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
+        $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
+        $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
         $data['footer']="template/template_footer.php";                
         $this->load->view('template/vtemplate',$data);
     }

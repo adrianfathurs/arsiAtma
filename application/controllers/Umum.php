@@ -6,6 +6,10 @@ class Umum extends CI_Controller
         parent :: __construct();
         $this->load->model('Minformasi_umum');
         $this->load->model('Makun');
+        $this->load->model('Minformasi_hima');
+        $this->load->model('Minformasi_universitas');
+        $this->load->model('Minformasi_fakultas');
+        $this->load->model('Minformasi_pamiy');
     }
     function index(){
         redirect('Umum/informasi');
@@ -259,7 +263,11 @@ class Umum extends CI_Controller
         $data['js'] = 'umum/vumum_js.php'; 
         $data['header']="template/template_header.php";            
         $data['content']="umum/vDetailUmum.php";
-        $data['asidebar']="informasi/vasidebar_informasiuniv.php";
+        $data['asidebar']="viewArticle/VviewAsidebar.php";
+        $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
+        $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
+        $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
+        $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
         $data['footer']="template/template_footer.php";                
         $this->load->view('template/vtemplate',$data);
     }

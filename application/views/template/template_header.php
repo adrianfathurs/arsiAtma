@@ -38,9 +38,14 @@
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <a class="navbar-brand logo_h" href="<?php echo base_url('home')?>"
-              ><h2>HIMARSI</h2></a>
-            <button
+            <a class="navbar-brand logo_h" href="<?php echo base_url('home')?>">
+              <div class="mt-1">
+                <center><h4>HIMA<p>Tri<span>&ccedil;</span>aka</p></h4></center>
+                
+              </div>
+            </a>
+            <button 
+              id="btnSmartphone"
               class="navbar-toggler"
               type="button"
               data-toggle="collapse"
@@ -49,7 +54,8 @@
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span class="icon-bar"></span> <span class="icon-bar"></span>
+              <span class="icon-bar"></span> 
+              <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -184,7 +190,13 @@
                     </li>
                   </ul>
                 </li>
-                <li class="nav-item submenu dropdown">
+                <?php if(isset($page) ){ 
+                  if($page=="tentangPamiyPage" || $page=="informasiPamiyPage"){?>
+                    <li class="nav-item active submenu dropdown">
+                    <?php } else{ ?>
+                      <li class="nav-item submenu dropdown">
+                    <?php } }else {?><li class="nav-item submenu dropdown">
+                    <?php } ?>
                   <a
                     href="#"
                     class="nav-link dropdown-toggle"

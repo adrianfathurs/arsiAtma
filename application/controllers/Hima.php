@@ -7,6 +7,9 @@ class Hima extends CI_Controller
         $this->load->model('Morganisasi');
         $this->load->model('Makun');
         $this->load->model('Minformasi_hima');
+        $this->load->model('Minformasi_universitas');
+        $this->load->model('Minformasi_fakultas');
+        $this->load->model('Minformasi_pamiy');
         // $this->load->library('upload');
 
     }
@@ -33,11 +36,14 @@ class Hima extends CI_Controller
         $data['type_akun'] = $this->session->userdata('type_akun');            
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
-        
         // $data['css']="viewArticle/VviewArticle_css.php";
         $data['header']="template/template_header.php";
         $data['css']="hima/vhima_css.php";
         $data['asidebar']="viewArticle/VviewAsidebar.php";
+        $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
+        $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
+        $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
+        $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
         $data['footer']="template/template_footer.php";
         $data['content']="hima/vhima.php";        
 
@@ -314,6 +320,10 @@ class Hima extends CI_Controller
         $data['js'] = 'hima/vorganisasiHima_js.php'; 
         $data['content']="hima/vdetailBiro.php";
         $data['asidebar']="hima/vasidebarorganisasi.php";
+        $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
+        $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
+        $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
+        $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
         $data['footer']="template/template_footer.php";
         $this->load->view('template/vtemplate',$data);      
     }
@@ -329,6 +339,10 @@ class Hima extends CI_Controller
         $data['css']='hima/vdetailph_css.php';
         $data['js'] = 'hima/vorganisasiHima_js.php'; 
         $data['content']="hima/vdetailph.php";
+        $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
+        $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
+        $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
+        $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
         $data['asidebar']="hima/vasidebarorganisasi.php";
         $data['footer']="template/template_footer.php";
         $this->load->view('template/vtemplate',$data);      

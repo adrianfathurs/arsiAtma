@@ -108,7 +108,7 @@
               <img class="card-img-top" src="<?php echo base_url('assets/img/informasiUmum/').$umum->foto1_umum?>" alt="Card image cap">
             </a>
             <div class="card-body"  style=" max-height: 80%;">
-               <h5 class="card-title border-bottom pb-3"><?php $umum->judul_umum?> <a href="#" class="float-right d-inline-flex share"><i class="fas fa-share-alt text-primary"></i></a></h5>
+               <h5 class="card-title border-bottom pb-3"><?php $umum->judul_umum?> <a href="#" class="float-right d-inline-flex share"></a></h5>
                <p class="card-text"><?php echo  substr($umum->deskripsi_umum,0,120)."...";?></p>
                
                <!--  -->
@@ -151,7 +151,7 @@
                <a href="<?php echo base_url('umum/informasi_detailUmum/').$umum->id_informasi_umum?>" class="float-right">Read more <i class="fas fa-angle-double-right"></i></a>
             </div>
           <?php if($type_akun=="1"){?>
-            <div class="kotakBisque">
+            <div class="kotakBisque pb-3">
               <center><a href="<?php echo base_url('umum/updateUmum/').$umum->id_informasi_umum?>"><button class="mt-3 btn  btn-outline-primary">EDIT <?php echo $umum->id_informasi_umum?></button></a>
                       <a href="<?php echo base_url('umum/delete/').$umum->id_informasi_umum?>"><button class="mt-3 btn  btn-outline-danger">Delete <?php echo $umum->id_informasi_umum?></button></a>
               </center>
