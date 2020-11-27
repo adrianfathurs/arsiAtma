@@ -12,10 +12,27 @@
 		width: 350px;
 		margin-top: auto;
 		margin-bottom: auto;
-		background: #f39c12;
+		background: #ffe4c4;
 		position: relative;
 		display: flex;
 		justify-content: center;
+		flex-direction: column;
+		padding: 10px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		border-radius: 10px;
+
+	}
+	.user_cards {
+		height: 400px;
+		width: 350px;
+		margin-top: auto;
+		margin-bottom: auto;
+		background: #ffe4c4;
+		position: relative;
+		display: flex;
+		justify-content: flex-start;
 		flex-direction: column;
 		padding: 10px;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -49,7 +66,7 @@
 
 	.login_btn {
 		width: 100%;
-		background: #c0392b !important;
+		background: #deb887 !important;
 		color: white !important;
 	}
 
@@ -87,7 +104,7 @@
 		flex-direction: column;
 		width: 100%;
 		pointer-events: auto;
-		background-color: #fff0;
+		background-color: transparent;
 		background-clip: padding-box;
 		border: 1px solid rgb(0 0 0 / 0%);
 		border-radius: .3rem;
@@ -102,12 +119,13 @@
 		-ms-flex-pack: justify;
 		justify-content: space-between;
 		padding: 1rem;
-		border-bottom: 1px solid #e9ecef00;
+		border-bottom: 1px solid transparent;
 		border-top-left-radius: .3rem;
 		border-top-right-radius: .3rem;
 	}
 
 	.modal-body {
+
 		position: relative;
 		-ms-flex: 1 1 auto;
 		flex: 1 1 auto;

@@ -11,6 +11,7 @@ class Informasi extends CI_Controller
         $this->load->model('Minformasi_umum');
         $this->load->model('Mportofolio');
         $this->load->model("Makun");
+        $this->load->model('Minstagram');
     }
 
     public function index(){
@@ -73,6 +74,7 @@ class Informasi extends CI_Controller
         $data['css']="informasi/vinformasi_css.php";
         $data['js'] = 'informasi/vinformasi_js.php'; 
         $data['content']="informasi/vinformasi.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="informasi/vasidebar_informasi.php";
         
         $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
@@ -132,6 +134,7 @@ class Informasi extends CI_Controller
         $data['css']="informasi/vinformasiuniv_css.php";
         $data['js'] = 'informasi/vinformasiuniv_js.php'; 
         $data['content']="informasi/vinformasiuniv.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="informasi/vasidebar_informasiuniv.php";
         $data['asidebarContentHima']=$this->Minformasi_hima->getTwoInformasi();
         $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
@@ -190,6 +193,7 @@ class Informasi extends CI_Controller
         $data['css']="informasi/vinformasifakultas_css.php";
         $data['js'] = 'informasi/vinformasifakultas_js.php'; 
         $data['content']="informasi/vinformasifakultas.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="informasi/vasidebar_informasi.php";
         $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
         $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
@@ -248,6 +252,7 @@ class Informasi extends CI_Controller
         $data['css']="informasi/vinformasipamiy_css.php";
         $data['js'] = 'informasi/vinformasipamiy_js.php'; 
         $data['content']="informasi/vinformasipamiy.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="informasi/vasidebar_informasi.php";
         $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
         $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
@@ -272,6 +277,7 @@ class Informasi extends CI_Controller
         $data['js'] = 'informasi/vinformasi_js.php'; 
         $data['header']="template/template_header.php";            
         $data['content']="informasi/vDetailInformasi.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="informasi/vasidebar_informasi.php";
         $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
         $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
@@ -393,36 +399,7 @@ class Informasi extends CI_Controller
                     </div>");
         $this->session->set_flashdata($alert);
         redirect('Home');
-    }
-    //
-    //FUNGSI DIBAWAH INI JGN DIHAPUS
-    //
-    /* function informasi_univ_home($id){       
-        $data['page']="informasiUnivPage";              
-        
-        $data['cek_fav'] = $this->Minformasi_universitas->cekfavuniv($id,$this->session->userdata('id'));
-        $cek_status=$this->Minformasi_universitas->cekfavuniv($id,$this->session->userdata('id'));
-        var_dump($id);
-        if(empty($cek_status))
-        {
-            $this->saveinformasiuniv($id);
-            
-        }
-        else{
-            $this->hapusfavuniv($id);
-        }
-        $data['informasi'] = $this->Minformasi_hima->getArtikel($id);          
-        $data['type_akun'] = $this->session->userdata('type_akun');            
-        $data['id'] = $this->session->userdata('id'); 
-        $data['username'] = $this->session->userdata('username'); 
-        $data['css']="informasi/vinformasi_css.php";
-        $data['js'] = 'informasi/vinformasi_js.php'; 
-        $data['header']="template/template_header.php";            
-        $data['content']="informasi/vDetailInformasi.php";
-        $data['asidebar']="informasi/vasidebar_informasi.php";
-        $data['footer']="template/template_footer.php";                
-        $this->load->view('template/vtemplate',$data);
-    } */
+    }   
 
     function informasi_fakultas_home($id_info){       
         $data['page']="informasiFakultasPage";              
@@ -494,6 +471,7 @@ class Informasi extends CI_Controller
         $data['js'] = 'informasi/vinformasiuniv_js.php'; 
         $data['header']="template/template_header.php";            
         $data['content']="informasi/vDetailInformasiuniv.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="informasi/vasidebar_informasiuniv.php";
         $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
         $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
@@ -520,6 +498,7 @@ class Informasi extends CI_Controller
         $data['js'] = 'informasi/vinformasifakultas_js.php'; 
         $data['header']="template/template_header.php";            
         $data['content']="informasi/vDetailInformasifakultas.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="informasi/vasidebar_informasifakultas.php";
         $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
         $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
@@ -548,6 +527,7 @@ class Informasi extends CI_Controller
         $data['js'] = 'informasi/vinformasipamiy_js.php'; 
         $data['header']="template/template_header.php";            
         $data['content']="informasi/vDetailInformasipamiy.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="informasi/vasidebar_informasipamiy.php";
          $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
         $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
@@ -640,6 +620,7 @@ class Informasi extends CI_Controller
                     $data['username'] = $this->session->userdata('username'); 
                     $data['header']="template/template_header.php";            
                     $data['content'] = 'informasi/vform.php';    
+                    $data['instagram'] = $this->Minstagram->get();
                     $data['asidebar']="portofolio/vasidebar_portofolio.php";
                     $data['footer']="template/template_footer.php";          
                     $this->load->view('template/vtemplate', $data);
@@ -725,7 +706,8 @@ class Informasi extends CI_Controller
                     $data['id'] = $this->session->userdata('id'); 
                     $data['username'] = $this->session->userdata('username'); 
                     $data['header']="template/template_header.php";            
-                    $data['content'] = 'informasi/vformuniv.php';    
+                    $data['content'] = 'informasi/vformuniv.php'; 
+                    $data['instagram'] = $this->Minstagram->get();   
                     $data['asidebar']="portofolio/vasidebar_portofolio.php";
                     $data['footer']="template/template_footer.php";          
                     $this->load->view('template/vtemplate', $data);
@@ -810,7 +792,8 @@ class Informasi extends CI_Controller
                     $data['id'] = $this->session->userdata('id'); 
                     $data['username'] = $this->session->userdata('username'); 
                     $data['header']="template/template_header.php";            
-                    $data['content'] = 'informasi/vformfakultas.php';    
+                    $data['content'] = 'informasi/vformfakultas.php';  
+                    $data['instagram'] = $this->Minstagram->get();  
                     $data['asidebar']="portofolio/vasidebar_portofolio.php";
                     $data['footer']="template/template_footer.php";          
                     $this->load->view('template/vtemplate', $data);
@@ -898,6 +881,7 @@ class Informasi extends CI_Controller
                     $data['username'] = $this->session->userdata('username'); 
                     $data['header']="template/template_header.php";            
                     $data['content'] = 'informasi/vformpamiy.php';    
+                    $data['instagram'] = $this->Minstagram->get();
                     $data['asidebar']="portofolio/vasidebar_portofolio.php";
                     $data['footer']="template/template_footer.php";          
                     $this->load->view('template/vtemplate', $data);
@@ -1189,6 +1173,7 @@ class Informasi extends CI_Controller
         $data['username'] = $this->session->userdata('username'); 
         $data['header']="template/template_header.php";            
         $data['content'] = 'informasi/vform.php';    
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="portofolio/vasidebar_portofolio.php";
         $data['footer']="template/template_footer.php";          
         $this->load->view('template/vtemplate', $data);
@@ -1208,6 +1193,7 @@ class Informasi extends CI_Controller
         $data['username'] = $this->session->userdata('username'); 
         $data['header']="template/template_header.php";            
         $data['content'] = 'informasi/vformuniv.php';    
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="portofolio/vasidebar_portofolio.php";
         $data['footer']="template/template_footer.php";          
         $this->load->view('template/vtemplate', $data);
@@ -1225,7 +1211,8 @@ class Informasi extends CI_Controller
         $data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
         $data['header']="template/template_header.php";            
-        $data['content'] = 'informasi/vformfakultas.php';    
+        $data['content'] = 'informasi/vformfakultas.php';  
+        $data['instagram'] = $this->Minstagram->get();  
         $data['asidebar']="portofolio/vasidebar_portofolio.php";
         $data['footer']="template/template_footer.php";          
         $this->load->view('template/vtemplate', $data);
@@ -1244,6 +1231,7 @@ class Informasi extends CI_Controller
         $data['username'] = $this->session->userdata('username'); 
         $data['header']="template/template_header.php";            
         $data['content'] = 'informasi/vformpamiy.php';    
+        $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="portofolio/vasidebar_portofolio.php";
         $data['footer']="template/template_footer.php";          
         $this->load->view('template/vtemplate', $data);
@@ -1592,44 +1580,6 @@ class Informasi extends CI_Controller
 	}
 
 
-    /* function likeButton(){
-       $id_informasi=$this->input->post('id_informasi');
-       $id_jenis_informasi=$this->input->post('id_jenis_informasi');
-       $id_button=$this->input->post('id_button');
-       if($id_jenis_informasi==1){
-        //informasi_hima
-        if($id_button==1){
-            //insert
-              $data=[
-                'fk_akun'=>$this->session->userdata('id'),
-                'fk_informasi_hima'=> $id_informasi,
-                'statusfavoritehima'=> $id_button
-
-            ];
-            $insert=$this->Minformasi_hima->saveFav($data);
-            if($insert){
-                return echo "";
-            }
-            else{
-                return echo "Belum tersimpan";
-            }
-        }
-        else{
-            //update
-            
-          
-           
-        }
-       }
-       elseif($id_informasi==2){
-        //informas_univ
-       }
-       elseif($id_informasi==3){
-        //informasi_fakultas
-       }
-
-    } */
-
     function manajemen_informasi(){
         $id= $this->session->userdata('id'); 
          $data['manajemenInformasiHima'] = $this->Minformasi_hima->joinInformasiFavoriteHima($id);
@@ -1642,6 +1592,7 @@ class Informasi extends CI_Controller
         $data['type_akun'] = $this->session->userdata('type_akun');            
         $data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
+        $data['instagram'] = $this->Minstagram->get();
         $data['css']="informasi/vmanajemenInformasi_css.php";
         $data['header']="template/template_header.php";            
         $data['content']="informasi/vmanajemenInformasi.php";

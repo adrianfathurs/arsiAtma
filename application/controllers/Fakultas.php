@@ -10,7 +10,7 @@ class Fakultas extends CI_Controller
         $this->load->model('Minformasi_universitas');
         $this->load->model('Minformasi_fakultas');
         $this->load->model('Minformasi_pamiy');
-
+        $this->load->model('Minstagram');
     }
 
     public function index(){
@@ -18,13 +18,13 @@ class Fakultas extends CI_Controller
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
         $data['informasiFakultas']=$this->Minformasi_fakultas->getThreeInformasi();
-        // $data['css']="viewArticle/VviewArticle_css.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['page']="tentangFakultasPage";
         $data['header']="template/template_header.php";
         $data['css']="fakultas/vfakultas_css.php";
         $data['content']="home/vhomePage.php";
         $data['asidebar']="viewArticle/VviewAsidebar.php";
-         $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
+        $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
         $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
         $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
         $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
@@ -40,7 +40,7 @@ class Fakultas extends CI_Controller
 		$data['id'] = $this->session->userdata('id'); 
         $data['username'] = $this->session->userdata('username'); 
         
-        // $data['css']="viewArticle/VviewArticle_css.php";
+        $data['instagram'] = $this->Minstagram->get();
         $data['header']="template/template_header.php";
         $data['css']="fakultas/vfakultas_css.php";
         $data['asidebar']="viewArticle/VviewAsidebar.php";
