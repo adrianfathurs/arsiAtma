@@ -24,6 +24,7 @@ class Manajemen_akun extends CI_Controller
 		}
     }
 
+    
     function index()
     {
         $data['instagram'] = $this->Minstagram->get();
