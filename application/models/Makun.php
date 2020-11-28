@@ -25,8 +25,19 @@ class Makun extends CI_Model{
                 $this->session->set_userdata('typeNotif', 'userNotFound');
                 return false;
             } else if($user->status == 0){
-                $this->session->set_userdata('typeNotif', 'userNotFound');
-                return false;
+                $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='500' data-autohide='false'>
+            <div class='toast-header'>
+                <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+    
+                <strong class='mr-auto'>Notifikasi </strong>                                
+                <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+            <div class='toast-body'>
+                Gagal Login, akun anda sudah terdeactive, hubungi admin!                         
+            </div>");
+            return $this->session->set_flashdata($alert); 
             } else {  // pengecekan login
                 if ($user->password == $password) {
                     $data = array (
@@ -96,6 +107,11 @@ class Makun extends CI_Model{
         $this->db->where('id_akun',$id_akun);
         $this->db->update('akun',$data);
         return true;
+    }
+
+    function getRoles(){
+        $query=$this->db->get('role');
+        return $query->result();
     }
 
 }

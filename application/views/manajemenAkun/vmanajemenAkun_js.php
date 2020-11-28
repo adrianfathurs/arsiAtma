@@ -22,7 +22,7 @@
             var type_akun= $(this).data('type_akun');
             var status= $(this).data('status');
             var instansi= $(this).data('instansi');
-            // console.log(type_akun);
+            console.log(status);
             $('.modal-footer #id_akun ').val(id_akun);
             $('.form-group #email').val(email);
             $('.form-group #username').val(username);
@@ -32,7 +32,7 @@
             // $(' .row .col .form-group #tipeAkun').val(type_akun);
             // $('[name="tipeAkun"]').val(type_akun);
             $('#tipeAkun').val(type_akun).select2();
-            $(' .row .col .form-group #statusAKun').val(status);
+            $('#statusAkun').val(status).select2();
             
 
             // Initialize Select2

@@ -6,11 +6,28 @@ class Manajemen_akun extends CI_Controller
         parent :: __construct();
         $this->load->model("Makun");
         $this->load->model('Minstagram');
+        if ($this->session->userdata('is_login') != TRUE) { // ketika belum login
+			$alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+            <div class='toast-header'>
+                <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+    
+                <strong class='mr-auto'>Notifikasi </strong>                                
+                <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+            <div class='toast-body'>
+                hanya bisa diakses oleh admin :)                        
+            </div>");
+            $this->session->set_flashdata($alert); 
+			redirect('home'); //redirect kehalaman login
+		}
     }
 
     function index()
     {
         $data['instagram'] = $this->Minstagram->get();
+        $data['roles'] = $this->Makun->getRoles();
         $data['loadAkun']=$this->Makun->getAll();
         $data['page']="Login";
         $data['type_akun'] = $this->session->userdata('type_akun');            

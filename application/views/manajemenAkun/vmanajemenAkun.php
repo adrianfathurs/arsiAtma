@@ -106,9 +106,9 @@
             </div>
             <div class="col">
                 <div class="form-group">
-                    <label for="statusAkun">Status Akun</label>
+                    <label for="statusAkuns">Status Akun</label>
                     <select class="form-control" id="statusAkun" name="statusAkun" required="true">
-                        <option  disabled selected> --- Pilih Sataus Akun ---</option>
+                        <option  disabled selected> --- Pilih Satatus Akun ---</option>
                         <option value="1">Active</option>
                         <option value="0">Deactive</option>
                     </select>
