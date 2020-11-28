@@ -24,6 +24,7 @@
         });
         });
 
+
 function previewImage() {
     document.getElementById("image-preview").style.display = "block";
     var oFReader = new FileReader();
