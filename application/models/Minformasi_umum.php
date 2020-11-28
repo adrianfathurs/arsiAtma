@@ -14,7 +14,7 @@ class Minformasi_umum extends CI_Model{
             ->limit($limit, $offset)
             ->order_by('id_informasi_umum', 'DESC')
             ->where('status ', 1)
-            ->get('Informasi_umum');
+            ->get('informasi_umum');
 
         // Return hasil query
         return $query;

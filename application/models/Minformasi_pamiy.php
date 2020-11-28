@@ -5,13 +5,13 @@ class Minformasi_pamiy extends CI_Model{
     function getAll(){
         $this->db->order_by('id_informasi_pamiy', 'DESC');
         $this->db->where('status ', 1);
-        $user = $this->db->get('Informasi_pamiy');
+        $user = $this->db->get('informasi_pamiy');
 		return $user->result();
     }
 
     function getArtikel($id){
         $this->db->where('id_informasi_pamiy', $id);
-        $query = $this->db->get('Informasi_pamiy');            
+        $query = $this->db->get('informasi_pamiy');            
         return $query->row();
     }
 

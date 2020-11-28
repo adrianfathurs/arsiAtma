@@ -5,7 +5,7 @@ class Minformasi_fakultas extends CI_Model{
     function getAll(){
         $this->db->order_by('id_informasi_fakultas', 'DESC');
         $this->db->where('status ', 1);
-        $user = $this->db->get('Informasi_fakultas');
+        $user = $this->db->get('informasi_fakultas');
 		return $user->result();
     }
 
