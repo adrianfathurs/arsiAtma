@@ -27,7 +27,6 @@ class Manajemen_akun extends CI_Controller
     function index()
     {
         $data['instagram'] = $this->Minstagram->get();
-        $data['roles'] = $this->Makun->getRoles();
         $data['loadAkun']=$this->Makun->getAll();
         $data['page']="Login";
         $data['type_akun'] = $this->session->userdata('type_akun');            

@@ -109,9 +109,4 @@ class Makun extends CI_Model{
         return true;
     }
 
-    function getRoles(){
-        $query=$this->db->get('role');
-        return $query->result();
-    }
-
 }
