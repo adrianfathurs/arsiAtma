@@ -1,5 +1,9 @@
 <script type="text/javascript" src="<?php echo base_url() ?>assets/ckeditor/ckeditor.js"></script>
 <script src="<?php echo base_url() ?>assets/js/sweetalert2.all.min.js" ></script>
+<script src="<?php echo base_url('assets/')?>js/bootstrap.js"></script>
+<script>
+		$('.toast').toast('show');
+</script>
 <script>
     $('.remove').on('click', function(e){
         e.preventDefault();
