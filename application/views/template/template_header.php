@@ -14,24 +14,31 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>vendors/nice-select/css/nice-select.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
 
+
     <!-- main css -->
      <script src="https://use.fontawesome.com/d1fb53bc02.js"></script>
      <link rel="stylesheet" href="<?php echo base_url('assets/css/sbootstrap.css')?>">
+
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/style.css" />
+    <!-- main css -->
+    <script src="https://use.fontawesome.com/d1fb53bc02.js"></script>
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/login.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 </head>
+
 
 <body>
 
     <!--================ Start Header Menu Area =================-->
   <header class="header_area">
     <div class="main_menu">                   
+
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <a class="navbar-brand logo_h" href="<?php echo base_url('home')?>">
               <div class="mt-1">
+
                 <center><h4>HIMA<p>Tri<span>&ccedil;</span>aka</p></h4></center>                
               </div>
             </a>
@@ -222,16 +229,19 @@
                             </ul>
                           <?php } ?>            
                   </li>                
+
               </ul>              
             </div>
           </div>
         </nav>
+
     </div>    
         <div>
               <?php if(!empty($this->session->flashdata('notif'))) { 
               echo $this->session->flashdata('notif'); } ?>
         </div>
   </header>
+
 
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
