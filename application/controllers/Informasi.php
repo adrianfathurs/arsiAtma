@@ -136,7 +136,7 @@ class Informasi extends CI_Controller
         $data['content']="informasi/vinformasiuniv.php";
         $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="informasi/vasidebar_informasiuniv.php";
-        $data['asidebarContentHima']=$this->Minformasi_hima->getTwoInformasi();
+        $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
         $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
         $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
         $data['footer']="template/template_footer.php";

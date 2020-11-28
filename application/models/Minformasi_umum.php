@@ -5,7 +5,7 @@ class Minformasi_umum extends CI_Model{
     function getAlls(){
         $this->db->order_by('id_informasi_umum', 'DESC');
         $this->db->where('status ', 1);
-        $user = $this->db->get('Informasi_umum');
+        $user = $this->db->get('informasi_umum');
 		return $user->result_array();
     }
     public function getAll($limit, $offset){
@@ -21,7 +21,7 @@ class Minformasi_umum extends CI_Model{
 }
     function getArtikel($id){
         $this->db->where('id_informasi_umum', $id);
-        $query = $this->db->get('Informasi_umum');            
+        $query = $this->db->get('informasi_umum');            
         return $query->row();
     }
 
