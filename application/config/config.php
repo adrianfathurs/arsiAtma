@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://www.dummyarsiatma.epizy.com/';
-$config['base_url'] = 'http://localhost/arsiAtma/';
+/* $config['base_url'] = 'http://localhost/arsiAtma/'; */
 
 
 /*

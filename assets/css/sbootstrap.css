@@ -6241,6 +6241,12 @@ a.close.disabled {
   width: 100%;
   overflow: hidden;
 }
+ @media(max-width:992px){
+
+.carousel-inner {
+  margin-top:5vh;
+  }
+ }
 
 .carousel-inner::after {
   display: block;
