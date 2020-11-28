@@ -97,9 +97,8 @@
         <div class="row">
             <div class="col">
                 <div  class="form-group">
-                    <label for="tipeAkun">Tipe Akun</label>
-                    <select class="form-control" id="tipeAkun" name="tipeAkun" required="true">
-                        <option  disabled selected> --- Pilih Tipe Akun ---</option>
+                    <label for="tipeAkuns">Tipe Akun</label>
+                    <select class="form-control select2" id="tipeAkun" name="tipeAkun" required="true">
                         <option value="1">Admin</option>
                         <option value="0">Member</option>
                     </select>

@@ -1,3 +1,5 @@
+
+</body>
 <footer class="footer-area section_gap">
       <div class="container">
         <div class="row">
@@ -25,11 +27,15 @@
     </footer>
     <!--================ End footer Area  =================-->
 
+    
+
+    <!--gmaps Js-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+    <script src="<?php echo base_url('assets/')?>js/gmaps.min.js"></script>
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="<?php echo base_url('assets/')?>js/jquery.js"></script>
-<script src="<?php echo base_url('assets/')?>js/popper.js"></script>
-<script src="<?php echo base_url('assets/')?>js/bootstrap.js"></script>
     <script src="<?php echo base_url('assets/')?>js/jquery-3.2.1.min.js"></script>
     <script src="<?php echo base_url('assets/')?>js/popper.js"></script>
     <script src="<?php echo base_url('assets/')?>js/bootstrap.min.js"></script>
@@ -37,11 +43,7 @@
     <script src="<?php echo base_url('assets/')?>vendors/owl-carousel/owl.carousel.min.js"></script>
     <script src="<?php echo base_url('assets/')?>js/owl-carousel-thumb.min.js"></script>
     <script src="<?php echo base_url('assets/')?>js/jquery.ajaxchimp.min.js"></script>
-    <script src="<?php echo base_url('assets/')?>js/mail-script.js"></script>
-    <script src="<?php echo base_url('assets/')?>js/header.js"></script>
-    <!--gmaps Js-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-    <script src="<?php echo base_url('assets/')?>js/gmaps.min.js"></script>
+    <script src="<?php echo base_url('assets/')?>js/mail-script.js"></script>    
     <script src="<?php echo base_url('assets/')?>js/theme.js"></script>
     <!-- Syntac Load  Footer -->
     <?php
