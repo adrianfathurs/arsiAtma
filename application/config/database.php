@@ -75,6 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
+	/* 'hostname' => 'sql304.epizy.com',
+	'username' => 'epiz_27325573',
+	'password' => 'UPzhpOw1xUt',
+	'database' => 'epiz_27325573_dummyArsi', */
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',

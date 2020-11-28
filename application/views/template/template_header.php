@@ -13,10 +13,11 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>vendors/owl-carousel/owl.carousel.min.css" />
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>vendors/nice-select/css/nice-select.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-
-    <!-- main css -->
-     <script src="https://use.fontawesome.com/d1fb53bc02.js"></script>
+    
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/sbootstrap.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/style.css" />
+    <!-- main css -->
+    <script src="https://use.fontawesome.com/d1fb53bc02.js"></script>
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/login.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 </head>
@@ -24,28 +25,18 @@
 <body >
     <!--================ Start Header Menu Area =================-->
     <header class="header_area">
-    <div class="main_menu">
+    <div class="main_menu"> 
         
-        <div class="container">
-            <form class="d-flex justify-content-between" method="" action="">
-            <!-- <input type="text" class="form-control"id="search_input" placeholder="Search Here"/> -->
-            <button type="submit" class="btn"></button>
-            
-            </form>
-          </div>
-        
-
+  
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <a class="navbar-brand logo_h" href="<?php echo base_url('home')?>">
               <div class="mt-1">
-                <center><h4>HIMA<p>Tri<span>&ccedil;</span>aka</p></h4></center>
-                
+                <center><h4>HIMA<p>Tri<span>&ccedil;</span>aka</p></h4></center>              
               </div>
             </a>
             <button 
-              id="btnSmartphone"
               class="navbar-toggler"
               type="button"
               data-toggle="collapse"
@@ -64,15 +55,17 @@
               id="navbarSupportedContent"
             >
      
-            
             <ul class="nav navbar-nav menu_nav ml-auto">
-        <?php if(isset($page) && $page=="homePage"){?>
-              <li class="nav-item active">
-            <?php } else {?>
-              <li class="nav-item ">
-            <?php } ?>    
+              <?php if(isset($page) && $page=="homePage"){?>
+                <li class="nav-item active">
+                  
                   <a class="nav-link" href="<?php echo site_url('Home')?>">HOME</a>
                 </li>
+                <?php } else {?>
+                  <li class="nav-item ">
+                    <a class="nav-link" href="<?php echo site_url('Home')?>">HOME</a>
+                  </li>
+              <?php } ?>    
                 <?php if(isset($page) ){ 
                   if($page=="organisasiHimaPage" || $page=="tentangHimaPage" || $page=="informasiHimasPage"){?>
                     <li class="nav-item active submenu dropdown">
@@ -82,7 +75,7 @@
                     <?php } ?>
                 
                   <a
-                    href="#"
+                    href="<?php echo site_url('hima/loadTentangHima')?>"
                     class="nav-link dropdown-toggle"
                     data-toggle="dropdown"
                     role="button"
@@ -260,7 +253,7 @@
           <?php if(!empty($this->session->flashdata('notif'))) { 
           echo $this->session->flashdata('notif'); } ?>
       </div>
-    </header>
+</header>
 
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

@@ -5,12 +5,12 @@ class Minformasi_hima extends CI_Model{
     function getAll(){
         $this->db->order_by('id_informasi_hima', 'DESC');
         $this->db->where('status ', 1);
-        $user = $this->db->get('Informasi_hima');
+        $user = $this->db->get('informasi_hima');
 		return $user->result();
     }
     function getArtikel($id){
         $this->db->where('id_informasi_hima', $id);
-        $query = $this->db->get('Informasi_hima');            
+        $query = $this->db->get('informasi_hima');            
         return $query->row();
     }
 
