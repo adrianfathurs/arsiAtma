@@ -22,6 +22,7 @@ class Hima extends CI_Controller
         $data['instagram'] = $this->Minstagram->get();
         $data['header']="template/template_header.php";
         $data['css']="hima/vhima_css.php";
+        $data['js']="hima/vhima_js.php";
         $data['content']="home/vhome.php";
         $data['asidebar']="viewArticle/VviewAsidebar.php";
         $data['footer']="template/template_footer.php";
@@ -38,6 +39,7 @@ class Hima extends CI_Controller
         $data['instagram'] = $this->Minstagram->get();
         $data['header']="template/template_header.php";
         $data['css']="hima/vhima_css.php";
+        $data['js']="hima/vhima_js.php";
         $data['asidebar']="viewArticle/VviewAsidebar.php";
         $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
         $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
@@ -60,6 +62,7 @@ class Hima extends CI_Controller
         $data['instagram'] = $this->Minstagram->get();
         $data['header']="template/template_header.php";
         $data['css']="hima/vorganisasiHima_css.php";
+        $data['js']="hima/vhima_js.php";
         $data['content']="hima/vorganisasiHima.php";        
         $data['asidebar']="viewArticle/VviewAsidebar.php";
         $data['footer']="template/template_footer.php";

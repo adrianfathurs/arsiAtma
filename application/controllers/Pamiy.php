@@ -23,6 +23,7 @@ class Pamiy extends CI_Controller
         $data['page']="tentangPamiyPage";
         $data['header']="template/template_header.php";
         $data['css']="pamiy/vpamiy_css.php";
+        $data['js']="pamiy/vpamiy_js.php";
         $data['content']="home/vhomePage.php";
         $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="viewArticle/VviewAsidebar.php";
