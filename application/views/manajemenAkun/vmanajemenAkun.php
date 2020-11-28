@@ -97,9 +97,8 @@
         <div class="row">
             <div class="col">
                 <div  class="form-group">
-                    <label for="tipeAkun">Tipe Akun</label>
-                    <select class="form-control" id="tipeAkun" name="tipeAkun" required="true">
-                        <option  disabled selected> --- Pilih Tipe Akun ---</option>
+                    <label for="tipeAkuns">Tipe Akun</label>
+                    <select class="form-control select2" id="tipeAkun" name="tipeAkun" required="true">
                         <option value="1">Admin</option>
                         <option value="0">Member</option>
                     </select>
@@ -107,9 +106,9 @@
             </div>
             <div class="col">
                 <div class="form-group">
-                    <label for="statusAkun">Status Akun</label>
+                    <label for="statusAkuns">Status Akun</label>
                     <select class="form-control" id="statusAkun" name="statusAkun" required="true">
-                        <option  disabled selected> --- Pilih Sataus Akun ---</option>
+                        <option  disabled selected> --- Pilih Satatus Akun ---</option>
                         <option value="1">Active</option>
                         <option value="0">Deactive</option>
                     </select>
