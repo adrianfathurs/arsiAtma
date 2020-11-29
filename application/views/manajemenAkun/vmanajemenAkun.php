@@ -68,7 +68,7 @@
     <div class="modal-content bg-light">
         
         <div class="modal-body">
-        <form method="post" action="<?php echo base_url('manajemen_Akun/updateAkun');?>">
+        <form method="post" action="<?php echo base_url('Manajemenakun/updateAkun');?>">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Email:</label>
             <input type="email" class="form-control" id="email" name="email">
@@ -108,7 +108,7 @@
                 <div class="form-group">
                     <label for="statusAkuns">Status Akun</label>
                     <select class="form-control" id="statusAkun" name="statusAkun" required="true">
-                        <option  disabled selected> --- Pilih Satatus Akun ---</option>
+                        <option  disabled selected> --- Pilih Status Akun ---</option>
                         <option value="1">Active</option>
                         <option value="0">Deactive</option>
                     </select>

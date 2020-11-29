@@ -253,7 +253,7 @@ class Informasi extends CI_Controller
         $data['js'] = 'informasi/vinformasipamiy_js.php'; 
         $data['content']="informasi/vinformasipamiy.php";
         $data['instagram'] = $this->Minstagram->get();
-        $data['asidebar']="informasi/vasidebar_informasi.php";
+        $data['asidebar']="informasi/vasidebar_informasipamiy.php";
         $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
         $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
         $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();

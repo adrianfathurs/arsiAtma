@@ -16,11 +16,13 @@ class Minformasi_pamiy extends CI_Model{
     }
 
     function getThreeInformasi(){  
+        $this->db->order_by('id_informasi_pamiy', 'DESC');
         $this->db->where('status',1);  
         $query=$this->db->get('informasi_pamiy',3);
         return $query->result_array();
     }
     function getTwoInformasi(){  
+        $this->db->order_by('id_informasi_pamiy', 'DESC');
         $this->db->where('status',1);  
         $query=$this->db->get('informasi_pamiy',2);
         return $query->result_array();

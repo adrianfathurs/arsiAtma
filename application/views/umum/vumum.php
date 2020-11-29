@@ -103,7 +103,7 @@
         <div class="row ">
         <?php foreach($informasiUmum as $umum) : $hello=0?>
         <div class="col-md-4 mb-4">
-         <div class="card">
+         <div class="card umumcard">
             <a href="<?php echo base_url('umum/informasi_detailUmum/').$umum->id_informasi_umum?>">
               <img class="card-img-top" src="<?php echo base_url('assets/img/informasiUmum/').$umum->foto1_umum?>" alt="Card image cap">
             </a>

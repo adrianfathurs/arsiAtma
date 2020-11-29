@@ -29,10 +29,11 @@
             $('.form-group #namaLengkap').val(nama_lengkap);
             $('.form-group #noTelp').val(no_telp);
             $('.form-group #instansi').val(instansi);
-            // $(' .row .col .form-group #tipeAkun').val(type_akun);
+            $(' .row .col .form-group #tipeAkun').val(type_akun);
+            $(' .row .col .form-group #statusAkun').val(statusAkun);
             // $('[name="tipeAkun"]').val(type_akun);
-            $('#tipeAkun').val(type_akun).select2();
-            $('#statusAkun').val(status).select2();
+            /* $('#tipeAkun').val(type_akun).select2();
+            $('#statusAkun').val(status).select2(); */
             
 
             // Initialize Select2
