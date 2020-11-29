@@ -11,7 +11,7 @@ class Minformasi_fakultas extends CI_Model{
 
     function getArtikel($id){
         $this->db->where('id_informasi_fakultas', $id);
-        $query = $this->db->get('Informasi_fakultas');            
+        $query = $this->db->get('informasi_fakultas');            
         return $query->row();
     }
 

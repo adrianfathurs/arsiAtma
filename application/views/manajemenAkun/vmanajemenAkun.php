@@ -99,6 +99,7 @@
                 <div  class="form-group">
                     <label for="tipeAkuns">Tipe Akun</label>
                     <select class="form-control select2" id="tipeAkun" name="tipeAkun" required="true">
+                        <option disabled selected>---pilih tipe akun ---</option>
                         <option value="1">Admin</option>
                         <option value="0">Member</option>
                     </select>

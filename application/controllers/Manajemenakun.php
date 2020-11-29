@@ -32,6 +32,7 @@ class Manajemenakun extends CI_Controller
         $data['page']="Login";
         
         $data['type_akun'] = $this->session->userdata('type_akun');            
+        var_dump($data['type_akun']);
 		$data['id'] = $this->session->userdata('id'); 
         $id = $this->session->userdata('id');
         $data['username'] = $this->session->userdata('username');         
@@ -67,7 +68,15 @@ class Manajemenakun extends CI_Controller
         if($updateManajemenAkun){
            $this->session->set_tempdata('item', "<div class='alert alert-success' role='alert'>
             <center>DATA ANDA BERHASIL TERUPDATE</center></div>", 10);
-            
+            $data['id'] = $this->session->userdata('id'); 
+            $id = $this->session->userdata('id');
+            if ($id==$id_akun){
+
+                $this->session->set_userdata('type_akun',$tipeAkun);
+            }
+            else{
+               $data['type_akun'] = $this->session->userdata('type_akun');   
+            }
             redirect('Manajemenakun');
         }
         else{
