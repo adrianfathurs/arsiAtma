@@ -1,11 +1,11 @@
-<section class="contact_area section_gap">
+<section class="contact_area section_gap views">
     <div class="main-title">
         <h2 class="text-center mb-4">MANAJEMEN AKUN</h2></div>
     <div class="container">
         <?php if(!empty($this->session->tempdata('item'))) { 
             echo $this->session->tempdata('item');
         }?>
-        <table id="table_id" class="table">
+        <table id="table_id" class="table table-responsive">
             <thead>
                 <tr>
                     <th class="text-center" scope="col" >No</th>
