@@ -4563,12 +4563,12 @@ input[type="button"].btn-block {
   border-radius: 0.25rem;
 }
 
-.card:hover{
+  .umumcard:hover{
   margin: 10px;
   transform: scale(1.1);
   background-color:#FFE4C4;
   box-shadow: 10px 10px 10px grey;
-}
+} 
 
 .card > hr {
   margin-right: 0;

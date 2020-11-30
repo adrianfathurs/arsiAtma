@@ -1,11 +1,11 @@
-<section class="contact_area section_gap">
+<section class="contact_area section_gap views">
     <div class="main-title">
         <h2 class="text-center mb-4">MANAJEMEN AKUN</h2></div>
     <div class="card container" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
         <?php if(!empty($this->session->tempdata('item'))) { 
             echo $this->session->tempdata('item');
         }?>
-        <table id="table_id" class="table" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
+        <table id="table_id" class="table table-responsive" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">        
             <thead>
                 <tr>
                     <th class="text-center" scope="col" >No</th>
@@ -68,7 +68,7 @@
     <div class="modal-content bg-light">
         
         <div class="modal-body">
-        <form method="post" action="<?php echo base_url('manajemen_Akun/updateAkun');?>">
+        <form method="post" action="<?php echo base_url('Manajemenakun/updateAkun');?>">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Email:</label>
             <input type="email" class="form-control" id="email" name="email">
@@ -99,6 +99,7 @@
                 <div  class="form-group">
                     <label for="tipeAkuns">Tipe Akun</label>
                     <select class="form-control select2" id="tipeAkun" name="tipeAkun" required="true">
+                        <option disabled selected>---pilih tipe akun ---</option>
                         <option value="1">Admin</option>
                         <option value="0">Member</option>
                     </select>
@@ -108,7 +109,7 @@
                 <div class="form-group">
                     <label for="statusAkuns">Status Akun</label>
                     <select class="form-control" id="statusAkun" name="statusAkun" required="true">
-                        <option  disabled selected> --- Pilih Satatus Akun ---</option>
+                        <option  disabled selected> --- Pilih Status Akun ---</option>
                         <option value="1">Active</option>
                         <option value="0">Deactive</option>
                     </select>

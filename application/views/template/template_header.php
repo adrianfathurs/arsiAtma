@@ -204,7 +204,7 @@
                             <?php if($type_akun=="1"){?>
                             <ul class="dropdown-menu">
                               <li class="nav-item">
-                                <a class="nav-link" href="<?php echo site_url('Manajemen_akun/')?>">Manajemen Akun</a>
+                                <a class="nav-link" href="<?php echo site_url('Manajemenakun/')?>">Manajemen Akun</a>
                               </li>                  
                               <li class="nav-item">
                                 <a class="nav-link" href="<?php echo site_url('Saran/manajemen_saran/')?>">Manajemen Saran</a>

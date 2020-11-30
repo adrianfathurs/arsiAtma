@@ -10,10 +10,7 @@
                 <h2 class="text-uppercase mt-4 mb-5">
                  HIMPUNAN MAHASISWA ARSITEKTUR 
                 </h2>
-                <div>
-                  <a href="#" class="primary-btn mb-3 mb-sm-0">About Us</a>
-                  
-                </div>
+                
               </div>
             </div>
           </div>

@@ -22,7 +22,7 @@
         <div class="row ">
         <?php foreach($informasiUmum as $umum) : $hello=0?>
         <div class="col-md-4 mb-4">
-         <div class="card" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
+         <div class="card umumcard" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
             <a href="<?php echo base_url('umum/informasi_detailUmum/').$umum->id_informasi_umum?>">
               <img class="card-img-top" src="<?php echo base_url('assets/img/informasiUmum/').$umum->foto1_umum?>" alt="Card image cap">
             </a>

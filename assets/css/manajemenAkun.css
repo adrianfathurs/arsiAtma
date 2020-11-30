@@ -1,4 +1,11 @@
 thead{
     background-color: #DEB887;
 }
+@media(max-width:992px)
+{
+
+    .views{
+        padding-top: 10vh;
+    }
+}
 

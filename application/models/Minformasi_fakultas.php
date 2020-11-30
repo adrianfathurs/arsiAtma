@@ -11,16 +11,18 @@ class Minformasi_fakultas extends CI_Model{
 
     function getArtikel($id){
         $this->db->where('id_informasi_fakultas', $id);
-        $query = $this->db->get('Informasi_fakultas');            
+        $query = $this->db->get('informasi_fakultas');            
         return $query->row();
     }
 
     function getThreeInformasi(){    
+        $this->db->order_by('id_informasi_fakultas', 'DESC');
         $this->db->where('status',1);    
         $query=$this->db->get('informasi_fakultas',3);
         return $query->result_array();
     }
-    function getTwoInformasi(){    
+    function getTwoInformasi(){ 
+        $this->db->order_by('id_informasi_fakultas', 'DESC');   
         $this->db->where('status',1);    
         $query=$this->db->get('informasi_fakultas',2);
         return $query->result_array();

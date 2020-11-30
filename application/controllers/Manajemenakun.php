@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit ('No direct script access allowed');
-class Manajemen_akun extends CI_Controller 
+class Manajemenakun extends CI_Controller 
 {
     public function __construct(){
         parent :: __construct();
@@ -30,7 +30,9 @@ class Manajemen_akun extends CI_Controller
         $data['instagram'] = $this->Minstagram->get();
         $data['loadAkun']=$this->Makun->getAll();
         $data['page']="Login";
+        
         $data['type_akun'] = $this->session->userdata('type_akun');            
+        
 		$data['id'] = $this->session->userdata('id'); 
         $id = $this->session->userdata('id');
         $data['username'] = $this->session->userdata('username');         
@@ -46,12 +48,14 @@ class Manajemen_akun extends CI_Controller
     function updateAkun(){
         $id_akun=$this->input->post('id_akun');
         $username=$this->input->post('username');
+        $email=$this->input->post('email');
         $nama_Lengkap=$this->input->post('namaLengkap');
         $noTelp=$this->input->post('noTelp');
         $instansi=$this->input->post('instansi');
         $statusAkun=$this->input->post('statusAkun');
         $tipeAkun=$this->input->post('tipeAkun');
         $data=[
+            'email'=>$email,
             'username'=>$username,
             'nama_lengkap'=>$nama_Lengkap,
             'no_telp'=>$noTelp,
@@ -64,13 +68,21 @@ class Manajemen_akun extends CI_Controller
         if($updateManajemenAkun){
            $this->session->set_tempdata('item', "<div class='alert alert-success' role='alert'>
             <center>DATA ANDA BERHASIL TERUPDATE</center></div>", 10);
+            $data['id'] = $this->session->userdata('id'); 
+            $id = $this->session->userdata('id');
+            if ($id==$id_akun){
 
-            redirect('Manajemen_akun');
+                $this->session->set_userdata('type_akun',$tipeAkun);
+            }
+            else{
+               $data['type_akun'] = $this->session->userdata('type_akun');   
+            }
+            redirect('Manajemenakun');
         }
         else{
            $this->session->set_tempdata('item', "<div class='alert alert-danger' role='alert'>
             <center>DATA ANDA TIDAK BERHASIL TERUPDATE</center></div>", 10);
-            redirect('Manajemen_akun');
+            redirect('Manajemenakun');
  
         }
         

@@ -9,6 +9,7 @@ class Reg extends CI_Controller
     }
 
     public function index(){
+        
         $data['css']="reg/vreg_css.php";
         $data['js']="reg/vreg_js.php";
         $data['data'] = "false";

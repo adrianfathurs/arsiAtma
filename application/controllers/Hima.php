@@ -125,7 +125,7 @@ class Hima extends CI_Controller
                 // redirect('article');
             } else {
                 
-                $tanda=$this->_hapusFileBiro($id_biro);
+                /* $tanda=$this->_hapusFileBiro($id_biro); */
                 
                             $foto11=$this->_upload($foto111,$foto1_name,$id_biro);
                             $foto22=$this->_upload($foto222,$foto2_name,$id_biro);
@@ -191,6 +191,7 @@ class Hima extends CI_Controller
                             return $data->foto1_biro;
                             // die;
                         }else {
+                            return "default.png";
                             $this->session->set_userdata('typeNotif', "gagalUpload2");
 
                         }
@@ -205,7 +206,7 @@ class Hima extends CI_Controller
                             return $data->foto2_biro;
                         }else {
                             $this->session->set_userdata('typeNotif', "gagalUpload2");
-                            return "";
+                            return "default.png";
                             
                         }
                     } else{
@@ -233,7 +234,7 @@ class Hima extends CI_Controller
                 $this->session->set_userdata('typeNotif', "gagalUpload");
                 // redirect('article');
             } else {
-                            $tanda=$this->_hapusFilePh($id_ph);
+                            /* $tanda=$this->_hapusFilePh($id_ph); */
                             $foto11=$this->_uploadph($foto111,$foto1_name,$id_ph);
                             
                             // print_r($foto111);die;
@@ -297,7 +298,7 @@ class Hima extends CI_Controller
                         }else {
                             
                             $this->session->set_userdata('typeNotif', "gagalUpload1");
-                            return "";
+                            return "default.png";
                         }
                     }
                     else{
