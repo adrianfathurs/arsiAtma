@@ -1,84 +1,3 @@
-<!--
-<section class="home_banner_area">
-      <div class="banner_inner">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="banner_content text-center">
-                <p class="text-uppercase">
-                  
-                </p>
-                <h2 class="text-uppercase mt-4 mb-5">
-                 HIMPUNAN MAHASISWA ARSITEKTUR 
-                </h2>
-                <div>
-                  <a href="#" class="primary-btn mb-3 mb-sm-0">About Us</a>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    -->
-    <!--================ End Home Banner Area =================-->
-
-    <!--================ Start Feature Area =================-->
-    <!-- <section class="feature_area section_gap_top">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-5">
-            <div class="main_title">
-              <h2 class="mb-3">Awesome Feature</h2>
-              <p>
-                Replenish man have thing gathering lights yielding shall you
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="single_feature">
-              <div class="icon"><span class="flaticon-student"></span></div>
-              <div class="desc">
-                <h4 class="mt-3 mb-2">Scholarship Facility</h4>
-                <p>
-                  One make creepeth, man bearing theira firmament won't great
-                  heaven
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="single_feature">
-              <div class="icon"><span class="flaticon-book"></span></div>
-              <div class="desc">
-                <h4 class="mt-3 mb-2">Sell Online Course</h4>
-                <p>
-                  One make creepeth, man bearing theira firmament won't great
-                  heaven
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="single_feature">
-              <div class="icon"><span class="flaticon-earth"></span></div>
-              <div class="desc">
-                <h4 class="mt-3 mb-2">Global Certification</h4>
-                <p>
-                  One make creepeth, man bearing theira firmament won't great
-                  heaven
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
     <!--================ End Feature Area =================-->
 
     <!--================ Start Popular Courses Area =================-->
@@ -103,7 +22,7 @@
         <div class="row ">
         <?php foreach($informasiUmum as $umum) : $hello=0?>
         <div class="col-md-4 mb-4">
-         <div class="card umumcard">
+         <div class="card umumcard" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
             <a href="<?php echo base_url('umum/informasi_detailUmum/').$umum->id_informasi_umum?>">
               <img class="card-img-top" src="<?php echo base_url('assets/img/informasiUmum/').$umum->foto1_umum?>" alt="Card image cap">
             </a>

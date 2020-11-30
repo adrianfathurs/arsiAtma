@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-8 posts-list">
                     <div class="single-post row">
-                        <div class="col-lg-12">
+                        <div class="card col-lg-12" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
                             <div class="feature-img">
                                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                 
@@ -68,9 +68,9 @@
                             </div>
                         </div>
                         <hr>  
+                        <div class="card" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
                           <div class="col-lg-9 col-md-9 blog_details">
-                            <h2><?php echo $informasi->judul_umum ?></h2>
-                            
+                            <h2><?php echo $informasi->judul_umum ?></h2>                            
                         </div>
                         <div class="col-lg-12">                        
                             <div class="row">                               
@@ -78,11 +78,11 @@
                                     <p >
                                     <?php                                     
                                        echo $informasi->deskripsi_umum;
-                                    ?>
-                                        
+                                    ?>                                        
                                     </p>
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>                    
                 </div>

@@ -39,7 +39,7 @@
         <div class="col-lg-12">
           <div class="owl-carousel active_course">    
             <?php foreach($informasiHima as $hima): $hello=0?>
-              <div class="single_course">
+              <div class="card single_course" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
                 
                 <div class="course_head">
                   <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$hima['foto1_hima']?>" alt="" />
@@ -108,12 +108,10 @@
         <div class="col-lg-12">
           <div class="owl-carousel active_course">    
             <?php foreach($informasiUniv as $univ): $hello=0?>
-              <div class="single_course">
-                
+              <div class="card single_course" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;"> 
                 <div class="course_head">
                   <img class="img-fluid" src="<?php echo base_url('assets/img/informasiUniv/').$univ['foto1_univ']?>" alt="" />
-                </div>
-                
+                </div>                
                 <div class="course_content">
                   <span class="tag mb-4 d-inline-block">News Univ</span>
                   <h4 class="mb-3">
@@ -178,7 +176,7 @@
           <div class="col-lg-12">
             <div class="owl-carousel active_course">    
           <?php foreach($informasiFakultas as $fakultas): $hello=0?>
-              <div class="single_course">
+              <div class="card single_course" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
                 <div class="course_head">
                   <img class="img-fluid" src="<?php echo base_url('assets/img/informasiFakultas/').$fakultas['foto1_fakultas']?>" alt="" />
                 </div>

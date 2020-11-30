@@ -11,7 +11,7 @@ if (isset($css)) {
 <div class="container">
             <div class="row">
                 <div class="col-lg-8 ">
-                        <div class="container" id="main-wrapper">
+                        <div class="card container" id="main-wrapper" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
                             <h2 class="text-black text-center">TENTANG FAKULTAS TEKNIK</h2>
                             <hr>     
 

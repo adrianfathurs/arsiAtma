@@ -17,7 +17,7 @@
 
     <!-- main css -->
      <script src="https://use.fontawesome.com/d1fb53bc02.js"></script>
-     <link rel="stylesheet" href="<?php echo base_url('assets/css/sbootstrap.css')?>">
+     <!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/sbootstrap.css')?>"> -->
 
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/style.css" />
     <!-- main css -->
@@ -309,8 +309,7 @@
                 
                   <div class="modal-header"></div>
                   <div class="modal-content">
-                  <div class="modal-body">
-                      
+                  <div class="modal-body">                      
 		<div class="">
 			<div class="user_cards">				
 				<div class="d-flex justify-content-center form_container">

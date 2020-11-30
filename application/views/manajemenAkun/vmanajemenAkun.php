@@ -1,11 +1,11 @@
 <section class="contact_area section_gap views">
     <div class="main-title">
         <h2 class="text-center mb-4">MANAJEMEN AKUN</h2></div>
-    <div class="container">
+    <div class="card container" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
         <?php if(!empty($this->session->tempdata('item'))) { 
             echo $this->session->tempdata('item');
         }?>
-        <table id="table_id" class="table table-responsive">
+        <table id="table_id" class="table table-responsive" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">        
             <thead>
                 <tr>
                     <th class="text-center" scope="col" >No</th>

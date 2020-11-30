@@ -17,7 +17,7 @@ if (isset($css)) {
                                 <img class="img-fluid" src="<?php echo base_url('assets/')?>img/logouajy.png" style=" max-width: 100%; max-height: 450px;"> </center>
                                 </div> <br>
                     </div>
-                        <div class="container" id="main-wrapper">
+                        <div class="card container" id="main-wrapper" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
                             <h2 class="text-black text-center">TENTANG UNIVERSITAS ATMA JAYA YOGYAKARTA</h2>
                             <hr>     
 

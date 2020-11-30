@@ -22,6 +22,7 @@ class Fakultas extends CI_Controller
         $data['page']="tentangFakultasPage";
         $data['header']="template/template_header.php";
         $data['css']="fakultas/vfakultas_css.php";
+        $data['js']="fakultas/vfakultas_js.php";
         $data['content']="home/vhomePage.php";
         $data['asidebar']="viewArticle/VviewAsidebar.php";
         $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
@@ -43,6 +44,7 @@ class Fakultas extends CI_Controller
         $data['instagram'] = $this->Minstagram->get();
         $data['header']="template/template_header.php";
         $data['css']="fakultas/vfakultas_css.php";
+        $data['js']="fakultas/vfakultas_js.php";
         $data['asidebar']="viewArticle/VviewAsidebar.php";
         $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
         $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();

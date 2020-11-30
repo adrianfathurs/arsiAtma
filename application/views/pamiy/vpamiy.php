@@ -11,13 +11,12 @@ if (isset($css)) {
 <div class="container">
             <div class="row">
                 <div class="col-lg-8 ">
-                    <div class="col-lg-12">
-                    
+                    <div class="card col-lg-12" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">                    
                                 <div class="feature-img" ><center>
                                 <img class="img-fluid" src="<?php echo base_url('assets/')?>img/logopamiy.png" style=" max-width: 100%; max-height: 450px;"> </center>
                                 </div> <br>
                     </div>
-                        <div class="container" id="main-wrapper">
+                        <div class="card container" id="main-wrapper" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
                             <h2 class="text-black text-center">TENTANG PAMIY</h2>
                             <hr>     
 

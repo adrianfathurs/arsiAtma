@@ -11,15 +11,13 @@ if (isset($css)) {
 <div class="container">
             <div class="row">
                 <div class="col-lg-8 ">
-                    <div class="col-lg-12">
-                    
+                    <div class="col-lg-12">                    
                                 <div class="feature-img" ><center>
                                 <img class="img-fluid" src="<?php echo base_url('assets/')?>img/tentanghima.jpg" style=" max-width: 100%; max-height: 450px;"> </center>
                                 </div> <br>
                     </div>
-                        <div class="container" id="main-wrapper">
-                            <h2 class="text-black text-center">TENTANG HIMPUNAN MAHASISWA ARSITEKTUR</h2>
-                            
+                        <div class="card container" id="main-wrapper" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
+                            <h2 class="text-black text-center">TENTANG HIMPUNAN MAHASISWA ARSITEKTUR</h2>                            
                             <hr>                            
                             <h3>Latar Belakang</h3>
                             <p class="text-black text-arvo text-justify">
