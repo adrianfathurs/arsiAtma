@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-9">
+                            <div class="card col-md-9" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
                                 <div class="blog_post">
                                     <center><img src="<?php echo base_url('assets/img/informasiFakultas/').$informasi->foto1_fakultas?>" style="width: 100%; max-height: 450px;" alt=""></center>
                                     <div class="blog_details">

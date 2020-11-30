@@ -309,8 +309,7 @@
                 
                   <div class="modal-header"></div>
                   <div class="modal-content">
-                  <div class="modal-body">
-                      
+                  <div class="modal-body">                      
 		<div class="">
 			<div class="user_cards">				
 				<div class="d-flex justify-content-center form_container">

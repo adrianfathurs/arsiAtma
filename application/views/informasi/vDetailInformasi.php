@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-8 posts-list">
                     <div class="single-post row">
-                        <div class="col-lg-12">
+                        <div class="card col-lg-12" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
                             <div class="feature-img">
                                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                 
@@ -68,44 +68,20 @@
                             </div>
                         </div>
                         <hr>  
-                        <!-- <div class="col-lg-3  col-md-3"> -->
-                            <!-- <div class="blog_info text-right"> -->
-                                <!-- <div class="post_tag">
-                                    <a href="#">Food,</a>
-                                    <a class="active" href="#">Technology,</a>
-                                    <a href="#">Politics,</a>
-                                    <a href="#">Lifestyle</a>
-                                </div> -->
-                                <!-- <ul class="blog_meta list">
-                                    <li title="Penulis"><a ><?php echo $informasi->nama_penulis ?><i class="ti-user" title="Penulis"></i></a></li>
-                                    <li title="Tanggal Ditulis"><a >12 Dec, 2017<i class="ti-calendar"></i></a></li>
-                                    <?php if(empty($cek_fav)){ ?>
-                                    <li title="Simpan Ke Akun Saya?" ><a <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" <?php }else {?> href="<?php echo base_url('Informasi/saveinformasi/').$informasi->id_informasi_hima?> <?php } ?> " >Simpan ke Akun<i id="icon" class="fas fa-download"></i></a></li>
-                                    <?php }else { ?>
-                                        <li title="Sudah Tersimpan di Akun, hapus?" ><a href="<?php echo base_url('Informasi/hapusfav/').$informasi->id_informasi_hima?>" >Hapus <i id="icon" class="fas fa-trash-alt"></i></a></li>
-                                    <?php }?>
-                                </ul> -->
-                                <!-- <ul class="social-links">
-                                    <li><a href="#"><i class="fas fa-download"></i></a></li>
-                                    <li><a href="#"><i class="ti-twitter"></i></a></li>
-                                    <li><a href="#"><i class="ti-github"></i></a></li>
-                                    <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                                </ul> -->
-                            <!-- </div> -->
-                        <!-- </div>  -->
+                        <div class="card" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">                        
                         <div class="col-lg-9 col-md-9 blog_details">
-                            <h2><?php echo $informasi->judul_hima ?></h2>
-                            
-                        </div>
-                        <div class="col-lg-12">                        
-                            <div class="row">                               
-                                <div class="col-lg-12 mt-25">
-                                    <p >
-                                    <?php                                     
-                                       echo $informasi->deskripsi_hima;
-                                    ?>
-                                        
-                                    </p>
+                            <h2><?php echo $informasi->judul_hima ?></h2>                            
+                        </div>                        
+                            <div class="col-lg-12">                        
+                                <div class="row">                               
+                                    <div class="col-lg-12 mt-25">
+                                        <p >
+                                        <?php                                     
+                                        echo $informasi->deskripsi_hima;
+                                        ?>
+                                            
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

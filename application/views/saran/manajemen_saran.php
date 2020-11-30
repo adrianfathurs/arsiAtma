@@ -1,8 +1,8 @@
 <section class="contact_area section_gap">
     <div class="main-title">
         <h2 class="text-center mb-4">MANAJEMEN SARAN</h2></div>
-    <div class="container">
-        <table id="table_id" class="table ">
+    <div class="card container" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;"  >
+        <table id="table_id" class="table " style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
             <thead>
                 <tr>
                     <th class="text-center" scope="col" >No</th>
