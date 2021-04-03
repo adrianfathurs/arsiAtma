@@ -12,16 +12,18 @@ class Portofolio extends CI_Controller
         $this->load->model('Minstagram');
         
     }
-
-    public function index(){
+    function index(){
+        $this->main();
+    }
+    public function main(){
         
         // Load library pagination
         $this->load->library('pagination');
         // Pengaturan pagination
-        $config['base_url'] = base_url('Portofolio/');
+        $config['base_url'] = base_url('Portofolio/main');
         $config['total_rows'] = $this->Mportofolio->get()->num_rows();
-        $config['per_page'] = 3 ;
-        $config['offset'] = $this->uri->segment(2);
+        $config['per_page'] = 2 ;
+        $config['offset'] = $this->uri->segment(3);
         // Styling pagination
         $config['first_link']       = 'First';
         $config['last_link']        = 'Last';

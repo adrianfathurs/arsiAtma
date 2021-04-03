@@ -23,9 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
+
 //$config['base_url'] = 'http://www.dummyarsiatma.epizy.com/';
-$config['base_url'] = 'http://localhost/arsiAtma1-u/';
-/* $config['base_url'] = 'https://www.himatricaka.com/'; */
+// $config['base_url'] = 'http://localhost/arsiAtma1-u/';
+$config['base_url'] = 'https://www.himatricaka.com/';
+
 
 
 /*
