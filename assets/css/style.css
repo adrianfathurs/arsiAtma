@@ -497,13 +497,14 @@ button:focus {
 	z-index: 1;
 	min-height: 900px;
 	position: relative;
-	background: url(../img/banner/home-banner.jpg) no-repeat center;
-	background-size: cover;
+	background: url(../img/banner/kmps2ilustrasi.png) no-repeat center;
+	background-size: 100% 85%;
 }
 
 .home_banner_area .banner_inner {
 	position: absolute;
-	top: 40%;
+	top: 43%;
+	
 	-webkit-transform: translateY(-50%);
 	-moz-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
@@ -512,10 +513,23 @@ button:focus {
 	z-index: 10;
 	width: 100%;
 }
-
+.text-rotate-color{
+	color: 	#FFF5EE;
+	transform: rotate(9deg);
+}
 @media (max-width: 991px) {
 	.home_banner_area .banner_inner {
 		top: 50%;
+	}
+	.text-rotate-color{
+	transform: rotate(0deg);
+	}
+	.home_banner_area{
+		position: relative;
+	background: url(../img/banner/kmps2ilustrasi.png) no-repeat center;
+	
+	background-size: cover;
+
 	}
 }
 
@@ -4273,7 +4287,9 @@ h6 {
 	}
 
 	.home_banner_area {
-		min-height: 700px;
+		
+		min-height: 50%;
+		background-size: 100% 100%;
 	}
 }
 

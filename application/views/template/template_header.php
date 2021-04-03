@@ -39,7 +39,7 @@
             <a class="navbar-brand logo_h" href="<?php echo base_url('home')?>">
               <div class="mt-1">
 
-                <center><h4>HIMA<p>Tri<span>&ccedil;</span>aka</p></h4></center>                
+                <center><h4>HIMA<p>Tri&ccedil;aka</p></h4></center>                
               </div>
             </a>
               <button id="btnSmartphone" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

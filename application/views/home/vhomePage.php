@@ -1,13 +1,13 @@
 
-<section class="home_banner_area">
-      <div class="banner_inner">
+  <section class="home_banner_area">
+    <div class="banner_inner">
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
               <div class="banner_content text-center">
                 <p class="text-uppercase">                  
                 </p>
-                <h2 class="text-uppercase mt-4 mb-5">
+                <h2 class="text-uppercase mt-4 mb-5 text-rotate-color" >
                  HIMPUNAN MAHASISWA ARSITEKTUR 
                 </h2>
               </div>
@@ -16,6 +16,7 @@
         </div>
       </div>
     </section>
+
     <!--================ End Home Banner Area =================-->
 
     <!--================ Start Feature Area =================-->
