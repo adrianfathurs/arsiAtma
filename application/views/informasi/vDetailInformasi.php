@@ -23,23 +23,23 @@
                                         
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto1_hima; ?>" style="width: 100%; max-height: 350px;" alt="">                                        
+                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto1_hima; ?>" style="width: 100%;" alt="">                                        
                                         </div>
                                         <?php if(!empty($informasi->foto2_hima)) { ?>
                                         <div class="carousel-item">
-                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto2_hima ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
+                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto2_hima ;?>" style="width: 100%;" alt="">                                        
                                         </div>
                                         <?php } if(!empty($informasi->foto3_hima)) { ?>
                                         <div class="carousel-item">
-                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto3_hima ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
+                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto3_hima ;?>" style="width: 100%; " alt="">                                        
                                         </div>
                                         <?php } if(!empty($informasi->foto4_hima)) { ?>
                                         <div class="carousel-item">
-                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto4_hima ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
+                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto4_hima ;?>" style="width: 100%; " alt="">                                        
                                         </div>
                                         <?php } if(!empty($informasi->foto5_hima)){ ?>
                                         <div class="carousel-item">
-                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto5_hima ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
+                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiHima/').$informasi->foto5_hima ;?>" style="width: 100%; " alt="">                                        
                                         </div>
                                         <?php } ?>
                                     </div>

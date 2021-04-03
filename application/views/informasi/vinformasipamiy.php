@@ -4,10 +4,7 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              <div class="banner_content text-center">            
-                <h2 class="text-uppercase mt-4 mb-5 text-rotate-color">
-                  Informasi Tentang PAMIY
-                </h2>               
+              <div class="banner_content text-center">
               </div>
             </div>
           </div>
@@ -54,7 +51,7 @@
                             </div>
                             <div class="card col-md-9" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
                                 <div class="blog_post">
-                                    <center><img src="<?php echo base_url('assets/img/informasiPamiy/').$informasi->foto1_pamiy?>" style="width: 100%; max-height: 450px;" alt=""></center>
+                                    <center><img src="<?php echo base_url('assets/img/informasiPamiy/').$informasi->foto1_pamiy?>" style="width: 100%; max-height: 650px;" alt=""></center>
                                     <div class="blog_details">
                                         <a href="<?php echo base_url('Informasi/informasi_detailpamiy/').$informasi->id_informasi_pamiy ;?>">
                                             <h2><?php echo $informasi->judul_pamiy; ?></h2>

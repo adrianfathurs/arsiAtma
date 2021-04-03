@@ -1,3 +1,12 @@
 thead{
     background-color: #DEB887;
 }
+.form-gap{
+    padding-left:55px;
+}
+
+@media(max-width:991px){
+ .form-gap{
+    padding-left:10px;
+}   
+}

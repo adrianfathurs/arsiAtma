@@ -5,7 +5,7 @@
         <?php if(!empty($this->session->tempdata('item'))) { 
             echo $this->session->tempdata('item');
         }?>
-        <table id="table_id" class="table table-responsive" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">        
+        <table id="table_id" class="table table-responsive" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 95%;">        
             <thead>
                 <tr>
                     <th class="text-center" scope="col" >No</th>

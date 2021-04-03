@@ -4,10 +4,7 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              <div class="banner_content text-center">            
-                <h2 class="text-uppercase mt-4 mb-5 text-rotate-color">
-                  Informasi Internal Fakultas Teknik
-                </h2>               
+              <div class="banner_content text-center">          
               </div>
             </div>
           </div>
@@ -21,16 +18,16 @@
 
     <!--================Blog Area =================-->
     <section class="blog_area section_gap">  
-    <div class="text-center"> 
-                    <?php if (!empty($this->session->flashdata('teks'))) : ?>
-                    <div id="alerttype" class="alert p-3 mb-2">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
-                        <h5 id="alerttitle"></h5>
-                        <span class="alert alert-info"> <?php echo $this->session->flashdata('teks'); ?></span>
-                        <i id="alerticon"></i>
-                    </div>
-                <?php endif; ?>                      
-                        </div>     
+        <div class="text-center"> 
+            <?php if (!empty($this->session->flashdata('teks'))) : ?>
+                <div id="alerttype" class="alert p-3 mb-2">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                    <h5 id="alerttitle"></h5>
+                    <span class="alert alert-info"> <?php echo $this->session->flashdata('teks'); ?></span>
+                    <i id="alerticon"></i>
+                </div>
+            <?php endif; ?>                      
+        </div>     
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -38,8 +35,8 @@
                         <a href="<?php echo base_url('informasi/formfakultas/') ?>" class="btn waves-effect waves-light btn-success">Tambah Informasi</a>
                         <?php }; ?>
                     <div class="blog_left_sidebar">                                                           
-                    <div class="col-md">                        
-                    </div>
+                        <!--<div class="col-md">                        
+                        </div>-->
                         <?php foreach($Informasi as $informasi) :     ?>      
                         <article class="row blog_item">
                             <div class="col-md-3">
@@ -54,7 +51,7 @@
                             </div>
                             <div class="card col-md-9" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
                                 <div class="blog_post">
-                                    <center><img src="<?php echo base_url('assets/img/informasiFakultas/').$informasi->foto1_fakultas?>" style="width: 100%; max-height: 450px;" alt=""></center>
+                                    <center><img src="<?php echo base_url('assets/img/informasiFakultas/').$informasi->foto1_fakultas?>" style="width: 90%; max-height: 650px;" alt=""></center>
                                     <div class="blog_details">
                                         <a href="<?php echo base_url('Informasi/informasi_detailfakultas/').$informasi->id_informasi_fakultas ;?>">
                                             <h2><?php echo $informasi->judul_fakultas; ?></h2>

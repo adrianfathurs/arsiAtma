@@ -323,7 +323,7 @@ class Hima extends CI_Controller
         $data['header']="template/template_header.php";
         $data['css']='hima/vdetailbiro_css.php';
         $data['js'] = 'hima/vorganisasiHima_js.php'; 
-        $data['content']="hima/vdetailBiro.php";
+        $data['content']="hima/vdetailbiro.php";
         $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="hima/vasidebarorganisasi.php";
         $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();

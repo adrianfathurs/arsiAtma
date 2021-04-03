@@ -21,6 +21,9 @@
     $(document).ready( function () {
         $('#table_id_portofolio').DataTable();
     } );
+    $(document).ready( function () {
+        $('#table_id_sepekan').DataTable();
+    } );
 
     
 </script>
@@ -33,6 +36,7 @@ $(document).ready(function(){
     $('#table_umum').hide();
     $('#table_pamiy').hide();
     $('#table_portofolio').hide();
+    $('#table_sepekan').hide();
 
     $('#btnTableHima').click(function(){
         $('#table_hima').show();
@@ -41,11 +45,13 @@ $(document).ready(function(){
         $('#table_fakultas').removeClass('active');
         $('#table_pamiy').removeClass('active');
         $('#table_portofolio').removeClass('active');
+        $('#table_sepekan').removeClass('active');
         $('#table_univ').hide();
         $('#table_fakultas').hide();
         $('#table_umum').hide();
         $('#table_pamiy').hide();
         $('#table_portofolio').hide();
+        $('#table_sepekan').hide();
     });
 
     $('#btnTableUniversitas').click(function(){
@@ -56,11 +62,13 @@ $(document).ready(function(){
         $('#table_fakultas').removeClass('active');
         $('#table_pamiy').removeClass('active');
         $('#table_portofolio').removeClass('active');
+        $('#table_sepekan').removeClass('active');
         $('#table_hima').hide();
         $('#table_fakultas').hide();
         $('#table_umum').hide();
         $('#table_pamiy').hide();
         $('#table_portofolio').hide();
+        $('#table_sepekan').hide();
     });
     $('#btnTableFakultas').click(function(){
         $('#table_fakultas').show();
@@ -68,12 +76,14 @@ $(document).ready(function(){
         $('#table_portofolio').removeClass('active');
         $('#table_univ').removeClass('active');
         $('#table_pamiy').removeClass('active');
+        $('#table_sepekan').removeClass('active');
         $('#table_fakultas').addClass('active');
         $('#table_hima').hide();
         $('#table_univ').hide();
         $('#table_umum').hide();
         $('#table_portofolio').hide();
         $('#table_pamiy').hide();
+        $('#table_sepekan').hide();
     });
     $('#btnTableUmum').click(function(){
         $('#table_umum').show();
@@ -82,12 +92,14 @@ $(document).ready(function(){
         $('#table_fakultas').removeClass('active');
         $('#table_pamiy').removeClass('active');
         $('#table_portofolio').removeClass('active');
+        $('#table_sepekan').removeClass('active');
         $('#table_umum').addClass('active');
         $('#table_hima').hide();
         $('#table_univ').hide();
         $('#table_fakultas').hide();
         $('#table_pamiy').hide();
         $('#table_portofolio').hide();
+        $('#table_sepekan').hide();
     });
     $('#btnTablePamiy').click(function(){
         $('#table_pamiy').show();
@@ -96,12 +108,14 @@ $(document).ready(function(){
         $('#table_fakultas').removeClass('active');
         $('#table_umum').removeClass('active');
         $('#table_portofolio').removeClass('active');
+        $('#table_sepekan').removeClass('active');
         $('#table_pamiy').addClass('active');
         $('#table_hima').hide();
         $('#table_univ').hide();
         $('#table_umum').hide();
         $('#table_fakultas').hide();
         $('#table_portofolio').hide();
+        $('#table_sepekan').hide();
         
     });
     $('#btnTablePortofolio').click(function(){
@@ -111,13 +125,31 @@ $(document).ready(function(){
         $('#table_fakultas').removeClass('active');
         $('#table_umum').removeClass('active');
         $('#table_pamiy').removeClass('active');
+        $('#table_sepekan').removeClass('active');
         $('#table_portofolio').addClass('active');
         $('#table_hima').hide();
         $('#table_univ').hide();
         $('#table_umum').hide();
         $('#table_fakultas').hide();
         $('#table_pamiy').hide();
+        $('#table_sepekan').hide();
         
+    });
+    $('#btnTableSepekan').click(function(){
+        $('#table_sepekan').show();
+        $('#table_hima').removeClass('active');
+        $('#table_univ').removeClass('active');
+        $('#table_fakultas').removeClass('active');
+        $('#table_pamiy').removeClass('active');
+        $('#table_portofolio').removeClass('active');
+        $('#table_umum').removeClass('active');
+        $('#table_sepekan').addClass('active');
+        $('#table_hima').hide();
+        $('#table_univ').hide();
+        $('#table_fakultas').hide();
+        $('#table_pamiy').hide();
+        $('#table_portofolio').hide();
+        $('#table_umum').hide();
     });
 
 });

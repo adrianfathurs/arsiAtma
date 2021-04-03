@@ -1,3 +1,21 @@
+
+  <section class="home_banner_area">
+    <div class="banner_inner">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="banner_content text-center">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--================ End Home Banner Area =================-->
+
+    <!--================ Start Feature Area =================-->
+    
     <!--================ End Feature Area =================-->
 
     <!--================ Start Popular Courses Area =================-->
@@ -24,11 +42,11 @@
         <div class="col-md-4 mb-4">
          <div class="card umumcard" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
             <a href="<?php echo base_url('umum/informasi_detailUmum/').$umum->id_informasi_umum?>">
-              <img class="card-img-top" src="<?php echo base_url('assets/img/informasiUmum/').$umum->foto1_umum?>" alt="Card image cap">
+              <img class="card-img-top" src="<?php echo base_url('assets/img/informasiUmum/').$umum->foto1_umum?>" alt="Card image cap" style="max-height:275px;">
             </a>
             <div class="card-body"  style=" max-height: 80%;">
-               <h5 class="card-title border-bottom pb-3"><?php $umum->judul_umum?> <a href="#" class="float-right d-inline-flex share"></a></h5>
-               <p class="card-text"><?php echo  substr($umum->deskripsi_umum,0,120)."...";?></p>
+               <h5 class="card-title border-bottom pb-3"><?php echo substr($umum->judul_umum,0,20)."...";?> <a href="#" class="float-right d-inline-flex share"></a></h5>
+               <p class="card-text"><?php echo  substr($umum->deskripsi_umum,0,30)."...";?></p>
                
                <!--  -->
                 <?php 

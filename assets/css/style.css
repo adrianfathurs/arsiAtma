@@ -234,7 +234,7 @@ button:focus {
 
 @media (max-width: 991px) {
 	.header_area .navbar .nav .nav-item .nav-link {
-		color: #ffffff;
+		color: #000000;
 	}
 }
 
@@ -515,7 +515,7 @@ button:focus {
 }
 .text-rotate-color{
 	color: 	#FFF5EE;
-	transform: rotate(9deg);
+	transform: rotate(2deg);
 }
 @media (max-width: 991px) {
 	.home_banner_area .banner_inner {
@@ -828,6 +828,7 @@ button:focus {
 	-moz-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
+	display:none;
 }
 
 .popular_courses .owl-nav .owl-prev img:hover,
@@ -837,6 +838,7 @@ button:focus {
 	-ms-filter: grayscale(0%);
 	-o-filter: grayscale(0%);
 	filter: grayscale(0%);
+	display:none;
 }
 
 .single_course {
@@ -4141,7 +4143,7 @@ h6 {
 	}
 
 	.header_area .navbar {
-		background:	 	#DAA520;
+		background:	 	#FAEBD7 !important;
 	}
 
 	.navbar-toggler[aria-expanded="false"] span:nth-child(2) {
@@ -4168,7 +4170,7 @@ h6 {
 		display: block;
 		width: 25px;
 		height: 3px;
-		background: #fdc632;
+		background: #DEB887;
 		margin: auto;
 		margin-bottom: 4px;
 		transition: all 400ms linear;
@@ -4198,8 +4200,10 @@ h6 {
 		line-height: 40px;
 		margin-right: 0px;
 		display: block;
-		border-bottom: 1px solid #ededed33;
+		border-bottom: 2px solid #DEB887;
 		border-radius: 0px;
+		color: 	#000000;
+		padding-left:2%;
 	}
 
 	.header_area .navbar .search {

@@ -2,13 +2,16 @@
     <div class="main-title">
         <h2 class="text-center mb-4">INFORMASI YANG DISIMPAN ATAU DISUKAI</h2></div>
     <div class="container">
-        <div class="row">
-            <div class="col-lg col-md col-sm"><button class="btn btn-outline-success" id="btnTableHima">Informasi Hima</button></div>
-            <div class="col-lg col-md col-sm"><button class="btn btn-outline-success" id="btnTableUniversitas">Informasi Universitas</button></div>
-            <div class="col-lg col-md col-sm"><button class="btn btn-outline-success" id="btnTableFakultas">Informasi Fakultas</button></div>
-            <div class="col-lg col-md col-sm"><button class="btn btn-outline-success" id="btnTablePamiy">Informasi Pamiy </button></div>
-            <div class="col-lg col-md col-sm"><button class="btn btn-outline-success" id="btnTableUmum">Informasi Umum</button></div>
-            <div class="col-lg col-md col-sm"><button class="btn btn-outline-success" id="btnTablePortofolio">Informasi Portofolio</button></div>
+        <div class="row mb-2">
+                    <div class="col"><button class="btn btn-outline-success" id="btnTableHima">Informasi Hima</button></div>
+                    <div class="col"><button class="btn btn-outline-success" id="btnTableUniversitas">Informasi Universitas</button></div>
+                    <div class="col"><button class="btn btn-outline-success" id="btnTableFakultas">Informasi Fakultas</button></div>
+                    <div class="col"><button class="btn btn-outline-success" id="btnTableUmum">Informasi Umum</button></div>
+                </div>
+                <div class="row mt-2 ml-4" >
+                    <div class="col"><button class="btn btn-outline-success" id="btnTablePamiy">Informasi Pamiy </button></div>
+                    <div class="col"><button class="btn btn-outline-success" id="btnTablePortofolio">Informasi Portofolio</button></div>
+                    <div class="col"><button class="btn btn-outline-success" id="btnTableSepekan">Informasi Sepekan</button></div>
         </div>
         <br>
         <br>
@@ -159,6 +162,31 @@
                         <a title="Lihat detail" href="<?php echo base_url('portofolio/detail/').$key['id_portofolio']?>"><i class="fas fa-search"></i></a>
                         <a title="Hapus Informasi" class="hapusInfo" href="<?php echo base_url('portofolio/hapusfav/').$key['id_portofolio']?>"><i class="text-danger  fas fa-trash-alt"></i></a>
                     </td>
+                </tr>
+                <?php $a++;endforeach;?>
+            </tbody>
+        </table>
+       </div>
+       <div id="table_sepekan" class="border bg-Bisque">
+        <table id="table_id_sepekan" class="table">
+        <h4 class="text-center mb-4">INFORMASI SEPEKAN</h4></div>
+            <thead>
+                <tr>
+                    <th class="text-center" scope="col" >No</th>
+                    <th class="text-center" scope="col">Judul</th>
+                    <th class="text-center" scope="col">Action</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <?php $a=1; foreach ($manajemenInformasiSepekan as $key ) : ?>
+                <tr>
+                    <td scope="col" class="text-dark text-center"><?php echo $a?></td>
+                    <td scope="col" class="text-dark text-center"><?php echo $key['judul_sepekan']?></td>
+                    <td scope="col" class="text-dark text-center">
+                        <a title="Lihat detail" href="<?php echo base_url('Sepekan/informasi_detailSepekan/').$key['id_informasi_sepekan']?>"><i class="fas fa-search"></i></a>
+                        <a title="Hapus Informasi" class="hapusInfo" href="<?php echo base_url('sepekan/hapusfavmanajemeninformasi/').$key['id_informasi_sepekan']?>"><i class="text-danger  fas fa-trash-alt"></i></a>
+                     </td>
                 </tr>
                 <?php $a++;endforeach;?>
             </tbody>

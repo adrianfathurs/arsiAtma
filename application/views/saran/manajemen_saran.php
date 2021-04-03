@@ -1,14 +1,14 @@
-<section class="contact_area section_gap">
+<section class="contact_area section_gap views">
     <div class="main-title">
         <h2 class="text-center mb-4">MANAJEMEN SARAN</h2></div>
     <div class="card container" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;"  >
-        <table id="table_id" class="table table-responsive" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
+        <table id="table_id" class="table table-responsive" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 95%;">
             <thead>
                 <tr>
-                    <th class="text-center" scope="col" >No</th>
+                    <th class="text-center" scope="col">No</th>
                     <th class="text-center" scope="col">Nama Lengkap</th>
                     <th class="text-center" scope="col">Email</th>
-                    <th class="text-center" scope="col" >No Telp</th>
+                    <th class="text-center" scope="col">No Telp</th>
                     <th class="text-center" scope="col">Saran</th>
                     <th class="text-center" scope="col">Action</th>
                 </tr>

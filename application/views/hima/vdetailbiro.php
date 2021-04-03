@@ -6,13 +6,9 @@
               <div class="banner_content text-center">
                 <p class="text-uppercase">                  
                 </p>
-                <h2 class="text-uppercase mt-4 mb-5">
+                <h2 class="text-uppercase mt-4 mb-5 text-rotate-color">
                  Birokrasi Himpunan Arsitektur
                 </h2>
-                <div>
-                  <a href="#" class="primary-btn mb-3 mb-sm-0">About Us</a>
-                  
-                </div>
               </div>
             </div>
           </div>
