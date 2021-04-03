@@ -1,10 +1,10 @@
 
-</body>
+
 <footer class="footer-area section_gap">
       <div class="container">
         <div class="row">
           <div class="single-footer-widget">
-            <h4>HIMPUNAN ARSITEK ATMA JAYA</h4>
+            <h4>HIMPUNAN MAHASISWA ARSITEKTUR UNIVERSITAS ATMA JAYA YOGYAKARTA</h4>
             <ul>
               <li><a href="https://goo.gl/maps/8yMrp47petHuxA6v6" target="_blank"><p><b>Alamat </b>: Jl. Babarsari No.44, Janti, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281</p></a></li>
             </ul>

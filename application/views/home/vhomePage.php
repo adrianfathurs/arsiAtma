@@ -7,8 +7,9 @@
               <div class="banner_content text-center">
                 <p class="text-uppercase">                  
                 </p>
-                <h2 class="text-uppercase mt-4 mb-5 text-rotate-color" >
-                 HIMPUNAN MAHASISWA ARSITEKTUR 
+                <h2 class="text-rotate-color" >
+                 HIMA TRI<span>&Ccedil;</span>AKA <br>
+                 Himpunan Mahasiswa Arsitektur Atma Jogja
                 </h2>
               </div>
             </div>
@@ -51,7 +52,7 @@
                   <h4 class="mb-3">
                     <a href="<?php echo base_url('informasi/informasi_detail/').$hima['id_informasi_hima']?>"><?php echo substr($hima['judul_hima'],0,14)."..."?></a>
                   </h4>
-                  <?php echo  substr($hima['deskripsi_hima'],0,120)."...";?>
+                  </p><?php echo "<p>".substr($hima['deskripsi_hima'],0,120)."</p>"."...";?>
                   
                   <div class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
                     <div class="mt-lg-0 mt-3">
@@ -75,7 +76,7 @@
                                     }
                                   ?>
                         <!-- keterangan fungsi id_informasi_hima, id_jenis_informasi,id_like_button var_dump($hima['id_informasi_hima']);var_dump($cek['fk_informasi_hima']); var_dump($hello);  var_dump($hello)-->
-                        <?php } endforeach;;
+                        <?php } endforeach;
                             if($hello==1){?>
                               <!-- <a id="btnLoveHima" style="cursor:pointer;" onclick="like_button(<?php echo $hima['id_informasi_hima']?>,1,0)" >
                                 <i id="gambarLoveHima" class="fas fa-heart"></i>
@@ -118,7 +119,7 @@
                   <h4 class="mb-3">
                     <a href="<?php echo base_url('informasi/informasi_detailUniv/').$univ['id_informasi_univ']?>"><?php echo substr($univ['judul_univ'],0,14)."..."?></a>
                   </h4>
-                  <?php echo  substr($univ['deskripsi_univ'],0,120)."...";?>
+                  <?php echo "<p>".substr($univ['deskripsi_univ'],0,120)."</p>"."...";?>
                   
                   <div class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
                     <div class="mt-lg-0 mt-3">
@@ -240,11 +241,81 @@
               </div>
           <?php endforeach;?>
             </div>
+            </div>
         </div>
 
 <!--  -->
      
+<div class="row">
+          <!-- single course -->  
+          <div class="col-lg-12">
+            <div class="owl-carousel active_course">    
+          <?php foreach($informasiPamiy as $pamiy): $hello=0?>
+              <div class="card single_course" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
+                <div class="course_head">
+                  <img class="img-fluid" src="<?php echo base_url('assets/img/informasiPamiy/').$pamiy['foto1_pamiy']?>" alt="" />
+                </div>
+                <div class="course_content">
+                  <span class="tag mb-4 d-inline-block">News Fakultas</span>
+                  <h4 class="mb-3">
+                    <a href="<?php echo base_url('informasi/informasi_detailpamiy/').$pamiy['id_informasi_pamiy']?>"><?php echo substr($pamiy['judul_pamiy'],0,14)."..."?></a>
+                  </h4>
+                  <?php echo  substr($pamiy['deskripsi_pamiy'],0,120)."...";?>
+                  <div class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
+                    <div class="mt-lg-0 mt-3">
+                      <span class="meta_info">
+                        <?php 
+                          foreach($joinInformasiFavoritePamiy as $cek) :?>
+                            
+                                <?php if($pamiy['id_informasi_pamiy']==$cek['fk_informasi_pamiy']){
+                                
+                                if( $cek['statusfavoritepamiy']==1){
 
+                                    $hello=1;
+                                  }
+                                  else{
+                                    $hello=0;
+                                  }
+                                }else{ 
+                                  if($hello==1)
+                                  {
+                                    $hello=1;
+                                  }
+                                  else{
+                                    $hello=0;
+                                  }
+                                  ?>
+                        
+                        
+                        <!-- keterangan fungsi id_informasi_hima, id_jenis_informasi,id_like_button var_dump($hima['id_informasi_hima']);var_dump($cek['fk_informasi_hima']); var_dump($hello);  var_dump($hello)-->
+                        <?php } endforeach;
+                            if($hello==1){?>
+                              <!-- <a id="btnLoveHima" style="cursor:pointer;" onclick="like_button(<?php echo $pamiy['id_informasi_pamiy']?>,1,0)" >
+                                <i id="gambarLoveHima" class="fas fa-heart"></i>
+                              </a>  -->
+                              <a id="btnLoveHima" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?>  class="unlike" href="<?php echo base_url('informasi/informasi_pamiy_home/').$pamiy['id_informasi_pamiy'];}?>">
+                                <i id="gambarLoveHima" class="fas fa-heart"></i>
+                              </a> 
+                      
+                          <?php }
+                            else{?>
+                              <a id="btnDislikeHima" style="cursor:pointer;" <?php if(empty($id) || $type_akun=='1'){ ?> onclick="konfirmasi()" href="#" <?php }else {?> class="like" href="<?php echo base_url('informasi/informasi_pamiy_home/').$pamiy['id_informasi_pamiy'];}?>">
+                                <div id="bungkusDislikeHima">
+                                <i id="gambarDislikeHima" class="far fa-heart"></i>
+                                </div>
+                              </a> 
+                            
+                              
+                            <?php } ?>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          <?php endforeach;?>
+            </div>
+            </div>
+        </div>
 <!--  -->
         
     </div>

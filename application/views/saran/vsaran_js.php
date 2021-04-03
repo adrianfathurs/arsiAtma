@@ -33,7 +33,7 @@
 
                 $.ajax({
                     type:"post",
-                    url:'http://localhost/arsiAtma/saran/submitSaran',
+                    url:'https://www.himatricaka.com/saran/submitSaran',
                     data:postForm,
 
                     success:function(data){

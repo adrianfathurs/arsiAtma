@@ -23,23 +23,23 @@
                                         
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiFakultas/').$informasi->foto1_fakultas; ?>" style="width: 100%; max-height: 350px;" alt="">                                        
+                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiFakultas/').$informasi->foto1_fakultas; ?>" style="width: 100%; " alt="">                                        
                                         </div>
                                         <?php if(!empty($informasi->foto2_fakultas)) { ?>
                                         <div class="carousel-item">
-                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiFakultas/').$informasi->foto2_fakultas ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
+                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiFakultas/').$informasi->foto2_fakultas ;?>" style="width: 100%; " alt="">                                        
                                         </div>
                                         <?php } if(!empty($informasi->foto3_fakultas)) { ?>
                                         <div class="carousel-item">
-                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiFakultas/').$informasi->foto3_fakultas ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
+                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiFakultas/').$informasi->foto3_fakultas ;?>" style="width: 100%; " alt="">                                        
                                         </div>
                                         <?php } if(!empty($informasi->foto4_fakultas)) { ?>
                                         <div class="carousel-item">
-                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiFakultas/').$informasi->foto4_fakultas ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
+                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiFakultas/').$informasi->foto4_fakultas ;?>" style="width: 100%; " alt="">                                        
                                         </div>
                                         <?php } if(!empty($informasi->foto5_fakultas)){ ?>
                                         <div class="carousel-item">
-                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiFakultas/').$informasi->foto5_fakultas ;?>" style="width: 100%; max-height: 350px;" alt="">                                        
+                                            <img class="img-fluid" src="<?php echo base_url('assets/img/informasiFakultas/').$informasi->foto5_fakultas ;?>" style="width: 100%; " alt="">                                        
                                         </div>
                                         <?php } ?>
                                     </div>

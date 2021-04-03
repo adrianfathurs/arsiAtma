@@ -9,6 +9,7 @@ class Informasi extends CI_Controller
         $this->load->model('Minformasi_fakultas');
         $this->load->model('Minformasi_pamiy');
         $this->load->model('Minformasi_umum');
+        $this->load->model('Minformasi_sepekan');
         $this->load->model('Mportofolio');
         $this->load->model("Makun");
         $this->load->model('Minstagram');
@@ -194,7 +195,7 @@ class Informasi extends CI_Controller
         $data['js'] = 'informasi/vinformasifakultas_js.php'; 
         $data['content']="informasi/vinformasifakultas.php";
         $data['instagram'] = $this->Minstagram->get();
-        $data['asidebar']="informasi/vasidebar_informasi.php";
+        $data['asidebar']="informasi/vasidebar_informasifakultas.php";
         $data['asidebarContentUniv']=$this->Minformasi_universitas->getTwoInformasi();
         $data['asidebarContentFakultas']=$this->Minformasi_fakultas->getTwoInformasi();
         $data['asidebarContentPamiy']=$this->Minformasi_pamiy->getTwoInformasi();
@@ -400,7 +401,47 @@ class Informasi extends CI_Controller
         $this->session->set_flashdata($alert);
         redirect('Home');
     }   
-
+/*TAMBAH*/
+    function saveinformasipamiylikehome($id_info){
+        $data=[
+            'fk_akun'=>$this->session->userdata('id'),                               
+            'fk_informasi_univ '=>$id_info,
+            'statusfavoriteuniv'=>1
+        ];
+        $this->Minformasi_universitas->saveinf($data);
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Disimpan ke Akun Anda                      
+                    </div>");
+        $this->session->set_flashdata($alert);
+        redirect('Home');
+    }
+function hapusfavpamiylikehome($id_info){
+        $this->Minformasi_universitas->hapusfavpamiy($id_info,$this->session->userdata('id'));
+        $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
+                    <div class='toast-header'>
+                        <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
+            
+                        <strong class='mr-auto'>Notifikasi </strong>                                
+                        <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='toast-body'>
+                        Informasi Ini Berhasil Dihapus dari Akun Anda                    
+                    </div>");
+        $this->session->set_flashdata($alert);
+        redirect('Home');
+    }   
+/**/
     function informasi_fakultas_home($id_info){       
         $data['page']="informasiFakultasPage";              
         
@@ -1588,6 +1629,7 @@ class Informasi extends CI_Controller
          $data['manajemenInformasiUmum'] = $this->Minformasi_umum->joinInformasiFavoriteUmum($id);
          $data['manajemenInformasiPamiy'] = $this->Minformasi_pamiy->joinInformasiFavoritePamiy($id);
          $data['manajemenInformasiPortofolio'] = $this->Mportofolio->joinInformasiFavoritePortofolio($id);
+         $data['manajemenInformasiSepekan'] = $this->Minformasi_sepekan->joinInformasiFavoriteSepekan($id);
         // print_r($data);die;         
         $data['type_akun'] = $this->session->userdata('type_akun');            
         $data['id'] = $this->session->userdata('id'); 

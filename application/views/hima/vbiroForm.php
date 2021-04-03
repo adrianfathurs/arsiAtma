@@ -50,7 +50,7 @@
                             <input type="text" hidden id="id_biro" name="id_biro" value="<?php echo $biro->id_biro?>">
                             <input type="text" hidden id="submit" name="submit" value="submit">
                             <button type="button" class="btn btn-secondary" onclick="history.back();">Batal</button>                                        
-                            <button type="submit" class="btn btn-success"> Simpans</button>
+                            <button type="submit" class="btn btn-success"> Simpan</button>
                         </div>
                         <?php echo form_close();?>
                     </div>      

@@ -5,13 +5,7 @@
             <div class="col-lg-12">
               <div class="banner_content text-center">
                 <p class="text-uppercase">
-                  
                 </p>
-                <h2 class="text-uppercase mt-4 mb-5">
-                 HIMPUNAN MAHASISWA ARSITEKTUR 
-                </h2>
-                
-              </div>
             </div>
           </div>
         </div>

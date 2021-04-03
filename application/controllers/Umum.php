@@ -265,7 +265,7 @@ class Umum extends CI_Controller
         $data['css']="umum/vumum_css.php";
         $data['js'] = 'umum/vumum_js.php'; 
         $data['header']="template/template_header.php";            
-        $data['content']="umum/vDetailUmum.php";
+        $data['content']="umum/vdetailUmum.php";
         $data['instagram'] = $this->Minstagram->get();
         $data['asidebar']="viewArticle/VviewAsidebar.php";
         $data['asidebarContent']=$this->Minformasi_hima->getTwoInformasi();
@@ -385,22 +385,23 @@ class Umum extends CI_Controller
                         Informasi Ini Berhasil Dihapus dari Akun Anda                    
                     </div>");
         $this->session->set_flashdata($alert);
-        
-    }
+         redirect("Umum/informasi_detailUmum/".$id_info);
+         
+        }
       function hapusfavmanajemeninformasi($id_info){
         $this->Minformasi_umum->hapusfav($id_info,$this->session->userdata('id'));
         $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
                     <div class='toast-header'>
                         <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
-            
+                        
                         <strong class='mr-auto'>Notifikasi </strong>                                
                         <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
-                            <span aria-hidden='true'>&times;</span>
+                        <span aria-hidden='true'>&times;</span>
                         </button>
                     </div>
                     <div class='toast-body'>
                         Informasi Ini Berhasil Dihapus dari Akun Anda                    
-                    </div>");
+                        </div>");
         $this->session->set_flashdata($alert);
         
         $this->informasi_detailUmum($id_info);
@@ -419,7 +420,7 @@ class Umum extends CI_Controller
         $alert = array('notif'=>"<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-animation='true' data-delay='2000' data-autohide='true'>
                     <div class='toast-header'>
                         <span class='rounded mr-2 bg-primary' style='width: 15px;height: 15px'></span>
-            
+                        
                         <strong class='mr-auto'>Notifikasi </strong>                                
                         <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
                             <span aria-hidden='true'>&times;</span>
@@ -428,8 +429,9 @@ class Umum extends CI_Controller
                     <div class='toast-body'>
                         Informasi Ini Berhasil Disimpan ke Akun Anda                      
                     </div>");
-        $this->session->set_flashdata($alert);
-        
+                    $this->session->set_flashdata($alert);
+        redirect("Umum/informasi_detailUmum/".$id_info);
+                    
     }
     function delete($id){
         $dataInf = $this->Minformasi_umum->getArtikel($id);

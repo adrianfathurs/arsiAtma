@@ -5,9 +5,6 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="banner_content text-center">            
-                <h2 class="text-uppercase mt-4 mb-5 text-rotate-color">
-                  Informasi Internal Universitas Atma Jaya Yogyakarta
-                </h2>               
               </div>
             </div>
           </div>
@@ -54,7 +51,7 @@
                             </div>
                             <div class="card col-md-9" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
                                 <div class="blog_post">
-                                    <center><img src="<?php echo base_url('assets/img/informasiUniv/').$informasi->foto1_univ?>" style="width: 100%; max-height: 450px;" alt=""></center>
+                                    <center><img src="<?php echo base_url('assets/img/informasiUniv/').$informasi->foto1_univ?>" style="width: 90%; max-height: 650px;" alt=""></center>
                                     <div class="blog_details">
                                         <a href="<?php echo base_url('Informasi/informasi_detailuniv/').$informasi->id_informasi_univ ;?>">
                                             <h2><?php echo $informasi->judul_univ; ?></h2>

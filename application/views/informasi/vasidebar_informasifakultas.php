@@ -6,7 +6,7 @@
                             allowtransparency="true" allowfullscreen="true" frameborder="0" height="863" data-instgrm-payload-id="instagram-media-payload-1" 
                             scrolling="yes" >
                             </iframe>
-                            </aside><br>
+                            <br>
                             <aside class="single_sidebar_widget popular_post_widget">
                                 <h3 class="widget_title">Informasi Terbaru</h3>
                                 

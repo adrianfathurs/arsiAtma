@@ -24,7 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //$config['base_url'] = 'http://www.dummyarsiatma.epizy.com/';
- $config['base_url'] = 'http://localhost/arsiAtma/';
+$config['base_url'] = 'http://localhost/arsiAtma1-u/';
+/* $config['base_url'] = 'https://www.himatricaka.com/'; */
 
 
 /*
@@ -102,7 +103,7 @@ $config['charset'] = 'UTF-8';
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
 */
-$config['enable_hooks'] = TRUE;
+$config['enable_hooks'] = FALSE;
 
 /*
 |--------------------------------------------------------------------------

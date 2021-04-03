@@ -13,7 +13,7 @@ if (isset($css)) {
                 <div class="col-lg-8 ">
                     <div class="col-lg-12">                    
                                 <div class="feature-img" ><center>
-                                <img class="img-fluid" src="<?php echo base_url('assets/')?>img/tentanghima.jpg" style=" max-width: 100%; max-height: 450px;"> </center>
+                                <img class="img-fluid" src="<?php echo base_url('assets/')?>img/tentanghima.png" style=" max-width: 100%; max-height: 450px;"> </center>
                                 </div> <br>
                     </div>
                         <div class="card container" id="main-wrapper" style="padding:9px; border: 1px solid rgb(246 207 143); background-color: #fcfcfc96;width: 100%;">
@@ -22,7 +22,7 @@ if (isset($css)) {
                             <h3>Latar Belakang</h3>
                             <p class="text-black text-arvo text-justify">
                                 Merupakan organisasi di tingkat Program Studi pada Universitas Atma Jaya Yogyakarta dengan wadah berupa :
-                                Himpunan Mahasiswa Arsitektur Triçaka disebut HIMA Triçaka. <br>
+                                Himpunan Mahasiswa Arsitektur Triçaka disebut HIMA̲ Triçaka. <br>
                                 1. Himpunan mahasiswa program studi Arsitektur adalah wahana dan pengembangan diri mahasiswa ke arah                 
                                 akademis yaitu kearsitekturan dalam suatu wawasan dan peningkatan berpikir integritas kepribadian. <br>
                                 2. Kegiatan kemahasiswaan meliputi penalaran secara khusus dan keilmuan, minat dan kegemaran serta upaya
@@ -42,7 +42,7 @@ if (isset($css)) {
                                 5. Memberikan wadah kepada mahasiswa Arsitektur Universitas Atma Jaya Yogyakarta, untuk <br>
                                 menyalurkan minat dan kemampuan di bidang Arsitektur dan bidang lainnya. <br>
                                 6. Menumpuk rasa kebersamaan antar mahasiswa seprogram studi.<br>
-                                Untuk mencapai tujuan dan usaha-usaha tersebut, HIMA Triçaka akan berusaha di bidang : <br>
+                                Untuk mencapai tujuan dan usaha-usaha tersebut, HIMA̲ Triçaka akan berusaha di bidang : <br>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 a. Pendidikan <br>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -55,7 +55,7 @@ if (isset($css)) {
 
                                 <h3>Visi</h3>
                                 <p class="text-black text-arvo text-justify">                            
-                                Himpunan Mahasiswa HIMA Triçaka sebagai wadah bagi seluruh mahasiswa Arsitektur Atma Jaya Yogyakarta
+                                Himpunan Mahasiswa HIMA̲ Triçaka sebagai wadah bagi seluruh mahasiswa Arsitektur Atma Jaya Yogyakarta
                                 untuk semakin berperan aktif dalam bidang akademis maupun non akademis, menghimpun seluruh aspirasi dan
                                 kritik dari mahasiswa, serta menjalin komunikasi yang baik sehingga terbentuk relasi yang kuat terhadap sesama,
                                 baik ke dalam maupun ke luar.
@@ -65,58 +65,58 @@ if (isset($css)) {
                                 <p class="text-black text-arvo text-justify">
                                 1. Menghimpun seluruh mahasiswa Arsitektur Universitas Atma Jaya Yogyakarta. <br>
                                 2. Mempererat hubungan keluarga Arsitektur Universitas Atma Jaya Yogyakarta. <br>
-                                3. Menjadi media penghubung antara HIMA Tricaka dengan Universitas Atma Jaya Yogyakarta. <br>
-                                4. Menjadi media penghubung antara HIMA Tricaka dengan Universitas lain. <br>
+                                3. Menjadi media penghubung antara HIMA̲ Tricaka dengan Universitas Atma Jaya Yogyakarta. <br>
+                                4. Menjadi media penghubung antara HIMA̲ Tricaka dengan Universitas lain. <br>
                                 5. Menghimpun aspirasi dan kritik dari mahasiswa. <br>
                                 6. Menyediakan wadah bagi mahasiswa untuk berperan aktif dalam bidang akademis, maupun non akademis. <br>
                                 </p><br>
 
                                 <h3>Makna Logo</h3>
                                 <div><center>
-                                <img class="img-fluid" src="<?php echo base_url('assets/')?>img/tentanghima.jpg" style=" max-width: 80%; max-height: 250px;"> </center>
+                                <img class="img-fluid" src="<?php echo base_url('assets/')?>img/tentanghima.png" style=" max-width: 80%; max-height: 250px;"> </center>
                                 </div> <br>
                                 <p class="text-black text-arvo text-justify">
-                                Bagaimana hingga akhirnya tercetus sebuah nama "HIMA Triçaka" sebagai identitas dari organisasi?
-                                HIMA Triçaka (A dengan underline dan c dengan ejaan Sansekerta) sebagai aksentuasi/ikonik
+                                Bagaimana hingga akhirnya tercetus sebuah nama "HIMA̲ Triçaka" sebagai identitas dari organisasi?
+                                HIMA̲ Triçaka (A dengan underline dan c dengan ejaan Sansekerta) sebagai aksentuasi/ikonik
                                 mahasiswa arsitektur UAJY untuk membedakan identitas Hima dengan mahasiswa jurusan lain.
-                                Nama HIMA Triçaka, kita adopsi dari lambang Hima dengan tiga pilar itu sebagai 3 chaka (dalam
+                                Nama HIMA̲ Triçaka, kita adopsi dari lambang Hima dengan tiga pilar itu sebagai 3 chaka (dalam
                                 Bahasa Sansekerta berarti tiang/pilar/kolom). Mengingat kampus UAJY bercirikan Katolikisme maka
                                 Lambang Hima dipilih menggunakan 3 pilar itu sebagai Tritunggal Maha Kudus (+), yang memiliki
                                 lambang Trinitas dan Tri Dharma dengan makna kemuliaan dan Roh Kudus dalam perjalanan
                                 Himpunan. <br> <br>
                                 Filosofi Triçaka : Pendidikan, penulisan dan penelitian, dan pengabdian pada masyarakat. <br>
                                 Semboyan : Kekeluargaan, loyalitas, dan tanggung jawab. <br>
-                                Penulisan : HIMA Triçaka (A dengan underline dan c dengan ejaan Sansekerta). <br><br>
+                                Penulisan : HIMA̲ Triçaka (A dengan underline dan c dengan ejaan Sansekerta). <br><br>
                                 <h5><b>Sepasang Tiang Penyangga</b></h5>
                                 <p class="text-black text-arvo text-justify">
-                                Sebagai penyangga/penguat di bidang kegiatan HIMA Triçaka sekaligus simbol tempat atau wadah penyalur inspirasi dan
+                                Sebagai penyangga/penguat di bidang kegiatan HIMA̲ Triçaka sekaligus simbol tempat atau wadah penyalur inspirasi dan
                                 kreasi atas karya mahasiswa arsitektur </p><br>
                                 
                                 <h5><b>Atap dan Lambang Merpati</b></h5>
                                 <p class="text-black text-arvo text-justify">
-                                UAJY sebagai pengayom dan pelindung segala bentuk kegiatan Mahasiswa Arsitektur UAJY dalam wadahnya, yaitu HIMA
+                                UAJY sebagai pengayom dan pelindung segala bentuk kegiatan Mahasiswa Arsitektur UAJY dalam wadahnya, yaitu HIMA̲
                                 Triçaka. </p><br>
 
                                 <h5><b>Tangga atau Undakan</b></h5>
                                 <p class="text-black text-arvo text-justify">
                                 Sebagai usaha yang dilakukan/telah dilakukan dan diupayakan dengan semaksimal mungkin dari tercapainya cita-cita dan
-                                tujuan HIMA Triçaka. </p><br>
+                                tujuan HIMA̲ Triçaka. </p><br>
 
                                 <h5><b>Untaian Kain pada Orang</b></h5>
                                 <p class="text-black text-arvo text-justify">
-                                Semboyan yang ada pada HIMA Triçaka selalu mengilhami setiap ide, tindakan dan cara berpikir dari Mahasiswa Arsitektur
-                                UAJY khususnya dalam hal ini setiap langkah dan kegiatan HIMA Triçaka. </p>
+                                Semboyan yang ada pada HIMA̲ Triçaka selalu mengilhami setiap ide, tindakan dan cara berpikir dari Mahasiswa Arsitektur
+                                UAJY khususnya dalam hal ini setiap langkah dan kegiatan HIMA̲ Triçaka. </p>
                                 </p><br>
 
                                 <p class="text-black text-arvo text-justify">
-                                <i> Apa proker pertama yang dijalankan di HIMA Triçaka? </i><br>
+                                <i> Apa proker pertama yang dijalankan di HIMA̲ Triçaka? </i><br>
                                 “Proker kami saat itu adalah mengadakan lomba untuk merancang lambang/logo Hima, pemenangnya lambang
                                 Hima yang seperti sekarang itu Triçaka. Pemenangnya adalah Vebriano (angkatan 1989), yang juga mendesain
                                 logo UAJY yang saat itu akan ganti logo. Mengenai lambang terpilih itu lebih tepat bila dinamakan sebagai lambang
                                 (bukan logo) HIMA, kalau lambang itu sama halnya simbol yang mempunyai sifat permanen sedangkan logo sifat
                                 desainnya atraktif, dekoratif yang bersifat temporer untuk event khusus.” <br><br>
                                 
-                                <i> Bagaimana kisah suka duka kepengurusan HIMA Triçaka yang pertama? </i> <br>
+                                <i> Bagaimana kisah suka duka kepengurusan HIMA̲ Triçaka yang pertama? </i> <br>
                                 “Sukanya, ya kita masih menikmati belajar berorganisasi baru yang pertama di himpunan mahasiswa arsitektur
                                 UAJY dan kampus support penuh namun dukanya adalah Hima ini organisasi baru, tentunya mahasiswa belum
                                 begitu kenal dengan HIMA dan SDM dalam organisasi terbatas.”

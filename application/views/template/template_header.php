@@ -4,8 +4,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link rel="icon" href="<?php echo base_url('assets/')?>img/favicon.png" type="image/png" />
-    <title>Arsi Atma</title>
+    <link rel="icon" href="<?php echo base_url('assets/')?>img/hima.png" type="image/png" />
+    <title>Hima Tri&ccedil;aka</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/bootstrap.css" />
     <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/flaticon.css" />
@@ -39,7 +39,7 @@
             <a class="navbar-brand logo_h" href="<?php echo base_url('home')?>">
               <div class="mt-1">
 
-                <center><h4>HIMA<p>Tri&ccedil;aka</p></h4></center>                
+                <center><h4>HIMA̲<p>Tri<span>&ccedil;</span>aka</p></h4></center>                
               </div>
             </a>
               <button id="btnSmartphone" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -173,7 +173,6 @@
                         <?php } ?>
                             <a class="nav-link" href="<?php echo site_url('Umum/informasi')?>">UMUM</a>
                           </li>
-                          
                         <?php if(isset($page) && $page=="portofolioPage"){?>
                         <li class="nav-item active">
                         <?php } else {?>
@@ -181,6 +180,13 @@
                         <?php } ?>
                             <a class="nav-link" href="<?php echo site_url('Portofolio')?>">PORTOFOLIO</a>
                           </li>
+                        <?php if(isset($page) && $page=="sepekanPage"){?>
+                        <li class="nav-item active">
+                        <?php } else {?>
+                        <li class="nav-item ">
+                        <?php } ?>
+                            <a class="nav-link" href="<?php echo site_url('Sepekan/informasi')?>">SEPEKAN</a>
+                        </li>
                         <?php if(isset($page) && $page=="saranPage"){?>
                         <li class="nav-item active">
                         <?php } else {?>

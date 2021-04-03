@@ -45,7 +45,7 @@
                             <input type="text" hidden id="id_ph" name="id_ph" value="<?php echo $ph->id_ph?>">
                             <input type="text" hidden id="submit" name="submit" value="submit">
                             <button type="button" class="btn btn-secondary" onclick="history.back();">Batal</button>                                        
-                            <button type="submit" class="btn btn-success"> Simpans</button>
+                            <button type="submit" class="btn btn-success"> Simpan</button>
                         </div>
                         <?php echo form_close();?>
                     </div>      

@@ -1,52 +1,51 @@
- <!--================Home Banner Area =================-->
-    <section class="banner_area">
-      <div class="banner_inner d-flex align-items-center">
-        <div class="overlay"></div>
+ 
+  <section class="home_banner_area">
+    <div class="banner_inner">
         <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-6">
+          <div class="row">
+            <div class="col-lg-12">
               <div class="banner_content text-center">
-                <h2>Saran dan Masukan</h2>
-                <div class="page_link">
-                  <a href="index.html">Home</a>
-                  <a href="contact.html">Contact</a>
-                </div>
+                <p class="text-uppercase">                  
+                </p>
+                
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!--================End Home Banner Area =================-->
+
+    <!--================ End Home Banner Area =================-->
 
     <!--================Contact Area =================-->
-    <section class="contact_area section_gap">
-      <div class="container">
+    <section class="contact_area " style="padding-bottom:10px">
         
+      <div class="container">
+        <center><h2 class="text-black" >
+                 Saran dan Masukan
+        </h2></center>
         <div class="row">
           <div class="col-lg-3">
             <div class="contact_info">
               <div class="info_item">
                 <i class="ti-home"></i>
-                <h6>HIMA ARSI</h6>
-                <p>Universitas Atma Jaya</p>
+                <h6>HIM<span style="text-decoration: underline;">A</span> Tri<span>&ccedil;</span>aka</h6>
+                <p>Universitas Atma Jaya Yogyakarta</p>
               </div>
-              <div class="info_item">
-                <i class="ti-headphone"></i>
-                <h6><a href="#">00 (440) 9865 562</a></h6>
-                <p>Mon to Fri 9am to 6 pm</p>
-              </div>
+              
               <div class="info_item">
                 <i class="ti-email"></i>
-                <h6><a href="#">support@colorlib.com</a></h6>
-                <p>Send us your query anytime!</p>
+                <h6><a href="#">divisiithimatricaka@gmail.com</a></h6>
+                <p>Send us your message !</p>
               </div>
             </div>
           </div>
           <div class="col-lg-9">
-          <div id="announce"></div>  
+              
+          <div id="announce"></div> 
+          <div class="form-gap">
           <form
-              class="row contact_form"
+              class="row contact_form" 
             >
               <div class="col-md-6">
                 <div class="form-group">
@@ -106,6 +105,7 @@
                 </button>
               </div>
             </form>
+            </div>
           </div>
         </div>
       </div>
